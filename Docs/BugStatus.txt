@@ -1,3 +1,5 @@
+reset failures in between scenarios and gen startup
+
 davtron sometimes not displaying info after quickstart
 
 windconfig  - only works with basic weather, need to execute apply button with weather dialog hidden

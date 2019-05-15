@@ -906,6 +906,8 @@ var cleanup = func {
      setprop("/controls/switches/avionics-master", 0);
 	setprop("/options/trm", 0);
 	setprop("/sim/current-view/view-number", "0");
+	setprop("/sim/failure-manager/controls/flight/flaps/failure-level", "0");
+setprop("/sim/failure-manager/controls/flight/elevator/failure-level", "0");
 	setprop("/autopilot/route-manager/active", "0");
 	setprop("/controls/engines/engine/throttle", 0);
 	setprop("/controls/engines/engine/mixture", 0);
@@ -940,6 +942,7 @@ fgcommand("timeofday", props.Node.new({ "timeofday" : "afternoon" }));
 	setprop("/payload/weight[4]/weight-lb",76);
 	setprop("/consumables/fuel/tank/level-gal_us",15);
 	setprop("/consumables/fuel/tank[1]/level-gal_us",17);
+
 
 
 }
