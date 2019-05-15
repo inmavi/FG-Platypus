@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2018 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Control Panel Dialog -->
+
+<PropertyList>
+	
+	<name>mini-panel</name>
+	<layout>vbox</layout>
+	<x>1330</x>
+	<y>27</y>	
+	
+	
+	
+
+	<slider>
+			<pref-height>120</pref-height>
+			<vertical>true</vertical>
+			<property>/it-autoflight/input/vs</property>				<min>-1000</min>
+			<max>1000</max>
+			<step>250</step>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</slider>
+
+
+	</button>
+
+
+	<vrule/>
+
+	<button>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+		<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>close</tooltip-id>
+                <label>Close</label>
+            </binding>
+        </hovered>
+	</button>
+
+</PropertyList>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Aircraft Config Dialog -->
+
+
+<PropertyList>
+
+	<name>procs</name>
+	<modal>false</modal>
+  	<width>500</width>
+	<color>
+		<alpha>1</alpha>
+	</color>
+
+
+	<x>1</x>
+	<y>1</y>
+
+	<layout>vbox</layout>
+	
+
+    <group>
+        <layout>hbox</layout>
+        <text>
+            <halign>left</halign>
+            <label>Quick Reference - Patterns and Procedure Turns</label>
+        </text>
+        <button>
+            <halign>right</halign>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+	
+		<group>
+			<layout>vbox</layout>
+			
+			
+			
+			<textbox>
+                    <name>procs</name>
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>265</pref-height>
+                    <pref-width>260</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>0</top-line>
+                    <property>/sim/procs</property>
+                </textbox>			
+			
+		</group>
+		
+	    <hrule/>
+	
+		<group>
+			<layout>hbox</layout>
+			
+			<button>
+				<halign>center</halign>
+				<legend>Close</legend>
+				<pref-width>210</pref-width>
+				<binding>
+					<command>dialog-close</command>
+				</binding>
+			</button>
+		</group>
+	
+</PropertyList>

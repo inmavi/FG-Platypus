@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+	<name>gps</name>
+	<enable3d>false</enable3d>
+ <label>
+		<name>GPS_Nav</name>			
+		<x>186</x>
+		<y>230</y>
+		<halign>left</halign>
+		<format>WP Nav</format>
+  </label>
+
+<label>
+        	<name>Nav1</name>
+      		<condition>
+         		<equals>
+            			<property>/options/nav-source</property>
+					<value>1</value>
+
+         		</equals>
+      		</condition>
+      		
+        		<x>-420</x>
+        		<y>200</y>
+        		<format>Nav1 Mode active</format>
+        		<halign>left</halign>
+   	</label>
+
+			
+		<label>
+        	<name>GPS/Route Manager</name>
+      		<condition>
+         		<equals>
+            			<property>/options/nav-source</property>
+					<value>2</value>
+
+         		</equals>
+      		</condition>
+      		
+        		<x>-420</x>
+        		<y>200</y>
+        		<format>GPS/Route Manager active</format>
+        		<halign>left</halign>
+   	</label>
+
+		<label>
+        	<name>Nav2</name>
+      		<condition>
+         		<equals>
+            			<property>/options/nav-source</property>
+					<value>3</value>
+
+         		</equals>
+      		</condition>
+      		
+        		<x>-420</x>
+        		<y>200</y>
+        		<format>Nav2 Mode active</format>
+        		<halign>left</halign>
+   	</label>
+
+
+
+<label>
+        	<name>GSR</name>
+      		<condition>
+         		<not-equals>
+            			<property>/instrumentation/nav[1]/gs-in-range</property>
+            			<value>0</value>
+         		</not-equals>
+      		</condition>
+      		<input>
+         		<property>/instrumentation/nav[1]/gs-in-range</property>
+      		</input>
+        		<x>240</x>
+        		<y>230</y>
+        		<format>GS In Range (Nav2)</format>
+        		<halign>left</halign>
+   	</label>
+
+<label>
+        	<name>GSR1</name>
+      		<condition>
+         		<not-equals>
+            			<property>/instrumentation/nav[0]/gs-in-range</property>
+            			<value>0</value>
+         		</not-equals>
+      		</condition>
+      		<input>
+         		<property>/instrumentation/nav[0]/gs-in-range</property>
+      		</input>
+        		<x>240</x>
+        		<y>210</y>
+        		<format>GS In Range (Nav1)</format>
+        		<halign>left</halign>
+   	</label>
+
+
+
+<label>
+		<name>dmem</name>
+		<condition>
+         		<equals>
+            			<property>/instrumentation/dme/in-range</property>
+					<value>true</value>
+
+         		</equals>
+      		</condition>
+
+		<x>-420</x>
+		<y>180</y>
+		<halign>left</halign>
+		<format>DME: %1.1f nm</format>
+		<input>
+			<property>/instrumentation/dme/indicated-distance-nm</property>
+		</input>
+</label>
+
+<label>
+		<name>dmet</name>
+		<condition>
+         		<equals>
+            			<property>/instrumentation/dme/in-range</property>
+					<value>true</value>
+
+         		</equals>
+      		</condition>
+
+		<x>-360</x>
+		<y>180</y>
+		<halign>left</halign>
+		<format>...%1.1f min</format>
+		<input>
+			<property>/instrumentation/dme/indicated-time-min</property>
+		</input>
+</label>
+
+	
+	<import>
+		<path>Huds/Sets/gps.xml</path>
+		<x-offset>-420</x-offset>
+		<y-offset>160</y-offset>
+	</import>
+	
+
+</PropertyList>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

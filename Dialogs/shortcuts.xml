@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Aircraft Config Dialog -->
+
+
+<PropertyList>
+
+	<name>shortcuts</name>
+	<modal>false</modal>
+  	<width>840</width>
+	
+
+	<layout>vbox</layout>
+	<color>
+		<alpha>0.5</alpha>
+	</color>
+
+    <group>
+        <layout>hbox</layout>
+        <text>
+            <halign>left</halign>
+            <label> Craft Specific Key Bindings, (For Common Aircraft Keys refer to the Help Menu)</label>
+        </text>
+	   
+        <button>
+            <halign>right</halign>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+	
+		<group>
+			<layout>vbox</layout>
+			
+			
+			
+			<textbox>
+                    <name>Key Bindings</name>
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>480</pref-height>
+                    <height>480</height>
+                    <pref-width>100</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>1</top-line>
+                    <property>/sim/kbindings</property>
+                </textbox>			
+			
+		</group>
+		
+	    <hrule/>
+		<text>
+            <halign>left</halign>
+            <label> For current and complete list of key bindings pls refer to /systems/pa28keyboard.xml</label>
+        </text>
+
+		<hrule/>
+
+	
+		<group>
+			<layout>hbox</layout>
+			
+			<button>
+				<halign>center</halign>
+				<legend>Close</legend>
+				<pref-width>210</pref-width>
+				<binding>
+					<command>dialog-close</command>
+				</binding>
+			</button>
+		</group>
+	
+</PropertyList>

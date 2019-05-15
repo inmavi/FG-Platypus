@@ -1,0 +1,74 @@
+<!-- PA28-161 JSBsim -->
+<!-- Joshua Davidson (it0uchpods) -->
+
+<!--
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
+-->
+
+<mass_balance>
+	<ixx unit="SLUG*FT2"> 101 </ixx>
+	<iyy unit="SLUG*FT2"> 192 </iyy>
+	<izz unit="SLUG*FT2"> 254 </izz>
+	
+	<ixy unit="SLUG*FT2">    0 </ixy>
+	<ixz unit="SLUG*FT2">    0 </ixz>
+	<iyz unit="SLUG*FT2">    0 </iyz>
+	<ixz unit="SLUG*FT2">    -0 </ixz>
+	<iyz unit="SLUG*FT2">    -0 </iyz>
+	<iyz unit="SLUG*FT2">    -0 </iyz>
+
+	<emptywt unit="LBS" > 1391 </emptywt>
+	
+	<location name="CG" unit="M">
+		<x> 2.0003 </x>
+		<y> 0 </y>
+		<z> 0.2512 </z>
+	</location>
+
+	<pointmass name="Pilot">
+		<weight unit="LBS"> 170.0 </weight>
+		<location name="POINTMASS" unit="M">
+			<x> 2.6303 </x>
+			<y> -0.2512 </y>
+			<z> 0 </z>
+		</location>
+	</pointmass>
+
+	<pointmass name="Co Pilot">
+		<weight unit="LBS"> 170.0 </weight>
+		<location name="POINTMASS" unit="M">
+			<x> 2.6303 </x>
+			<y> 0.2512 </y>
+			<z> 0 </z>
+		</location>
+	</pointmass>
+
+	<pointmass name="Left Passenger">
+		<weight unit="LBS">0.0 </weight>
+		<location name="POINTMASS" unit="M">
+			<x> 3.3003 </x>
+			<y> -0.2512 </y>
+			<z> 0 </z>
+		</location>
+	</pointmass>
+
+	<pointmass name="Right Passenger">
+		<weight unit="LBS"> 0.0 </weight>
+		<location name="POINTMASS" unit="M">
+			<x> 3.3003 </x>
+			<y> 0.2512 </y>
+			<z> 0 </z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="Baggage">
+		<weight unit="LBS"> 100.0 </weight>
+		<location name="POINTMASS" unit="M">
+			<x> 4.1003 </x>
+			<y> 0 </y>
+			<z> 0.2512 </z>
+		</location>
+	</pointmass>
+</mass_balance>

@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+	
+	
+			<key n="12">
+				<name>Ctrl-L</name>
+				<desc>toggle panel lights</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>/controls/switches/panel-lights-factor</property>
+					<value>1</value>
+					<value>0</value>
+				</binding>
+				<binding>
+	<condition>
+		<greater-than>	
+		<property>controls/switches/panel-lights-factor</property>		
+			<value>0</value>
+		</greater-than>
+	</condition>
+		<command>property-assign</command>
+		<property>sim/rendering/als-secondary-lights/use-flashlight</property>
+		<value>0</value>	
+  </binding>
+</key>
+
+<key n="109">
+  <name>m</name>
+  <desc>Mixture richer</desc>
+  <repeatable type="bool">true</repeatable>  
+  <binding>
+   <command>nasal</command>
+   <script>
+	if (getprop("/options/amx")==1){
+		setprop("/options/amx",0);
+		gui.popupTip("Auto Mix Disabled", 2);
+	} else {	
+controls.adjMixture(1)
+	}
+</script>
+  </binding>
+ </key>
+
+
+
+<key n="103">
+  <name>g</name>
+  <desc>reset DH</desc>
+  <binding>
+   <command>property-assign</command>
+   <property>instrumentation/radar-altimeter/decision-height</property>
+	<value>0</value>
+  </binding>
+<binding>
+		<command>show-message</command>
+			<id>dh</id>
+			<label>Decision Height reset</label>
+			<delay>1.75</delay>
+	</binding>
+	
+  <binding>
+   <command>property-assign</command>
+   <property>systems/walt</property>
+	<value>0</value>
+  </binding>
+
+ </key>
+
+			<key n="24">
+				<name>Ctrl-x</name>
+				<desc>Reset zoom to default</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if (getprop("/sim/current-view/can-change-z-offset")) {
+							setprop("/sim/current-view/z-offset-m", getprop("/sim/current-view/z-offset-default") * -1);
+
+							gui.popupTip(sprintf("%d meters", getprop("/sim/current-view/z-offset-default")));
+						} else {
+							setprop("/sim/current-view/field-of-view", getprop("/sim/view/config/default-field-of-view-deg"));
+						}
+					</script>
+				</binding>
+			</key>
+			
+
+ <key n="32">
+  <name>SPACE</name>
+  <desc>Toggle ITAF</desc>	
+  <binding>
+	<condition>
+		<not>
+		<property>gear/gear/wow</property>
+		</not>
+	</condition>	
+   <command>property-cycle</command>
+	<property>it-autoflight/input/ap</property>
+   	<value>1</value>
+	<value>0</value>
+  </binding>
+</key>
+
+<key n="72">
+  <name>h</name>
+  <desc>show headingSelector</desc>  
+  <binding>
+		<condition>
+			<equals>
+			<property>options/nav-source</property>
+				<value>2</value>
+			</equals>				
+		</condition>
+		<command>show-message</command>
+			<id>hdgsele</id>
+			<label>This tool is not available in GPS/ RM Mode</label>					
+			<delay>3</delay>
+	
+	</binding>
+
+	<binding>					
+		<condition>
+			<not-equals>
+		<property>options/nav-source</property>
+				<value>2</value>
+			</not-equals>
+		</condition>
+		<command>dialog-show</command>
+		<dialog-name>hdgselect</dialog-name>
+	</binding>
+
+	<binding>	
+		<command>property-assign</command>
+			<property>systems/bop</property>
+				<value>1</value>	
+	</binding>
+
+ </key>
+
+<key n="83">
+  <name>S</name>
+  <desc>show seatposition</desc>  
+  <binding>			
+	<command>dialog-show</command>
+	<dialog-name>seatpos</dialog-name>
+  </binding>	
+</key>
+
+
+
+
+	<key n="111">
+            <name>o</name>
+            <desc>Toggle speed dialog</desc>
+            <binding>
+                <command>nasal</command>
+                <script>
+				if(getprop("/systems/sp") == 0) {
+				fgcommand("dialog-show", props.Node.new({ "dialog-name" : "speedo" }));								setprop("/systems/sp",1);
+				} else {				
+				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "speedo" }));
+				setprop("/systems/sp",0);
+				};
+			</script>                
+            </binding>            
+        </key>
+
+		<key n="104">
+  <name>h</name>
+  <desc>Cycle HUD</desc>
+<!--
+  <binding>
+					<command>property-cycle</command>
+					<property>/sim/hud/visibility[1]</property>
+					<value>true</value>
+					<value>false</value>
+				</binding>
+-->
+		<binding>
+   <command>nasal</command>
+   <script>aircraft.HUD.cycle_color()</script>
+  </binding>
+
+ </key>
+
+ <key n="87">
+  <name>W</name>
+  <desc>WindConfig</desc>
+  <binding>
+							<command>nasal</command>
+							<script>
+							if(getprop("/systems/mws")== 0) {
+						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windconfig" }));
+						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));
+	} else {
+						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));		
+};
+		
+
+						</script>
+						</binding>
+
+ 	</key>
+
+
+        
+		  <key n="115">
+  <name>s</name>
+  <desc>Toggle Starter Switch</desc>
+   <binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/magnetos-switch</property>
+				<step>1</step>
+				<min>0</min>
+				<max>4</max>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/engines/engine[0]/magnetos-switch</property>
+							<value>4</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/engines/engine[0]/magnetos-switch</property>
+					<value>3</value>
+				</binding>
+			</mod-up>
+  </key>
+
+<key n="123">
+  <name>{</name>
+  <desc>Decrease Magneto on Selected Engine</desc>
+  <binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/magnetos-switch</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>3</max>
+ </binding>			
+ </key>
+
+
+<key n="125">
+  <name>}</name>
+  <desc>Increase Magneto on Selected Engine</desc>
+  <binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/magnetos-switch</property>
+				<step>1</step>
+				<min>0</min>
+				<max>3</max>
+ </binding>			
+ </key>
+ 
+		<key n="127">
+                <name>Delete</name>
+                <desc>Toggle Fuel Alert dialog</desc>
+			<binding>
+				<condition>
+					<property>systems/nfa</property>
+				</condition>
+				<command>dialog-close</command>
+				<dialog-name>fuelstatus</dialog-name>
+  			</binding>
+
+                <binding>
+                    <command>property-assign</command>
+                    <property>systems/nfa</property>
+					<value>0</value>
+                </binding>                
+            </key>
+<!-- uncomment if you change mice.xml to toggle
+
+		<key n="85">
+                <name>U</name>
+                <desc>Toggle Mouse Wheel Action</desc>
+			<binding>				
+				<command>property-toggle</command>
+				<property>systems/tmw</property>
+				<value>1</value>
+				<value>0</value>
+  			</binding>
+			<binding>
+			<command>nasal</command>
+					<script>
+if (getprop("/systems/tmw")== 1) {	
+    gui.popupTip("Mouse Wheel Now Set To Elevator Trim", 2); 	
+} else {
+    gui.popupTip("Mouse Wheel Now Set To Zoom Views", 2); 
+}	
+					</script>
+       		</binding>                      
+            </key>
+-->
+			<key n="35">
+				<name>#</name>
+				<desc>toggle fuelpump</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>/controls/switches/fuel-pump</property>
+					<value>1</value>
+					<value>0</value>
+				</binding>
+			</key>
+			<key n="42">
+				<name>*</name>
+				<desc>toggle pitot heat</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>/controls/switches/pitot-heat</property>
+					<value>1</value>
+					<value>0</value>
+				</binding>
+			</key>
+			<key n="64">
+				<name>@</name>
+				<desc>toggle alternator</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>/controls/electrical/alternator</property>
+					<value>1</value>
+					<value>0</value>
+				</binding>
+			</key>
+			
+			<key n="88">
+				<name>X</name>
+				<desc>Increase field of view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+				<command>nasal</command>
+				<script>
+					if (getprop("/sim/current-view/can-change-z-offset")) {
+						var distance = getprop("/sim/current-view/z-offset-m");
+						var multiple = getprop("/sim/current-view/z-offset-dec-step");
+						var max_dist = getprop("/sim/current-view/z-offset-max-m");
+
+						distance = math.round(std.max(-max_dist, distance + multiple) / multiple) * multiple;
+						setprop("/sim/current-view/z-offset-m", distance);
+
+						gui.popupTip(sprintf("%d meters", abs(distance)));
+					} else {
+						view.increase();
+					}
+				</script>
+				</binding>
+			</key>
+
+			<key n="100">
+				<name>d</name>
+				<desc>toggle door</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>fdm/jsbsim/extra/door-main-cmd</property>
+
+					<value>0</value>
+					<value>1</value>
+				</binding>
+				<binding>
+					<condition>						<property>/fdm/jsbsim/extra/door-main-cmd</property>
+					</condition>
+					<command>show-message</command>
+					<id>openclose</id>
+					<label>Door is Open </label>
+	<property>/fdm/jsbsim/extra/door-main-cmd</property>
+					<value>1</value>
+					<delay>1.75</delay>
+				</binding>
+				<binding>
+					<condition>
+						<not><property>/fdm/jsbsim/extra/door-main-cmd</property></not>
+					</condition>
+					<command>show-message</command>
+					<id>openclose</id>
+					<label>Door is Closed </label>
+					<property>/sim/model/door-positions/rightDoor/position-norm</property>
+					<value>0</value>
+					<delay>1.75</delay>
+				</binding>
+			</key>
+
+			<key n="102">
+				<name>f</name>
+				<desc>full throttle</desc>
+				<binding>
+					<command>property-cycle</command>		<property>/controls/engines/engine/throttle</property>
+					<value>1</value>
+					<value>0</value>
+				</binding>
+			</key>
+			 
+<key n="108">
+        <name>l</name>
+        <desc>Toggle flashlight</desc>
+        <repeatable type="bool">true</repeatable>
+        <binding>
+            <command>nasal</command>
+            <script>fl.toggle_flashlight()</script>
+        </binding>	
+    </key>
+
+			<key n="1">
+  <name>Ctrl-A</name>
+  <desc>Toggle autopilot altitude lock</desc>
+  <binding>
+   <command>property-cycle</command>
+	<property>it-autoflight/input/alt-arm</property>
+   	<value>0</value>
+	<value>1</value>
+  </binding>
+ </key>
+
+  <key n="7">
+  <name>Ctrl-G</name>
+  <desc>Toggle autopilot glide slope lock</desc>
+  <binding>
+   <command>property-assign</command>
+	<property>it-autoflight/input/vert</property>
+   	<value>2</value>	
+  </binding>
+ </key>
+
+ <key n="14">
+  <name>Ctrl-N</name>
+  <desc>Toggle autopilot nav1 lock</desc>
+  <binding>
+   <command>property-assign</command>
+	<property>it-autoflight/input/lat</property>
+   	<value>2</value>	
+  </binding>
+ </key>
+
+  <key n="16">
+  <name>Ctrl-P</name>
+  <desc>Toggle Panel Light Brightness</desc>
+  <binding>
+   <command>property-cycle</command>
+	<property>controls/switches/panel-lights-factor</property>	
+	<value>0.2</value>
+	<value>0.4</value>
+	<value>0.6</value>
+	<value>0.8</value>
+	<value>1.0</value>	
+	<value>0.0</value>
+  </binding>
+
+  <binding>
+	<condition>
+		<greater-than>	
+		<property>controls/switches/panel-lights-factor</property>		
+			<value>0</value>
+		</greater-than>
+	</condition>
+		<command>property-assign</command>
+		<property>sim/rendering/als-secondary-lights/use-flashlight</property>
+		<value>0</value>	
+  </binding>
+ </key>
+
+  <key n="97">
+  <name>a</name>
+  <desc>apInfo</desc>			
+  <binding>
+     <command>dialog-show</command>
+     <dialog-name>airports</dialog-name>
+  </binding>
+ </key>
+
+<key n="113">
+  <name>q</name>
+  <desc>props</desc>
+  <binding>		
+   <command>nasal</command>
+  	 <script>
+	if(getprop("/options/trm")==1){
+	libraries.swt();
+	}
+	</script>
+	
+  </binding>
+ </key>
+
+
+
+ <key n="261">
+  <name>F5</name>
+  <desc>Spec</desc>
+  <binding>
+     <command>dialog-show</command>
+     <dialog-name>spec</dialog-name>
+  </binding>
+ </key>
+
+
+ <key n="19">
+  <name>Ctrl-S</name>
+  <desc>Flight-Stats</desc>
+  <binding>
+	<command>nasal</command>
+	<script>libraries.aborted();</script>
+    </binding>
+
+	<binding>
+	<command>nasal</command>
+	<script>libraries.lost();</script>
+    </binding>
+
+    <binding>
+	<command>dialog-show</command>
+	<dialog-name>stats</dialog-name>
+    </binding>
+</key>
+ 
+
+ <key n="23">
+  <name>Ctrl-W</name>
+  <desc>Toggle autopilot wing leveler</desc>
+  <binding>
+   <command>property-assign</command>
+	<property>it-autoflight/input/lat</property>
+   	<value>1</value>	
+  </binding>
+  <binding>
+   <command>property-assign</command>
+	<property>it-autoflight/input/vert</property>
+   	<value>1</value>	
+  </binding>
+ </key>
+
+ <key n="36">
+  <name>$</name>
+  <desc>Toggle Landing Light</desc>
+  <binding>   
+   <command>property-cycle</command>
+	<property>controls/switches/landing-light</property>
+   	<value>true</value>
+	<value>false</value>
+  </binding>
+  </key>
+
+  <key n="2">
+  <name>Ctrl-B</name>
+  <binding>   
+   <command>property-cycle</command>
+	<property>controls/switches/beacon</property>
+   	<value>true</value>
+	<value>false</value>
+  </binding>
+  </key>
+
+   <key n="19">
+  <name>ctrl-s</name>
+<binding>
+				<command>property-toggle</command>
+				<property>controls/switches/strobe-lights</property>
+			</binding>
+
+  </key>
+ 
+
+    <key n="37">
+  <name>%</name>
+  <desc>Toggle Avionics Master</desc>
+  <binding>
+   <command>property-toggle</command>
+	<property>controls/switches/avionics-master</property>
+  </binding>
+  </key>
+	
+ 
+
+ <key n="99">
+  <name>c</name>
+  <desc>dpresets</desc>
+
+    <binding>
+	<command>dialog-show</command>
+	<dialog-name>dpresets</dialog-name>
+    </binding> 
+ </key>
+<key n="68">
+  <name>D</name>
+  <desc>dash</desc>
+
+    <binding>
+	<command>dialog-show</command>
+	<dialog-name>dash</dialog-name>
+    </binding>
+
+ 
+ </key>
+
+ 
+  <key n="11">
+  <name>Ctrl-K</name>
+  <desc>gk</desc>
+
+
+    <binding>
+	<command>dialog-show</command>
+	<dialog-name>dash</dialog-name>
+    </binding>
+
+    <binding>
+	<command>dialog-show</command>
+	<dialog-name>dpresets</dialog-name>
+    </binding>
+
+	<binding>
+	<command>dialog-show</command>
+	<dialog-name>qreset</dialog-name>
+    </binding> 
+
+			
+	<binding>
+						<command>nasal</command>
+						<script>
+	if (getprop("/systems/vbo")== 1) {
+				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));		
+		setprop("/systems/vbo",0);		
+	}
+	else {
+		setprop("/systems/vbo",1);
+		var vw =getprop("/sim/current-view/view-number");	
+		 setprop("/sim/current-view/view-number",vw); 
+	}
+
+	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/x",1);
+	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/y",1);
+	
+	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));
+
+						</script>
+						</binding>		       
+ </key>
+
+
+  <key n="75">
+  <name>K</name>
+  <desc>Show Key Assignment</desc><binding>
+    <command>dialog-show</command>
+     <dialog-name>shortcuts</dialog-name>    
+   </binding>
+ </key>
+
+   <key n="80">
+  <name>P</name>
+  <desc>Toggle Primer</desc>  
+   <binding>
+        <command>property-toggle</command>
+        <property>controls/engines/engine/primer-pump</property>
+      </binding>
+ </key>
+
+
+
+ <key n="66">
+  <name>B</name>
+  <desc>Toggle parking brake on or off</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+		controls.applyParkingBrake(1);		
+	</script>
+  </binding>  
+	<binding>
+		<command>show-message</command>
+			<id>bs</id>
+			<label>ParkingBrake set</label>
+			<delay>3.75</delay>
+	</binding>
+
+  <mod-up>
+   <binding>
+    <command>nasal</command>
+    <script>
+		controls.applyParkingBrake(0);		
+	</script>
+   </binding>
+</mod-up>	
+	<binding>
+	<condition>
+		<not>
+		<property>controls/gear/brake-parking</property>
+		</not>
+	</condition>	
+			<command>show-message</command>
+			<id>strap</id>
+			<label>Fasten Your Seat Belt</label>
+			<delay>3.75</delay>
+	</binding>	
+ </key>
+
+ <key n="82">
+  <name>R</name>
+  <desc>Show CallSign/Rego</desc>
+<binding>
+		<command>show-message</command>
+			<id>dh</id>
+			<label>Decision Height reset</label>
+			<delay>1.75</delay>
+	</binding>
+
+<binding>
+    <command>dialog-show</command>
+     <dialog-name>immat</dialog-name>    
+   </binding>
+ </key>
+
+<key n="67">
+  <name>C</name>
+  <desc>Calcs</desc>
+   <binding>
+	<command>dialog-show</command>
+	<dialog-name>qcalc</dialog-name>
+	</binding>
+ </key>
+
+
+  <key n="70">
+  <name>F</name>
+  <desc>SFrequency</desc>
+   <binding>
+				<command>dialog-show</command>
+				<dialog-name>freq-search</dialog-name>
+			</binding>
+ </key>
+
+<key n="76">
+  <name>L</name>
+  <desc>Toggle Left Yoke</desc>
+   			<binding>
+				<command>property-toggle</command>
+				<property>options/show-l-yoke</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+				acconfig.writeSettings();
+				</script>
+			</binding>
+ </key>
+
+<key n="121">
+  <name>y</name>
+  <desc>ThrottleTaxi</desc>
+   			<binding>
+					<command>property-assign</command>		<property>/controls/engines/engine/throttle</property>
+					<value>0.17</value>				
+				</binding>
+ </key>
+
+
+
+<key n="4">
+  <name>Ctrl-D</name>
+  <desc>Switch to Day</desc>
+    <binding>
+	<command>timeofday</command>
+	<timeofday>morning</timeofday>
+    </binding>
+ </key>
+
+
+ <key n="78">
+  <name>N</name>
+  <desc>SwitchGpsNav</desc>
+  <binding>
+   <command>property-cycle</command>
+				<property>options/nav-source</property>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+  </binding>
+
+ </key>       
+
+
+  <key n="107">
+  <name>k</name>
+  <desc>Show Map</desc>
+  <binding>
+		<command>dialog-show</command>
+		<dialog-name>map</dialog-name>
+  </binding>
+  <binding>
+		<command>property-assign</command>
+		<property>gui/map/transparent</property>
+		<value>1</value>  
+  </binding>
+	<binding>
+		<command>property-assign</command>
+		<property>gui/map/modal</property>
+		<value>false</value>  
+  </binding>
+
+  <binding>
+		<command>dialog-close</command>
+		<dialog-name>map</dialog-name>
+  </binding>
+
+  <binding>
+		<command>dialog-show</command>
+		<dialog-name>map</dialog-name>
+  </binding>		                
+  </key>
+  
+  <key n="114">
+  <name>r</name>
+  <desc>Show RM</desc>
+  <binding>
+				<command>dialog-show</command>
+				<dialog-name>route-manager</dialog-name>
+			</binding>
+  </key>
+
+
+  <key n="119">
+  <name>w</name>
+  <desc>Show AC Config</desc>
+  <binding>
+			<command>nasal</command>
+				<script>											acconfig.main_dlg.open();
+				</script>
+  </binding>
+  </key>
+
+
+		 <key n="103">
+  <name>g</name>
+  <desc>reset DH</desc>
+  <binding>
+   <command>property-assign</command>
+   <property>instrumentation/radar-altimeter/decision-height</property>
+	<value>0</value>
+  </binding>
+<binding>
+		<command>show-message</command>
+			<id>dh</id>
+			<label>Decision Height reset</label>
+			<delay>1.75</delay>
+	</binding>
+	
+  <binding>
+   <command>property-assign</command>
+   <property>systems/walt</property>
+	<value>0</value>
+  </binding>
+
+ </key>
+
+
+
+  <key n="33">
+  <name>!</name>
+  <desc>toggle battery</desc>
+                <binding>
+                    <command>property-cycle</command>
+                    <property>controls/electrical/battery</property>
+<value>1</value>
+<value>0</value>
+
+                </binding>
+ </key>
+
+  <key n="106">
+  <name>j</name>
+  <desc>toggle tanks</desc>
+                <binding>
+    <command>nasal</command>
+     <script>		
+		libraries.fuel_switch();
+		if (getprop("/systems/fuel/selected-tank") == 1) {
+		   gui.popupTip("Fuel Selector set to Left Wing", 3);
+		} else if (getprop("/systems/fuel/selected-tank") == 2) {
+		gui.popupTip("Fuel Selector set to Right Wing", 3);
+		} else if (getprop("/systems/fuel/selected-tank") == 0) {
+		gui.popupTip("Fuel Selector set to OFF", 3);
+		}
+     </script>
+   </binding>
+  </key>
+
+
+
+
+
+<key n="117">
+  <name>u</name>
+  <desc>toggle carb heat</desc>
+                <binding>
+                    <command>property-cycle</command>
+                    <property>controls/anti-ice/engine/carb-heat</property>
+<value>false</value>
+<value>true</value>
+
+                </binding>
+            
+		</key>
+
+
+ <key n="78">
+  <name>N</name>
+  <desc>gotoNight</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+	<command>timeofday</command>
+	<timeofday>midnight</timeofday>
+  </binding>
+ </key>
+
+ <key n="110">
+  <name>n</name>
+  <desc>nearestAP</desc>
+  <binding>
+     <command>dialog-show</command>
+     <dialog-name>fuelstatus</dialog-name>
+  </binding>
+ </key>
+
+
+<key n="267">
+  <name>F11</name>
+  <desc>Autopilot On/Off </desc>
+  <binding>
+   <command>property-cycle</command>
+	<property>it-autoflight/input/ap</property>
+   	<value>1</value>
+	<value>0</value>
+  </binding>
+ </key>
+
+<key n="8">
+  <name>Ctrl-H</name>
+  <desc>Toggle autopilot heading lock</desc>
+  <binding>
+   <command>property-cycle</command>
+	<property>it-autoflight/input/lat</property>
+   	<value>1</value>
+	<value>0</value>
+  </binding>
+ </key>
+
+   <key n="105">
+  <name>i</name>
+  <desc>Toggle ITAF</desc>
+  <binding>		
+   <command>nasal</command>
+   <script>libraries.ita();</script>
+  </binding>
+   	 </key>
+		
+			
+			<key n="120">
+				<name>x</name>
+				<desc>Decrease field of view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if (getprop("/sim/current-view/can-change-z-offset")) {
+							var distance = getprop("/sim/current-view/z-offset-m");
+							var multiple = getprop("/sim/current-view/z-offset-inc-step");
+							var min_dist = getprop("/sim/current-view/z-offset-min-m");
+
+							distance = math.round(std.min(-min_dist, distance + multiple) / multiple) * multiple;
+							setprop("/sim/current-view/z-offset-m", distance);
+
+							gui.popupTip(sprintf("%d meters", abs(distance)));
+						} else {
+							view.decrease();
+						}
+					</script>
+				</binding>
+			</key>
+
+
+
+	
+</PropertyList>

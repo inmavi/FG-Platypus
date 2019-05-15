@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <path>vacamp.ac</path>
+    <animation>
+    <type>scale</type>
+    <x-offset>1.25</x-offset>
+    <y-offset>1.25</y-offset>
+    <z-offset>1.25</z-offset>
+</animation>
+
+    
+    <animation>
+        <type>material</type>
+        <object-name>Face</object-name>
+        <object-name>VacNeedle</object-name>
+        <object-name>AmpNeedle</object-name>
+  <emission>
+     			<red>1.0</red>
+   			<green>0.2</green>
+   			<blue>0.0</blue>
+   <factor-prop>/sim/model/material/instruments/factor</factor-prop>
+  		</emission>
+
+         <specular>
+            <red>   0.0 </red>
+            <green> 0.0 </green>
+            <blue>  0.0 </blue>
+        </specular>
+        <ambient>
+            <red>   1 </red>
+            <green> 1 </green>
+            <blue>  1 </blue>
+        </ambient>
+        <diffuse>
+            <red>   0.3 </red>
+            <green> 0.3 </green>
+            <blue>  0.3 </blue>
+        </diffuse>
+        <shininess>
+            <red>   0 </red>
+            <green> 0 </green>
+            <blue>  0 </blue>
+        </shininess>  
+    </animation>
+    
+  <animation>
+  <type>pick</type>
+    <object-name>Face</object-name>
+   <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>vac</tooltip-id>
+                <mapping>vac</mapping>
+                <label>Suction: %3d Hg</label>
+                  <property>/systems/vacuum/suction-inhg</property>
+            </binding>
+
+        </hovered>
+</animation>
+  
+
+    <animation>
+  <type>rotate</type>
+  <object-name>VacNeedle</object-name>
+  <property>/systems/vacuum/suction-inhg</property>
+  <interpolation>
+   <entry><ind>  0.0</ind><dep>0 </dep></entry>     
+   <entry><ind> 3.0</ind><dep> -9.10 </dep></entry>     
+   <entry><ind> 4.0</ind><dep> -40 </dep></entry>     
+   <entry><ind> 5.0</ind><dep>  -72</dep></entry>     
+   <entry><ind> 6.0</ind><dep>  -104.6 </dep></entry>     
+   <entry><ind> 7.00</ind><dep> -136 </dep></entry>     
+  </interpolation>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+    <center>
+      <x-m> 0.001 </x-m>
+      <y-m> -0.015 </y-m>
+      <z-m> -0 </z-m>
+    </center>
+ </animation>
+    
+   <animation>
+        <type>rotate</type>
+        <object-name>AmpNeedle</object-name>
+        <property>systems/electrical/batt-amp</property>
+ <interpolation>
+      <entry><ind>60</ind><dep> 61.80</dep></entry>
+      <entry><ind>45</ind><dep>45.18</dep></entry>
+      <entry><ind>30</ind><dep>29.37 </dep></entry>
+      <entry><ind>15</ind><dep>14.24 </dep></entry>
+      <entry><ind>0</ind><dep>0 </dep></entry>
+      <entry><ind>-15</ind><dep>-14.24</dep></entry>
+      <entry><ind>-30</ind><dep>-29.37</dep></entry>
+      <entry><ind>-45</ind><dep>-45.18</dep></entry>
+      <entry><ind>-60</ind><dep>-61.80</dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+    <center>
+      <x-m> 0.001 </x-m>
+      <y-m> 0.015 </y-m>
+      <z-m> -0 </z-m>
+    </center>
+    </animation>
+
+     <!-- TEXT OSG -->
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">Battery Volts/Amps</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.008 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>   0.8 </red>
+      <green> 0.8 </green>
+      <blue>  0.0 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+	
+
+
+</PropertyList>

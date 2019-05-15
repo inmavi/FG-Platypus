@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Aircraft Config Dialog -->
+
+<PropertyList>
+
+	<name>aircraft-config</name>
+	<layout>vbox</layout>
+	<modal>false</modal>
+	<x>-5</x>
+	<y>75</y>
+
+	<group>
+		<layout>hbox</layout>
+		<text>
+			<halign>left</halign>
+			<label>Aircraft Configuration V1.4.5</label>
+		</text>
+		<button>
+			<halign>right</halign>
+			<pref-width>20</pref-width>
+			<pref-height>20</pref-height>
+			<legend>X</legend>
+			<key>Esc</key>			
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+			
+		</button>
+	</group>
+	
+	<hrule/>
+		
+	<group>
+		<layout>hbox</layout>
+
+		<group>
+			<layout>vbox</layout>
+			
+			<group>
+				<layout>vbox</layout>
+				
+				<button>
+					<halign>center</halign>
+					<legend>Welcome</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>nasal</command>
+						<script>
+						acconfig.welcome_dlg.open();
+						</script>
+					</binding>
+				</button>
+				<button>
+					<halign>center</halign>
+					<legend>Select Livery</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>nasal</command>
+						<script>										aircraft.livery.dialog.toggle();
+						</script>
+					</binding>
+				</button>
+				<button>
+					<halign>center</halign>
+					<legend>Aircraft Help</legend>
+					<pref-width>140</pref-width>
+					<binding>
+				<command>nasal</command>
+				<script>gui.showHelpDialog("/sim/help")</script>
+			</binding>
+				</button>
+			</group>
+			
+			<group>
+				<layout>vbox</layout>
+				
+				<group>
+					<layout>hbox</layout>
+
+					<hrule>
+						<stretch type="bool">true</stretch>
+					</hrule>
+					<text>
+						<label>Load Panel State</label>
+					</text>
+					<hrule>
+						<stretch type="bool">true</stretch>
+					</hrule>
+				</group>
+				
+				<group>
+					<layout>vbox</layout>
+					
+					<button>
+						<halign>center</halign>
+						<legend>Cold and Dark</legend>
+						<pref-width>140</pref-width>
+						<enable>
+							<and>
+								<not><property>/systems/acconfig/autoconfig-running</property></not>
+								<property>/gear/gear[0]/wow</property>
+								<property>/gear/gear[1]/wow</property>
+								<property>/gear/gear[2]/wow</property>
+							</and>
+						</enable>
+						<binding>
+							<command>nasal</command>
+							<script>acconfig.colddark();</script>
+						</binding>
+						<binding>
+							<command>dialog-close</command>
+						</binding>
+					</button>
+					<button>
+						<halign>center</halign>
+						<legend>Ready to Start Eng</legend>
+						<pref-width>140</pref-width>
+						<enable>
+							<and>
+								<not><property>/systems/acconfig/autoconfig-running</property></not>
+								<property>/gear/gear[0]/wow</property>
+								<property>/gear/gear[1]/wow</property>
+								<property>/gear/gear[2]/wow</property>
+							</and>
+						</enable>
+						<binding>
+							<command>nasal</command>
+							<script>acconfig.beforestart();</script>
+						</binding>
+						<binding>
+							<command>dialog-close</command>
+						</binding>
+					</button>
+					<button>
+						<halign>center</halign>
+						<legend>Ready for Taxi</legend>
+						<pref-width>140</pref-width>
+						<enable>
+							<and>
+								<not><property>/systems/acconfig/autoconfig-running</property></not>
+								<property>/gear/gear[0]/wow</property>
+								<property>/gear/gear[1]/wow</property>
+								<property>/gear/gear[2]/wow</property>
+							</and>
+						</enable>
+						<binding>
+							<command>nasal</command>
+							<script>acconfig.taxi();</script>
+						</binding>
+						<binding>
+							<command>dialog-close</command>
+						</binding>
+					</button>
+					<button>
+						<halign>center</halign>
+						<legend>Ready for Takeoff</legend>
+						<pref-width>140</pref-width>
+						<enable>
+							<and>
+								<not><property>/systems/acconfig/autoconfig-running</property></not>
+								<property>/gear/gear[0]/wow</property>
+								<property>/gear/gear[1]/wow</property>
+								<property>/gear/gear[2]/wow</property>
+							</and>
+						</enable>
+						<binding>
+							<command>nasal</command>
+							<script>acconfig.takeoff();</script>
+						</binding>
+						<binding>
+							<command>dialog-close</command>
+						</binding>
+					</button>
+				</group>
+			</group>
+		</group>
+
+		
+		<vrule/>
+		
+		<group>
+			<layout>vbox</layout>
+
+			<checkbox>
+				<label>Auto Refuel</label>
+				<halign>left</halign>
+	<property>/systems/autofuel</property>
+
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+				<condition>
+					<equals>
+				<property>/systems/autofuel</property>
+				<value>true</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property>/sim/model/equipment/ground-services/fuel-truck/enable</property>
+				<value>0</value>				
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+				<property>/systems/autofuel</property>
+				<value>false</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property>/sim/model/equipment/ground-services/fuel-truck/enable</property>
+				<value>1</value>				
+			</binding>								
+				<live>true</live>
+			</checkbox>
+
+			<checkbox>
+				<label>Auto Mixture</label>
+				<halign>left</halign>
+	<property>options/amx</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+
+
+			<checkbox>
+				<label>Auto Coordination</label>
+				<halign>left</halign>
+	<property>controls/flight/auto-coordination</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+
+
+
+			<checkbox>
+				<label>Auto Arm Altitude</label>
+				<halign>left</halign>
+	<property>it-autoflight/settings/auto-arm-alt</property>
+	<property>/options/aaa</property>
+				<binding>
+				<command>property-cycle</command>
+				<property>/it-autoflight/settings/auto-arm-alt</property>
+				<value>1</value>
+				<value>0</value>
+				</binding>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+
+			
+			<checkbox>
+				<label>GPS slaves Nav</label>
+				<halign>left</halign>
+	<property>instrumentation/nav/slaved-to-gps</property>
+	<property>/options/gsn</property>
+				<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/nav/slaved-to-gps</property>
+				<value>1</value>
+				<value>0</value>
+				</binding>			  
+
+
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+
+				
+				
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<binding>
+				<command>nasal</command>
+					<script>
+if (getprop("/instrumentation/nav/slaved-to-gps")== 1) {	
+    logger.screen.red("Autopilot now restricted to Heading mode only!",1);				
+
+	
+} 
+
+if (getprop("/instrumentation/nav/slaved-to-gps")== 0) {
+	logger.screen.blue("Autopilot now returned to full functionality!!!",1);}			
+
+	
+					</script>				
+				</binding>
+				<live>true</live>
+			</checkbox>
+
+			<checkbox>
+				<label>HUD Display</label>
+				<halign>left</halign>
+		<property>/sim/hud/visibility[1]</property>
+		<property>/options/hd</property>		
+				<binding>
+				<command>property-cycle</command>
+				<property>/sim/hud/visibility[1]</property>
+				<value>true</value>
+				<value>false</value>
+				</binding>
+				<binding>
+				<command>property-toggle</command>
+				<property>/options/hd</property>
+				<value>true</value>
+				<value>false</value>
+				</binding>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+
+			<checkbox>
+				<label>Mini Panel</label>
+				<halign>left</halign>
+		<property>/options/mini-panel</property>		
+				<binding>
+				<command>property-cycle</command>
+				<property>/options/mini-panel</property>
+				<value>true</value>
+				<value>false</value>
+				</binding>
+				<binding>					
+		<condition>
+			<equals>
+		<property>options/mini-panel</property>
+				<value>true</value>
+			</equals>
+		</condition>
+		<command>nasal</command>
+		<script>acconfig.minipanel_dlg.open();</script>		
+				</binding>
+				<binding>					
+		<condition>
+			<equals>
+		<property>options/mini-panel</property>
+				<value>false</value>
+			</equals>
+		</condition>
+		<command>nasal</command>
+		<script>acconfig.minipanel_dlg.close();</script>	
+				</binding>
+
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+
+			
+			<checkbox>
+        			<halign>center</halign>
+        			<label>Show Limit Warnings</label>
+        		<property>sim/limits/warnings-enabled</property>
+        		<property>/options/limits</property>
+				<binding>
+				<command>property-cycle</command>
+				<property>/sim/limits/enabled</property>
+				<value>true</value>
+				<value>false</value>
+				</binding>
+
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+    </checkbox>
+
+
+			<checkbox>
+				<label>Show QNH Alerts</label>
+				<halign>left</halign>
+				<property>/options/qnh</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+
+			<checkbox>
+				<label>Fuel Status Alerts</label>
+				<halign>left</halign>
+				<property>/options/nfa</property>
+				<binding>
+				<command>property-toggle</command>
+				<property>/options/nfa</property>
+				<value>1</value>
+				<value>0</value>
+				</binding>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+
+
+			
+			<checkbox>
+				<label>WayPoint Alerts</label>
+				<halign>left</halign>
+				<property>/options/alerter</property>
+				<binding>
+				<command>property-toggle</command>
+				<property>/options/alerter</property>
+				<value>1</value>
+				<value>0</value>
+				</binding>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			<hrule/>	
+			<text>
+				<halign>left</halign>
+				<label>Select Panel Type:</label>
+			</text>
+		
+			<combo>
+				<halign>left</halign>
+				<name>panel-type</name>
+				<pref-width>150</pref-width>
+				<property>/options/panel</property>
+				<value>HSI Panel</value>
+				<value>DG Panel</value>
+				<value>Cadet Panel</value>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</combo>
+			
+		</group>
+		
+	</group>
+	<hrule/>
+</PropertyList>

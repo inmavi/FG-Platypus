@@ -1,0 +1,22 @@
+davtron sometimes not displaying info after quickstart
+
+windconfig  - only works with basic weather, need to execute apply button with weather dialog hidden
+
+Somethings wrong - fuelflow drop with strong headwind ???
+
+Views need fixing -
+
+the front view is actually the helicopter view and the helicopter view is the model view
+only confusing when using instant replay
+
+Fix - too many poi open message on fuel alert popup
+
+need to synchronise pilot seat default values and view values, seem to be identical but resets are different.
+
+sometimes nav lights detach from wing while turning 
+
+
+
+
+
+

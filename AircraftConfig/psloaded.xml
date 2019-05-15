@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Aircraft Config Dialog -->
+
+<PropertyList>
+
+	<name>aircraft-config-panelstateloaded</name>
+	<layout>vbox</layout>
+<y>75</y>
+
+    <group>
+        <layout>hbox</layout>
+        <text>
+            <halign>center</halign>
+            <label>Panel State</label>
+        </text>
+    </group>
+	
+    <hrule/>
+	
+		<group>
+			<layout>vbox</layout>
+			
+			<text>
+				<halign>center</halign>
+				<label>The Panel State was loaded sucessfully.</label>
+			</text>
+
+			<button>
+				<halign>center</halign>
+				<legend>Close</legend>
+				<pref-width>160</pref-width>			
+				<key>Esc</key>
+
+
+  <binding>
+	<command>nasal</command>
+		<script>
+if (getprop("/options/qnh")== 1) {
+	logger.screen.blue("Check ATIS for QNH, press Shift-F to 	search AP frequencies",3);
+}
+
+if (getprop("/systems/nbat")== 0) {
+
+var inc = props.globals.getNode("/systems/starts");
+	inc.setValue(inc.getValue() + 1);
+}
+		</script>
+</binding>
+
+
+  <binding>
+	<condition>
+         		<equals>
+            			<property>/options/qnh</property>
+					<value>1</value>
+         		</equals>
+      		</condition>
+   <command>dialog-show</command>
+	<dialog-name>instrumentsAlt</dialog-name>
+  </binding>
+
+<!--
+
+				
+<binding>
+   <command>property-assign</command>
+   <property>sim/hud/current-path</property>
+		<value>1</value>
+</binding>
+
+<binding>
+   <command>property-assign</command>
+   <property>sim/hud/visibility[0]</property>
+		<value>1</value>
+				</binding>
+
+<binding>
+   <command>property-assign</command>
+   <property>sim/gui/dialogs/metar/mode/manual-weather</property>
+		<value>1</value>
+</binding>
+
+<binding>
+   <command>property-assign</command>
+   <property>sim/gui/dialogs/metar/mode/global-weather</property>
+		<value>1</value>
+</binding>
+
+-->
+
+<binding>
+		<command>dialog-close</command>		
+</binding>
+  
+
+
+			</button>
+			
+		</group>
+	
+</PropertyList>

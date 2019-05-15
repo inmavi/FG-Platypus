@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+
+<PropertyList>
+
+	<name>qcalc</name>
+	<layout>vbox</layout>
+	<pref-width>250</pref-width>
+	<x>57</x>
+	<y>57</y>
+	
+
+
+    <group>
+        <layout>hbox</layout>
+		<color>
+			<alpha>1</alpha>
+		</color>
+
+        <text>
+            <halign>left</halign>
+            <label>Standard Inflight Calculations</label>
+				<color>
+					<red>0.1</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+				</color>
+
+        </text>
+
+        <button>
+            <halign>right</halign>
+            <pref-width>25</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+	
+		<group>
+			<layout>vbox</layout>
+			
+			<text>
+				<halign>center</halign>
+				<label>Time to point - min(s) </label>						<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>(Distance/AirSpeed)*60</label>
+			</text>
+			
+			<hrule/>
+			
+			<text>
+				<halign>center</halign>
+				<label>Time to descend/climb </label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>Altitude/Vertical Speed</label>
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>3500ft/500fpm = 7 mins or 0.12 hrs</label>
+			</text>
+
+			
+			<hrule/>			
+
+			<text>
+				<halign>center</halign>
+				<label>Distance covered during climb/desc</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>Asc or Des Time/AirSpeed</label>
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>0.12 hrs*110 kts = 13 nm</label>
+			</text>
+
+
+			<hrule/>
+
+			<text>
+				<halign>center</halign>
+				<label>Distance en route per minute</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>AirSpeed/60</label>
+			</text>
+
+			<hrule/>
+
+			<text>
+				<halign>center</halign>
+				<label>Minutes to Hours</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>Minutes/60</label>
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>15/60 = 0.25 hrs </label>
+			</text>
+
+			<hrule/>
+
+						
+			<text>
+				<halign>center</halign>
+				<label>Reciprocal Radial</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>R greater then 180, subtract 200 add 20</label>
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>R less then 180, add 200 subtract 20</label>
+			</text>
+
+			<hrule/>
+						
+			<text>
+				<halign>center</halign>
+				<label>ETE</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>(Distance*60)/Groundspeed</label>
+			</text>
+
+			
+	
+		</group>
+		
+	    <hrule/>
+	
+		<group>
+			<layout>hbox</layout>
+
+			<button>
+				<halign>center</halign>
+				<legend>Convert</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+				<binding>
+					<command>nasal</command>
+						<script>
+		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "qconv" }));
+		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "qcalc" }));
+					</script>
+				</binding>
+			</button>
+
+			
+			<button>
+				<halign>right</halign>
+				<legend>Close</legend>
+				<pref-width>60</pref-width>
+				<binding>
+					<command>dialog-close</command>
+				</binding>
+			</button>
+		</group>
+	
+</PropertyList>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	<path>BatteryGauge.ac</path>
+	
+	<animation>
+		<type>scale</type>
+		<x-offset>1.3</x-offset>
+		<y-offset>1.3</y-offset>
+		<z-offset>1.3</z-offset>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>PtrTip</object-name>
+		<emission>
+     			<red>1.0</red>
+   			<green>0.2</green>
+   			<blue>0.0</blue>
+   <factor-prop>/sim/model/material/instruments/factor</factor-prop>
+  		</emission>
+
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Ptr</object-name>
+		<object-name>PtrTip</object-name>
+		<property>systems/electrical/altn-amp-lag</property>
+		<interpolation>
+			<entry>
+				<ind>60</ind>
+				<dep>-30</dep>
+			</entry>
+			<entry>
+				<ind>0</ind>
+				<dep>30</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.00024</y-m>
+			<z-m>-0.01291</z-m>
+		</center>
+	</animation>
+
+	<animation>
+    <type>pick</type>
+    <object-name>Face</object-name>
+    <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+          <binding>
+             <command>property-assign</command>
+             <property>it-autoflight/input/vs</property>
+			<value>0</value>
+          </binding>
+     </action>
+
+	<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>output</tooltip-id>
+                <mapping>op</mapping>
+                <label>Amps: %3d </label>
+		<property>systems/electrical/altn-amp-lag</property>
+            </binding>
+        </hovered>
+
+  </animation>
+
+</PropertyList>

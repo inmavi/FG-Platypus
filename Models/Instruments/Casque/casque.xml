@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+	
+	<path>casque.ac</path>
+	
+	<animation>
+		<type>scale</type>
+		<x-offset>0.6</x-offset>
+		<y-offset>0.6</y-offset>
+		<z-offset>0.6</z-offset>
+	</animation>
+	
+	<animation>
+		<object-name>casque</object-name>
+		<object-name>oreilles</object-name>
+		<object-name>touroreilles</object-name>
+		<object-name>micro</object-name>
+		<object-name>cable</object-name>
+	</animation>
+
+     <animation>
+    <type>pick</type>
+    <object-name>casque</object-name>
+    <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+
+	<binding>
+		<command>nasal</command>
+			<script>
+				acconfig.main_dlg.open();
+			</script>
+	</binding>
+
+
+</action>
+
+	<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>cf</tooltip-id>
+                <label>Config</label>
+            </binding>
+        </hovered>
+
+  </animation>
+
+<animation>
+    <type>pick</type>
+    <type>material</type>
+     <object-name>micro</object-name>
+    <object-name>cable</object-name>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+
+      <binding>
+        <command>property-cycle</command>
+	<property>/options/panel</property>
+	<value>HSI Panel</value>
+	<value>DG Panel</value>
+	<value>Cadet Panel</value>
+</binding>
+
+       </action>
+      <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>switcher</tooltip-id>
+                <label>Switch Panels</label>
+            </binding>
+        </hovered>
+  </animation>
+
+
+</PropertyList>
+
+
+
+
+
+

@@ -1,0 +1,2145 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>FG-Platypus.ac</path>
+
+	<!-- LIVERY SELECT -->
+	<!-- Animation -->
+	<animation>
+		<type>material</type>
+		<!-- Fuselage -->
+		<object-name>Fuselage</object-name>
+		<object-name>VTail</object-name>
+		<object-name>Rudder</object-name>
+		<object-name>RightWing</object-name>
+		<object-name>LeftWing</object-name>
+		<object-name>Door</object-name>
+		<object-name>Stabilator</object-name>
+		<object-name>AntiServoTab</object-name>
+		<object-name>LeftAileron</object-name>
+		<object-name>RightAileron</object-name>
+		<object-name>LeftFlap</object-name>
+		<object-name>RightFlap</object-name>
+		<object-name>GearSub</object-name>
+		<object-name>Spinner</object-name>
+		<object-name>Propeller</object-name>
+		<object-name>VHFAntenna.1</object-name>
+		<object-name>VHFAntenna.2</object-name>
+		<!-- Fuselage -->
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>FG-PlatypusII.png</texture>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>prop disc rear</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>reardisc</texture-prop>
+		<texture>Liveries/propblur.png</texture>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>prop disc front</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>frontdisc</texture-prop>
+		<texture>Liveries/propblur.png</texture>
+	</animation>
+
+	<!-- Nasal code -->
+	<nasal>
+		<load>
+		var livery_update = aircraft.livery_update.new("Aircraft/FG-Platypus/Models/Liveries");
+		</load>
+		<unload>
+		livery_update.stop();
+		</unload>
+	</nasal>
+
+	<effect>
+		<condition>
+		<property>/sim/rendering/rembrandt/enabled</property>
+		</condition>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>prop disc front</object-name>
+		<object-name>prop disc rear</object-name>
+	</effect>
+
+	<!--flashlight-->
+    <effect>
+		
+        <inherits-from>Aircraft/FG-Platypus/Models/Effects/pa28_flashlight</inherits-from>
+        	<object-name>Panel</object-name>
+		<object-name>CenterConsole</object-name>
+		<object-name>CarbHeatKnob</object-name>
+		<object-name>Mixture</object-name>	
+		<object-name>Throttle</object-name>				
+    </effect>
+
+	<animation>
+		<type>material</type>
+		<object-name>AC_Num</object-name>
+		<object-name>CompassLine</object-name>
+		<object-name>ThrottleQuadrant</object-name>
+		<object-name>FuelValvePointer</object-name>		
+		<object-name>CarbHeatPlacard</object-name>
+		<object-name>CarbHeatKnob</object-name>
+		<object-name>CH-Lever</object-name>
+		<emission>
+			<red>0.5</red>
+			<green>0.375</green>
+			<blue>0.125</blue>
+			<factor-prop>sim/model/material/instruments/factor</factor-prop>
+		</emission>
+	</animation> 
+
+
+  <!-- Cranking effects -->
+
+  <model>	
+    <path>Aircraft/FG-Platypus/Models/Effects/cranking/crankingR.xml</path>
+	<condition>
+		<equals>
+		<property>gear/gear/wow</property>
+			<value>1</value>
+		</equals>
+	</condition>	
+    <offsets>
+      <x-m>  1.12548 </x-m>
+      <y-m>  1.00571 </y-m>
+      <z-m> -0.43238 </z-m>
+      <pitch-deg> 20 </pitch-deg>
+    </offsets>
+  </model>
+
+<!-- Baggage models -->
+    <model>
+        <name>suitcase1</name>
+        <path>Aircraft/FG-Platypus/Models/Baggages/suitcase1.xml</path>
+        <offsets>
+            <x-m>3.7</x-m>
+            <y-m>0.135</y-m>
+      	<z-m>0.26</z-m>		
+		<roll-deg>0</roll-deg>
+		<pitch-deg>1</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <name>suitcase2</name>
+        <path>Aircraft/FG-Platypus/Models/Baggages/suitcase2.xml</path>
+        <offsets>
+            <x-m>3.7</x-m>
+            <y-m>0.231</y-m>
+            <z-m>0.26</z-m>
+		<pitch-deg>0</pitch-deg>
+		<roll-deg>0</roll-deg>
+		<yaw-deg>90</yaw-deg>
+        </offsets>
+    </model>
+
+    <animation>
+        <type>select</type>
+        <object-name>suitcase1</object-name>
+        <condition>
+            <greater-than>
+                <property>payload/weight[4]/weight-lb</property>
+                <value>70.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>suitcase2</object-name>
+        <condition>
+            <greater-than>
+                <property>payload/weight[4]/weight-lb</property>
+                <value>20.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+	<model>
+        <name>suitcase3</name>
+        <path>Aircraft/FG-Platypus/Models/Baggages/suitcase3.xml</path>
+        <offsets>
+            <x-m>3.7</x-m>
+            <y-m>-0.201</y-m>
+            <z-m>0.26</z-m>
+		<pitch-deg>0</pitch-deg>
+		<roll-deg>15</roll-deg>
+		<yaw-deg>90</yaw-deg>
+        </offsets>
+    </model>
+	<animation>
+        <object-name>suitcase3</object-name>
+    </animation>
+
+	<model>
+	    <path>Aircraft/FG-Platypus/Models/Effects/cranking/crankingL.xml</path>
+	<condition>
+		<equals>
+		<property>gear/gear/wow</property>
+			<value>1</value>
+		</equals>
+	</condition>	
+    <offsets>
+      <x-m>  1.12548 </x-m>
+      <y-m> -1.39571 </y-m>
+      <z-m> -0.43238 </z-m>
+      <pitch-deg> 20 </pitch-deg>
+    </offsets>
+  </model>
+
+	<animation>
+		<type>material</type>
+		<object-name>PrimeFace</object-name>
+		<object-name>Throttle</object-name>
+		<object-name>Mixture</object-name>
+		<object-name>FuelValveFace</object-name>
+		<object-name>CompassCasing</object-name>
+		<object-name>CarbHeatKnob</object-name>
+		<object-name>CH-Lever</object-name>
+		<object-name>RudderTrim</object-name>
+		<object-name>RudderTrimIndicator</object-name>
+		<emission>
+			<red>0.1</red>
+			<green>0.02</green>
+			<blue>0.00001</blue>
+			<factor-prop>sim/model/material/instruments/factor</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+  <type>material</type>
+  <object-name>Beacon</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.0</green>
+   <blue>0.0</blue>
+   <factor-prop>sim/model/lights/beacon/state</factor-prop>
+  </emission>
+ </animation>
+
+
+	<animation>
+		<type>material</type>
+		<object-name>LandingLightBulb</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>controls/lighting/landing-lights</factor-prop>
+		</emission>
+	</animation>
+
+	
+
+    <!-- Fuel truck controls -->
+    <model>
+        <name>fuel-truck</name>
+        <path>Aircraft/FG-Platypus/Models/Equipment/ground-services/fuel-truck/fuel-truck.ac</path>
+        <condition>
+            <and>
+                <equals>
+                    <property>sim/model/equipment/ground-services/fuel-truck/enable</property>
+                    <value>1.000000</value>
+                </equals>
+                <less-than>
+                    <property>velocities/groundspeed-kt</property>
+                    <value>1</value>
+                </less-than>
+                <less-than>
+                    <property>position/altitude-agl-ft</property>
+                    <value>10</value>
+                </less-than>
+			<less-than>
+                    <property>consumables/fuel/total-fuel-gal_us</property>
+                    <value>9</value>
+                </less-than>
+            </and>
+        </condition>
+    </model>
+
+
+	<animation>
+		<type>material</type>
+		<object-name>Panel</object-name>
+		<emission>
+			<red>0.5</red>
+			<green>0.49</green>
+			<blue>0.48</blue>
+			<factor-prop>/controls/lighting/panel-lights</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>Cabin</object-name>
+		<emission>
+			<red>0.1</red>
+			<green>0.098</green>
+			<blue>0.096</blue>
+			<factor-prop>/controls/lighting/panel-lights</factor-prop>
+		</emission>
+	</animation>
+
+
+
+	<model>
+		<name>SWITCHES</name>
+		<path>Aircraft/FG-Platypus/Models/SwitchPanel/switch_panel.xml</path>
+		<condition>
+			<not-equals>
+				<property>systems/nopo</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
+		<offsets>
+			<x-m>1.9312</x-m>
+			<y-m>0.120</y-m>
+			<z-m>0.102</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>PEDALS.L</name>
+		<path>Aircraft/FG-Platypus/Models/Pedals/Pedals-L.xml</path>
+		<offsets>
+			<x-m>1.65</x-m>
+			<y-m>-0.315</y-m>
+			<z-m>-0.36</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>PEDALS.R</name>
+		<path>Aircraft/FG-Platypus/Models/Pedals/Pedals-R.xml</path>
+		<offsets>
+			<x-m>1.65</x-m>
+			<y-m>0.31</y-m>
+			<z-m>-0.36</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>FLAP-TRIM</name>
+		<path>Aircraft/FG-Platypus/Models/FlapTrim/FlapTrim.xml</path>
+		
+		<offsets>
+			<x-m>2.27</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.36</z-m>
+		</offsets>
+	</model>
+	
+	<!-- Effects -->
+
+	<model>		
+		<path>Aircraft/FG-Platypus/Models/Effects/tyre-smoke-nose.xml</path>
+		<name>tyre-smoke-n</name>
+		<offsets>
+			<x-m>1.062446</x-m>
+			<y-m>0</y-m>
+			<z-m>-1.075437</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/FG-Platypus/Models/Effects/tyre-smoke-right.xml</path>
+		<name>tyre-smoke-r</name>
+		<offsets>
+			<x-m>2.851301</x-m>
+			<y-m>-1.443750</y-m>
+			<z-m>-1.075437</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/FG-Platypus/Models/Effects/tyre-smoke-left.xml</path>
+		<name>tyre-smoke-l</name>
+		<offsets>
+			<x-m>2.851301</x-m>
+			<y-m>1.443750</y-m>
+			<z-m>-1.075437</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>YokeLeft</name>
+		<path>Aircraft/FG-Platypus/Models/yoke/yoke-l.xml</path>
+		<offsets>
+			<x-m>1.930</x-m>
+			<y-m>-0.235</y-m>
+			<z-m>0.102</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>YokeRight</name>
+		<path>Aircraft/FG-Platypus/Models/yoke/yoke-r.xml</path>
+		<offsets>
+			<x-m>1.930</x-m>
+			<y-m>0.245</y-m>
+			<z-m>0.102</z-m>
+		</offsets>
+	</model>
+
+
+	<!-- Instruments -->
+	<model>
+		<name>rpm</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/RPM/RPM.xml</path>
+		<offsets>
+			<x-m>1.926</x-m>
+			<y-m>-0.158</y-m>
+			<z-m>0.019</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>fu</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/fuel-used/fuel-used.xml</path>		
+	</model>
+ 
+	<model>
+		<name>AOA</name>
+		<path>Aircraft/FG-Platypus/Models/instruments/AOA/aoa.xml</path>
+		<condition>
+			<not-equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</not-equals>
+		</condition>
+		<offsets>
+			<x-m>1.928</x-m>
+			<y-m>0.265</y-m>
+			<z-m>0.321</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>HSIAOA</name>
+		<path>Aircraft/FG-Platypus/Models/instruments/AOA/aoa.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</equals>
+		</condition>
+		<offsets>
+		  <x-m>1.93</x-m>
+             <y-m>0.331</y-m>
+             <z-m>0.311</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>COMP</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/comp/comp.xml</path>
+		<offsets>
+			<x-m>1.930</x-m>
+			<y-m>0.000</y-m>
+			<z-m>0.432</z-m>
+		</offsets>
+	</model>
+
+	
+	<model>
+		<name>deviation</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/deviation/deviation.xml</path>
+		
+		<offsets>
+			<x-m>1.962</x-m>
+			<y-m>-0.014</y-m>
+			<z-m>0.390</z-m>
+			<pitch-deg>-15</pitch-deg>
+			<roll-deg>-3</roll-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>casque</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/Casque/casque.xml</path>	
+
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>0.245</y-m>
+			<z-m>0.395</z-m>
+			<roll-deg>-3</roll-deg>
+			<pitch-deg>1</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>oat</name>
+				<path>Aircraft/FG-Platypus/Models/oat/oat_m303.xml</path>
+
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>0.423</y-m>
+			<z-m>0.178</z-m>
+		</offsets>
+
+	</model>
+
+	<model>
+		<name>cod</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/CODetector/CODetector.xml</path>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>0.310</y-m>
+			<z-m>0.100</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>charts</name>
+		<path>Aircraft/FG-Platypus/Models/charts/charts.xml</path>
+		
+		<offsets>
+			<x-m>1.880</x-m>
+			<y-m>0.310</y-m>
+			<z-m>0.0720</z-m>
+			<pitch-deg>45</pitch-deg>
+			<yaw-deg>130</yaw-deg>
+			<roll-deg>-3</roll-deg>
+		</offsets>
+	</model>
+
+<model>
+		<name>paper</name>
+		<path>Aircraft/FG-Platypus/Models/charts/charts.xml</path>
+		
+		<offsets>
+			<x-m>1.880</x-m>
+			<y-m>0.320</y-m>
+			<z-m>0.0820</z-m>
+			<pitch-deg>45</pitch-deg>
+			<yaw-deg>140</yaw-deg>
+			<roll-deg>3</roll-deg>
+		</offsets>
+	</model>
+
+
+	
+		<model>
+		<name>radalt</name>
+		<path>Aircraft/FG-Platypus/Models/instruments/RadarAltimeter/BendixKing_KI250.xml</path>	
+
+		<offsets>
+			<x-m>1.938</x-m>
+			<y-m>-0.074</y-m>
+   			<z-m>0.020</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>ASI</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/asi/asi.xml</path>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.334</y-m>
+			<z-m>0.271</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>AIG</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/AIN/ai-gauge.xml</path>
+		<condition>
+			<not-equals>
+				<property>options/panel</property>
+				<value>Cadet Panel</value>
+			</not-equals>
+		</condition>
+		<offsets>
+			<x-m>1.933</x-m>
+			<y-m>-0.230</y-m>
+			<z-m>0.271</z-m>
+			<pitch-deg>-1</pitch-deg>
+		</offsets>
+	</model>
+
+	
+
+	<model>
+		<name>AI</name>		 
+  <path>Aircraft/FG-Platypus/Models/Instruments/AI/AttitudeGyro.xml</path>
+
+  <offsets>
+   <x-m>1.925</x-m>
+   <y-m>-0.233</y-m>
+   <z-m>0.271</z-m>
+  </offsets> 
+
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Cadet Panel</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>1.920</x-m>
+			<y-m>-0.232</y-m>
+			<z-m>0.271</z-m>
+			<pitch-deg>-1</pitch-deg>
+		</offsets>
+	</model>
+
+
+
+
+	<model>
+		<name>ALT</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/alt/alt.xml</path>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.126</y-m>
+			<z-m>0.271</z-m>
+			<roll-deg>-1.5</roll-deg>
+		</offsets>
+	</model>
+
+
+	<text>
+        <name>Ship</name>
+		<condition>
+			<not-equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</not-equals>
+		</condition>
+
+        <offsets>
+            <x-m>1.93</x-m>
+            <y-m>0.331</y-m>
+            <z-m>0.311</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <property>sim/model/immat</property>
+        <font>helvetica_bold.txf</font>
+        <character-size>0.011</character-size>
+        <character-aspect-ratio type="double">1.5</character-aspect-ratio>
+        <font-resolution>
+            <width type="int">64</width>
+            <height type="int">64</height>
+        </font-resolution>
+    </text>
+
+	     <animation>
+        <type>material</type><!--white-->
+        <object-name>Ship</object-name>
+       <emission>
+            <red>0.1</red>
+            <green>0.1</green>
+            <blue>0.1</blue>
+        </emission>
+        <ambient>
+            <red>1.0</red>
+            <green>1.0</green>
+            <blue>1.0</blue>
+        </ambient>
+        <diffuse>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </diffuse>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+    </animation>
+
+	<model>
+  <name>warn_stall</name>
+  <path>Aircraft/FG-Platypus/Models/stall_warning.xml</path>
+	
+  <offsets>
+    <x-m>1.918</x-m>
+    <y-m>0.018</y-m>
+    <z-m>0.224</z-m>
+  </offsets>
+</model>
+
+
+
+	<model>
+		<name>ADF1</name>
+		<path>Aircraft/FG-Platypus/Models/adfki228/ki227_228.xml</path>
+		<condition>
+			<equals>
+				<property>options/nav-source</property>
+				<value>1</value>
+			</equals>
+		</condition>		
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.433</y-m>
+			<z-m>0.185</z-m>
+		</offsets>
+	</model>
+
+	<model>
+	<name>ADF1</name>
+		<path>Aircraft/FG-Platypus/Models/adfki228/ki227_228.xml</path>
+		<condition>
+			<equals>
+				<property>options/nav-source</property>
+				<value>2</value>
+			</equals>
+		</condition>		
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.433</y-m>
+			<z-m>0.185</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>rmi2</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/rmi2/ki227_228.xml</path>
+		<condition>
+			<equals>
+				<property>options/nav-source</property>
+				<value>3</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.433</y-m>
+			<z-m>0.185</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/FG-Platypus/Models/instruments/GsLight/ControlLight.xml</path>		
+		<name>APCL</name>
+		<offsets>
+			<x-m>1.93</x-m>
+			<y-m>0.025</y-m>
+			<z-m>0.331</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/FG-Platypus/Models/instruments/FL_blue/ControlLight.xml</path>
+		
+
+		<name>APCL</name>
+		<offsets>
+			<x-m>1.93</x-m>
+			<y-m>0.025</y-m>
+			<z-m>0.154</z-m>
+			<pitch-deg>-0.5</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>VOR1</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/ki209a/ki209a-1.xml</path>
+		<condition>
+			<not-equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</not-equals>
+		</condition>
+		<offsets>
+			<x-m>1.923</x-m>
+			<y-m>-0.029</y-m>
+			<z-m>0.271</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>ert</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/DCVolts/DCVolts.xml</path>
+		
+
+		<offsets>
+			<x-m>1.92405</x-m>
+   			<y-m>0.437</y-m>
+   			<z-m>0.237</z-m>
+			<yaw-deg>-3</yaw-deg>
+
+		</offsets>
+	</model>
+
+	<model>
+  <name>flaps</name>
+  <path>Aircraft/FG-Platypus/Models/instruments/flaps/flaps.xml</path>
+
+  <offsets>
+   <x-m>1.935</x-m>
+   <y-m>0.365</y-m>
+   <z-m>0.105</z-m>
+  </offsets>
+ </model>
+
+
+	 <model>
+  <name>windrose</name>
+  <path>Aircraft/FG-Platypus/Models/instruments/kr87-adf/ki227_228.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</equals>
+		</condition>
+  		<offsets>
+   		<x-m>1.924</x-m>
+		<y-m>-0.029</y-m>
+		<z-m>0.271</z-m>
+  </offsets>
+
+ </model>
+
+  	 <model>
+  <name>windrose_cadet</name>
+  <path>Aircraft/FG-Platypus/Models/instruments/kr87-adf/ki227_228.xml</path>
+		<condition>
+			<not-equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</not-equals>
+		</condition>
+ 			<offsets>
+			<x-m>1.935</x-m>
+			<y-m>-0.433</y-m>
+			<z-m>0.105</z-m>
+			<roll-deg>-1</roll-deg>
+
+		</offsets>
+ </model>
+
+	<model>
+		<name>VOR2</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/ki209a/ki209a-2.xml</path>
+		<condition>
+			<not>
+				<property>options/panel</property>
+				<value>Cadet Panel</value>				
+			</not>
+		</condition>
+		<offsets>
+			<x-m>1.923</x-m>
+			<y-m>-0.029</y-m>
+			<z-m>0.185</z-m>
+		</offsets>
+
+	</model>
+
+	<model>
+		<name>Davtron</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/Davtron803/davtron803.xml</path>
+		
+
+		<offsets>
+			<x-m>1.927.5</x-m>
+			<y-m>-0.4235</y-m>
+			<z-m>0.2585</z-m>
+			<roll-deg>-1</roll-deg>
+		</offsets>
+	</model>
+
+	<model>
+	<name>NSVV</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/NavSV/NavSourceSwitch.xml</path>
+		
+		<offsets>
+			<x-m>1.935</x-m>
+			<y-m>-0.476</y-m>
+			<z-m>0.231</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Avionics</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/avswitch/avswitch.xml</path>
+		
+		<offsets>
+			<x-m>1.928</x-m>
+    			<y-m>0.027</y-m>
+    			<z-m>0.294</z-m>
+			<yaw-deg>-2</yaw-deg>
+			<roll-deg>1</roll-deg>
+
+		</offsets>
+	</model>
+
+
+	<model>
+  <name>Svn</name>
+   <path>Aircraft/FG-Platypus/Models/Instruments/Svn/Svn.xml</path>
+  <offsets>
+    <x-m>1.935</x-m>
+   <y-m>-0.476</y-m>
+   <z-m>0.183</z-m>
+   <roll-deg>-1</roll-deg>
+  </offsets>
+ </model>
+	
+	<model>
+		<name>ELT</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/ELT/ArtexELT.xml</path>
+		<condition>
+			<not-equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</not-equals>
+		</condition>
+
+		<offsets>
+			<x-m>1.928</x-m>
+			<y-m>0.228</y-m>
+			<z-m>0.322</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>TC</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/tc/tc.xml</path>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.336</y-m>
+			<z-m>0.183</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>HSI</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/kcs55/ki525a.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>1.936</x-m>
+			<y-m>-0.233</y-m>
+			<z-m>0.185</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>ka51</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/kcs55/ka51b.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>1.945</x-m>
+   			<y-m>0.400</y-m>
+   			<z-m>0.105</z-m>
+		</offsets>
+	</model>
+
+
+
+	
+	<model>
+		<name>HI</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/hi/hi.xml</path>
+		<condition>
+			
+				<not-equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+				</not-equals>
+			
+		</condition>
+		
+
+		<offsets>
+			<x-m>1.92605</x-m>
+			<y-m>-0.233</y-m>
+			<z-m>0.185</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>VSI</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/vsi/vsi.xml</path>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.126</y-m>
+			<z-m>0.185</z-m>
+		</offsets>
+	</model>
+
+
+	
+	<model>
+		<name>FUEL_OIL</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/pa28-fuel-oil/pa28-fuel-oil.xml</path>
+		<offsets>
+			<x-m>1.922</x-m>
+			<y-m>-0.100</y-m>
+			<z-m>0.102</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>EGT</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/egt/egt.xml</path>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.2805</y-m>
+			<z-m>0.0205</z-m>
+		</offsets>
+	</model>
+		
+	<model>
+	<name>hdg1</name>
+	<path>Aircraft/FG-Platypus/Models/instruments/digital2/heading1.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</equals>
+		</condition>
+
+
+		<offsets>
+			<x-m>1.928</x-m>
+			<y-m>0.249</y-m>
+			<z-m>0.315</z-m>
+		</offsets>
+</model>
+
+ 
+	<model>
+		<name>Vac</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/vacamp.xml</path>
+		<condition>
+			<not-equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</not-equals>
+		</condition>
+
+		<offsets>
+			<x-m>1.935</x-m>
+			<y-m>-0.280</y-m>
+			<z-m>0.105</z-m>			
+		</offsets>
+	</model>
+		<model>
+		<name>Primer</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/PrimerPump/primer.xml</path>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.0125</y-m>
+			<z-m>0.01567</z-m>
+		</offsets>
+	</model>
+ 
+		<model>
+		<name>AMPVOL</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/BatteryGauge/BatteryGauge.xml</path>
+		<offsets>			
+			<x-m>1.917</x-m>
+			<y-m>0.1775</y-m>
+			<z-m>0.0155</z-m>
+		</offsets>
+	</model>
+	
+	
+<model>
+		<name>mags</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/magneto-switch/mags.xml</path>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.225</y-m>
+			<z-m>-0.0055</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>HOBBS</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/Hobbs/HobbsMeter.xml</path>
+		<offsets>
+			<x-m>1.930</x-m>
+			<y-m>-0.003</y-m>
+			<z-m>0.331</z-m>
+		</offsets>
+	</model>
+
+	<!--   Radio Stack  -->
+	
+	<model>
+		<path>Aircraft/FG-Platypus/Models/Instruments/MarkerBeacon/MkrBcn.xml</path>
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>-0.05223</y-m>
+			<z-m>0.32864</z-m>
+		</offsets>
+	</model>
+
+	<model>
+	<name>veld</name>
+	<path>Aircraft/FG-Platypus/Models/instruments/digital2/velocity2.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</equals>
+		</condition>
+
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>0.124</y-m>
+			<z-m>0.33</z-m>			
+		</offsets>
+</model>
+
+	
+	<model>
+		<name>kx165-1</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/radio_stack/kx165-1.xml</path>
+		<condition>
+			<not-equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</not-equals>
+		</condition>
+
+		<offsets>
+			<x-m>1.915</x-m>
+			<y-m>0.124</y-m>
+			<z-m>0.32</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>skx165-1</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/radio_stack/kx165-1.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</equals>
+		</condition>
+
+		<offsets>
+			<x-m>1.922</x-m>
+			<y-m>-0.385</y-m>
+			<z-m>0.107</z-m>
+		</offsets>
+	</model>
+
+<model>
+	<condition>	
+	<and> 	
+	<not-equals>
+        <property>sim/current-view/view-number</property>
+        <value>0</value>
+      </not-equals>	
+	<not-equals>
+        <property>sim/current-view/view-number</property>
+        <value>9</value>
+      </not-equals>
+	<not-equals>
+        <property>sim/current-view/view-number</property>
+        <value>10</value>
+      </not-equals>
+	</and>	
+    </condition>
+
+    <path>Aircraft/FG-Platypus/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> 2.11</x-m>
+      <y-m> -0.251 </y-m>
+      <z-m> -0.145 </z-m>
+    </offsets>
+  </model>
+
+
+	<model>
+		<condition>
+			<greater-than>
+                <property>payload/weight[2]/weight-lb</property>
+                <value>10.0</value>
+            </greater-than>
+ 		</condition>
+		<path>Aircraft/FG-Platypus/Models/Humans/pilot.xml</path>
+		<name>passengerl</name>
+		<offsets> 
+			<x-m>3.2</x-m>
+			<y-m>-0.3</y-m>
+			<z-m>-0.3</z-m>
+			<heading-deg> 5 </heading-deg>
+			<pitch-deg> 5 </pitch-deg>
+
+		</offsets>
+	</model>
+
+	<model>
+		<condition>
+			<greater-than>
+                <property>payload/weight[3]/weight-lb</property>
+                <value>10.0</value>
+            </greater-than>
+ 		</condition>
+		<path>Aircraft/FG-Platypus/Models/PassengerR/pilot.xml</path>
+		<name>passengerR</name>
+		<offsets> 
+			<x-m>3.0</x-m>
+			<y-m>0.361</y-m>
+			<z-m>-0.25</z-m>
+			<heading-deg> 352 </heading-deg>
+			<roll-deg> -3 </roll-deg>
+			<pitch-deg> 5 </pitch-deg>
+
+		</offsets>
+	</model>
+
+	<model>
+	<name>altd</name>
+	<path>Aircraft/FG-Platypus/Models/instruments/digital2/altitude2.xml</path>
+<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</equals>
+		</condition>
+
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>0.124</y-m>
+			<z-m>0.293</z-m>
+			
+		</offsets>
+</model>
+
+
+	<model>
+		<name>kx165-2</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/radio_stack/kx165-2.xml</path>
+		<condition>
+			<not-equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</not-equals>
+		</condition>
+		<offsets>
+			<x-m>1.915</x-m>
+			<y-m>0.124</y-m>
+			<z-m>0.265</z-m>
+		</offsets>
+	</model>
+
+	<model>
+	<name>gpsd</name>
+	<path>Aircraft/FG-Platypus/Models/instruments/digital2/gps2.xml</path>
+<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>HSI Panel</value>
+			</equals>
+		</condition>
+
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>0.124</y-m>
+			<z-m>0.257</z-m>
+		</offsets>
+</model>
+
+
+	
+	<model>		
+		<name>KAP140</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/radio_stack/kap140/KAP140TwoAxisAlt.xml</path>
+			<enable>
+				<not-equals>
+				<property>systems/noco</property>
+				<value>1</value>
+				</not-equals>
+			</enable>	
+
+		<offsets>
+			<x-m>1.925</x-m>
+			<y-m>0.124</y-m>
+			<z-m>0.213</z-m>
+		</offsets>
+	</model> 
+	
+	<model>
+		<name>kma20</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/kma20/kma20.xml</path>
+		<offsets>
+			<x-m>1.915</x-m>
+			<y-m>0.285</y-m>
+			<z-m>0.225</z-m>
+		</offsets>
+	</model>
+
+	
+	<model>
+		<name>dme</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/ki266/ki266.xml</path>
+		<offsets>
+			<x-m>1.932</x-m>
+			<y-m>0.285</y-m>
+			<z-m>0.183</z-m>
+		</offsets>
+	</model>
+
+
+	<model>
+		<name>kt70</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/kt70/kt70.xml</path>
+		<offsets>
+			<x-m>1.922</x-m>
+			<y-m>0.285</y-m>
+			<z-m>0.27</z-m>
+		</offsets>
+	</model>
+
+
+
+	
+	<model>
+		<name>kr87</name>
+		<path>Aircraft/FG-Platypus/Models/Instruments/kr87-adf/kr87.xml</path>
+		<offsets>
+			<x-m>1.915</x-m>
+			<y-m>0.124</y-m>
+			<z-m>0.173</z-m>
+		</offsets>
+	</model>
+
+	
+	<animation>
+		<name>InstrumentGroup</name>
+		<object-name>ASI</object-name>
+		<object-name>AI</object-name>
+		<object-name>ALT</object-name>
+		<object-name>ADF1</object-name>
+		<object-name>ADF</object-name>
+		<object-name>TC</object-name>
+		<object-name>HSI</object-name>
+		<object-name>VSI</object-name>
+		<object-name>VOR2</object-name>
+		<object-name>TACH</object-name>
+		<object-name>FlightCom</object-name>
+		<object-name>VAC</object-name>
+		<object-name>AMP</object-name>
+		<object-name>AOA</object-name>
+		<object-name>MPFuel</object-name>
+		<object-name>Fuelgauge</object-name>
+		<object-name>Flaps</object-name>
+		<object-name>HOBBS</object-name>
+		<object-name>FUEL_OIL</object-name>
+		<object-name>EGT</object-name>
+		<object-name>mags</object-name>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Propeller</object-name>
+		<condition>
+			<less-than>
+				<property>engines/engine/rpm</property>
+				<value>550</value>
+			</less-than>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>spin</type>
+		<object-name>Propeller</object-name>
+		<object-name>Spinner</object-name>
+		<object-name>prop disc front</object-name>
+		<object-name>prop disc rear</object-name>
+		<property>engines/engine/rpm[0]</property>
+		<factor>-1</factor>
+		<axis>
+			<x1-m>0.09617</x1-m>
+			<y1-m>-0.00118</y1-m>
+			<z1-m>0.0004</z1-m>
+			<x2-m>0.45502</x2-m>
+			<y2-m>-0.00118</y2-m>
+			<z2-m>0.0192</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>prop disc front</object-name>
+		<object-name>prop disc rear</object-name>
+		<condition>
+			<greater-than>
+				<property>engines/engine/rpm</property>
+				<value>550</value>
+			</greater-than>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>blend</type>
+		<object-name>prop disc front</object-name>
+		<object-name>prop disc rear</object-name>
+		<property>engines/engine/rpm[0]</property>
+		<factor>0.00015</factor>
+		<max>1.0</max>
+		<min>0.8</min>
+	</animation>
+
+	<model>
+		<name>fuel selector</name>
+		<path>Models/Instruments/fuel-selector/fuel-selector.xml</path>
+		<offsets>
+			<pitch-deg>90</pitch-deg>
+			<roll-deg>180</roll-deg>
+			<heading-deg>90</heading-deg>
+			<x-m>1.94707</x-m>
+			<y-m>-0.55448</y-m>
+			<z-m>-0.21952</z-m>
+		</offsets>
+	</model>
+
+		<model>
+	<name>GPS</name>
+	<path>Aircraft/FG-Platypus/Models/instruments/KLN90B/kln90b.xml</path>
+	<offsets>
+	<x-m>1.925</x-m>
+	<y-m>-0.388</y-m>
+	<z-m>0.021</z-m>
+	</offsets>
+</model>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>ParkingBrakeControl</object-name>
+		<factor>35</factor>
+		<property>controls/gear/brake-parking</property>
+		<center>
+			<x-m>1.891</x-m>
+			<y-m>-0.0</y-m>
+			<z-m>-0.0616</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>-1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>ParkingBrakeControl</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/gear/brake-parking</property>
+			</binding>
+		</action>
+
+			<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>pb</tooltip-id>
+                <label>Parking Brake</label>
+            </binding>
+        </hovered>
+
+	</animation>
+
+
+	<animation>
+		<type>pick</type>
+		<object-name>DoorLatch</object-name>
+		<visible>true</visible>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+						<binding>
+				<command>property-toggle</command>
+				<property>fdm/jsbsim/extra/door-main-cmd</property>
+			</binding>
+			<binding>
+					<condition>						<property>/fdm/jsbsim/extra/door-main-cmd</property>
+					</condition>
+					<command>show-message</command>
+					<id>openclose</id>
+					<label>Door is Open </label>
+	<property>/fdm/jsbsim/extra/door-main-cmd</property>
+					<value>1</value>
+					<delay>1.75</delay>
+				</binding>
+				<binding>
+					<condition>
+						<not><property>/fdm/jsbsim/extra/door-main-cmd</property></not>
+					</condition>
+					<command>show-message</command>
+					<id>openclose</id>
+					<label>Door is Closed </label>
+					<property>/sim/model/door-positions/rightDoor/position-norm</property>
+					<value>0</value>
+					<delay>1.75</delay>
+				</binding>
+
+
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>DoorLatchExt</object-name>
+		<visible>true</visible>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+						<binding>
+				<command>property-toggle</command>
+				<property>fdm/jsbsim/extra/door-main-cmd</property>
+			</binding>
+
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Throttle</object-name>
+		<property>controls/engines/engine[0]/throttle</property>
+		<factor>47</factor>
+		<center>
+			<x-m>1.937</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.02758</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>-1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>Throttle</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<step>0.1</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<step>-0.1</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Mixture</object-name>
+		<property>controls/engines/engine[0]/mixture</property>
+		<factor>47</factor>
+		<center>
+			<x-m>1.937</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.02758</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>-1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>Mixture</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/mixture</property>
+				<step>0.1</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/mixture</property>
+				<step>-0.1</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>CarbHeatKnob</object-name>
+		<object-name>CH-Lever</object-name>
+		<property>controls/anti-ice/engine/carb-heat[0]</property>
+		<factor>100</factor>
+		<offset-deg>-50</offset-deg>
+		<center>
+			<x-m>1.92344</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.01032</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>CarbHeatKnob</object-name>
+		<object-name>CH-Lever</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/anti-ice/engine/carb-heat[0]</property>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftAileron</object-name>
+		<property>surface-positions/aileron-rad</property>
+		<factor>57.2958</factor> <!-- Rad to Deg -->
+		<center>
+			<x-m>3.1338</x-m>
+			<y-m>-5.0553</y-m>
+			<z-m>0.0468</z-m>
+		</center>
+		<axis>
+			<x>0.0814</x>
+			<y>1.0</y>
+			<z>-0.1290</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>RightAileron</object-name>
+		<property>surface-positions/aileron-rad</property>
+		<factor>-57.2958</factor> <!-- Rad to Deg -->
+		<center>
+			<x-m>3.1338</x-m>
+			<y-m>5.0553</y-m>
+			<z-m>0.0468</z-m>
+		</center>
+		<axis>
+			<x>-0.0814</x>
+			<y>1.0</y>
+			<z>0.1290</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftFlap</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>-45</factor>
+		<center>
+			<x-m>3.30</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.42</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>-1.0</y>
+			<z>0.1</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>RightFlap</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>45</factor>
+		<center>
+			<x-m>3.30</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.42</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.1</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Stabilator</object-name>
+		<object-name>AntiServoTab</object-name>
+		<property>surface-positions/elevator-rad</property>
+		<factor>57.2958</factor> <!-- Rad to Deg -->
+		<center>
+			<x-m>6.5</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.15</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>AntiServoTab</object-name>
+		<property>surface-positions/elevator-rad</property>
+		<factor>57.2958</factor> <!-- Rad to Deg -->
+		<center>
+			<x-m>6.79</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.17</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>AntiServoTab</object-name>
+		<property>controls/flight/elevator-trim</property>
+		<factor>-30</factor>
+		<center>
+			<x-m>6.79</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.17</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>NoseTrim</name>
+		<type>rotate</type>
+		<object-name>RudderTrim</object-name>
+		<property>controls/flight/rudder-trim</property>
+		<factor>1080</factor>
+		<center>
+			<x-m>1.88419</x-m>
+			<y-m>0.07692</y-m>
+			<z-m>-0.29866</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>RudderTrimIndicator</object-name>
+		<property>controls/flight/rudder-trim</property>
+		<factor>0.03</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Rudder</object-name>
+		<object-name>TailNavLight</object-name>
+		<property>surface-positions/rudder-rad</property>
+		<factor>57.2958</factor> <!-- Rad to Deg -->
+		<center>
+			<x-m>6.36</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.16</z-m>
+		</center>
+		<axis>
+			<x>0.25</x>
+			<y>0.0</y>
+			<z>1.0</z>
+		</axis>
+	</animation>
+		 <model>
+  <name>LandingLight</name>
+  <path>Aircraft/FG-Platypus/Models/LandingLight/LandingLight.xml</path>
+  <offsets>
+   <x-m>0.53</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.235</z-m>
+  </offsets>
+ </model>
+
+ <!-- Visible up to 10km (6mi) -->
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>10000</max-m>
+ </animation>
+
+
+<!-- Fire  -->
+
+<model>	
+    <path>Aircraft/FG-Platypus/Models/Effects/fire/engsmoke.xml</path>
+	<condition>	
+	<property>hazards/fire/engine[0]</property>	
+    </condition>
+    <offsets>
+      <x-m>  1.0 </x-m>
+      <y-m>0.023</y-m>
+      <z-m>0.331</z-m>
+      <pitch-deg> -30 </pitch-deg>
+    </offsets>
+  </model>
+
+  
+
+			<!-- Lights -->
+
+	<model>
+		<name>Red nav light</name>
+		<path>Aircraft/FG-Platypus/Models/light/RedLight.xml</path>
+		<offsets>
+			<x-m>2.68980</x-m>
+			<y-m>-5.18</y-m>
+			<z-m>0.11596</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Green nav light</name>
+		<path>Aircraft/FG-Platypus/Models/light/GreenLight.xml</path>
+		<offsets>
+			<x-m>2.68980</x-m>
+			<y-m>5.18</y-m>
+			<z-m>0.11596</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Red nav light ALS</name>
+		<path>Aircraft/FG-Platypus/Models/light/ALS/rednav.xml</path>
+		<offsets>
+			<x-m>2.68980</x-m>
+			<y-m>-5.18</y-m>
+			<z-m>0.11596</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Green nav light ALS</name>
+		<path>Aircraft/FG-Platypus/Models/light/ALS/greennav.xml</path>
+		<offsets>
+			<x-m>2.68980</x-m>
+			<y-m>5.18</y-m>
+			<z-m>0.11596</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Left Strobe light ALS</name>
+		<path>Aircraft/FG-Platypus/Models/light/ALS/left-strobe.xml</path>
+		<offsets>
+			<x-m>2.72</x-m>
+			<y-m>-5.18</y-m>
+			<z-m>0.11596</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Right Strobe light ALS</name>
+		<path>Aircraft/FG-Platypus/Models/light/ALS/right-strobe.xml</path>
+		<offsets>
+			<x-m>2.72</x-m>
+			<y-m>5.18</y-m>
+			<z-m>0.11596</z-m>
+		</offsets>
+	</model>
+
+ 	<model>
+  <path>Aircraft/FG-Platypus/Models/StrobeLight.xml</path>
+  <name>StrobeLight.L</name>
+<condition>
+	<not>
+<property>sim/rendering/shaders/skydome</property>
+	</not>
+</condition>
+  <nopreview/>
+  <offsets>
+   <x-m>2.68980</x-m>
+   <y-m>-5.18177</y-m>
+   <z-m>0.11596</z-m>
+  </offsets>
+ 	</model>
+
+ 	<model>
+  <path>Aircraft/FG-Platypus/Models/StrobeLight.xml</path>
+  <name>StrobeLight.R</name>
+<condition>
+	<not>
+<property>sim/rendering/shaders/skydome</property>
+	</not>
+</condition>
+
+  <nopreview/>
+  <offsets>
+   <x-m>2.68980</x-m>
+   <y-m>5.18177</y-m>
+   <z-m>0.11596</z-m>
+  </offsets>
+ 	</model>
+
+
+	<model>
+		<name>LandingLight-ALS</name>
+		<path>Aircraft/FG-Platypus/Models/light/ALS/landinglight.xml</path>
+		<offsets>
+		<x-m>0.5</x-m>
+		<y-m>0.0</y-m>
+		<z-m>-0.225</z-m>
+		<pitch-deg>-15.00</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>LandingLight-Left</name>
+		<path>Aircraft/FG-Platypus/Models/LandingLight/LandingLight.xml</path>
+		<offsets>
+		<x-m>0.5</x-m>
+		<y-m>0.0</y-m>
+		<z-m>-0.225</z-m>
+		<pitch-deg>-15.00</pitch-deg>
+		</offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Green nav light</object-name>
+		<object-name>Red nav light</object-name>
+		<object-name>LandingLight-Left</object-name>
+		<condition>
+			<not>
+				<property>sim/rendering/shaders/skydome</property>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Green nav light ALS</object-name>
+		<object-name>Red nav light ALS</object-name>
+		<object-name>Left Strobe light ALS</object-name>
+		<object-name>Right Strobe light ALS</object-name>
+		<object-name>LandingLight-ALS</object-name>
+		<condition>
+			<property>sim/rendering/shaders/skydome</property>
+		</condition>
+	</animation>
+
+
+
+
+ <animation>
+  <type>material</type>
+  <object-name>TailNavLight</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>1.0</blue>
+   <factor-prop>sim/model/lights/strobe/state</factor-prop>
+  </emission>
+ </animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>NoseGear</object-name>
+		<property>sim/multiplay/generic/float[3]</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>1.0471</x1-m>
+			<y1-m>0.0</y1-m>
+			<z1-m>-0.65873</z1-m>
+			<x2-m>1.01881</x2-m>
+			<y2-m>0.0</y2-m>
+			<z2-m>-0.77222</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>DoorGroup</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>fdm/jsbsim/extra/door-main-cmd</property>
+			</binding>
+			<binding>
+					<condition>						<property>/fdm/jsbsim/extra/door-main-cmd</property>
+					</condition>
+					<command>show-message</command>
+					<id>openclose</id>
+					<label>Door is Open </label>
+	<property>/fdm/jsbsim/extra/door-main-cmd</property>
+					<value>1</value>
+					<delay>1.75</delay>
+				</binding>
+				<binding>
+					<condition>
+						<not><property>/fdm/jsbsim/extra/door-main-cmd</property></not>
+					</condition>
+					<command>show-message</command>
+					<id>openclose</id>
+					<label>Door is Closed </label>
+					<property>/sim/model/door-positions/rightDoor/position-norm</property>
+					<value>0</value>
+					<delay>1.75</delay>
+				</binding>
+
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>DoorGroup</object-name>
+		<property>sim/multiplay/generic/float[4]</property>
+		<factor>-70</factor>
+		<axis>
+			<x1-m>2.0285</x1-m>
+			<y1-m>0.56719</y1-m>
+			<z1-m>0.21468</z1-m>
+			<x2-m>2.0381</x2-m>
+			<y2-m>0.58657</y2-m>
+			<z2-m>-0.33076</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>DoorLatch</object-name>
+		<property>sim/multiplay/generic/float[4]</property>
+		<interpolation>
+			<entry><ind>0.00</ind><dep> 0</dep></entry>
+			<entry><ind>0.01</ind><dep>60</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.24482</x-m>
+			<y-m>0.5798</y-m>
+			<z-m>0.06912</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.1</z>
+		</axis>
+		</animation>
+
+		
+		
+	<model>
+		<path>Aircraft/FG-Platypus/Models/Instruments/iaL/ControlLight.xml</path>
+		<name>sp</name>
+		
+		<offsets>
+			<x-m>1.93</x-m>
+			<y-m>0.025</y-m>
+			<z-m>0.181</z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>Aircraft/FG-Platypus/Models/instruments/OoF/ControlLight.xml</path>
+		
+		<name>ngas</name>
+		<offsets>
+			<x-m>1.93</x-m>
+			<y-m>-0.164</y-m>
+			<z-m>0.331</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/FG-Platypus/Models/DoorWarning/warning_lights_door.xml</path>
+		
+		<name>doorlight</name>
+		<offsets>
+			<x-m>1.93</x-m>
+			<y-m>-0.126</y-m>
+			<z-m>0.331</z-m>
+		</offsets>
+	</model>
+
+	  <model>
+    <path>Aircraft/FG-Platypus/Models/light/TaxiLight.xml</path>
+    <offsets>
+      <x-m>0.53</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.235</z-m>
+      <pitch-deg> -8.500 </pitch-deg>
+	<yaw-deg> 7 </yaw-deg>
+    </offsets>
+  </model>
+
+
+	<model>
+		<path>Aircraft/FG-Platypus/Models/instruments/SF_Light/ControlLight.xml</path>		
+
+		<name>brakeset</name>
+		<offsets>
+			<x-m>1.9220</x-m>
+			<y-m>-0.0145</y-m>
+			<z-m>0.04500</z-m>
+		</offsets>
+	</model>
+</PropertyList>

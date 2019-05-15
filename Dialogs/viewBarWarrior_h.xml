@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<name>viewBarWarrior_h</name>
+	<color>
+		<alpha>0.9</alpha>
+	</color>
+
+<nasal>
+		<open>
+			#
+			#/sim/current-view/view-number does not use the view number but consecutive numbers (0..viewCount)
+			#
+			var indices = {};
+			forindex (var i; view.views) {
+				var n = view.views[i].getIndex();
+				indices[n] = i;
+			}
+			
+			var setViewByIndex = func(n) {
+				setprop("/sim/current-view/view-number", indices[n]);
+			}
+			
+			var me = gui.findElementByName(cmdarg(), "PA28Views");
+		</open>
+	</nasal>
+
+    <layout>hbox</layout>
+	<default-padding>1</default-padding>
+  			
+	
+		<layout>hbox</layout>
+				<empty><stretch>1</stretch></empty>
+
+	            
+		<button>
+			<name>101</name>
+			<legend>Cpt</legend>
+			<pref-height>21</pref-height>
+			<pref-width>44</pref-width>
+			<margin>1</margin>
+			<binding>
+				<command>nasal</command>
+				<script>setViewByIndex(101);</script>
+			</binding>
+		</button>
+		<button>
+			<name>0</name>
+			<legend>Pilot</legend>
+			<pref-height>21</pref-height>
+			<pref-width>44</pref-width>
+			<margin>1</margin>
+			<binding>
+				<command>nasal</command>
+				<script>setViewByIndex(0);</script>
+			</binding>
+		</button>		
+		<button>
+			<legend>CoPi</legend>
+			<name>100</name>
+			<pref-height>21</pref-height>
+			<pref-width>44</pref-width>
+			<margin>1</margin>
+			<binding>
+				<command>nasal</command>
+				<script>setViewByIndex(100);</script>
+			</binding>
+		</button>
+		<button>
+			<name>102</name>
+			<legend>IFR</legend>
+			<pref-height>21</pref-height>
+			<pref-width>44</pref-width>
+			<margin>1</margin>
+			<binding>
+				<command>nasal</command>
+				<script>setViewByIndex(102);</script>
+			</binding>
+		</button>
+		
+		<button>
+			<name>1</name>
+			<legend>Front</legend>
+			<pref-height>21</pref-height>
+			<pref-width>44</pref-width>
+			<margin>1</margin>
+			<binding>
+				<command>nasal</command>
+				<script>setViewByIndex(1);</script>
+			</binding>
+		</button>
+
+		
+		<button>
+			<name>7</name>
+			<legend>Heli</legend>
+			<pref-height>21</pref-height>
+			<pref-width>44</pref-width>
+			<margin>1</margin>
+			<binding>
+				<command>nasal</command>
+				<script>setViewByIndex(7);</script>
+			</binding>
+		</button>
+			
+		<button>
+			<name>5</name>
+			<legend>Chase</legend>
+			<pref-height>21</pref-height>
+			<pref-width>44</pref-width>
+			<margin>1</margin>
+			<binding>
+				<command>nasal</command>
+				<script>setViewByIndex(5);</script>
+			</binding>
+		</button>
+
+		<button>
+			<name>103</name>
+			<legend>Rear</legend>
+			<pref-height>21</pref-height>
+			<pref-width>44</pref-width>
+			<margin>1</margin>
+			<binding>
+				<command>nasal</command>
+				<script>setViewByIndex(103);</script>
+			</binding>
+		</button>
+
+
+				
+		<button>
+			<legend>Reset</legend>
+			<pref-height>21</pref-height>
+			<pref-width>44</pref-width>
+			<margin>1</margin>
+			<binding>
+				<command>nasal</command>
+				<script>
+	      		view.resetView();
+	    	  </script>
+			</binding>
+		</button>
+
+		<button>
+			<legend>...</legend>
+			<pref-height>21</pref-height>
+			<pref-width>15</pref-width>
+            <pref-width>10</pref-width>
+			<binding>
+				<command>property-cycle</command>
+				<property>/sim/current-view/heading-offset-deg</property>
+				<value>274</value>
+				<value>324</value>
+				<value>360</value>
+				<value>40</value>
+				<value>95</value>
+				<value>130</value>
+				<value>175</value>
+				<value>220</value>
+			</binding>			
+		</button>
+
+
+<!--
+		<button>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend>X</legend>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+		-->
+		
+</PropertyList>

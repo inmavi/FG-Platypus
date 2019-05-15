@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <version type="int">2</version>
+  <flight-rules type="string">V</flight-rules>
+  <flight-type type="string">X</flight-type>
+  <estimated-duration-minutes type="int">0</estimated-duration-minutes>
+  
+  <destination>
+    <airport type="string">MHTG</airport>
+    <approach type="string">DEFAULT</approach>
+    <runway type="string">02</runway>
+  </destination>
+  <route>
+    
+    
+    <wp>
+      <type type="string">basic</type>
+      <ident type="string">TG017</ident>
+	<alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">7000</altitude-ft>
+      <lon type="double">-87.274833</lon>
+      <lat type="double">14.224500</lat>
+    </wp>
+	<wp n="1">
+      <type type="string">basic</type>
+      <ident type="string">TG015</ident>
+	<alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">6776</altitude-ft>
+      <lon type="double">-87.332667</lon>
+      <lat type="double">14.118167</lat>
+    </wp>
+    <wp n="2">
+      <type type="string">basic</type>
+      <ident type="string">TG014</ident>
+	<alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">6776</altitude-ft>
+      <lon type="double">-87.332667</lon>
+      <lat type="double">14.118167</lat>
+    </wp>
+    <wp n="3">
+      <type type="string">basic</type>
+      <ident type="string">TG013</ident>
+	<alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">6236</altitude-ft>
+      <lon type="double">-87.323500</lon>
+      <lat type="double">14.098333</lat>
+    </wp>
+    <wp n="4">
+      <type type="string">basic</type>      
+      <ident type="string">TG012</ident>
+	<alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">5599</altitude-ft>
+      <lon type="double">-87.304667</lon>
+      <lat type="double">14.077000</lat>
+    </wp>
+    <wp n="5">
+      <type type="string">basic</type>      
+      <ident type="string">TG011</ident>
+	<alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">5294</altitude-ft>
+      <lon type="double">-87.248833</lon>
+      <lat type="double">14.041500</lat>
+    </wp>
+    <wp n="6">
+      <type type="string">basic</type>      
+      <ident type="string">TG010</ident>
+	 <lon type="double">-87.220667</lon>
+      <lat type="double">14.050833</lat>
+    </wp>
+    <wp n="7">
+      <type type="string">runway</type>
+      <approach type="bool">true</approach>
+      <ident type="string">02</ident>
+      <icao type="string">MHTG</icao>
+    </wp>
+  </route>
+</PropertyList>

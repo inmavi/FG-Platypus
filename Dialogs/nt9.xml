@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>nt9</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+	<color>
+		<alpha>1</alpha>
+	</color>
+	
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>1</stretch></empty>
+
+    <text>
+      <label>Taxi Practise</label>
+    </text>
+
+    <empty><stretch>1</stretch></empty>
+
+	<button>
+		<halign>right</halign>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		<key>Esc</key>
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+	</button>
+  </group>
+
+  <hrule/>
+
+  
+	
+	<group>
+			<layout>vbox</layout>			
+			
+			<textbox>
+                    <name>TaxiPractice</name>
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>300</pref-height>
+                    <height>300</height>
+                    <pref-width>480</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>0</top-line>
+                    <property>/sim/tar</property>
+                </textbox>			
+			
+		</group>
+  <hrule/>
+
+
+  <button>
+    <legend>Run</legend>
+    <default>true</default>
+    <key>Esc</key>
+
+    <binding>
+      <command>nasal</command>
+		<script>			  		setprop("/controls/engines/engine/magnetos", 0);
+     setprop("/controls/switches/avionics-master", 0);
+			setprop("/orientation/heading-deg",110);	    	
+			libraries.cleanup();
+			setprop("/environment/weather-scenario", "Core high pressure region");
+fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
+		setprop("/systems/saloft",0);
+		setprop("/systems/bp",1);								setprop("/systems/nora",0);
+		setprop("/sim/freeze/clock",0);
+		var long = -0.1728;
+		var lati = 51.1473;
+		
+	if (getprop("/systems/nbat")== 0) {
+
+	var inc = props.globals.getNode("/systems/starts");
+	inc.setValue(inc.getValue() + 1);
+
+	}
+	if (getprop("/systems/starts") > 321)  {
+
+	logger.screen.red("Electrical systems malfunction,
+engine can not start, please restart on the ground
+and replace your depleted battery", 3);
+
+	}
+
+
+
+	aircraft.teleport(airport = "", runway = "",lat = lati, lon = long, alt = 0,
+		speed = 0, distance = 0, azimuth = 0, glideslope = 0, heading = 120) ;
+	setprop("/controls/gear/brake-parking", 1);
+	davtron803.davtron_flight_time.reset();
+	
+
+
+		</script>
+
+    </binding>
+
+	
+	<binding>
+      <command>dialog-close</command>
+    </binding>
+
+  </button>
+
+
+</PropertyList>

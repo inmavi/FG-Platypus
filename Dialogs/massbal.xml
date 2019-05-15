@@ -1,0 +1,938 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <name>massbal</name>
+    <layout>vbox</layout>
+    <resizable>false</resizable>
+    <modal>false</modal>
+    <draggable>true</draggable>
+	<x>1</x>
+	<y>95</y>	
+
+	
+    <group>
+        <layout>hbox</layout>
+
+        <empty><stretch>true</stretch></empty>
+        <text>
+            <label>Adjust Mass Balance</label>
+        </text>
+        <empty><stretch>true</stretch></empty>
+
+        
+    </group>
+    
+    <hrule/>
+	<!--Fuel data -->
+
+    <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
+                
+        <group>
+            <layout>vbox</layout>
+            <text>
+                <label>Tanks</label>
+                <halign>left</halign>
+            </text>
+		<text>
+                <label></label>
+            </text>
+
+            <text>
+                <label>Left Tank:</label>
+                <halign>left</halign>
+            </text>
+            <text>
+                <label>Right Tank:</label>
+                <halign>left</halign>
+            </text>
+					
+            <text>
+                <label></label>
+            </text>
+        </group>
+
+
+            
+   <group>
+            <layout>vbox</layout>           
+		<group>
+        <layout>hbox</layout>
+        <padding>4</padding>		
+
+    		 <text>
+                <label>Gallons US</label>
+                <halign>left</halign>
+            </text>
+       	</group>
+    <group>
+      <layout>hbox</layout>
+      <default-padding>1</default-padding>
+
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/consumables/fuel/tank/level-gal_us</property>
+          <min>0</min>
+          <max>24</max>
+          <step>-1</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/consumables/fuel/tank/level-gal_us</property>
+          <min>0</min>
+          <max>24</max>
+          <step>-5</step>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+    <input>      
+      <pref-height>30</pref-height>
+	   <pref-width>40</pref-width>
+		<border>1</border>
+      <live>true</live>
+	<halign>right</halign>
+	<min>0</min>
+	<max>24</max>
+      <property>/consumables/fuel/tank/level-gal_us</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>
+
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+		<min>0</min>
+		<max>24</max>
+        <binding>
+          <command>property-adjust</command>
+          <property>/consumables/fuel/tank/level-gal_us</property>
+          <min>0</min>
+          <max>24</max>
+          <step>5</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>        
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/consumables/fuel/tank/level-gal_us</property>
+
+          <min>0</min>
+          <max>24</max>
+          <step>1</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+    
+
+    <group>      
+      <layout>hbox</layout>
+      <default-padding>0</default-padding>
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/consumables/fuel/tank[1]/level-gal_us</property>
+          	<min>0</min>
+        	<max>24</max>
+		<step>-1</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/consumables/fuel/tank[1]/level-gal_us</property>
+		<min>0</min>
+        	<max>24</max>
+		<step>-5</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>  
+
+    <input>      
+      <pref-height>30</pref-height>
+	   <pref-width>40</pref-width>
+	<halign>center</halign>
+	<min>0</min>
+	<max>24</max>
+      <live>true</live>          <property>/consumables/fuel/tank[1]/level-gal_us</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>
+
+    
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+                    <property>/consumables/fuel/tank[1]/level-gal_us</property>          
+		<min>0</min>
+        	<max>24</max>
+		<step>5</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>        
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/consumables/fuel/tank[1]/level-gal_us</property>
+          	<min>0</min>
+        	<max>24</max>
+		<step>1</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+        	<text>
+                <label>22222</label>
+                <halign>left</halign>
+                <format>Totals:    %.1f gal US</format>
+                <live>true</live>
+                <property>/consumables/fuel/total-fuel-gal_us</property>
+            </text>      
+
+  
+  </group>
+            
+        <group>
+            <layout>vbox</layout>
+            <text>
+                <label>Pounds</label>
+                <halign>left</halign>
+            </text>
+            <text>
+                <label>12345</label>
+                <halign>right</halign>
+                <format>%.1f</format>
+                <live>true</live>
+                <property>/consumables/fuel/tank[0]/level-lbs</property>
+            </text>
+            <text>
+                <label>12345</label>
+                <halign>right</halign>
+                <format>%.1f</format>
+                <live>true</live>
+                <property>/consumables/fuel/tank[1]/level-lbs</property>
+            </text>
+            <text>
+                <label>12345</label>
+                <halign>right</halign>
+                <format>%.1f</format>
+                <live>true</live>
+                <property>/consumables/fuel/total-fuel-lbs</property>
+            </text>      
+        </group>
+        
+        <group>
+            <layout>vbox</layout>
+            <text>
+                <label>Kilos</label>
+                <halign>left</halign>
+            </text>
+            <text>
+                <label>12345</label>
+                <halign>right</halign>
+                <format>%.2f</format>
+                <live>true</live>
+                <property>/consumables/fuel/tank[0]/level-kg</property>
+            </text>
+            <text>
+                <label>12345</label>
+                <halign>right</halign>
+                <format>%.2f</format>
+                <live>true</live>
+                <property>/consumables/fuel/tank[1]/level-kg</property>
+            </text>
+            <text>
+                <label>12345</label>
+                <halign>right</halign>
+                <format>%.2f</format>
+                <live>true</live>
+                <property>/consumables/fuel/total-fuel-kg</property>
+            </text>
+        </group>       
+    
+    </group>           
+    
+    <hrule/>
+
+	<!--Pax n Bags-->
+
+    
+      <group>
+        <layout>hbox</layout>
+        <padding>6</padding>
+                
+        <group>
+            <layout>vbox</layout>
+            <text>
+                <label>Loads</label>
+                <halign>left</halign>
+            </text>
+		
+
+            <text>
+                <label>Pilot i. C:</label>
+                <halign>left</halign>
+            </text>
+            <text>
+                <label>CoPilot:</label>
+                <halign>left</halign>
+            </text>
+		  <text>
+                <label>Rear L:</label>
+                <halign>left</halign>
+            </text>
+		  <text>
+                <label>Rear R:</label>
+                <halign>left</halign>
+            </text>
+		  <text>
+                <label>Cargo:</label>
+                <halign>left</halign>
+            </text>
+            <text>
+                <label></label>
+            </text>
+        </group>
+
+
+            
+   <group>
+            <layout>vbox</layout>           
+		<group>
+        <layout>hbox</layout>
+        <padding>4</padding>		
+
+    		 <text>
+                <label>weights in lbs</label>
+                <halign>left</halign>
+            </text>
+       	</group>
+    <group>
+      <layout>hbox</layout>
+      <default-padding>1</default-padding>
+
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight/weight-lb</property>
+          <min>0</min>
+          <max>300</max>
+          <step>-1</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight/weight-lb</property>
+          <min>0</min>
+          <max>300</max>
+          <step>-10</step>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+    <input>      
+      <pref-height>30</pref-height>
+	   <pref-width>40</pref-width>
+		<border>1</border>
+      <live>true</live>
+	<halign>right</halign>
+	<min>0</min>
+	<max>300</max>
+<property>/payload/weight/weight-lb</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>
+
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight/weight-lb</property>
+          <min>0</min>
+          <max>300</max>
+          <step>10</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>        
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight/weight-lb</property>
+          <min>0</min>
+          <max>300</max>
+          <step>1</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+    
+
+    <group>      
+      <layout>hbox</layout>
+      <default-padding>0</default-padding>
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[1]/weight-lb</property>
+          	<min>0</min>
+        	<max>300</max>
+		<step>-1</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[1]/weight-lb</property>
+		<min>0</min>
+        	<max>300</max>
+		<step>-10</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>  
+
+    <input>      
+      <pref-height>30</pref-height>
+	   <pref-width>40</pref-width>
+	<halign>center</halign>
+      <live>true</live>
+	<min>0</min>
+	<max>300</max>
+          <property>/payload/weight[1]/weight-lb</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>    
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[1]/weight-lb</property>
+		<min>0</min>
+        	<max>300</max>
+		<step>10</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>        
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[1]/weight-lb</property>
+          	<min>0</min>
+        	<max>300</max>
+		<step>1</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+	<group>      
+      <layout>hbox</layout>
+      <default-padding>0</default-padding>
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[2]/weight-lb</property>
+          	<min>0</min>
+        	<max>300</max>
+		<step>-1</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[2]/weight-lb</property>
+		<min>0</min>
+        	<max>300</max>
+		<step>-10</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>  
+    <input>      
+      <pref-height>30</pref-height>
+	   <pref-width>40</pref-width>
+	<halign>center</halign>
+      <live>true</live>
+	<min>0</min>
+	<max>300</max>
+          <property>/payload/weight[2]/weight-lb</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>    
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[2]/weight-lb</property>
+		<min>0</min>
+        	<max>300</max>
+		<step>10</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>        
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[2]/weight-lb</property>
+          	<min>0</min>
+        	<max>300</max>
+		<step>1</step>		
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+    <group>
+      <layout>hbox</layout>
+      <default-padding>1</default-padding>
+
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[3]/weight-lb</property>
+          <min>0</min>
+          <max>300</max>
+          <step>-1</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[3]/weight-lb</property>
+          <min>0</min>
+          <max>300</max>
+          <step>-10</step>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    <input>      
+      <pref-height>30</pref-height>
+	   <pref-width>40</pref-width>
+		<border>1</border>
+      <live>true</live>
+	<halign>right</halign>
+	<min>0</min>
+	<max>300</max>
+<property>/payload/weight[3]/weight-lb</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>
+
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[3]/weight-lb</property>
+          <min>0</min>
+          <max>300</max>
+          <step>10</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>        
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[3]/weight-lb</property>
+          <min>0</min>
+          <max>300</max>
+          <step>1</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+    	<group>
+	      <layout>hbox</layout>
+      <default-padding>1</default-padding>
+	<button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[4]/weight-lb</property>
+          <min>0</min>
+          <max>200</max>
+          <step>-1</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[4]/weight-lb</property>
+          <min>0</min>
+          <max>200</max>
+          <step>-10</step>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    <input>      
+      <pref-height>30</pref-height>
+	   <pref-width>40</pref-width>
+		<border>1</border>
+      <live>true</live>
+	<halign>right</halign>
+	<min>0</min>
+	<max>200</max>
+<property>/payload/weight[4]/weight-lb</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>
+      <button>
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[4]/weight-lb</property>
+          <min>0</min>
+          <max>200</max>
+          <step>10</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>        
+        <pref-height>30</pref-height>
+	   <pref-width>25</pref-width>
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+<property>/payload/weight[4]/weight-lb</property>
+          <min>0</min>
+          <max>200</max>
+          <step>1</step>          
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+	
+  
+  </group>
+		
+         <group>
+            <layout>vbox</layout>
+			<padding>2</padding>
+            <text>
+                <label>-----</label>
+                <halign>left</halign>
+				<color>
+					<red>0</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>0</alpha>
+				</color>
+            </text>                
+        </group>
+   
+        <group>
+            <layout>vbox</layout>
+			<padding>2</padding>
+            <text>
+                <label>-----</label>
+                <halign>right</halign>
+				<color>
+					<red>0</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>0</alpha>
+				</color>
+            </text>
+            
+        </group>
+        
+    </group>  
+        
+    
+    <hrule/>
+
+		<layout>vbox</layout>
+
+        	<text>
+               <label>ffffff</label>
+               <halign>left</halign>
+               <format>Gross Weight:  %.1f lbs</format>
+               <live>true</live>
+          	<property>fdm/jsbsim/inertia/weight-lbs</property>
+		</text>
+      
+		<text>
+               <label>22222</label>
+               <halign>left</halign>
+               <format>MTOW: --->  %.1f lbs</format>
+               <live>true</live>
+          		<property>/limits/mass-and-balance/maximum-takeoff-mass-lbs</property> 
+		</text> 
+		<text>
+			
+
+				<color>
+					<red>1</red>
+					<green>1</green>
+					<blue>0</blue>
+					<alpha>1</alpha>
+				</color>
+			<visible>			
+				<greater-than>
+				<property>fdm/jsbsim/inertia/weight-lbs</property>
+<property>limits/mass-and-balance/maximum-takeoff-mass-lbs</property>
+				</greater-than>
+			</visible>
+			   <label>Aircraft is overloaded !</label>               
+		</text> 
+		
+  
+    <hrule/>
+		<text>
+               <label>Check the CG, the POH CG envelope is</label>               
+		</text>
+		<text>
+               <label>between 83 in and 93 in</label>               
+		</text>  
+
+	<hrule/>
+    <group>
+        <layout>hbox</layout>
+        <default-padding>6</default-padding>
+        <empty><stretch>true</stretch></empty>
+
+	  <button>
+            <legend>Pilot Only</legend>
+            <equal>true</equal>
+            <key>Esc</key>
+            <default>true</default>
+		 <binding>
+                <command>nasal</command>
+			<script>
+			setprop("/payload/weight/weight-lb",140);
+			setprop("/payload/weight[1]/weight-lb",0);
+			setprop("/payload/weight[2]/weight-lb",0);
+			setprop("/payload/weight[3]/weight-lb",0);
+			setprop("/payload/weight[4]/weight-lb",0);
+			</script>
+            </binding>            
+        </button>
+	
+
+	  <button>
+            <legend>Default Weights</legend>
+            <equal>true</equal>
+            <key>Esc</key>
+            <default>true</default>
+		 <binding>
+                <command>nasal</command>
+			<script>
+			setprop("/payload/weight/weight-lb",150);
+			setprop("/payload/weight[1]/weight-lb",140);
+			setprop("/payload/weight[2]/weight-lb",150);
+			setprop("/payload/weight[3]/weight-lb",120);
+			setprop("/payload/weight[4]/weight-lb",72);
+			</script>
+            </binding>            
+        </button>
+	
+        <button>
+            <legend>Close</legend>
+            <equal>true</equal>
+            <key>Esc</key>
+            <default>true</default>
+		 <binding>
+                <command>nasal</command>
+			<script>libraries.closeccg();</script>
+            </binding>	
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+
+</PropertyList>

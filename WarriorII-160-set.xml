@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+
+<PropertyList include="WarriorII-main.xml">
+
+	<sim>
+		<description>FG-Platypus(160hp)</description>
+		<flight-model>jsb</flight-model>
+		<aero>WarriorII-160</aero>
+		<variant-of>WarriorII-180</variant-of>
+
+		<model>
+			<path type="string">Aircraft/FG-Platypus/Models/FG-Platypus.xml</path>
+		</model>
+	</sim>
+	
+	<nasal n="0">
+		<specific>
+			<file>Aircraft/FG-Platypus/Nasal/liveries.nas</file>
+		</specific>
+	</nasal>
+
+</PropertyList>

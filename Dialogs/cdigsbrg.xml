@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<name>cdigsbrg</name>    
+<layout>vbox</layout>
+	
+
+<x>746</x>	
+<y>675</y>
+	
+	<group>
+		<layout>hbox</layout>
+						<pref-height>25</pref-height>
+
+
+		<text>
+			<label>Deviations:</label>
+				<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+		<text>
+			<pref-width>77</pref-width>
+				<label>Target</label>
+				<property>instrumentation/nav/radials/target-radial-deg</property>
+				<format>Target  %3.2f    </format>
+				<live>true</live>					
+		</text>
+
+		<text>
+			<pref-width>81</pref-width>
+				<label>actual</label>
+				<property>instrumentation/nav/radials/reciprocal-radial-deg</property>
+				<format> Rezip  %3.2f     </format>
+				<live>true</live>					
+		</text>
+		<text>
+			<pref-width>81</pref-width>
+				<label>actual</label>
+				<property>instrumentation/nav/radials/actual-deg</property>
+				<format> Actual  %3.2f     </format>
+				<live>true</live>					
+		</text>
+
+
+ 
+		<text>
+			<pref-width>75</pref-width>
+				<label>Radial</label>
+				<property>instrumentation/nav/filtered-cdiNAV0-deflection</property>
+				<format> CDI[0]  %3.2f     </format>
+				<live>true</live>					
+		</text>
+
+		<text>
+			<pref-width>75</pref-width>
+				<label>GSDf</label>
+				<property>instrumentation/nav/filtered-gsNAV0-deflection</property>
+				<format> GS[0]  %3.2f     </format>
+				<live>true</live>
+										
+		</text>
+
+		<text>
+			<pref-width>85</pref-width>
+				<label>GS -1000 fpm</label>
+				<property>instrumentation/nav[0]/gs-rate-of-climb-fpm</property>
+				<format>GS %4.0f fpm</format>
+				<live>true</live>
+						
+		</text>			
+
+		
+		
+		<button>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend>X</legend>
+			<keynum>27</keynum>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+		
+		
+	</group>
+</PropertyList>

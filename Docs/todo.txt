@@ -1,0 +1,47 @@
+on approach scenarios and quickstart set altimeter to ap elevation
+
+if presets have airport and runway info or if autopiot/routemanager has destination airport runway info, populate nav1 with frquency and radial of localiser if exist.
+
+fix ground reactions - wheels to deep into runway surface
+
+adjust position of strobes (nonALS) to eliminate those black spots
+
+add FG1000 PFD/MFD to DG Panel and rename Panel to EFIS
+limit the EFIS view to the panel
+Have the panel displayed in browser option or liftout aka canvas 777 or as a web panel
+
+implement autotrim aka existing code (run from button rather then joystick)
+
+fuselage needs windows for applying shades of taints or sim ice
+
+engine needs to be set to reflect poh values, at present speeds and rpm do not match
+
+mass weight settings and or fdm need to be adjusted to reflect reality and or poh values, takeoff, cruise etc way out...
+
+put the cg inside the box (massbalance)currently above due to weird property name
+
+stop radio sound when switching between scenarios
+
+wind instrument for hud
+
+place dme nav1 value into hud (may need to add a 2nd dme for that as the switch only produces data for nav or nav1 ???
+
+-------------------------------------------------------
+clean up xml and nas files
+
+remove redundant and or duplicate code
+
+integrate all scenarios into one single dialog
+
+light up the 803 stopwatch lcd and the battery meter
+
+
+
+
+
+
+
+
+
+
+

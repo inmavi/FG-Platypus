@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+
+<PropertyList>
+
+	<name>qconv</name>
+	<layout>vbox</layout>
+	<pref-width>250</pref-width>
+	<x>57</x>
+	<y>57</y>
+	
+
+
+    <group>
+        <layout>hbox</layout>
+		<color>
+			<alpha>1</alpha>
+		</color>
+
+        <text>
+            <halign>left</halign>
+            <label>Conversions</label>
+				<color>
+					<red>0.1</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+				</color>
+
+        </text>
+		<text>
+				<halign>center</halign>
+				<label>GAL= US, M = meter</label>
+			</text> 
+
+        <button>
+            <halign>right</halign>
+            <pref-width>25</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+	
+		<group>
+			<layout>vbox</layout>
+			
+			<text>
+				<halign>center</halign>
+				<label>FT2M = 0.3048</label>						<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>M2FT = 1 / FT2M</label>
+			</text>
+			
+			<hrule/>
+			
+			<text>
+				<halign>center</halign>
+				<label>IN2M = FT2M / 12 </label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>M2IN = 1 / IN2M</label>
+			</text>
+			
+
+			
+			<hrule/>			
+
+			<text>
+				<halign>center</halign>
+				<label>NM2M = 1852</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>M2NM = 1 / NM2M</label>
+			</text>
+			
+
+			<hrule/>
+
+			<text>
+				<halign>center</halign>
+				<label>FPS2KT = 0.59248380129589</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>KT2FPS = 1 / FPS2KT</label>
+			</text>
+
+			<hrule/>
+
+			<text>
+				<halign>center</halign>
+				<label>NM2FT = 6076.115486</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>FT2NM = 1 / NM2FT</label>
+			</text>
+			
+			<hrule/>
+
+						
+			<text>
+				<halign>center</halign>
+				<label>LB2KG = 0.45359237</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>KG2LB = 1 / LB2KG</label>
+			</text>
+			
+
+			<hrule/>
+						
+			<text>
+				<halign>center</halign>
+				<label>GAL2L = 3.785411784</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>L2GAL = 1 / GAL2L</label>
+			</text>
+
+			<hrule/>
+						
+			<text>
+				<halign>center</halign>
+				<label>GAL2KG = 3.18</label>
+					<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+					</color>
+
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>GAL2LBS = 7</label>
+			</text>
+
+	
+		</group>
+		
+	    <hrule/>
+	
+		<group>
+			<layout>hbox</layout>
+
+			<button>
+				<halign>center</halign>
+				<legend>Formulas</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+				<binding>
+					<command>nasal</command>
+						<script>
+		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "qcalc" }));
+		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "qconv" }));
+					</script>
+				</binding>
+			</button>
+
+			
+			<button>
+				<halign>right</halign>
+				<legend>Close</legend>
+				<pref-width>60</pref-width>
+				<binding>
+					<command>dialog-close</command>
+				</binding>
+			</button>
+		</group>
+	
+</PropertyList>

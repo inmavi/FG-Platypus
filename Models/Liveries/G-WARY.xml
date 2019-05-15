@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>G-WARY</name>
+				<texture>Liveries/G-WARY.png</texture>
+				<reardisc>Liveries/propblur.png</reardisc>
+				<frontdisc>Liveries/propblur.png</frontdisc>
+
+			</livery>
+		</model>
+	</sim>
+</PropertyList>

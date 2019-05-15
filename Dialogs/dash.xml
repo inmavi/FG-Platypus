@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2018 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Control Panel Dialog -->
+
+<PropertyList>
+	
+	<name>dash</name>
+	<layout>hbox</layout>
+	<x>567</x>
+	<y>46</y>		
+
+			<text>
+		<pref-width>75</pref-width>
+				<label>mx</label>
+		<property>controls/engines/engine/mixture</property>
+		
+				<format>Mix: %1.2f </format>
+				<live>true</live>
+				<color>
+					<red>0.9</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>1</alpha>
+				</color>
+			</text><text>
+		<pref-width>75</pref-width>
+				<label>rpm</label>
+		<property>engines/engine/rpm</property>
+				<format>RPM: %4d</format>
+				<live>true</live>
+				<color>
+					<red>0.9</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+
+			
+
+			<text>
+		<pref-width>105</pref-width>
+				<label>fflow</label>
+<property>/engines/engine/fuel-flow-gph</property>
+				<format>FFlow: %2.2f gph</format>
+				<live>true</live>
+				<color>
+					<red>0.9</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+
+			<text>
+			<pref-width>50</pref-width>
+			<label>ias </label>
+			
+         		<visible>
+            			<property>/sim/failure-manager/instrumentation/airspeed-indicator/serviceable</property>
+					<value>true</value>
+         		</visible>
+      		
+				<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+				<format>IAS: %d</format>
+				<live>true</live>
+				<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+			<text>
+			<pref-width>55</pref-width>
+			<label>tas </label>
+			<visible>
+            			<property>/sim/failure-manager/instrumentation/airspeed-indicator/serviceable</property>
+					<value>true</value>
+         		</visible>
+
+				<property>/instrumentation/airspeed-indicator/true-speed-kt</property>
+				<format>TAS: %d</format>
+				<live>true</live>
+				<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+			<text>
+			<pref-width>55</pref-width>
+			<label>gsp </label>
+			<visible>
+            			<property>/sim/failure-manager/instrumentation/airspeed-indicator/serviceable</property>
+					<value>true</value>
+         		</visible>
+
+			<property>/velocities/groundspeed-kt</property>
+				<format>GSP: %d</format>
+				<live>true</live>
+				<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+			<text>
+			<pref-width>65</pref-width>
+			<label>VS </label>
+				<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+				<format>VS: %d</format>
+				<live>true</live>
+				<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+			<text>
+			<pref-width>60</pref-width>
+				<label>  Hdg:</label>
+				<property>orientation/heading-deg</property>
+				<format>Hdg: %d</format>
+				<live>true</live>
+				<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+
+			<text>
+			<pref-width>60</pref-width>
+				<label>  Pitch:</label>
+				<property>orientation/pitch-deg</property>
+				<format>Pitch: %2.1f </format>
+				<live>true</live>
+				<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+			
+						
+			<text>
+			<pref-width>55</pref-width>
+				<label>Roll-deg</label>
+				<property>orientation/roll-deg</property>
+				<format>Roll: %3d</format>
+				<live>true</live>
+				<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+			
+			
+
+
+		<button>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend>X</legend>
+			<keynum>27</keynum>
+			<binding>
+			<command>nasal</command>
+			<script>
+			setprop("/options/dash", 0);			
+			</script>
+		</binding>
+
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+
+
+</PropertyList>

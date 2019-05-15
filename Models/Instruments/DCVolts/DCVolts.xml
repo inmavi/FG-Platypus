@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+  <params>
+    <value>instrumentation/overhead-panel/dc-volt</value>
+  </params>
+
+  <path>DCVolts.ac</path>
+
+    
+  <animation>
+	
+
+    <type>rotate</type>
+    <object-name>Needle</object-name>
+	<emission>
+     			<red>1.0</red>
+   			<green>0.2</green>
+   			<blue>0.0</blue>
+   <factor-prop>/sim/model/material/instruments/factor</factor-prop>
+  		</emission>
+    <property>/systems/electrical/batt-volt</property>
+    <factor>-2.8</factor>
+    <offset-deg>42</offset-deg>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.0148246</z-m>
+    </center>
+  </animation>
+
+	<animation>
+  <type>pick</type>
+  <object-name>Face</object-name>
+<emission>
+     			<red>1.0</red>
+   			<green>0.2</green>
+   			<blue>0.0</blue>
+   <factor-prop>/sim/model/material/instruments/factor</factor-prop>
+  		</emission>
+
+   <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>volts</tooltip-id>
+                <mapping>volts</mapping>
+                <label>Charge: %3d DC V</label>
+                <property>/systems/electrical/batt-volt</property>
+            </binding>
+        </hovered>
+</animation>
+
+
+
+</PropertyList>

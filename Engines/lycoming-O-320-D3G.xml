@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!-- Ron Jenson -->
+
+<piston_engine name="IO320">
+    <minmp unit="INHG">         8.3 </minmp>
+    <maxmp unit="INHG">        28.5 </maxmp>
+    <displacement unit="IN3"> 320.0 </displacement>
+    <maxhp>                   160.0 </maxhp>
+    <cycles>                    4.0 </cycles>
+    <idlerpm>                 600.0 </idlerpm>
+    <maxrpm>                 2700.0 </maxrpm>
+    <maxthrottle>               1.0 </maxthrottle>
+    <minthrottle>               0.1 </minthrottle>
+    <sparkfaildrop>             0.1 </sparkfaildrop>
+    <oil-pressure-rpm-max>     1215 </oil-pressure-rpm-max>
+</piston_engine>

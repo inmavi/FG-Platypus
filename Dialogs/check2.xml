@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- original checklist code by Joshua Davidson (it0uchpods)
+adapted by Gerhard Kick -->
+
+
+
+<PropertyList>
+
+	<name>check2</name>
+	<modal>false</modal>
+  	<width>330</width>
+	<color>
+		<alpha>1</alpha>
+	</color>
+
+
+	<x>1</x>
+	<y>1</y>
+
+	<layout>vbox</layout>
+	
+
+    <group>
+        <layout>hbox</layout>
+        <text>
+            <halign>left</halign>
+            <label>Type:-></label>
+        </text>
+	  <button>
+            <halign>center</halign>
+            <pref-width>43</pref-width>
+            <pref-height>20</pref-height>
+            <legend>Fire</legend>
+            <key>Esc</key>
+            <binding>
+                <command>nasal</command>
+				<script>
+			setprop("/systems/em",1) ;
+			setprop("/systems/emname","efs") ;
+	setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","efs") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/efs") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check2" }));
+					</script>
+            </binding>
+        </button>
+
+	   <button>
+            <halign>center</halign>
+            <pref-width>41</pref-width>
+            <pref-height>20</pref-height>
+            <legend>Pwr</legend>
+            <key>Esc</key>
+            <binding>
+                <command>nasal</command>
+				<script>
+			setprop("/systems/em",3) ;
+			setprop("/systems/emname","plt") ;
+	setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","plt") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/plt") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check2" }));
+					</script>
+            </binding>
+        </button>
+
+		<button>
+            <halign>center</halign>
+            <pref-width>41</pref-width>
+            <pref-height>20</pref-height>
+            <legend>Elec</legend>
+            <key>Esc</key>
+            <binding>
+                <command>nasal</command>
+				<script>
+			setprop("/systems/em",6) ;
+			setprop("/systems/emname","elf") ;
+	setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","elf") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/elf") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check2" }));
+					</script>
+            </binding>
+        </button>
+
+		<button>
+            <halign>center</halign>
+            <pref-width>41</pref-width>
+            <pref-height>20</pref-height>
+            <legend>Eng</legend>
+            <key>Esc</key>
+            <binding>
+                <command>nasal</command>
+				<script>
+			setprop("/systems/em",8) ;
+			setprop("/systems/emname","lop") ;
+	setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","lop") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/lop") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check2" }));
+					</script>
+            </binding>
+		</button>
+
+		<button>
+            <halign>center</halign>
+            <pref-width>41</pref-width>
+            <pref-height>20</pref-height>
+            <legend>AttR</legend>
+            <key>Esc</key>
+            <binding>
+                <command>nasal</command>
+				<script>
+			setprop("/systems/em",13) ;
+			setprop("/systems/emname","spr") ;
+	setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","spr") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/spr") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check2" }));
+					</script>
+            </binding>
+        </button>
+
+        <button>
+            <halign>right</halign>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+
+	
+
+	
+		<group>
+			<layout>vbox</layout>
+			
+			
+			
+			<textbox>
+                    <name>efs</name>
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>570</pref-height>
+                    <pref-width>240</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>0</top-line>
+                    <property>/sim/efs</property>
+                </textbox>			
+			
+		</group>
+		
+	    <hrule/>
+	
+		<group>
+			<layout>hbox</layout>
+			
+			<button>
+				<halign>left</halign>
+				<legend>Previous</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+				<enable>
+					<greater-than>	
+					<property>systems/em</property>
+<value>1</value>
+					</greater-than>
+				</enable>
+
+				<binding>
+					<command>nasal</command>
+					<script>
+    var che = props.globals.getNode("/systems/em");
+	che.setValue(che.getValue() - 1);
+
+		if (getprop("/systems/em")== 1 ) {
+		setprop("/systems/emname","efs") ;
+	setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","efs") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/efs") ;
+		}
+
+		if (getprop("/systems/em")== 2 ) {
+		setprop("/systems/emname","fif") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","fif") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/fif") ;
+		}
+
+if (getprop("/systems/em")== 3 ) {
+		setprop("/systems/emname","plt") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","plt") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/plt") ;
+		}
+if (getprop("/systems/em")== 4 ) {
+		setprop("/systems/emname","plf") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","plf") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/plf") ;
+		}
+if (getprop("/systems/em")== 5 ) {
+		setprop("/systems/emname","pol") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","pol") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/pol") ;
+		}
+if (getprop("/systems/em")== 6 ) {
+		setprop("/systems/emname","elf") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","elf") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/elf") ;
+		}
+if (getprop("/systems/em")== 7 ) {
+		setprop("/systems/emname","elo") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","elo") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/elo") ;
+		}
+if (getprop("/systems/em")== 8 ) {
+		setprop("/systems/emname","lop") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","lop") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/lop") ;
+		}
+if (getprop("/systems/em")== 9 ) {
+		setprop("/systems/emname","hot") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","hot") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/hot") ;
+		}
+if (getprop("/systems/em")== 10 ) {
+		setprop("/systems/emname","lfp") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","lfp") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/lfp") ;
+		}
+if (getprop("/systems/em")== 11 ) {
+		setprop("/systems/emname","enr") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","enr") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/enr") ;
+		}
+if (getprop("/systems/em")== 12 ) {
+		setprop("/systems/emname","cic") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","cic") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/cic") ;
+		}
+if (getprop("/systems/em")== 13 ) {
+		setprop("/systems/emname","spr") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","spr") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/spr") ;
+		}
+
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check2" }));
+
+					</script>
+				</binding>
+			</button>
+
+			<button>
+				<halign>center</halign>
+				<legend>Next</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+
+				<enable>
+					<not-equals>	
+					<property>systems/em</property>
+<value>13</value>
+					</not-equals>
+				</enable>
+				<binding>
+					<command>nasal</command>
+					<script>
+    var che = props.globals.getNode("/systems/em");
+	che.setValue(che.getValue() + 1);
+
+		if (getprop("/systems/em")== 1 ) {
+		setprop("/systems/emname","efs") ;
+	setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","efs") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/efs") ;
+		}
+
+		if (getprop("/systems/em")== 2 ) {
+		setprop("/systems/emname","fif") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","fif") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/fif") ;
+		}
+
+if (getprop("/systems/em")== 3 ) {
+		setprop("/systems/emname","plt") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","plt") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/plt") ;
+		}
+if (getprop("/systems/em")== 4 ) {
+		setprop("/systems/emname","plf") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","plf") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/plf") ;
+		}
+if (getprop("/systems/em")== 5 ) {
+		setprop("/systems/emname","pol") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","pol") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/pol") ;
+		}
+if (getprop("/systems/em")== 6 ) {
+		setprop("/systems/emname","elf") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","elf") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/elf") ;
+		}
+if (getprop("/systems/em")== 7 ) {
+		setprop("/systems/emname","elo") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","elo") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/elo") ;
+		}
+if (getprop("/systems/em")== 8 ) {
+		setprop("/systems/emname","lop") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","lop") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/lop") ;
+		}
+if (getprop("/systems/em")== 9 ) {
+		setprop("/systems/emname","hot") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","hot") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/hot") ;
+		}
+if (getprop("/systems/em")== 10 ) {
+		setprop("/systems/emname","lfp") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","lfp") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/lfp") ;
+		}
+if (getprop("/systems/em")== 11 ) {
+		setprop("/systems/emname","enr") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","enr") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/enr") ;
+		}
+if (getprop("/systems/em")== 12 ) {
+		setprop("/systems/emname","cic") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","cic") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/cic") ;
+		}
+if (getprop("/systems/em")== 13 ) {
+		setprop("/systems/emname","spr") ;			setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","spr") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/spr") ;
+		}
+
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check2" }));
+
+					</script>
+				</binding>
+			</button>
+
+			<button>
+				<halign>center</halign>
+				<legend>C-Procs</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+				<binding>
+					<command>nasal</command>
+						<script>
+		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check1" }));
+		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
+					</script>
+				</binding>
+			</button>
+
+			<button>
+				<halign>right</halign>
+				<legend>Close</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+				<binding>
+					<command>dialog-close</command>
+				</binding>
+			</button>
+
+		</group>
+	
+</PropertyList>

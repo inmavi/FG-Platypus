@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2018 Joshua Davidson (it0uchpods) -->
+
+
+<PropertyList>
+	
+	<name>speedo</name>
+	<layout>hbox</layout>
+	<x>645</x>
+	<y>604</y>			
+
+
+			<text>
+			<pref-width>50</pref-width>
+
+			<label>ias </label>
+			
+         		<visible>
+            			<property>/sim/failure-manager/instrumentation/airspeed-indicator/serviceable</property>
+					<value>true</value>
+         		</visible>
+      		
+				<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+				<format>IAS: %d</format>
+				<live>true</live>
+				<color>
+					<red>1</red>
+					<green>1</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>				
+			
+
+</PropertyList>

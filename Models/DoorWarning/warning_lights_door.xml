@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--adapted from the Velocity-->
+<PropertyList>
+
+<path>warning_lights_door.ac</path>
+
+<animation>
+  <type>select</type>
+  <object-name>LampDoorOn</object-name>
+  <condition>
+    <and>
+      <property>/systems/electrical/outputs/oat</property>
+      <or>
+        <property>fdm/jsbsim/extra/door-main-cmd</property>        
+      </or>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>LampDoor</object-name>
+  <condition>
+    <or>
+      <not><property>/systems/electrical/outputs/oat</property></not>
+      <not><or>
+        <property>fdm/jsbsim/extra/door-main-cmd</property>
+      </or></not>
+    </or>
+  </condition>
+</animation>
+
+</PropertyList>
+

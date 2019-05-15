@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<name>dpresets</name>
+
+
+    <layout>vbox</layout>
+	<x>474</x>
+	<y>0</y>	
+	<group>
+		<layout>hbox</layout>
+		<pref-height>25</pref-height>
+
+	
+		<text>			
+			
+			<label>th</label>
+			<pref-width>65</pref-width>
+				<pref-height>25</pref-height>
+
+<property>controls/engines/engine/throttle</property>
+				<format>Thr:   %1.2f </format>
+				<live>true</live>
+				<color>
+					<red>0.9</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>1</alpha>
+				</color>			
+		</text>
+				
+		<slider>
+                <name>throttle-slider</name>
+                <min>0</min>
+                <max>1</max>
+			<step>0.10</step>
+                <live>true</live>       
+                <property>/controls/engines/engine/throttle</property>
+                <binding>
+                    <command>dialog-apply</command>
+                </binding>
+            </slider>
+	
+		
+
+
+
+		<text>
+			<label>Alt-Select:</label>
+			<color>
+					<red>0.2</red>
+					<green>0.9</green>
+					<blue>0.4</blue>
+					<alpha>1</alpha>
+				</color>
+
+
+		</text>
+
+
+		<group>
+			<layout>hbox</layout>
+
+			<button>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<legend>&lt;</legend>
+				
+				<binding>
+					<condition>
+						<greater-than-equals>
+							   <property>it-autoflight/input/alt</property>
+
+							<value>250</value>
+						</greater-than-equals>
+					</condition>
+					<command>property-adjust</command>
+					   <property>it-autoflight/input/alt</property>
+
+
+					<step>-250</step>
+				</binding>
+			</button>
+			<input>
+				<height>24</height>
+				<pref-width>52</pref-width>
+				<halign>left</halign>
+				   <property>it-autoflight/input/alt</property>
+
+
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live type="bool">true</live>
+			</input>
+			<button>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<legend>&gt;</legend>
+				<binding>
+					<condition>
+						<less-than>
+							   <property>it-autoflight/input/alt</property>
+
+
+							<value>12250</value>
+						</less-than>
+					</condition>
+					<command>property-adjust</command>
+					   <property>it-autoflight/input/alt</property>
+
+
+					<step>250</step>
+				</binding>
+			</button>
+		</group>
+
+		<button>			
+			<name>AR</name>
+			<legend>Arm</legend>				
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<enable>
+				<not>			
+					<property>systems/ro</property>		
+				</not>	
+			</enable>	
+			<binding>
+				<command>nasal</command>
+				<script>
+				kap140.btnARM();
+				</script>
+			</binding>	
+		</button>	
+
+
+		<text>
+			<label> DH:</label>
+				<color>
+					<red>0.2</red>
+					<green>0.9</green>
+					<blue>0.4</blue>
+					<alpha>1</alpha>
+				</color>
+
+
+
+		</text>
+
+
+		<group>
+			<layout>hbox</layout>
+			<button>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<legend>&lt;</legend>
+				<binding>
+					<condition>
+						<greater-than>
+							   <property>instrumentation/radar-altimeter/decision-height</property>
+
+							<value>0</value>
+						</greater-than>
+					</condition>
+					<command>property-adjust</command>
+					   <property>instrumentation/radar-altimeter/decision-height</property>
+					<step>-50</step>
+					</binding>
+					
+					<binding>
+					<command>property-assign</command>
+					   <property>systems/walt</property>
+<property>instrumentation/radar-altimeter/decision-height</property>
+				</binding>
+				<binding>
+   <command>property-adjust</command>
+   <property>/systems/walt</property>
+   <step>200</step>
+  				</binding>
+
+			</button>
+			<input>
+				<pref-height>24</pref-height>
+				<pref-width>43</pref-width>
+				<halign>left</halign>
+				   <property>instrumentation/radar-altimeter/decision-height</property>
+
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live type="bool">true</live>
+			</input>
+			<button>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<legend>&gt;</legend>
+				<binding>
+					<condition>
+						<less-than>
+							   <property>instrumentation/radar-altimeter/decision-height</property>
+
+							<value>999</value>
+						</less-than>
+					</condition>
+					<command>property-adjust</command>
+					   <property>instrumentation/radar-altimeter/decision-height</property>
+
+					<step>50</step>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					   <property>systems/walt</property>
+<property>instrumentation/radar-altimeter/decision-height</property>
+				</binding>
+				<binding>
+   <command>property-adjust</command>
+   <property>/systems/walt</property>
+   <step>200</step>
+  				</binding>
+
+			</button>	
+		</group>
+
+		<text>
+			<label> MBA:</label>
+			<color>
+					<red>0.2</red>
+					<green>0.9</green>
+					<blue>0.4</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+
+		<group>
+			<layout>hbox</layout>
+			<button>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<legend>&lt;</legend>
+				<binding>
+				<condition>
+						<greater-than>
+						<property>it-autoflight/settings/bank-limit</property>
+							<value>5</value>
+						</greater-than>
+					</condition>						
+					<command>property-adjust</command>
+					   <property>it-autoflight/settings/bank-limit</property>
+					<step>-5</step>
+				</binding>			
+
+			</button>
+			<input>
+				<pref-height>20</pref-height>
+				<pref-width>32</pref-width>
+				<halign>left</halign>
+				   <property>it-autoflight/settings/bank-limit</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live type="bool">true</live>
+			</input>
+			<button>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<legend>&gt;</legend>
+				<binding>
+					<condition>
+						<less-than>
+							   <property>it-autoflight/settings/bank-limit</property>
+							<value>75</value>
+						</less-than>
+					</condition>
+					<command>property-adjust</command>
+					   <property>it-autoflight/settings/bank-limit</property>
+					<step>5</step>
+				</binding>
+				
+
+			</button>	
+		</group>
+
+<text>
+			<label>Flight Time:</label>
+			<color>
+					<red>0.9</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+				</color>
+
+		</text>
+
+
+<text>
+		<label>00:00</label>
+		<halign>center</halign>
+		<live>true</live>
+		<property>/instrumentation/davtron803/flight-time</property>
+		
+	</text>
+
+
+		<button>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend>X</legend>
+			<keynum>27</keynum>
+			<binding>
+			<command>nasal</command>
+			<script>
+			setprop("/options/prs", 0);			
+			</script>
+		</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+		
+		
+	</group>
+</PropertyList>

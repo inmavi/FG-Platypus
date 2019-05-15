@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>nt5</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+	<color>
+		<alpha>1</alpha>
+	</color>
+	
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>1</stretch></empty>
+
+    <text>
+      <label>Night IFR</label>
+    </text>
+
+
+	<button>
+		<halign>right</halign>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		<key>Esc</key>
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+	</button>
+  </group>
+
+  <hrule/>
+
+  <group>
+    <layout>table</layout>
+    <default-padding>5</default-padding>
+
+    <text>
+      <row>0</row>
+      <col>1</col>
+      <halign>right</halign>
+      <label>Airport:</label>
+    </text>
+      
+
+    <input>
+      <row>0</row>
+      <col>2</col>
+      <width>55</width>
+      <height>25</height>
+      <live>true</live>
+      <property>/nt/airport-id</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>    
+
+
+    <text>
+      <row>1</row>
+      <col>1</col>
+      <halign>right</halign>
+      <label>Runway:</label>
+    </text>
+
+      
+     
+    <input>
+      <row>1</row>
+      <col>2</col>
+      <width>55</width>
+      <height>25</height>
+      <live>true</live>
+      <property>/nt/runway</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>       
+   </group> 
+
+  <hrule/>
+	
+	<group>
+			<layout>vbox</layout>			
+			
+			<textbox>
+                    <name>TakeoffPractice</name>
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>300</pref-height>
+                    <height>300</height>
+                    <pref-width>480</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>0</top-line>
+                    <property>/sim/nfl</property>
+                </textbox>			
+			
+		</group>
+  <hrule/>
+
+
+  <button>
+    <legend>Run</legend>
+    <default>true</default>
+    <key>Esc</key>
+
+    <binding>
+      <command>nasal</command>
+		<script>
+			setprop("/controls/engines/engine/magnetos", 0);
+     setprop("/controls/switches/avionics-master", 0);
+
+			libraries.cleanup();
+					setprop("/systems/bp",1);				
+			var apid = getprop("/nt/airport-id");
+			var rwid = getprop("/nt/runway");
+
+
+	setprop("/controls/electrical/battery", 0);
+     	setprop("/controls/electrical/alternator", 0);
+  	setprop("/controls/switches/avionics-master", 0);
+  	setprop("/controls/engines/engine[0]/magnetos-switch", 1);
+  	setprop("/controls/switches/fuel-pump", 0);
+  	setprop("/controls/engines/engine/throttle", 0);
+  	setprop("/controls/engines/engine/mixture", 0);  	
+	setprop("/controls/switches/panel-lights-factor", 0);
+	setprop("/controls/switches/nav-lights", 0);
+	setprop("/controls/switches/nav-lights-factor", 0);
+	setprop("/controls/switches/strobe-lights", 0);  	
+	setprop("/sim/hud/visibility[1]", 0);
+	setprop("/systems/vbo", 0);
+	setprop("/systems/saloft", 0);
+	setprop("/systems/fl", 1);
+	setprop("/controls/flight/flaps", 0.0);
+	setprop("/systems/nonav1",0);
+	setprop("/systems/nonav2",0);
+	setprop("/systems/trm",0);
+	
+
+	aircraft.teleport(airport = apid, runway = rwid);
+		</script>
+    </binding>
+	<binding>
+	<command>timeofday</command>
+	<timeofday>midnight</timeofday>
+  </binding>
+		<binding>
+                <command>nasal</command>
+				<script>
+				    var delay = 6;
+    settimer(func {
+          		
+
+			setprop("/systems/checklist",1) ;
+			setprop("/systems/clname","ces") ;
+	setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","ces") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/ces") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check1" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check1" }));
+		    }, delay);
+
+					</script>
+
+            </binding>
+
+
+	<binding>
+      <command>dialog-close</command>
+    </binding>
+
+  </button>
+
+</PropertyList>

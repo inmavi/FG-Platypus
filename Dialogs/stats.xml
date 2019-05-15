@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<name>stats</name>
+	<modal>false</modal>
+  	<width>410</width>
+	<x>0</x>
+	<y>62</y>
+	
+    <layout>vbox</layout>  
+	<default-padding>2</default-padding>
+			<font>
+		<name>HELVETICA_12</name>
+	</font>
+	<color>
+		<red>0</red>
+		<green>0</green>
+		<blue>0</blue>
+		<alpha>0.9</alpha>
+	</color>
+
+
+    <group>
+		<layout>hbox</layout>
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+		<text>
+			<label>Flight Data and Statistics</label>
+		</text>
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+		<button>
+			<color>
+				<red>0.5</red>
+				<green>0.5</green>
+				<blue>0.5</blue>
+				<alpha>0.8</alpha>
+			</color>	
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend>X</legend>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+	<hrule/>
+
+	
+	<group>
+		<layout>table</layout>
+		<name>fn_alt</name>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>FNR</label>
+			<property>systems/data/total-use</property>
+				<format> Flight Number: %s</format>		
+		</text>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>ac</label>
+			<property>sim/aircraft</property>
+				<format> Aircraft: %s</format>		
+		</text>
+
+
+		<text>
+		<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label> Mode: GPS/RM</label>			
+				
+			<visible>
+										
+						<property>autopilot/route-manager/active</property>
+					
+						
+				</visible>		
+		</text>
+
+		<text>
+		<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label> Mode: Non GPS</label>			
+				
+			<visible>
+				<not>							
+						<property>autopilot/route-manager/active</property>
+					</not>						
+				</visible>		
+		</text>
+
+
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>alt</label>
+<property>sim/airport/closest-airport-id</property>
+				<format> Closest APt: %s</format>
+				<live>true</live>
+				<color>
+				<red>0.5</red>
+				<green>0.5</green>
+				<blue>0.5</blue>
+				<alpha>0.8</alpha>
+			</color>	
+		</text>
+		
+</group>
+	<hrule/>
+
+<group>
+<layout>table</layout>
+<name>noAp</name>
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>Departure</label>
+		<property>sim/presets/airport-id</property>	
+				<format> Departure:    %s</format>
+				<live>false</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+				</visible>
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>dRwy</label>		
+<property>sim/presets/runway</property>
+				<format> Runway:      %s</format>
+				<live>false</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+				</visible>
+
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>Arr</label>
+<property>sim/airport/closest-airport-id</property>
+				<format> Arrival: %s</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+				</visible>
+		</text>
+
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>Departure</label>
+<property>/autopilot/route-manager/departure/airport</property>
+				<format> Departure:    %s</format>
+				<live>false</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>											<property>autopilot/route-manager/active</property>					
+				</visible>
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>dRwy</label>		
+<property>autopilot/route-manager/departure/runway</property>
+				<format> Runway:      %s</format>
+				<live>false</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>											<property>autopilot/route-manager/active</property>					
+				</visible>
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>Arr</label>
+<property>autopilot/route-manager/destination/airport</property>
+				<format> Arrival: %s</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>											<property>autopilot/route-manager/active</property>					
+				</visible>
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>aRwy</label>
+<property>autopilot/route-manager/destination/runway</property>
+				<format> Rwy: %s</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>											<property>autopilot/route-manager/active</property>					
+				</visible>
+		</text>
+		
+</group>
+	<hrule/>
+
+<group>
+<layout>table</layout>
+<name>data</name>
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>TOT</label>
+				<property>systems/takeoff</property>
+				<format> Takeoff:    %s</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+			
+
+		<text>
+			<halign>left</halign>
+			<row>6</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>Fuelburn</label>
+				<property>consumables/fuel/total-fuel-used-gal_us</property>
+				<format>Fuel used: %2.3f gal US</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Flown</label>
+				<property>/instrumentation/gps/trip-odometer</property>
+				<format> Flown:        %1.1f nm</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>rem</label>							<property>/autopilot/route-manager/distance-remaining-nm</property>
+				<format>Rem: %1.1f nm</format>
+				<live>true</live>
+
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>											<property>autopilot/route-manager/active</property>					
+				</visible>
+		</text>
+<!--
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>rem</label>
+							<property>/autopilot/route-manager/distance-remaining-nm</property>
+
+				<format>Rem: %1.1f nm</format>
+				<live>true</live>
+
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+				</visible>
+		</text>
+				-->	
+		<text>
+			<halign>left</halign>
+			<row>5</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ete</label>
+				<property>/Aircraft/PA28-Warrior/Dialogs/etwatch/display</property>
+				<format>ETE Dest: %s</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>
+					
+						<property>autopilot/route-manager/active</property>
+					
+				</visible>
+		</text>
+<!--
+		<text>
+			<halign>left</halign>
+			<row>5</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ete</label>
+				<property>/Aircraft/PA28-Warrior/Dialogs/etwatch/display</property>
+				<format>ETE Dest: %s</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+				</visible>
+		</text>
+-->
+
+		<text>
+			<halign>left</halign>
+			<row>5</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>air </label>
+			<property>/instrumentation/davtron803/flight-time</property>
+				<format> Flighttime: %s mm:ss hh:mm</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+<!--
+				<visible>											<property>autopilot/route-manager/active</property>
+				</visible>
+-->
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>5</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>air </label>
+			<property>/Aircraft/PA28-Warrior/Dialogs/ftwatch/display</property>
+				<format> Flighttime: %s</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+				<visible>
+					<not>											<property>autopilot/route-manager/active</property>
+					</not>
+				</visible>
+		</text>
+
+
+		<text>
+			<halign>left</halign>
+			<row>6</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>tofuel </label>
+			<property>/consumables/fuel/total-fuel-gal_us</property>
+				<format>       Fuel:   %2.3f gal US</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>		
+
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>tdt</label>
+				<property>systems/landed</property>
+				<format>Landed: %s</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>		
+
+	</group>
+	
+	<hrule/>
+
+	<!-- stats -->	
+
+	<group>
+		<layout>table</layout>
+		<name>stats</name>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>90</pref-width>
+			<margin>1</margin>
+				<label> Statistics excluding current flight --> </label>								
+					
+		</text>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>90</pref-width>
+			<margin>1</margin>
+<label>aft</label>		
+		<property>Aircraft/PA28-Warrior/Dialogs/accft/display</property>
+				<format>Time Accrued: %s</format>
+				<live>false</live>
+				<color>
+					<red>0.1</red>
+					<green>0.9</green>
+					<blue>0.1</blue>
+					<alpha>1</alpha>
+				</color>
+
+		</text>			
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>Tofs</label>
+	<property>systems/data/takeoffs</property>
+				<format>Takeoffs:        %d</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>TotalL</label>
+	<property>systems/data/landings</property>
+				<format>Landings:       %d</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+			<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>oof</label>
+	<property>systems/data/nof</property>
+				<format>Out of Fuel:   %d</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+			<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>abort</label>
+	<property>systems/data/aborted</property>
+				<format>Grounded:     %d</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+			<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>abort</label>
+	<property>systems/data/lost</property>
+				<format>Suspended:   %d</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+
+
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>TotalU</label>
+	<property>systems/data/total-use</property>
+				<format>Sessions:      %d</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+			<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>2</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>kaput</label>
+	<property>systems/data/rip</property>
+				<format>Crashes: %d</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+			</text>
+
+			
+		
+	</group>
+	
+	<hrule/>
+
+	<!-- Reset  -->
+
+	<group>
+		<layout>table</layout>
+		<name>admin</name>		
+
+		<button>
+			<row>0</row>
+			<col>0</col>
+			<name>4</name>
+			<legend>Reset Stats</legend>
+			<pref-height>20</pref-height>
+			<pref-width>110</pref-width>
+			<margin>1</margin>
+			<keynum>27</keynum>
+			<border>2</border>
+				<visible>
+			
+					<property>gear/gear/wow</property>
+			
+				</visible>	
+			<binding>
+				<command>nasal</command>
+					<script>libraries.statsreset();
+				setprop("/instrumentation/hobbs-meter/seconds",0);
+</script>
+			</binding>
+		</button>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>			
+			<label>F3 - Save Image</label>
+				<color>
+					<red>0.9</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>1</alpha>
+				</color>
+
+		</text>
+
+		<button>
+			<row>0</row>
+			<col>2</col>
+			<name>124</name>
+			<legend>Close</legend>
+			<pref-height>20</pref-height>
+			<pref-width>60</pref-width>
+			<margin>1</margin>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+
+		</button>		
+		
+	</group>
+
+</PropertyList>
+

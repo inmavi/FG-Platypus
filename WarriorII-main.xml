@@ -1,0 +1,1977 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods)/GK -->
+
+<PropertyList>
+	
+	<sim include="Systems/pa28-views.xml">
+
+		
+		<author>Gerhard Kick, Joshua Davidson (it0uchpods) and many others</author>
+		
+		<model>
+		<immat>Winzi1612</immat>
+		</model>
+		
+		<rating>
+			<FDM type="int">4</FDM>
+			<systems type="int">5</systems>
+			<cockpit type="int">4</cockpit>
+			<model type="int">4</model>
+		</rating>
+		<minimum-fg-version>2017.3</minimum-fg-version>
+
+
+		<tags>
+            <tag>ga</tag>
+            <tag>piper</tag>
+            <tag>piston</tag>
+            <tag>single-engine</tag>
+            <tag>fixed-gear</tag>
+		 <tag>Nav-Trainer</tag> 	
+        	</tags>
+		
+		<hud>
+			<path n="1">Aircraft/FG-Platypus/Huds/PA161HUD.xml</path>
+			<path n="2">Aircraft/FG-Platypus/Huds/FGN.xml</path>
+			<path n="4">Aircraft/FG-Platypus/Huds/ICAO.xml</path>
+			<path n="3">Aircraft/FG-Platypus/Huds/default.xml</path>
+			<path n="5">Aircraft/FG-Platypus/Huds/gps.xml</path>
+
+			<visibility n="1" type="bool">false</visibility>
+			<font>
+				<gui>
+					<name type="string">HELVETICA_12</name>
+					<size type="float">8</size>
+				</gui>
+			</font>
+			<palette>
+				<color n="0">
+					<alpha>1</alpha> 
+					<brightness>1</brightness>      	
+					<red type="float">255</red>
+					<green type="float">255</green>
+					<blue type="float">255</blue>
+				</color>
+				<color n="2">
+					<alpha>1</alpha> 
+					<brightness>1</brightness>             
+					<red type="float">0.9</red>
+					<green type="float">0</green>
+					<blue type="float">0</blue>
+				</color>
+
+				<color n="3">
+					<alpha>1</alpha>
+					<brightness>1</brightness>              
+					<red type="float">0.6</red>
+						<green type="float">0.4</green>
+					<blue type="float">0.2</blue>
+				</color>
+			</palette>
+		</hud>
+
+		<flaps>
+			<setting>0.00</setting>
+			<setting>0.25</setting>
+			<setting>0.50</setting>
+			<setting>1.00</setting>
+		</flaps>
+
+		
+<!-- Default livery -->
+            <livery>
+                <name type="string">"D-WARY"</name>
+            </livery>
+
+		
+  <help>
+   <title>FG-Platypus Navigator</title>
+	
+	
+<line/>
+
+      <line></line>
+      <line>Start Routine</line>
+      <line> 1. fuel on most full tank ("j" toggles selector on left side)</line>
+      <line> 2. all toggles OFF</line>
+      <line> 3. battery master switch to ON ("!" toggles battery master switch)</line>
+      <line> 4. alternator master switch to ON ("@" toggles battery master switch)</line>
+      <line> 5. electric fuel pump ON ("#" toggles fuel pump switch)</line>
+	<line> 6. magnetos to both("}" three times)</line>
+	 <line> 7. set mixture to full ("m" advance lever)</line>
+	 <line> 8. set throttle to 20%</line>
+      <line> 9. primer pump three times,("P") then lock</line>
+      <line> 10. "CLEAR PROP"</line>
+      <line> 11. key to start ("s" engages starter)</line>
+      <line> 12. pitot heat ON if IFR ("*" toggles pitot heat switch)</line>
+      <line>13. lights as required</line>
+      <line>14. turn on avionics master ("%"</line>
+      
+ <line/> 
+
+
+      <line>All switches and controls can be operated via "hot-spots"</line>	
+      <line/>
+      <line>Type Ctrl-C to display mouse "hot-spots"</line>
+      <line/>
+      <line>Press Shift K to view hot-keys</line>
+	<line/>
+	 <line>Checklists can be displayed from the Warrior Menu</line>
+	<line/>
+<line>Instructions on how to start in the air are found under the practise</line>
+<line>approaches option of the Warrior menu.</line>	 
+  <line/>
+<line>Navigational Info is contained under HowTo</line>	 
+ <line/> 
+  <line>Trouble - Check out General Settings Doco</line>	 
+ <line/> 
+  <line>For additional resources checkout the FG Forum</line>	 
+  <line/>   
+   
+      
+  </help>		
+
+		<panel>
+			<visibility archive="y">false</visibility>
+		</panel>
+		
+		<startup>
+			<splash-texture>Aircraft/FG-Platypus/Splash/splash1.png</splash-texture>			
+		</startup>
+		
+		<previews>			
+			<preview>
+				<type>n1</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash1.png</path>
+			</preview>
+			<preview>
+				<type>n2</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash2.png</path>
+			</preview>	
+			<preview>
+				<type>n3</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash3.png</path>
+			</preview>						
+			<preview>
+				<type>n4</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash4.png</path>
+			</preview>			
+			<preview>
+				<type>n5</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash5.png</path>
+			</preview>				
+			<preview>
+				<type>n9</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash9.png</path>
+			</preview>							
+		</previews>
+
+	
+
+	
+		<systems>
+			<electrical>
+				<path></path>
+			</electrical>
+			<autopilot n="0">
+				<path>Aircraft/FG-Platypus/Systems/it-autoflight.xml</path>
+			<serviceable type="bool">true</serviceable>
+
+			</autopilot>
+			<autopilot n="1">
+				<path>Aircraft/FG-Platypus/Systems/libraries.xml</path>
+			</autopilot>
+			<autopilot n="2">
+				<path>Aircraft/FG-Platypus/Systems/zoom-views.xml</path>
+			</autopilot>	
+		
+		
+
+		</systems>	
+	
+    <property-rule n="105">
+        <path>Aircraft/FG-Platypus/Systems/pax.xml</path>
+    </property-rule>
+
+        <!-- Enable the ALS shadow volume by default -->
+        <rendering>
+            <shadow-volume type="bool">true</shadow-volume>
+        </rendering>
+		
+		<menubar include="systems/pa28-menubar.xml"/>
+		
+		<sound>
+			<path>Aircraft/FG-Platypus/Pa28-sound.xml</path>
+		</sound>
+		
+		<chase-distance-m type="double" archive="y">-15.0</chase-distance-m>
+
+		
+		<sound>
+			<volume>0.9</volume>
+		</sound>
+		
+		<multiplay>
+			<chat_display>1</chat_display>
+			<generic>
+				<bool n="0" alias="/options/wheel-fairing"/>
+				<float n="0" alias="/gear/gear[0]/compression-m"/>
+				<float n="1" alias="/gear/gear[1]/compression-m"/>
+				<float n="2" alias="/gear/gear[2]/compression-m"/>
+				<float n="3" alias="/fdm/jsbsim/fcs/steer-deg"/>
+				<float n="4" alias="/fdm/jsbsim/extra/door-main-norm"/>
+				<string alias="/sim/multiplay/callsign"/>
+				<float n="5" alias="/fdm/jsbsim/fcs/aileron-deg"/>
+				<float n="6" alias="/fdm/jsbsim/fcs/elevator-deg"/>
+				<float n="7" alias="/fdm/jsbsim/fcs/elevator-tab-deg"/>
+				<float n="8" alias="/fdm/jsbsim/fcs/rudder-deg"/>
+				<string alias="/sim/multiplay/callsign"/>
+			</generic>			
+		</multiplay>
+		
+		<flight-recorder include="Systems/flight-recorder.xml"/>
+
+		
+		
+		<gui n="0" include="Systems/it-gui.xml"/>
+
+
+		<current-view>
+			<z-offset-dec-step type="double">0.0</z-offset-dec-step>
+			<z-offset-inc-step type="double">0.0</z-offset-inc-step>
+			<can-change-z-offset type="bool">false</can-change-z-offset>
+			
+			<z-offset-default type="float">30.0</z-offset-default>
+			<z-offset-min-m type="float">5.0</z-offset-min-m>
+			<z-offset-max-m type="float">200.0</z-offset-max-m>
+		</current-view>
+
+		<spec>
+  Vne (never exceed).....160 KIAS
+  Vno (max. cruise)..........126 KIAS
+  Vfe (max. flaps).............103 KIAS
+  Va (maneuvering).........111 KIAS (2440 lb)-88 KIAS (1531 lb)
+  Vs (clean stall)................50 KIAS
+  Vso (flaps stall)...............44 KIAS
+  Vglide (best glide)..........73 KIAS
+  Vx (best climb angle).....63 KIAS
+  Vy (best climb rate)........79 KIAS
+  Enroute climb....................87 KIAS
+  Approach (no flaps)........70 KIAS
+  Approach (full flaps).......63 KIAS
+
+  Cruise (75%, 8000 ft): 124 KTAS (107 KIAS)
+  Cruise (55%, 8000 ft): 103 KTAS (89 KIAS)
+
+  Take off.............................full Throttle
+  Climb..................................full Throttle
+  75% power at 8,000 ft......2665 rpm
+  75% power at 4,000 ft......2570 rpm
+  75% power at sea level....2480 rpm
+  55% power at 12,000 ft....2470 rpm
+  55% power at 8,000 ft......2375 rpm
+  55% power at 4,000 ft......2285 rpm
+  55% power at sea level....2195 rpm
+</spec>
+
+<kbindings>
+ Config                                           Lights                                        Dialogs                                         Autopilot
+----------------------        -------------------           -------------------             ------------------------
+
+  !  - Toggle Battery Switch              Ctrl-p Cycle Panel Light              ? - Display Help                            F9 - Open ITAF
+
+ @ - Toggle Alternator Switch          Ctrl-l Cycle Cabin Light              F5 - Performance Data                    F11 - Toggle AP on//off
+
+  # - Toggle Fuel Pump                    $ - Toggle Landing Light              k - Display Map                            Ctrl-a Lock Altitude
+ 
+ P - Toggle Primer Pump                  tba - Toggle Nav Lights                r - Show Route Manager               Ctrl-h Toggle Roll/Hdg mode
+
+ s - Activate Starter                         S - Toggle Strobe Lights             w - Show AC Config                     Ctrl-n Set Nav mode
+ 
+ * - Toggle Pitot Heat                      Ctrl-b Toggle Beacon Light           Ctrl-s Show Flight Stats                 Ctrl-g Arm Glide Slope
+
+% - Toggle Avionics Switch             Ctrl - d Daylight Setting                D - Show Dash Bar                       Ctrl-w Invoke Roll Mode
+ 
+u - Toggle Carburetor Heat              n - Midnight Setting                     K - Show Shortcut Keys                 Shift-n Toggle Nav/GPS Modes
+ 
+g - Reset Radar Altimeter                 l - cycle Flashlight                       R - Set Rego/Callsign
+ 
+d - Open/Close Door
+
+C - Show Presets Config                   
+
+
+</kbindings>
+
+
+<bank>
+
+Standard Rate of turn = 3 degrees per second regardless of speed - the variable being the bank angle. A 180 degree turn will take 1 minute, a full 360 degree circle will take 2 minutes.
+
+To determine the bank angle either:
+
+Divide the airspeed by 10 and add 7
+e.g. Airspeed = 120 knots / 10 + 7 = Bank angle of 19 degrees
+or Rule of thumb simply divide TAS by 15
+e.g.Airspeed=120 knots / 15 = Bank angle of 18 degrees
+
+Standard Rate of Turn Calcs:
+
+Rule of thumb for small heading change:
+The bank angle should be less or equal to the number of heading degree change required.
+
+ROT =( Constant (1091) x tangent of bank angle)/airspeed
+The tangent of 18 degrees = 0.3249 ...Calculator handy ?
+e.g. 1091 x 0.3249/120 = 2.95 degrees per second
+
+Radius of Turn Calcs
+R = Airspeed squared /( 11.26 x Tangent of Bank Angle)
+e.g. 120knots squared = 14400, Tangent of 20 degrees = 0.3639
+	_14400 / (11.26 x 0.3639) = 3514 feet
+
+Assume the bank angle were 30 degrees the calc would return
+Tangent of 30 degrees = 0.5773
+	_14400 / (11.26 x 0.5773) = 2115 feet
+
+Assume bank angle at 30 degrees and airspeed 90 knots
+Airspeed squared = 8100
+	_8100 / (11.26 x 0.5773) = 1246 feet
+
+The higher the speed the greater the radius
+For more info consult the FAA handbooks.
+Note: Steepening the turn results in a higher stall speed !    
+...
+
+</bank>
+
+        
+
+	<procs>
+->
+->
+RACETRACK PATTERN
+->
+Fly 2 minutes straight and level and reduce speed to holding speed
+Turn 180 degrees to the right, rollout on the reciprocal of the original heading
+Time a 1 minute straight and level flight, then perform another 180 degree turn to the right and roll out on the original heading.
+Fly 1 minute on the original heading so that the inbound leg will be 1 minute as well.
+->
+->
+45 DEGREE PROCEDURE TURN
+->
+Fly outbound for 3 minutes
+Turn left by 45 degrees, time the leg for 40 seconds
+Turn 225 degrees to the right (standard turn rate)
+Align with the reciprocal of the original heading
+->
+->
+TEARDROP
+->
+Stabilize outbound
+Option A
+Turn left 30 degrees and time 1 minute
+Turn right 210 degrees and align with the final heading
+Option B
+Turn left 20 degrees and time 2 minutes
+Turn right 200 degrees and align with the final heading
+Option A
+Turn left 10 degrees and time 3 minutes
+Turn right 190 degrees and align with the final heading
+->
+->
+CIRCLING APPROACH
+->
+2 minutes out from the runway reduce speed to approach speed
+Make a 45 degree standard turn to the left, once rolled out time 45 seconds
+Immediately turn to the orignal heading,flying parallel to the runway and fly this leg for 1 minute lowering flaps
+Turn right a 180 degrees rolling out on the reciprocal of the orignal heading
+Enter a 500 fpm descent and once the decent is complete -
+enter a straight constant speed climb retracting flaps
+>
+Note: All procedures require wind correction!
+->
+80/260 PROCEDURE TURN
+->
+->
+Identify the approach procedure fix
+Fly from the procedure fix 2 minutes
+Turn left 80 degrees
+At completion of the turn immediately 
+turn left 260 degrees
+Roll out on the reciprocal of the 
+entry heading
+->
+->
+->
+
+</procs>
+
+<!-- normal checklist data textboxes -->
+
+<preflight>
+	Preflight
+	
+	Control Wheel - release belts
+	Avionics Master - OFF
+	Parking Brake - set
+	Electric Switches - OFF (except beacon)
+	Magneto Switch - OFF
+	Mixture - idle cut off
+	Master Switch - ON
+	Fuel Quantity Gauges - check
+	Master Switch - OFF
+	Flight Controls - free and correct
+	Flaps - check
+	Trim - check, set
+	Pitot Drain - drain, close
+	Static Drain - drain, close
+	Windows - check, clean
+	Tow bar - stow
+	Baggage - stowed and secure
+	Master Switch - ON
+	Cockit Lighting - check
+	Nav, Landing and Strobe Lights - check
+	Stall warning - check
+	Pitot Heat - check
+	All Switches - OFF (except beacon)
+	Passengers - board
+	Cabin Door - close and secure
+	Belts/Harnesses - fasten - check reel
+	</preflight>
+
+	<bes>
+	Before Starting Engine
+
+		Weight and Balance - check
+
+		Parking Brake - set
+
+		Carburetor Heat - OFF
+
+		Fuel Selector - desired tank
+
+		Avionics Master - OFF
+
+		Circuit Breakers - check
+
+	</bes>
+
+	<ces>
+	Cold Engine Start
+
+
+		Throttle - 1/4 inch open
+
+		Master Battery Switch - ON
+
+		Alternator Switch - On
+
+		Electric Fuel Pump - test then OFF
+
+		Mixture - full rich
+
+		Magnetos - set to both
+
+		Primer - x 3 and lock
+
+		Starter - engage
+
+		Throttle - adjust for 1100 RPM
+
+		Oil Pressure - check, green
+
+		If engine does not start within 10 seconds, prime and repeat
+	</ces>
+
+	<hes>
+	Hot Engine Start
+
+
+		Throttle - 1/2 inch open
+
+		Master Battery Switch - ON
+
+		Alternator Switch - ON
+
+		Electric Fuel Pump - test then OFF
+
+		Mixture - full rich
+
+		Magnetos - set to both
+
+		Primer - x 3 and lock
+
+		Starter - engage
+
+		Throttle - adjust for 1100 RPM
+
+		Oil Pressure - check, green
+</hes>
+
+	<fes>
+
+	Flooded Engine Start
+
+			
+		Throttle - open full
+
+		Master Battery Switch - ON
+
+		Alternator Switch - ON
+
+		Electric Fuel Pump - test then OFF
+
+		Mixture - idle cut off
+
+		Magnetos - set to both
+
+		Primer - x 3 and lock
+
+		Starter - engage
+
+		Mixture - advance
+
+		Throttle - adjust for 1100 RPM
+
+		Oil Pressure - check, green
+
+
+	</fes>
+
+	<wup>
+	Warm Up
+
+		Mixture - lean for taxi
+
+		Throttle - adjust for 1100 RPM
+
+		Exterior Lights - as required
+
+		Avionics Master - ON
+
+		Check ATIS
+
+		Set Altimeter
+
+		Set Heading Bug to Runway Heading
+
+		Transponder - ALT and check code
+</wup>
+
+	<tax>
+	Taxi
+
+		Chocks - removed
+
+		Taxi Area - clear
+
+		Brakes - check
+
+		Throttle - applied slowly
+
+		Steering - check
+</tax>
+
+	<grc>
+Ground Check
+
+	Parking Brake - set
+	Mixture - rich
+	Fuel Selector - switch tanks ?
+	Throttle - adjust for 2000 RPM
+	Magnetos - check L and R
+	Max drop 175 RPM, Max difference 50 RPM
+	Vacuum - 5.0 Hg +/- 0.1 Hg
+	Oil Temp - check, green
+	Oil Pressure - check, green
+	Ammeter - verify output
+	Carburetor Heat - ON
+	Electric Fuel Pump - OFF
+	Fuel Pressure - check, green
+	Carburetor Heat - OFF
+	Throttle - adjust for 1100 RPM
+</grc>
+	
+<bto>
+Before Takeoff
+
+	Master Battery Switch - ON
+	Alternator Switch - ON
+	Seat Backs - erect
+	Controls - free and correct
+	Flight Instruments - set, check
+	Fuel Selector - desired tank
+	Electric Fuel Pump - ON
+	Engine Gauges - check, green
+	External Lights - as required
+	Carburetor Heat - OFF
+	Mixture - rich
+	Primer - Locked
+	Belts and Harnesses - fastened/adjusted
+	Empty Seats - loose articles secured
+	Flaps - set
+	Trim - set
+	Radios and Transponder - set
+	Doors and Windows - latched
+</bto>
+	
+<nto>
+Normal Takeoff
+
+
+	Flaps - set as required
+
+	Trim - set
+
+	Brake - release
+
+	Throttle - advance to full
+
+	Accelerate to 45 to 55 (K)IAS
+
+	Control Wheel - back pressure as required
+</nto>
+
+<shfo>
+Short Field, Obstacle Clearance
+
+
+	Flaps - second notch
+
+	Trim - set
+
+	Brake - release
+
+	Throttle - advance to full
+	(alternatively revv up before brake release)
+
+	Accelerate to 52 (K)IAS
+
+	Control Wheel - back pressure as required
+
+	Maintain 52 KIAS until obstacle clearance
+
+	Retract flaps SLOWLY, then accilerate to 79 KIAS
+</shfo>
+
+<shfn>
+Short Field, No Obstacle
+
+
+	Flaps - 0 (retracted)
+
+	Trim - set
+
+	Brake - release
+
+	Throttle - full
+
+	Accelerate to 50 KIAS
+
+	Control Wheel - back pressure as required
+
+	After lift off, accelerate to 79 KIAS
+</shfn>
+
+<sofo>
+Soft Field, Obstacle Clearance
+
+
+	Flaps - (second notch)
+
+	Trim - set
+
+	Brake - release
+
+	Throttle - full
+
+	Accelerate and lift off nose gear as soon as possible
+
+	Lift off a lowest possible airspeed
+
+	Accelerate just above ground to 52 KIAS to climb past obstacle, then climb at Vy pitch.
+
+	Retract flaps SLOWLY, then acceleate to 79 KIAS
+</sofo>
+
+<sofn>
+Soft Field, No Obstacle
+
+
+	Flaps - (second notch)
+
+	Trim - set
+
+	Brake - release
+
+	Throttle - full
+
+	Accelerate and lift off nose gear as soon as possible
+
+	Lift off a lowest possible airspeed
+
+	Accelerate just above ground to 52 KIAS, then climb at Vy pitch
+
+	Retract flaps SLOWLY, then accelerate to 79 KIAS
+</sofn>					
+
+<clb>
+Climb
+
+
+Flaps - 0 (retracted)
+
+Landing Light - OFF
+
+Best Climb Rate (flaps 0) - 79 KIAS
+
+Best Climb Angle (flaps 0) - 63 KIAS
+
+Engine Parameters - check
+
+Enroute Climb - 87 KIAS
+
+Electric Fuel Pump - OFF at desired altitude
+
+External Lights - as desired
+</clb>
+
+<crs>
+Cruise
+
+
+	Reference performance charts and Acvo-Lycoming Operator's Manual
+
+	Normal Max Power - 75%
+
+	Power - set per power table
+
+	Mixture - adjust
+</crs>
+
+<des>
+Descent
+
+
+	Throttle - 2500 RPM
+
+	Airspeed - 126 KIAS max
+
+	Mixture - rich
+
+	Carburetor Heat - ON if required
+
+	Altimeter - set QNH
+
+	Radios set - check
+</des>
+
+<apl>
+Approach and Landing
+
+
+	Winds - check
+
+	Fuel Selector - desired tank
+
+	Seat Backs - erect
+
+	Belts and Harnesses - fasten/adjust
+
+	Electric Fuel Pump - ON
+
+	Mixture - set
+
+	External Lights - as desired
+
+	Flaps - set - 103 KIAS max
+
+	Trim to 70 KIAS
+
+	Final Approach Speed (flaps 40) - 63 KIAS
+</apl>
+
+<ste>
+Stopping Engine
+
+
+	Flaps - (0) retract
+
+	Throttle - adjust for 1800 RPM
+
+	Electric Fuel Pump - OFF
+
+	External Lights and Electrical Equipment - OFF (except beacon)
+
+	Transponder - OFF
+
+	Avionics Master - OFF
+
+	Throttle - adjust for 1100 RPM
+
+	Mixture - idle cut off
+
+	Magnetos - OFF (when prop stops)
+
+	Master Battery Switch - OFF
+
+	Alternator Switch - OFF
+</ste>
+
+<pkg>
+Parking
+
+
+	Control Wheel - secure with belts
+
+	Flaps - 0 (retracted)
+
+	Wheel Chocks - in place
+
+	Tie Downs - secure
+</pkg>
+
+<!-- emergency checklist data -->
+
+<efs>
+Engine Fire During Start
+
+
+	Attempt to extinguish the fire by:
+
+	Mixture - idle cut off
+
+	Throttle - open
+
+	Electric Fuel Pump - OFF
+
+	Fuel Selector - OFF
+
+	Abandon airplane if fire continues
+</efs>
+
+<fif>
+Fire In Flight
+
+Source of Fire - check
+
+	Electrical Fire (smoke in cabin):
+
+		Master Battery Switch - OFF
+
+		Alternator Switch - OFF
+
+		Vents - open
+
+		Cabin Heat - OFF
+
+		Land as soon as practical
+
+
+	Engine Fire:
+
+		Fuel Selector - OFF
+
+		Throttle - closed
+
+		Mixture - idle cut off
+
+		Electric Fuel Pump - OFF
+
+		Heating - OFF
+
+		Defroster - OFF
+
+		Proceed with power off landing procedure
+</fif>					
+
+<plt>
+Engine Power Loss During Takeoff
+
+
+	If sufficient runway remains for a normal landing, land straight ahead
+
+	If insufficient runway remains: Maintain safe airspeed, make only shallow turns to avoid obstructions
+
+	Flaps as situation requires, if sufficient altitude gained to attempt restart: Maintain safe airspeed
+
+	Fuel Selector - switch to tank containing fuel
+
+	Electric Fuel Pump - ON
+
+	Mixture - rich
+
+	Carburetor Heat - ON
+
+	Primer - locked
+
+	If power is not regained, proceed with power off landing
+</plt>
+
+<plf>
+Engine Power Loss In Flight
+
+
+	Fuel Selector - switch to tank containing fuel
+
+	Electric Fuel Pump - ON
+
+	Mixture - rich - Carburetor - ON
+
+	Engine Gauges - for indication of cause of power loss
+
+	Primer - locked
+
+	If no fuel pressure is indicated, check tank selector position to be sure it is on a tank containing fuel
+
+When power is restored:
+
+	Carburetor Heat - OFF
+
+	Electric Fuel Pump - OFF
+
+If power is not restored, prepare for power off landing, trim for 73 KIAS				
+</plf>
+
+<pol>
+Power Off Landing
+
+
+	Locate suitable field, establish spiral pattern
+
+	1000ft above field at downwind, position for normal landing approach
+
+	When field can easily be reached, slow to 63 KIAS for shortest landing
+
+	Touchdowns should normally be made at lowest possible airspeed with full flaps
+
+When committed to landing:
+
+	Ignition - OFF
+
+	Master Battery Switch - OFF
+
+	Alternator Switch - OFF
+
+	Fuel Selector - OFF
+
+	Mixture - idle cut off
+
+	Belts and Harnesses - tight
+
+
+BEST GLIDE SPEED: 73 KIAS
+</pol>
+
+<elf>		
+Electrical Failures
+
+
+	Note: When operating with light electrical load and a fully charged battery,
+
+	Alternator Inop light may illuminate due to minimal alternator output.
+
+	If the alternator is functional, a slight increase in electrical load should extinguish the Inop indication.
+
+	ALT annunciator light illuminated:
+
+		Ammeter - check to verify inop, alternator
+
+		If ammeter shows zero:
+
+		ALT Switch - OFF
+
+		Reduce electrical loads to minimum
+
+		ALT Circuit Breaker - check and reset as required
+
+If power not restored:
+
+	ALT Switch - OFF
+
+	If alternator output cannot be restored, reduce electrical loads and land as soon as practical
+
+	The battery is the only remaining source of electrical power.
+</elf>
+
+
+<elo>		
+Electrical Overload
+
+
+(Alternator over 20 amps above known electrical load)
+
+	Electrical Load - reduce
+
+	If alternator loads are not reduced:
+
+	ALT Switch - OFF
+
+	Land as soon as practical. Battery is the only remaining source of power
+
+	Anticipate complete electrical failure
+</elo>
+
+<lop>		
+Loss of Oil Pressure
+
+
+Land as soon as possible and investigate cause
+
+Prepare for power off landing
+</lop>					
+		
+
+<hot>				
+High Oil Temperature
+
+
+Land at nearest airport and investigate the problem
+
+Prepare for power off landing
+</hot>
+
+<lfp>					
+Loss Of Fuel Pressure
+
+
+Electric Fuel Pump - ON
+
+Fuel Selector - check on fullest tank
+
+Prepare for engine failure
+</lfp>
+
+<enr>
+Engine Roughness
+
+
+Carburetor Heat - ON
+
+
+If roughness continues after one (1) minute:
+
+
+Carburetor Heat - OFF
+
+Mixture - adjust for maximum smoothness
+
+Electric Fuel Pump - >ON
+
+Fuel Selector - switch tanks
+
+Engine Gauges - check
+
+Magneto Switch - L then R then both
+
+If operation is satisfactory on either one,continue on that magneto at reduced power and full rich mixture at first airport
+</enr>
+
+<cic>
+Carburetor Icing
+
+
+Carburetor Heat - ON
+
+Mixture - adjust for maximum smoothness
+
+Descend to lower altitude
+</cic>				
+
+
+
+
+<spr>					
+Spin Recovery
+
+
+Throttle - idle
+
+Ailerons - neutral
+
+Rudder - full opposite to direct of rotation
+
+Control Wheel - full forward
+
+Rudder - neutral (when rotation stops)
+
+Control Wheel - as required to smoothly regain level flight attitude
+</spr>
+
+<tpr>
+Takeoff Practise
+
+You set the scene by nominating your airport and desired runway. You can select a short or long runway, with or without obstacle clearance or perhaps a soft field for different types of take offs. Check out the relevant checklist.
+To start the engine just press s and release the brakes when in takeoff config.
+
+You can use the wind simulator to set a headwind, tail or crosswind. After a few secs airborne the sim will pause and display your takeoff stats with the option to continue flying or to reset the craft to the runway with the engine running to repeat the takeoff as often as you wish.
+
+You can also test take off performance using airports at sea or high altitude to see the impact of air density and also can experiment with different load and CG configurations.
+Please bear in mind that some of the functionality is still experimental and work in progress,
+</tpr>
+
+<tar>
+
+Taxi 2 Taxi
+
+Ground Navigation at times may require a little practise for one to keep the aircraft on the yellow centreline and also to finding your way on an unfamiliar airport.
+
+Here s a challenge for the expert starting off cold n dark
+...
+Nice big airport, taxi ways marked and wide runways at EGKK starting at park position VIP2.
+Set the heading bug to runway hdg 257, start the engine and turn to heading 50
+turn right onto taxiway Y, contine on Y and turn left twice, turn left after the red white blastwall, line up with the runway between the tower on the right and the Vasi on the left.
+Once on the runway full throttle, take off and maintain heading of 257. After a couple of minutes turn around and descend to runway 8L and taxi back to the original park position.
+If all over the place like a drunk, press 5 to straighten up from time to time.
+--------------------------------------
+For additional practise you can use the StartAtParkPos quickstart command file in the QuickStarts folder
+
+
+</tar>
+
+<sap>
+Select Approach
+
+Nominate your airport of choice, runway, altitude and distance from the airport and click on run.
+The aircraft will be positioned at your nominated location in a frozen state to allow you to set relevant nav frequencies, adf etc.
+Once you press p to unpause, the engine will be running and the autopilot set to heading mode.
+Now you can fly an ILS approach, practise going down the glide slope using VASI or PAPi or turn the autopilot off and go down VFR style.
+Navigation options are 2 CDIs, or the HSI, NDB, Compass or the autopilot in Nav and subsequent Approach mode.
+
+For detailed info and other command line scenarios refer to the Approach documentation 
+</sap>
+
+<pat>
+Patterns
+
+This is a hardcoded scenario placing you above and short of London EGKK to perform standard patterns and procedures like teardrop,  racetrack, 45 degree turn, 80/260 procedure turn etc. 
+
+Check out the procedures primer from the menu.
+
+Naturally one can replicate this scenario at any other airport depending on available radio facilities. For this scenario the localizer frequency/radial and the frequency/radial of the reciprocal are preset
+
+Click the Run button to continue...
+</pat>
+
+<mapp>
+Way below the MAP but coming in too high, yet the instructions are to initiate a missed approach which deviates slightly from the approach chart.
+The localiser frequency is preset to VOR TNT R018, note the station is roughly two miles in front of the runway.
+Once you unpause and the aircraft gets settled, level off, apply full throttle and retract the flaps. (or just click the Hobbs!)
+Climb out on VOR TNT R008 at 500fpm target 6500 ft (Hold)
+At 6nm DME outbound turn left and intercept radial 198 to return to the station.
+Cross the VOR and at DME 7nm outbound initiate a procedure turn to the right heading 240 and fly the leg for 40 seconds then turn left to heading 060 and intercept radial 018, then maintain heading 20
+Once at DME 7nm inbound descend at 650 fpm, throttle at 0.55
+Once over the last hill flaps out notches based on speed, throttle gradually to idle
+Press the Run button to proceed...
+</mapp>
+
+<rnav>
+Toncontin (MHTG) airport located in Honduras offers some challenging approaches, RNAV RNP inclusive.
+In order to simulate RNAV in Flightgear, there are some prerequisites as outlined in the details document. Click the Details button below to view.
+
+
+
+
+IMPORTANT !
+Please adhere strictly to the sequence of steps once frozen aloft:
+1. Load the route (RNAV_MHTG_02 located in the aircrafts Resource folder) - 2. unpause, - 3. then Activate the route and close the dialog, 4. change the NavSource to GPS (blue button)and 5. place the autopilot in Nav Mode 
+Enjoy !
+</rnav>
+
+
+<nfl>
+Night-IFR
+
+Well, there are little or no visual reference points at all. As such sole reliance on instruments.
+
+The aircraft will be positioned on the runway and airport of your choice with the flashlight illuminating parts of the panel.
+Press Shift ! to turn on the battery followed by Ctrl L to turn on the panel lights.Proceeed with the cold and dark routine or choose a panel  state from the IT Config menu.
+
+You might wish to try a short island hop in the Caribic or an inter airport shuttle aka Paris Orly to Charles De Gaulle...
+
+Switch to daylight by pressing Ctrl d
+
+</nfl>
+
+<cdi>
+CDI and GS Failure
+
+Enroute to PHNL Honolulu runway 8L, about 10nm away from the fix lining you up with the runway, a simultaneous malfunction of both Nav1 and Nav2 occurs.
+
+You can resort to either GPS or NDB or a combination of both as there are plenty of fixes and NDBs in close vicinity. You might want to loose some altitude.....
+
+You can either go VFR or if a chart is handy perhaps an NDB approach !
+
+Press Run to get started
+</cdi>
+
+<efl>
+Engine Failure
+
+The aircraft is sitting cold and dark at runway 13L at Moorabbin YMMB
+Prepare a flightplan including YMMB SID  and YMML STAR to transfer the aircraft to Melbourne International YMML, runway 16 and parkposition tba by ground control.
+Prescribed cruise altitude is 4500ft, set your relevant parameters and takeoff.
+
+Enroute for some reason your engine will fail, check out nearest airports, do the numbers and decide on a course of action to bring the aircraft down safely.
+Point Cook might be a possible alternative airport given the altitude ? Consult the Power Off Landing Checklist(section PWR) - best glidespeed 73 KIAS
+
+Click the Run button to proceed, good luck !
+</efl>
+
+<flp>
+Flaps Failure
+
+This short trip starts off at EDNY (Friedrichshafen)runway 24. The city was the home of both the Zeppelin as well as Dornier until the end of WWI. Due to postwar restrictions production was shifted across Lake Constanz to Altenrhein LSZR in Switzerland.
+
+Add the passengers weight each 150lbs and fill the tanks.
+Start the engine for warm up, set the altimeter to 1362 ft und use the routemanager to define the route from EDNY 24 to LSZR 28R, default approach, NO SID, activate and close.
+
+If AC Config is disabled, press w to display, turn on the HUD if not on and place a check into GPS slaves Nav and close.
+
+Press Shift I until only the GPS Leg info appears top left. The bearing is your heading and the CDI of VOR1 shows the way.
+
+Start, takeoff, place the autopilot in HDG mode, climb to 3500ft and hold following the changing bearing adjusting for winds.
+Use the DG and VOR1 or the HSI to stay on course...(You can also use the map as a visual aid.
+
+Between the approach 5 and 4 waypoints you are in Austrian airspace and a few minutes later in Switzerland.
+
+
+Start your decent at  wp 28R12, runway elevation LSZR 1306ft, pretty much the same as departure, soft and short runway 1974ft and to make your day the flaps do not move.  Good luck!
+nb. If you climb higher then 3500ft you might get an engine fail as well, in which case you may need to divert to an alternate airport.
+</flp>
+
+<wnds>
+Switching to Basic Weather Mode for this flight.
+
+This will allow programmed wind scenarios and or give you the choice to nominate your own wind settings to experiment with
+various head, tail and crosswind scenarios.
+
+You will have stable wind conditions up to 10000ft as the standard layer interpolation will kick in at that level.
+To retain the default wind config just click the Cancel button.
+
+To return to normal basic or detailed or live weather settings, choose Weather from the Environment menu or simply restart.
+
+You can invoke this mode anytime from the Menu or by pressing W
+</wnds>
+
+<whsi>
+Stay the course
+
+Starting 40nm out of eham rwy 36r at about 3000ft airspeed 100kt
+altimeter is set to eham elevation 30.36
+
+VOR1 is set to EHAM VOR/DME SPL 108.4 02, standby set to localiser frequency of rwy 36r 111.95 02
+
+VOR2 is set to 111.95 02 as well, ADF is tuned to station NV 332
+
+Panel is set to HSI config, if not familar with the HSI, you may want to check out the HSI Primer section in the Fundamentals.pdf (page 48)
+
+Once you click the run button W A I T for the splash to clear then you need to allow manual weather config, just click OK to close the dialog.
+
+Press p to unpause and fly this without the autopilot or in heading mode
+
+Apply wind correction angles as needed using the HSI.
+
+</whsi>
+
+<dev>
+Deviation to alternate airport and losing altitude by way of circling.
+
+At times circling may be an reasonable option to shed some altitude within a limited radius.
+
+In this scenario the aircraft will be ready for you on runway 31 of LFMQ.
+
+Your destination is LFMC 09. Prepare you flightplan, take off, climb to 6000ft and hold. Speed at your discretion.
+
+Await further instructions from ATC.
+
+Click Run to proceed when ready...
+
+</dev>
+
+<cirtxt>
+ATC advises LFMC is closed due to fog and ILS outage, please divert to LFMN runway 04R passing over Saint Tropez (STP) VOR/DME 116.5 108
+LFMN Locator 110.7 44  NDB NC 338
+
+On passage of the STP VOR switch to the Localizer frequency and intercept bearing 44 of the localiser
+
+At DME 12nm out perform a 360 degree standard right hand turn at a vertical speed of -500fpm and on roll out on 46 immediately perform another 360 degree left turn and proceed to LFMN on bearing 45 holding your altitude once rolling out.
+Approach straight in visual going down manually or use the autopilot.
+After landing review your flight history in the map
+
+Press p to continue...
+</cirtxt>
+
+<alp>
+The aircraft has been stripped of unnessary weight to optimise climb performance.
+
+Plan a direct flight taking you from Innsbruck (LOWI) runway 08 to BOZEN (LIPB) runway 01. 
+As you need to cross the alps you will find the valley to narrow to buildup sufficient altitude.
+One option is to fly out to the Absam NDB turning back to the Innsbruck NDB prior to turning to the heading taking you straight to your destination. (Bearing from GPS)
+As altitude increases reduce pitch to maintain stable airspeed and adjust mixture accordingly.(or use auto mix in IT-Config)
+If you have not enough altitude near the rocks turn back to LOWI runway 26 and try again with a full load.
+(Restore weights after the flight in the Mass Balance Dialog)
+
+Click Run to proceed
+</alp>
+
+
+		<aircraft-data>
+			<path>sim/model/immat</path>
+			<path>sim/model/livery/name</path>
+
+<path>/sim/model/equipment/ground-services/fuel-truck/enable</path>
+<path>/sim/model/equipment/ground-services/kr87-windhud/enable</path>
+
+			<path>limits/warnings-enabled</path>
+			<path>sim/bindings/menu/binding[10]/dialog-name</path>
+			<path>/fdm/jsbsim/inertia/pointmass-weight-lbs[0]</path>
+            <path>/fdm/jsbsim/inertia/pointmass-weight-lbs[1]</path>
+            <path>/fdm/jsbsim/inertia/pointmass-weight-lbs[2]</path>
+            <path>/fdm/jsbsim/inertia/pointmass-weight-lbs[3]</path>
+            <path>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</path>
+			            <path>/fdm/jsbsim/inertia/pointmass-weight-lbs[5]</path>
+
+  			
+			<path>systems/walt</path>
+			<path>systems/autofuel</path>
+			<path>systems/vbo</path>
+			<path>systems/nbat</path>
+			<path>systems/welcome-enabled</path>
+			<path>systems/fuel/selected-tank</path>
+			<path>controls/fuel-selector</path>
+			<path>engines/engine/egt-bug</path>
+			<path>consumables/fuel/tank/level-gal_us</path>
+			<path>consumables/fuel/tank[1]/level-gal_us</path>
+			<path>controls/flight/auto-coordination</path>  
+			<path>systems/data/total-use</path> 
+			<path>systems/data/landings</path>
+			<path>systems/starts</path>
+			<path>systems/data/takeoffs</path>
+			<path>systems/data/nof</path> 
+			<path>systems/data/aborted</path>	
+			<path>systems/data/cra</path>
+			<path>systems/data/rip</path>
+			<path>systems/data/lost</path>
+			<path>systems/data/acc-flight-secs</path> 
+			<path>systems/sqt/sq</path>       
+			<path>instrumentation/radar-altimeter/decision-height</path>
+			<path>/instrumentation/nav[0]/radials/selected-deg</path>
+			<path>/instrumentation/kcs55/ki525/selected-course-deg</path>
+
+			<path>instrumentation/comm[0]/volume</path>
+			<path>instrumentation/comm[0]/frequencies/selected-mhz</path>
+			<path>instrumentation/comm[0]/frequencies/standby-mhz</path>
+			<path>instrumentation/comm[0]/test-btn</path>
+			<path>instrumentation/nav[0]/audio-btn</path>
+			<path>instrumentation/nav[0]/power-btn</path>
+			<path>instrumentation/nav[0]/volume</path>
+			<path>/instrumentation/davtron803/bot-mode</path>
+			<path>/instrumentation/davtron803/top-mode</path>            
+
+			<path>instrumentation/nav[0]/frequencies/selected-mhz</path>
+			<path>instrumentation/nav[0]/frequencies/standby-mhz</path>
+			<path>instrumentation/nav[0]/radials/selected-deg</path>
+			<path>it-autoflight/settings/auto-arm-alt</path>
+			<path>instrumentation/comm[1]/volume</path>
+			<path>instrumentation/comm[1]/frequencies/selected-mhz</path>
+			<path>instrumentation/comm[1]/frequencies/standby-mhz</path>
+			<path>instrumentation/comm[1]/test-btn</path>
+			<path>instrumentation/nav[1]/audio-btn</path>
+			<path>instrumentation/nav[1]/power-btn</path>
+			<path>instrumentation/nav[1]/volume</path>
+			<path>instrumentation/nav[1]/frequencies/selected-mhz</path>
+			<path>instrumentation/nav[1]/frequencies/standby-mhz</path>
+			<path>instrumentation/nav[1]/radials/selected-deg</path>
+			<path>instrumentation/dme/frequencies/selected-mhz</path>
+			<path>instrumentation/dme/volume</path>
+			<path>instrumentation/dme/switch-min-kts</path>
+			<path>instrumentation/altimeter/setting-inhg</path>
+			<path>instrumentation/altimeter/setting-inhg-formatted</path>
+			<path>instrumentation/hobbs-meter/seconds</path>
+			<path>instrumentation/adf/model</path>
+			<path>instrumentation/adf/rotation-deg</path>
+			<path>engines/engine/egt-bug</path>
+			<path>instrumentation/adf/frequencies</path>
+			<path>options/show-l-yoke</path>
+			<path>options/show-r-yoke</path>
+			<path>options/aaa</path>
+			<path>options/amx</path>
+			<path>options/dash</path>
+			<path>options/prs</path>
+			<path>options/nfa</path>
+			<path>options/hd</path>
+			<path>options/gsn</path>
+			<path>options/mini-panel</path>
+			<path>options/alerter</path>
+			<path>sim/hud/visibility[1]</path>
+			<path>sim/hud/current-path</path> 
+  			<path>systems/seat/presets/z-offset-m</path>	
+ 			<path>systems/seat/presets/y-offset-m</path>
+			<path>systems/seat/presets/pitch-offset-deg</path>		
+		</aircraft-data>
+
+<!-- need to load this only for menu senario 12 via nasal ?
+
+	<ai>
+      <enabled type="bool">true</enabled>
+      <scenarios-enabled type="bool" userarchive="y">true</scenarios-enabled>
+      <scenario>balloon_demo</scenario>
+      <groundnet-cache type="bool">true</groundnet-cache>
+      <tankers include="AI/tankers.xml"/>
+    </ai>
+
+-->
+	</sim>
+	
+	<airport>
+		<runways>
+			<start-offset-m>20</start-offset-m>
+		</runways>
+	</airport>
+
+	
+	<consumables>
+		<fuel>
+			<tank n="0">
+				<name type="string">Left Wing</name>
+				<density-ppg type="double">7.00</density-ppg>
+				<unusable-gal_us type="double">0.2</unusable-gal_us>
+				<selected type="bool">false</selected>
+			</tank>
+			<tank n="1">
+				<name type="string">Right Wing</name>
+				<density-ppg type="double">7.00</density-ppg>
+				<unusable-gal_us type="double">0.2</unusable-gal_us>
+				<selected type="bool">false</selected>
+			</tank>
+			<tank n="2">
+				<name type="string">Engine Pipe</name>
+				<density-ppg type="double">7.00</density-ppg>
+				<unusable-gal_us type="double">0.0</unusable-gal_us>
+				<selected type="bool">true</selected>
+			</tank>
+		</fuel>
+	</consumables>
+	
+	<controls n="0">
+		<electrical>
+			<battery type="bool">0</battery>
+			<alternator type="bool">0</alternator>
+		</electrical>
+
+				<flight>
+			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
+			
+		</flight>
+
+
+		<engines>
+			<engine n="0">		
+			<egt-actual type="double">0</egt-actual>
+			<egt-bug type="double">1400</egt-bug>
+				<magnetos type="int">0</magnetos>
+				<magnetos-switch type="int">0</magnetos-switch>
+				<mixture type="double">0</mixture>
+			</engine>
+		</engines>
+		
+		<gear>
+			<brake-parking type="double">1.0</brake-parking>
+		</gear>
+		<switches>
+			<avionics-master type="bool">0</avionics-master>
+			<beacon type="bool">1</beacon>
+			<fuel-pump type="bool">0</fuel-pump>
+			<landing-light type="bool">0</landing-light>
+			<nav-lights type="double">0</nav-lights>
+			<nav-lights-factor type="double">0</nav-lights-factor>
+			<panel-lights type="double">0</panel-lights>
+			<panel-lights-factor type="double">0</panel-lights-factor>
+			<pitot-heat type="bool">0</pitot-heat>
+			<strobe-lights type="bool">0</strobe-lights>
+		</switches>
+	</controls>
+	
+	<environment>
+		<aircraft-effects>
+			<overlay-alpha type="double">0.5</overlay-alpha>
+		</aircraft-effects>
+	</environment>
+	
+	<fdm n="0">
+		<jsbsim n="0">
+      
+			<extra n="0">
+				<door-main-cmd type="double">0</door-main-cmd>
+			</extra>
+			<fcs n="0">
+				<egt-feedback type="double">0</egt-feedback>
+				<oil-temp-feedback type="double">0</oil-temp-feedback>
+			</fcs>
+			<fuel n="0">
+				<pump-psi-feedback type="double">0</pump-psi-feedback>
+				<suck-psi-feedback type="double">0</suck-psi-feedback>
+			</fuel>
+			<helpers n="0">
+				<a-c-pid>0</a-c-pid>
+			</helpers>
+		</jsbsim>
+	</fdm>
+
+	<hazards>
+    		<fire>
+      		<engine n="0" type="bool">0</engine>      
+   	 	</fire>
+  	</hazards>
+
+
+	
+   <mass-and-balance>
+            <maximum-ramp-mass-lbs>2447</maximum-ramp-mass-lbs>
+            <maximum-takeoff-mass-lbs>2440</maximum-takeoff-mass-lbs>
+            <maximum-landing-mass-lbs>2440</maximum-landing-mass-lbs>
+        </mass-and-balance>
+
+	<payload>
+        <weight>
+            <name type="string">Pilot</name>
+            <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+            <arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[0]"/>
+            <min-lb type="double">0.0</min-lb>
+            <max-lb type="double">300.0</max-lb>
+        </weight>
+        <weight>
+            <name type="string">Co-Pilot</name>
+            <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+            <arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[0]"/>
+            <min-lb type="double">0.0</min-lb>
+            <max-lb type="double">300.0</max-lb>
+        </weight>
+        <weight>
+            <name type="string">Left Passenger</name>
+            <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+            <arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[0]"/>
+            <min-lb type="double">0.0</min-lb>
+            <max-lb type="double">300.0</max-lb>
+        </weight>
+        <weight>
+            <name type="string">Right Passenger</name>
+            <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
+            <arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[0]"/>
+            <min-lb type="double">0.0</min-lb>
+            <max-lb type="double">300.0</max-lb>
+        </weight>
+        <weight>
+            <name type="string">Baggage</name>
+            <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"/>
+            <arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[0]"/>
+            <min-lb type="double">0.0</min-lb>
+            <max-lb type="double">200.0</max-lb>
+            <!-- WARNING: Max baggage "by the book" is 200lbs or less! -->
+        </weight>
+        <pax-state type="int">0</pax-state>
+        <securing-state type="int">0</securing-state>
+    </payload>
+
+
+	
+	<gear n="0">
+		<gear n="0">
+			<position-norm type="double">1</position-norm>
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+		</gear>
+		<gear n="1">
+			<position-norm type="double">1</position-norm>
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+		</gear>
+		<gear n="2">
+			<position-norm type="double">1</position-norm>
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+		</gear>
+	</gear>
+
+	<input>
+		<mice include="mice.xml"/>
+		<keyboard include="Systems/pa28-keyboard.xml"/>
+<!--
+		<mice include="Systems/Pa28-mice.xml"/>
+-->
+	</input>
+
+	<systems>
+		<seat>
+    <pilot-z-offset-m type="double">0</pilot-z-offset-m>
+    <presets>
+      <enable-presets type="int">0></enable-presets>
+      <z-offset-m type="double">0</z-offset-m>
+      <y-offset-m type="double">0</y-offset-m>
+      <pitch-offset-deg type="double">0</pitch-offset-deg>
+    </presets>
+    <defaults>
+      <z-offset-m type="double">2.6</z-offset-m>
+      <y-offset-m type="double">0.5</y-offset-m>
+      <pitch-offset-deg type="double">-14.5455</pitch-offset-deg>
+    </defaults>
+  </seat>
+	</systems>
+	
+	<instrumentation n="0">
+		<adf>
+			<model>ki228</model>
+			<volume-norm type="double">1</volume-norm>
+		</adf>
+		<adf3>
+			<model>ki228</model>
+			<volume-norm type="double">1</volume-norm>
+		</adf3>
+
+		<attitude-indicator>
+			<config>
+				<tumble-flag>true</tumble-flag>
+			</config>
+		</attitude-indicator>
+		
+		<dme>
+			<switch-position type="int">1</switch-position>
+			<volume type="double">1</volume>
+			<min-kts-display>0</min-kts-display>
+		</dme>
+
+		<dme1>
+			<switch-position type="int">3</switch-position>
+			<volume type="double">1</volume>
+		</dme1>
+
+
+		<elt>
+			<armed type="bool">true</armed>
+			<on type="bool">false</on>
+			<on-pos type="double">0</on-pos>
+			<test type="bool">false</test>
+		</elt>
+		<fuel-used-indicator>
+			<serviceable type="bool">true</serviceable>
+		</fuel-used-indicator>
+		
+		<encoder>
+			<serviceable type="bool">true</serviceable>
+		</encoder>
+
+		
+
+		<kcs55>
+			<ka51>
+				<slaved>true</slaved>
+			</ka51>
+			<ki525>
+				<selected-course-property>instrumentation/nav[0]/radials/selected-deg</selected-course-property>
+				<cdi-deflection-property type="string">instrumentation/nav[0]/heading-needle-deflection</cdi-deflection-property>
+				<gs-deflection-property type="string">instrumentation/nav[0]/gs-needle-deflection-filtered</gs-deflection-property>
+				<to-flag-property type="string">instrumentation/nav[0]/to-flag</to-flag-property>
+				<from-flag-property type="string">instrumentation/nav[0]/from-flag</from-flag-property>
+				<nav-flag-property type="string">instrumentation/nav[0]/signal-quality-norm</nav-flag-property>
+				<course-error-property type="string">autopilot/internal/course-error-deg</course-error-property>
+				<heading-error-property type="string">autopilot/internal/heading-error-deg</heading-error-property>
+			</ki525>
+			<kg102>
+				<input-power-node>systems/electrical/outputs/hsi</input-power-node>
+				<input-power-min type="double">11.0</input-power-min>
+				<input-power-max type="double">15.8</input-power-max>
+			</kg102>
+		</kcs55>
+
+		<kma20>
+			<knob type="int" archive="y">-1</knob>
+			<auto type="int" archive="y">1</auto>
+			<com1 type="int" archive="y">0</com1>
+			<com2 type="int" archive="y">0</com2>
+			<nav1 type="int" archive="y">0</nav1>
+			<nav2 type="int" archive="y">0</nav2>
+			<adf  type="int" archive="y">0</adf>
+			<dme  type="int" archive="y">0</dme>
+			<mkr  type="int" archive="y">-1</mkr>
+			<sens type="int" archive="y">0</sens>
+			<test type="int" archive="y">0</test>
+		</kma20>
+
+
+		<nav n="0">
+			<frequencies>
+				<selected-mhz type="double">108.5</selected-mhz>
+				<standby-mhz type="double">110.95</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">164</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
+		
+		<nav n="1">
+			<frequencies>
+				<selected-mhz type="double">108.75</selected-mhz>
+				<standby-mhz type="double">110.55</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">98</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
+
+
+		<oat>
+			<mode type="int">0</mode>
+		</oat>
+
+		<radar-altimeter>
+			<decision-height>0</decision-height>
+		</radar-altimeter>
+
+		<stby-ai n="0">
+			<pitch-reference-offset-deg type="double">0</pitch-reference-offset-deg>
+		</stby-ai>
+	</instrumentation>
+		
+	<it-autoflight>
+		
+		<config>
+			<roll>
+				<kp-low>0.05</kp-low> <!-- Kp at low speed -->
+				<kp-high>0.03</kp-high> <!-- Kp at high speed -->
+				<ti>1.5</ti>
+				<td>0.0001</td>
+			</roll>
+			<pitch>
+				<kp-low>-0.06</kp-low> <!-- Kp at low speed -->
+				<kp-high>-0.04</kp-high> <!-- Kp at high speed -->
+				<ti>1.0</ti>
+				<td>0.001</td>
+			</pitch>
+			<cmd>
+				<roll-kp>-1.0</roll-kp>
+				<vorloc>-2.0</vorloc>
+				<vs>0.0017</vs>
+			</cmd>
+		</config>
+		<settings>
+			<enable-stby>0</enable-stby> <!-- If disabled, LVL and V/S become active when AP on. -->
+			<pitch-mode>2</pitch-mode> <!-- 0 = Elevator trim only, 1 = Elevator only, 2 = Elevator and Autotrim -->
+			<auto-arm-alt>0</auto-arm-alt> <!-- Enable automatic altitude arm -->
+			<bank-limit>20</bank-limit> <!-- Set the bank limit -->
+		</settings>
+		<kap140>
+			<ap type="int">0</ap>
+			<pt type="int">0</pt>
+			<display-mode type="string">ALT</display-mode>
+		</kap140>
+		<internal>
+			<elevator-cmd>0</elevator-cmd>
+		</internal>
+	</it-autoflight>
+	
+<options n="0">
+		<autocoordinate userarchive="y" type="bool">1</autocoordinate>
+		<mini-panel type="bool">0</mini-panel>
+		<nav-source type="int">1</nav-source>
+		<panel userarchive="y" type="string">Cadet Panel</panel>
+		<show-l-yoke type="bool">1</show-l-yoke>
+		<show-r-yoke type="bool">1</show-r-yoke>
+		<limits type="bool">0</limits>
+		<qnh type="bool">0</qnh>
+		<hd type="bool">0</hd>
+		<alerter type="bool">1</alerter>
+		<gsn type="bool">1</gsn>		
+		<aaa type="int">1</aaa>
+		<amx type="int">0</amx>
+		<trm type="int">1</trm>
+
+	</options>
+	
+	<systems n="0">
+		<electrical n="0">
+			<outputs n="0">
+				<fuel-pump type="double">0</fuel-pump>
+			</outputs>
+		</electrical>
+		<fuel n="0">
+			<selected-tank type="int">1</selected-tank>
+			<suck-fuel type="bool">0</suck-fuel>
+		</fuel>
+		<sqt>			
+		<sq type="int">0</sq>
+		</sqt>
+		<walt type="int">0</walt>
+		<nopo type="int">0</nopo>
+		<nhtp type="int">0</nhtp>
+		<bop type="int">0</bop>
+		<tmw type="bool">0</tmw>	
+		<eta type="double">0</eta>
+		<rsp type="double">0</rsp>
+		<ald type="double">0</ald>
+		<tor type="double">0</tor>
+		<tos type="double">0</tos>
+		<grw type="double">0</grw>
+		<saloft type="bool">0</saloft>
+		<orf type="bool">1</orf>
+		<abor type="bool">0</abor>
+	<nonav1 type="bool">0</nonav1>
+	<nonav2 type="bool">0</nonav2>			
+	<top type="int">0</top>
+	<autofuel type="bool">0</autofuel>
+	<gkn type="bool">1</gkn>
+	<welcome-enabled type="bool">1</welcome-enabled>
+	<bp type="bool">0</bp>
+	<pbs type="bool">0</pbs>
+	<nfa type="bool">1</nfa>
+	<sp type="bool">0</sp>
+	<dev type="bool">0</dev>
+	<mws type="bool">0</mws>
+	<nbat type="bool">0</nbat>
+	<au type="bool">0</au>
+	<ro type="bool">0</ro>
+	<rl type="bool">0</rl>
+	<he type="bool">1</he>
+	<na type="bool">1</na>
+	<ar type="bool">1</ar>
+	<n1 type="bool">1</n1>
+	<awc type="bool">0</awc>
+	<n2 type="bool">0</n2>
+	<n3 type="bool">0</n3>
+	<vbo type="bool">0</vbo>
+	<freach type="int">0</freach>
+	<lbr type="int">0</lbr>
+	<starts type="int">0</starts>
+	<ftime type="double">0</ftime>
+	<acc type="string">" "</acc>
+
+
+
+	<data>
+		<total-use type="float">0</total-use>
+		<acc-flight-secs type="double">0</acc-flight-secs>
+		<landings type="double">0</landings>
+		<takeoffs type="double">0</takeoffs>
+		<nof type="double">0</nof>
+		<rip type="double">0</rip>
+		<cra type="double">0</cra>
+		<lost type="double">0</lost>	
+		<aborted type="double">0</aborted>
+		<tof type="double">0</tof>		
+	</data>
+
+	</systems>
+
+	<nt>
+		<alti type="double">0</alti>
+		<spd type="double">0</spd>	
+		<dist type="double">0</dist>		
+	</nt>
+
+	<nasal n="0">
+		<davtron803>
+    <file>Aircraft/FG-Platypus/Nasal/davtron803.nas</file>
+		</davtron803>
+
+		<libraries>
+			<file>Aircraft/FG-Platypus/Nasal/libraries.nas</file>			
+			<file>Aircraft/FG-Platypus/Nasal/immat.nas</file>
+			<file>Aircraft/FG-Platypus/Models/instruments/digital2/digital2.nas</file>		
+			<file>Aircraft/FG-Platypus/Nasal/kr87.nas</file>
+			<file>Aircraft/FG-Platypus/Nasal/ground-services.nas</file>			
+			<file>Aircraft/FG-Platypus/Nasal/wdawc.nas</file>
+			<file>Aircraft/FG-Platypus/Nasal/spos.nas</file>				
+			<file>Aircraft/FG-Platypus/Nasal/ki266.nas</file>
+			<file>Aircraft/FG-Platypus/Nasal/limits.nas</file>
+			<file>Aircraft/FG-Platypus/Nasal/takeOff_props.nas</file>					
+			<file>Aircraft/FG-Platypus/Nasal/action-sim.nas</file>			
+			<file>Aircraft/FG-Platypus/Nasal/kcs55.nas</file>
+			<file>Aircraft/FG-Platypus/Models/instruments/KLN90B/kln90b.nas</file>
+			<file>Aircraft/FG-Platypus/Nasal/kma20.nas</file>
+			<script>
+			<![CDATA[ki266.new(0);					
+			KCS55.new();]]>
+			</script>
+		</libraries>
+		<acconfig>
+			<file>Aircraft/FG-Platypus/AircraftConfig/acconfig.nas</file>
+		</acconfig>
+		<systems>
+			<file>Aircraft/FG-Platypus/Nasal/electrical.nas</file>
+			<file>Aircraft/FG-Platypus/Nasal/engines.nas</file>
+			<file>Aircraft/FG-Platypus/Nasal/fuel.nas</file>
+			<file>Aircraft/FG-Platypus/Nasal/ospd.nas</file>			
+			<file>Aircraft/FG-Platypus/Nasal/wdawc.nas</file> 
+			<file>Aircraft/FG-Platypus/Nasal/wdheight.nas</file> 			
+		</systems>
+		<itaf>
+			<file>Aircraft/FG-Platypus/Nasal/it-autoflight.nas</file>
+		</itaf>
+		<kap140>
+			<file>Aircraft/FG-Platypus/Nasal/kap140.nas</file>
+		</kap140>
+		<tyresmoke>
+			<file>Aircraft/FG-Platypus/Nasal/tyresmoke.nas</file>
+		</tyresmoke>
+		<HobbsMeter>
+			<file>Aircraft/FG-Platypus/Models/instruments/Hobbs/hobbs.nas</file>
+			<script>
+			<![CDATA[HobbsMeter.new(index: 0, switchPath: 'gear/gear/wow', inverted: 1);]]>
+			</script>
+		</HobbsMeter>
+		<logger>
+			<file>Aircraft/FG-Platypus/Nasal/logger.nas</file>
+		</logger>
+		<fl>
+			<file>Aircraft/FG-Platypus/Nasal/flashlight.nas</file>
+		</fl>
+	</nasal>
+
+<limits>
+        <max-flap-extension-speed>
+            <flaps>0.33</flaps>
+            <speed>80</speed>
+        </max-flap-extension-speed>
+        <max-flap-extension-speed>
+            <flaps>0.66</flaps>
+            <speed>70</speed>
+        </max-flap-extension-speed>
+        <max-flap-extension-speed>
+            <flaps>1</flaps>
+            <speed>65</speed>
+        </max-flap-extension-speed>
+        <max-positive-g>3.8</max-positive-g>
+        <vne>160</vne>
+        <vs>50</vs>
+        <vso>44</vso>
+        <max-alt>14500</max-alt>        
+        <max-prop-rpm>2710</max-prop-rpm>
+		 <mass-and-balance>
+            	<maximum-ramp-mass-lbs>2447</maximum-ramp-mass-lbs>
+            	<maximum-takeoff-mass-lbs>2440</maximum-takeoff-mass-lbs>
+            	<maximum-landing-mass-lbs>2440</maximum-landing-mass-lbs>
+        </mass-and-balance>
+        
+        <warnings-enabled type="bool">true</warnings-enabled>
+    </limits>
+
+
+	
+	
+</PropertyList>
+

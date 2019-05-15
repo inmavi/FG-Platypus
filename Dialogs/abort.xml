@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<name>abort</name>
+	<modal>false</modal>
+  	<width>360</width>
+	<x>0</x>
+	<y>190</y>
+	
+    <layout>vbox</layout>  
+	<default-padding>2</default-padding>
+			<font>
+		<name>HELVETICA_12</name>
+	</font>
+	<color>
+		<red>0</red>
+		<green>0</green>
+		<blue>0</blue>
+		<alpha>0.9</alpha>
+	</color>
+
+
+    <group>
+		<layout>hbox</layout>
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+		<text>
+			<label>Accelerate Stop Analysis</label>
+		</text>
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+		<button>
+			<color>
+				<red>0.5</red>
+				<green>0.5</green>
+				<blue>0.5</blue>
+				<alpha>0.8</alpha>
+			</color>	
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend>X</legend>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+	<hrule/>
+
+	
+	<group>
+		<layout>table</layout>
+		<name>time</name>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Data:</label>			
+		</text>	
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>ap</label>
+		<property>sim/presets/airport-id</property>	
+				<format> Airport:    %s</format>
+				<live>false</live>
+				<color>
+					<red>0.7</red>
+					<green>0</green>
+					<blue>0.7</blue>
+					<alpha>1</alpha>
+				</color>				
+		</text>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>tmp</label>
+			<property>environment/temperature-degc</property>
+				<format> Temperature:    %d Cel</format>					<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>		
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>dRwy</label>		
+<property>sim/presets/runway</property>
+				<format> Runway:      %s</format>
+				<live>false</live>
+				<color>
+					<red>0.7</red>
+					<green>0</green>
+					<blue>0.7</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>elev</label>		
+<property>/systems/gel</property>
+				<format> Elevation:      %d ft</format>
+				<live>true</live>
+				<color>
+					<red>0.7</red>
+					<green>0</green>
+					<blue>0.7</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>pes </label>
+			<property>/systems/grw</property>
+				<format> Gross Weight:   %d lbs</format>	
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>		
+		</text>
+
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>hum</label>
+<property>environment/relative-humidity</property>
+				<format> Rel Humidity:    %d pct</format>
+				<live>true</live>
+				<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>pre</label>
+<property>environment/pressure-inhg</property>
+				<format> Pressure-HG:   %1.2f hg</format>
+				<live>true</live>
+				<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+	
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>wd</label>
+<property>environment/wind-from-heading-deg</property>
+				<format> Wind From:     %d deg</format>
+				<live>true</live>
+				<color>
+			<red>0.5</red>
+				<green>0.5</green>
+				<blue>0.5</blue>
+				<alpha>0.8</alpha>
+			</color>	
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ws</label>
+<property>environment/wind-speed-kt</property>
+				<format> Wind Speed:      %d kts</format>
+				<live>true</live>
+				<color>
+				<red>0.5</red>
+				<green>0.5</green>
+				<blue>0.5</blue>
+				<alpha>0.8</alpha>
+			</color>	
+		</text>
+		
+</group>
+	<hrule/>
+
+<group>
+<layout>table</layout>
+<name>distance</name>	
+
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ias</label>
+<property>systems/spd1</property>
+			<format>Airspeed at Decision Point:        %d kts (IAS)</format>
+				
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>			
+		</text>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>4</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>gs</label>
+<property>systems/gsp</property>
+			<format>   %d kts (GS)</format>
+				
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>			
+		</text>
+
+
+		
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>01</label>
+<property>systems/tim1</property>
+			<format>       Elapsed Time to Point:        %s mm:ss</format>
+				
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ptch</label>
+<property>systems/tim2</property>
+				<format>                    Time to Stop:        %s mm:ss</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>rl</label>
+<property>systems/timx</property>
+				<format>                       Total Time:      %s</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>
+		
+
+</group>
+	<hrule/>
+
+<group>
+<layout>table</layout>
+<name>data</name>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>rl</label>
+<property>systems/odo1f</property>
+				<format>Runway used at Decision Point:     %d ft</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>			
+		</text>
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>4</col>			
+			<pref-height>21</pref-height>
+			<pref-width>25</pref-width>
+			<margin>1</margin>
+			<label>rl</label>
+<property>systems/odo1mt</property>
+				<format>     %d mtr</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>			
+		</text>
+
+
+			
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Rot</label>
+				<property>/systems/odosf</property>
+				<format>         Distance used up to stop:     %d ft</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>	
+		</text>
+		
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>4</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Rot</label>
+				<property>/systems/odosmt</property>
+				<format>     %d mtr</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>	
+		</text>
+
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Rot</label>
+				<property>/systems/odo2f</property>
+				<format>                        Total Distance:     %d ft</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>	
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>4</col>			
+			<pref-height>21</pref-height>
+			<pref-width>25</pref-width>
+			<margin>1</margin>
+			<label> Rot</label>
+				<property>/systems/odo2mt</property>
+				<format>    %d mtr</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>	
+		</text>
+
+
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Rwy Length</label>
+				<property>/systems/rwlg</property>
+				<format>                      Runway Length:     %d ft</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>	
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>4</col>			
+			<pref-height>21</pref-height>
+			<pref-width>25</pref-width>
+			<margin>1</margin>
+			<label> Rwy Length</label>
+				<property>/systems/rwlgm</property>
+				<format>    %d mtr</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>	
+		</text>
+
+
+
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ll</label>							<property>/systems/remft</property>
+				<format>                             Remaining:      %d ft</format>
+				<live>true</live>
+
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>		
+
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>4</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ll</label>							<property>/systems/remmtr</property>
+				<format>     %d mtr</format>
+				<live>true</live>
+
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>		
+
+
+		
+
+	</group>
+	
+	<hrule/>
+	
+	
+	<group>
+		<layout>table</layout>
+		<name>admin</name>		
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>			
+			<label>F3 - Save Image</label>
+				<color>
+					<red>0.9</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<name>4</name>
+			<legend>Repeat</legend>
+			<pref-height>20</pref-height>
+			<pref-width>80</pref-width>
+			<margin>1</margin>
+			<keynum>27</keynum>
+			<border>2</border>
+		
+			<binding>
+				<command>nasal</command>
+				<script>
+setprop("/controls/gear/brake-parking",1);
+var apid = getprop("/sim/presets/airport-id");
+var rwid = getprop("/sim/presets/runway");
+aircraft.teleport(airport = apid, runway = rwid);
+		</script>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+
+		<button>
+			<row>0</row>
+			<col>2</col>
+			<name>124</name>
+			<legend>Close</legend>
+			<pref-height>20</pref-height>
+			<pref-width>80</pref-width>
+			<margin>1</margin>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>nasal</command>
+				<script>					
+					setprop("/systems/gost",0);
+				</script>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>		
+		
+	</group>
+
+</PropertyList>
+

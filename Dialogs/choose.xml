@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>choose</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+
+<x>1064</x>
+<y>573</y>
+
+
+  <text>
+    <label>Select...</label>
+  </text>
+
+<hrule/>
+
+  <group>
+    <layout>hbox</layout>
+    <halign>fill</halign>
+    <default-padding>10</default-padding>
+    <empty><stretch>true</stretch></empty>
+
+	<button>
+      <legend>Reset</legend>
+      <equal>true</equal>
+      <key>Esc</key>
+      <binding>
+        <command>reset</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+
+    
+    <button>
+      <legend>Quit</legend>
+      <default>true</default>
+      <equal>true</equal>
+      <binding>
+        <command>exit</command>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
+</PropertyList>

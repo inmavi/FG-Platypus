@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ cap10b-set.xml  - Cap10B by PAF team  - http://equipe-flightgear.forumactif.com
+
+ Written by Flavien BLANC
+ Modified by PAF team  - April 2012
+
+ Copyright (C) 2011-2012  Flavien BLANC  - http://equipe-flightgear.forumactif.com/u56
+ Copyright (C) 2012  Clément DE L'HAMAIDE  - http://equipe-flightgear.forumactif.com/u115
+ Copyright (C) 2016 Heiko Schulz
+
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+
+  <path>Davtron803.ac</path>
+
+	<animation>
+    <type>scale</type>
+    <x-offset>1.05</x-offset>
+    <y-offset>1.05</y-offset>
+    <z-offset>1.05</z-offset>
+</animation>
+
+
+  <animation>
+    <!-- buttons and overall instrument -->
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>OAT.swt</object-name>    <!-- switch OAT mode -->
+    <object-name>Select.btn</object-name> <!-- switch clock modes -->
+    <object-name>Control.btn</object-name><!-- control current mode -->
+          <specular>
+            <red>   0.0 </red>
+            <green> 0.0 </green>
+            <blue>  0.0 </blue>
+        </specular>
+        <ambient>
+            <red>   1 </red>
+            <green> 1 </green>
+            <blue>  1 </blue>
+        </ambient>
+        <diffuse>
+            <red>   0.3 </red>
+            <green> 0.3 </green>
+            <blue>  0.3 </blue>
+        </diffuse>
+        <shininess>
+            <red>   0 </red>
+            <green> 0 </green>
+            <blue>  0 </blue>
+        </shininess>  
+  </animation>
+	 
+
+
+  <animation>
+    <type>select</type>
+    <object-name>lcd</object-name>
+    <condition>
+      <property>controls/electrical/battery</property>
+    </condition>
+    <emission>
+			<red>1.0</red>
+			<green>0.8</green>
+			<blue>0.4</blue>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+  </emission>
+          <specular>
+            <red>   0.0 </red>
+            <green> 0.0 </green>
+            <blue>  0.0 </blue>
+        </specular>
+        <ambient>
+            <red>   1 </red>
+            <green> 1 </green>
+            <blue>  1 </blue>
+        </ambient>
+        <diffuse>
+            <red>   0.3 </red>
+            <green>0.3 </green>
+            <blue>  0.3 </blue>
+        </diffuse>
+        <shininess>
+            <red>   0 </red>
+            <green> 0 </green>
+            <blue>  0 </blue>
+        </shininess>  
+  </animation>
+  
+  
+  <!-- OAT button -->
+  <animation>
+    <type>pick</type>
+    <object-name>OAT.swt</object-name>
+    <condition>
+        <greater-than>
+      <property>/systems/electrical/outputs/oat</property>
+            <value>0</value>
+        </greater-than>
+    </condition>
+    <action>
+        <button>0</button>
+        <binding>
+            <command>property-cycle</command>
+            <property>/instrumentation/davtron803/top-mode</property>
+            <value type="string">E</value>
+            <value type="string">F</value>
+            <value type="string">C</value>
+        </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>OAT.swt.cs</object-name>
+    <visible>false</visible>
+    <nopreview/>
+    <condition>
+        <greater-than>
+      <property>/systems/electrical/outputs/oat</property>
+            <value>0</value>
+        </greater-than>
+    </condition>
+    <action>
+        <button>0</button>
+        <binding>
+            <command>property-cycle</command>
+            <property>/instrumentation/davtron803/top-mode</property>
+            <value type="string">E</value>
+            <value type="string">F</value>
+            <value type="string">C</value>
+        </binding>
+    </action>
+  </animation>
+  
+  <!-- Select button -->
+  <animation>
+    <type>pick</type>
+    <object-name>Select.btn</object-name>
+    <object-name>Select.btn.cs</object-name>
+    <condition>
+        <greater-than>
+      <property>/systems/electrical/outputs/oat</property>
+            <value>0</value>
+        </greater-than>
+    </condition>
+    <action>
+        <button>0</button>
+        <binding>
+            <command>property-cycle</command>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value type="string">UT</value>
+            <value type="string">LT</value>
+            <value type="string">FT</value>
+            <value type="string">ET</value>
+        </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>Select.btn.cs</object-name>
+    <visible>false</visible>
+    <nopreview/>
+    <condition>
+        <greater-than>
+      <property>/systems/electrical/outputs/oat</property>
+            <value>0</value>
+        </greater-than>
+    </condition>
+    <action>
+        <button>0</button>
+        <binding>
+            <command>property-cycle</command>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value type="string">UT</value>
+            <value type="string">LT</value>
+            <value type="string">FT</value>
+            <value type="string">ET</value>
+        </binding>
+    </action>
+  </animation>
+  
+  <!-- Control button -->
+  <animation>
+    <type>pick</type>
+    <object-name>Control.btn</object-name>
+    <action>
+        <button>0</button>
+        <binding>
+            <command>nasal</command>
+            <script>davtron803.controlButtonPressed()</script>
+        </binding>
+        <mod-up>
+            <binding>
+                <command>nasal</command>
+                <script>davtron803.controlButtonReleased()</script>
+            </binding>
+        </mod-up>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>Control.btn.cs</object-name>
+    <visible>false</visible>
+    <nopreview/>
+    <action>
+        <button>0</button>
+        <binding>
+            <command>nasal</command>
+            <script>davtron803.controlButtonPressed()</script>
+        </binding>
+        <mod-up>
+            <binding>
+                <command>nasal</command>
+                <script>davtron803.controlButtonReleased()</script>
+            </binding>
+        </mod-up>
+    </action>
+  </animation>
+  
+
+
+  
+  
+  <!-- ##################### -->
+  <!-- LCD DISPLAY: TOP Line -->
+  <!-- ##################### -->
+  
+  <!-- Top-Mode E: Show Battery voltage -->
+  <text>
+    <name>davtron.top.lcd.oat-volts</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m>0</x-m>
+        <y-m>-0.019</y-m>
+        <z-m>0.0105</z-m>
+    </offsets>    
+  
+    <type type="string">number-value</type>
+    <property type="string">/systems/electrical/batt-volt</property>
+    <format type="string">%5.1fE</format> <!-- the sprintf() format to display the value -->
+ 
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <character-size type="double">0.0100</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.006</max-height> <!-- the maximum height of the text -->
+    <max-width>0.040</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.top.lcd.oat-volts</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/top-mode</property>
+            <value>E</value>
+        </equals>
+    </condition>
+  </animation>
+  
+  <!-- Top-Mode F: Show outside temp in degF -->
+  <text>
+				<color>
+					<red>1</red>
+					<green>1</green>
+					<blue>0</blue>
+					<alpha>1</alpha>
+				</color>
+    <name>davtron.top.lcd.oat-degf</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m>0</x-m>
+        <y-m>-0.019</y-m>
+        <z-m>0.0105</z-m>
+    </offsets>    
+  
+    <type type="string">number-value</type>
+    <property type="string">/environment/temperature-degf</property>
+    <format type="string">%5.1fF</format> <!-- the sprintf() format to display the value -->
+ 
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <character-size type="double">0.0100</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.006</max-height> <!-- the maximum height of the text -->
+    <max-width>0.040</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.top.lcd.oat-degf</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/top-mode</property>
+            <value>F</value>
+        </equals>
+    </condition>
+  </animation>
+  
+  <!-- Top-Mode C: Show outside temp in degC -->
+  <text>
+    <name>davtron.top.lcd.oat-degc</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m>0</x-m>
+        <y-m>-0.019</y-m>
+        <z-m>0.0105</z-m>
+    </offsets>
+  
+    <type type="string">number-value</type>
+    <property type="string">/environment/temperature-degc</property>
+    <format type="string">%5.1fC</format> <!-- the sprintf() format to display the value -->
+ 
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.0100</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.006</max-height> <!-- the maximum height of the text -->
+    <max-width>0.040</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.top.lcd.oat-degc</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/top-mode</property>
+            <value>C</value>
+        </equals>
+    </condition>
+  </animation>
+
+  
+  
+  <!-- ######################### -->
+  <!-- LCD DISPLAY: Line divider -->
+  <!-- ######################### -->
+  <text>
+    <name>davtron.lcd.line</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m>-0.001</x-m>
+        <y-m>-0.000</y-m>
+        <z-m> 0.0065</z-m>
+    </offsets>    
+  
+    <type type="string">literal</type>
+    <text type="string">_______________</text>
+    
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <font>helvetica.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.005</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.05</max-height> <!-- the maximum height of the text -->
+    <max-width>0.10</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>center-center</alignment>
+  </text>
+  
+  
+  <!-- ######################## -->
+  <!-- LCD DISPLAY: BOTTOM Line -->
+  <!-- ######################## -->
+  
+  <!-- Bottom mode UT: Show UTC time -->
+  <text>
+    <name>davtron.bot.lcd.utc</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m>0</x-m>
+        <y-m>-0.008</y-m>
+        <z-m>-0.0030</z-m>
+    </offsets>    
+  
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/clock/indicated-short-string</property>
+    
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.0105</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.006</max-height> <!-- the maximum height of the text -->
+    <max-width>0.040</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.bot.lcd.utc</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value>UT</value>
+        </equals>
+    </condition>
+  </animation>
+  
+  <!-- Bottom mode LT: Show local time -->
+  <text>	
+    <name>davtron.bot.lcd.lt</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m>0</x-m>
+        <y-m>-0.008</y-m>
+        <z-m>-0.0030</z-m>
+    </offsets>    
+  
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/clock/local-short-string</property>
+    
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.0105</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.006</max-height> <!-- the maximum height of the text -->
+    <max-width>0.040</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.bot.lcd.lt</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value>LT</value>
+        </equals>
+    </condition>
+  </animation>
+
+  <!-- Bottom mode FT: Show Flight timer -->
+  <text>
+    <name>davtron.bot.lcd.ft</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m>0</x-m>
+        <y-m>-0.008</y-m>
+        <z-m>-0.0030</z-m>
+    </offsets>    
+  
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/davtron803/flight-time</property>
+    
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.0105</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.006</max-height> <!-- the maximum height of the text -->
+    <max-width>0.040</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.bot.lcd.ft</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value>FT</value>
+        </equals>
+    </condition>
+  </animation>
+  
+  <!-- Bottom mode ET: Show Elasped timer -->
+  <text>
+    <name>davtron.bot.lcd.et</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m>0</x-m>
+        <y-m>-0.008</y-m>
+        <z-m>-0.0030</z-m>
+    </offsets>    
+  
+    <type type="string">text-value</type>
+    <property type="string">/instrumentation/davtron803/elapsed-time</property>
+    
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <font>led.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.0105</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.006</max-height> <!-- the maximum height of the text -->
+    <max-width>0.040</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.bot.lcd.et</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value>ET</value>
+        </equals>
+    </condition>
+  </animation>
+  
+  
+  
+  <!-- ######################## -->
+  <!--  Mode selection display  -->
+  <!-- ######################## -->
+  <text>
+    <name>davtron.lcd.mode1</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m> 0.000</x-m>
+        <y-m>-0.0220</y-m>
+        <z-m> 0.0014</z-m>
+    </offsets>    
+  
+    <type type="string">literal</type>
+    <text type="string">UT LT</text>
+    
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <font>helvetica_bold.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.00400</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.05</max-height> <!-- the maximum height of the text -->
+    <max-width>0.020</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <text>
+    <name>davtron.lcd.mode2</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m> 0.000</x-m>
+        <y-m>-0.0217</y-m>
+        <z-m>-0.0049</z-m>
+    </offsets>    
+  
+    <type type="string">literal</type>
+    <text type="string">FT ET</text>
+    
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <draw-alignment type="bool">false</draw-alignment> <!-- draw crosshair at object center -->
+    <draw-boundingbox type="bool">false</draw-boundingbox> <!-- draw a bounding box -->
+ 
+    <font>helvetica_bold.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.00400</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.05</max-height> <!-- the maximum height of the text -->
+    <max-width>0.020</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">32</width>
+        <height type="int">32</height>
+    </font-resolution>
+ 
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+ 
+  
+  <!-- Selection highlighters -->
+  <text>
+    <name>davtron.lcd.mode.UTsel</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m> 0.000</x-m>
+        <y-m>-0.0223</y-m>
+        <z-m> 0.0018</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text type="string">_</text>
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <font>helvetica.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.007</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.05</max-height> <!-- the maximum height of the text -->
+    <max-width>1.020</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">16</width>
+        <height type="int">16</height>
+    </font-resolution>
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.lcd.mode.UTsel</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value>UT</value>
+        </equals>
+    </condition>
+  </animation>
+  
+  <text>
+    <name>davtron.lcd.mode.LTsel</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m> 0.000</x-m>
+        <y-m>-0.01542</y-m>
+        <z-m> 0.0018</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text type="string">_</text>
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <font>helvetica.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.007</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.05</max-height> <!-- the maximum height of the text -->
+    <max-width>1.020</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">16</width>
+        <height type="int">16</height>
+    </font-resolution>
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.lcd.mode.LTsel</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value>LT</value>
+        </equals>
+    </condition>
+  </animation>
+ 
+  
+  <text>
+    <name>davtron.lcd.mode.FTsel</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m> 0.000</x-m>
+        <y-m>-0.0223</y-m>
+        <z-m>-0.0043</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text type="string">_</text>
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <font>helvetica.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.007</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.05</max-height> <!-- the maximum height of the text -->
+    <max-width>1.020</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">16</width>
+        <height type="int">16</height>
+    </font-resolution>
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.lcd.mode.FTsel</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value>FT</value>
+        </equals>
+    </condition>
+  </animation>
+  
+  <text>
+    <name>davtron.lcd.mode.ETsel</name>
+    <axis-alignment>yz-plane</axis-alignment>
+    <offsets>
+        <x-m> 0.000</x-m>
+        <y-m>-0.01542</y-m>
+        <z-m>-0.0043</z-m>
+    </offsets>
+    <type type="string">literal</type>
+    <text type="string">_</text>
+    <layout>left-to-right</layout>
+    <draw-text type="bool">true</draw-text> <!-- draw the text itself -->
+    <font>helvetica.txf</font> <!-- The font file name, relative to data/Fonts -->
+    <character-size type="double">0.007</character-size> <!-- size (height) im meters -->
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <max-height>0.05</max-height> <!-- the maximum height of the text -->
+    <max-width>1.020</max-width> <!-- the maximum width of the text -->
+    <font-resolution>
+        <width type="int">16</width>
+        <height type="int">16</height>
+    </font-resolution>
+    <kerning>default</kerning> 
+    <alignment>left-center</alignment>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>davtron.lcd.mode.ETsel</object-name>
+    <condition>
+        <equals>
+            <property>/instrumentation/davtron803/bot-mode</property>
+            <value>ET</value>
+        </equals>
+    </condition>
+  </animation>
+  
+  
+  <!-- Adjust LCD text material properties (reflections etc) -->
+  <animation>
+    <type>material</type> 
+    <object-name>davtron.top.lcd.oat-volts</object-name>
+    <object-name>davtron.top.lcd.oat-degf</object-name>
+    <object-name>davtron.top.lcd.oat-degc</object-name>
+    <object-name>davtron.bot.lcd.utc</object-name>
+    <object-name>davtron.bot.lcd.lt</object-name>
+    <object-name>davtron.bot.lcd.ft</object-name>
+    <object-name>davtron.bot.lcd.et</object-name>
+    <object-name>davtron.lcd.line</object-name>
+    <object-name>davtron.lcd.mode1</object-name>
+    <object-name>davtron.lcd.mode2</object-name>
+    <object-name>davtron.lcd.mode.UTsel</object-name>
+    <object-name>davtron.lcd.mode.LTsel</object-name>
+    <object-name>davtron.lcd.mode.FTsel</object-name>
+    <object-name>davtron.lcd.mode.ETsel</object-name>
+    <shininess>0</shininess>
+    <specular>
+        <red>0.0</red>
+        <green>0.0</green>
+        <blue>0.0</blue>
+    </specular>
+    <ambient>
+        <red>0.0</red>
+        <green>0.0</green>
+        <blue>0.0</blue>
+    </ambient>
+    <diffuse>
+        <red>0.1</red>
+        <green>0.1</green>
+        <blue>0.1</blue>
+    </diffuse>
+  </animation>
+  
+
+  <!-- ##################### -->
+  <!--     OSG Help text     -->
+  <!-- ##################### -->
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">Volts/Temperature &amp; Clock</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.08</max-height>
+    <max-width>0.10</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.005 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>   0.8 </red>
+      <green> 0.8 </green>
+      <blue>  0.0 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+  
+</PropertyList>
+

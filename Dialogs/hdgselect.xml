@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>hdgselect</name>
+<x>840</x>
+<y>561</y>
+
+  <modal>false</modal>
+  <layout>vbox</layout>
+	<color>
+		<alpha>0.9</alpha>
+	</color>
+
+  <nasal>
+    <open><![CDATA[
+      var update = func(){
+        setprop("/it-autoflight/input/hdg", int(getprop("/it-autoflight/input/hdg")));
+       }
+ 
+      var dirListener = setlistener("/it-autoflight/input/hdg", update);
+      update();
+    ]]></open>
+
+    <close><![CDATA[
+      removelistener(dirListener);
+    ]]></close>	
+  </nasal>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>1</stretch></empty>
+
+    <text>
+      <label>Select Heading</label>
+    </text>
+
+    <empty><stretch>1</stretch></empty>
+
+	<button>
+		<halign>right</halign>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		<key>Esc</key>
+		<binding>
+			<command>property-assign</command>
+							<property>systems/bop</property>
+		<value>0</value>	
+						</binding>
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+		
+
+	</button>
+  </group>
+
+  <hrule/>
+
+  <group>
+    <layout>table</layout>
+    <default-padding>5</default-padding>
+
+    <text>
+      <row>0</row>
+      <col>0</col>
+      <halign>right</halign>
+      <label>Direction:</label>
+    </text>
+
+    <group>
+      <row>0</row>
+      <col>1</col>
+      <layout>hbox</layout>
+      <default-padding>0</default-padding>
+
+      <button>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/it-autoflight/input/hdg</property>
+          <min>1</min>
+          <max>361</max>
+          <step>-1</step>
+          <wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/it-autoflight/input/hdg</property>
+          <min>1</min>
+          <max>361</max>
+          <step>-10</step>
+          <wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+    <input>
+      <row>0</row>
+      <col>3</col>
+      <pref-width>44</pref-width>
+      <height>25</height>
+	<halign>center</halign>
+      <live>true</live>
+      <property>it-autoflight/input/hdg</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>
+
+    <text>
+      <row>0</row>
+      <col>4</col>
+      <padding>0</padding>
+      <halign>left</halign>
+      <label>deg</label>
+    </text>
+
+	
+
+    <group>
+      <layout>hbox</layout>
+      <row>0</row>
+      <col>5</col>
+      <default-padding>0</default-padding>
+
+      <button>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/it-autoflight/input/hdg</property>
+          <min>1</min>
+          <max>361</max>
+          <step>10</step>
+          <wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>
+        <row>1</row>
+        <col>6</col>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/it-autoflight/input/hdg</property>
+          <min>1</min>
+          <max>361</max>
+          <step>1</step>
+          <wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+    
+
+    <group>
+      <layout>hbox</layout>
+      <default-padding>0</default-padding>
+      <row>2</row>
+      <col>1</col>
+    </group>
+
+    
+    
+  </group>
+
+
+
+</PropertyList>

@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<name>lifo</name>
+	<modal>false</modal>
+  	<width>360</width>
+	<x>0</x>
+	<y>190</y>
+	
+    <layout>vbox</layout>  
+	<default-padding>2</default-padding>
+			<font>
+		<name>HELVETICA_12</name>
+	</font>
+	<color>
+		<red>0</red>
+		<green>0</green>
+		<blue>0</blue>
+		<alpha>0.9</alpha>
+	</color>
+
+
+    <group>
+		<layout>hbox</layout>
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+		<text>
+			<label>TakeOff Analysis</label>
+		</text>
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+		<button>
+			<color>
+				<red>0.5</red>
+				<green>0.5</green>
+				<blue>0.5</blue>
+				<alpha>0.8</alpha>
+			</color>	
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend>X</legend>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+	<hrule/>
+
+	
+	<group>
+		<layout>table</layout>
+		<name>fn_alt</name>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Location Data:</label>			
+		</text>	
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>ap</label>
+		<property>sim/presets/airport-id</property>	
+				<format> Airport:    %s</format>
+				<live>false</live>
+				<color>
+					<red>0.7</red>
+					<green>0</green>
+					<blue>0.7</blue>
+					<alpha>1</alpha>
+				</color>				
+		</text>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>tmp</label>
+			<property>environment/temperature-degc</property>
+				<format> Temperature:    %d Cel</format>					<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>		
+
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>dRwy</label>		
+<property>sim/presets/runway</property>
+				<format> Runway:      %s</format>
+				<live>false</live>
+				<color>
+					<red>0.7</red>
+					<green>0</green>
+					<blue>0.7</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+				<label>elev</label>		
+<property>/systems/gel</property>
+				<format> Elevation:      %d ft</format>
+				<live>true</live>
+				<color>
+					<red>0.7</red>
+					<green>0</green>
+					<blue>0.7</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>hum</label>
+<property>environment/relative-humidity</property>
+				<format> Rel Humidity:    %d pct</format>
+				<live>true</live>
+				<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>pre</label>
+<property>environment/pressure-inhg</property>
+				<format> Pressure-HG:   %1.2f hg</format>
+				<live>true</live>
+				<color>
+					<red>0</red>
+					<green>0.6</green>
+					<blue>0.6</blue>
+					<alpha>1</alpha>
+				</color>
+	
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>wd</label>
+<property>environment/wind-from-heading-deg</property>
+				<format> Wind From:     %d deg</format>
+				<live>true</live>
+				<color>
+			<red>0.5</red>
+				<green>0.5</green>
+				<blue>0.5</blue>
+				<alpha>0.8</alpha>
+			</color>	
+		</text>
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ws</label>
+<property>environment/wind-speed-kt</property>
+				<format> Wind Speed:      %d kts</format>
+				<live>true</live>
+				<color>
+				<red>0.5</red>
+				<green>0.5</green>
+				<blue>0.5</blue>
+				<alpha>0.8</alpha>
+			</color>	
+		</text>
+		
+</group>
+	<hrule/>
+
+<group>
+<layout>table</layout>
+<name>noAp</name>	
+
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Current Data::</label>			
+		</text>
+
+
+
+		
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>spd</label>
+<property>velocities/airspeed-kt</property>
+				<format> AirSpeed:         %d kts</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ptch</label>
+<property>orientation/pitch-deg</property>
+				<format> Pitch Deg:       %1.2f deg</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>rl</label>
+<property>orientation/roll-deg</property>
+				<format> Roll Deg:        %2.1f deg</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>
+
+		
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>vs</label>
+<property>velocities/vertical-speed-fps</property>
+				<format> Vert. Speed:        %1.2f fps</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>
+		
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>fl</label>
+<property>controls/flight/flaps</property>
+				<format> Flaps Position:      %s</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ao</label>
+<property>orientation/alpha-deg</property>
+				<format> Alpha Deg:         %2.2f deg</format>
+				<live>true</live>
+				<color>
+					<red>0.5</red>
+					<green>0.5</green>
+					<blue>0.5</blue>
+					<alpha>0.8</alpha>			
+				</color>				
+		</text>
+
+</group>
+	<hrule/>
+
+<group>
+<layout>table</layout>
+<name>data</name>
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Lift-off Data:</label>			
+		</text>
+
+			
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Rot</label>
+				<property>/systems/rsp</property>
+				<format> Rotation at:             %d kts</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label> Rwy Length</label>
+				<property>/systems/rwlg</property>
+				<format> Runway Length:     %d ft</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+
+		<text>
+			<halign>left</halign>
+			<row>3</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>ll</label>							<property>/systems/tos</property>
+				<format> Liftoff occurred:       %d kts</format>
+				<live>true</live>
+
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>				
+		</text>		
+
+		<text>
+			<halign>left</halign>
+			<row>4</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>rw </label>
+			<property>/systems/tor</property>
+				<format> Runway used:       %d ft</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>				
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>0</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>pes </label>
+			<property>/systems/grw</property>
+				<format> Takeoff Weight:   %d lbs</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>				
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>1</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>el</label>
+<property>systems/elv</property>
+				<format> Elevator Pos:   %1.2f</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>				
+		</text>
+
+		<text>
+			<halign>left</halign>
+			<row>2</row>
+			<col>1</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>
+			<label>flt</label>
+<property>systems/flt</property>
+				<format> Flaps Position:      %s</format>
+				<live>true</live>
+				<color>
+					<red>0.6</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>1</alpha>
+				</color>				
+		</text>	
+
+	</group>
+	
+	<hrule/>
+	
+	
+	<group>
+		<layout>table</layout>
+		<name>admin</name>		
+
+		<text>
+		<halign>left</halign>
+			<row>0</row>
+			<col>0</col>			
+			<pref-height>21</pref-height>
+			<pref-width>45</pref-width>
+			<margin>1</margin>			
+			<label>F3 - Save Image</label>
+				<color>
+					<red>0.9</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>1</alpha>
+				</color>
+		</text>
+
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<name>4</name>
+			<legend>Reset</legend>
+			<pref-height>20</pref-height>
+			<pref-width>80</pref-width>
+			<margin>1</margin>
+			<keynum>27</keynum>
+			<border>2</border>
+		
+			<binding>
+				<command>nasal</command>
+				<script>
+setprop("/sim/freeze/clock",0);
+setprop("/controls/gear/brake-parking",1);
+var apid = getprop("/sim/presets/airport-id");
+var rwid = getprop("/sim/presets/runway");
+aircraft.teleport(airport = apid, runway = rwid);
+		</script>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+
+		<button>
+			<row>0</row>
+			<col>2</col>
+			<name>124</name>
+			<legend>Continue</legend>
+			<pref-height>20</pref-height>
+			<pref-width>80</pref-width>
+			<margin>1</margin>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop("/sim/freeze/clock",0);
+					setprop("/systems/lapa",0);
+				</script>
+			</binding>
+
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>		
+		
+	</group>
+
+</PropertyList>
+

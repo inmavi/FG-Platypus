@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2018 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Control Panel Dialog -->
+
+<PropertyList>
+	
+	<name>trim-panel</name>
+	<layout>vbox</layout>
+	<x>1320</x>
+	<y>200</y>	
+	
+	
+	<button>
+		<pref-width>30</pref-width>
+		<pref-height>20</pref-height>
+		<legend>N-</legend>
+		<repeatable>true</repeatable>		
+   	<binding>
+        <command>nasal</command>
+        <script>controls.elevatorTrim(1)</script>
+      </binding>
+	</button>
+
+	<button>	
+		<pref-width>30</pref-width>
+		<pref-height>20</pref-height>
+		<legend>N+</legend>		
+		<repeatable>true</repeatable>		
+   	<binding>
+        <command>nasal</command>
+        <script>controls.elevatorTrim(-1)</script>
+      </binding>
+	</button>
+	
+
+	<button>
+		<pref-width>30</pref-width>
+		<pref-height>20</pref-height>
+		<legend>L</legend>
+		<binding>
+        <command>property-adjust</command>
+        <property>/controls/flight/aileron-trim</property>
+        <step type="double">-0.001</step>
+   	 </binding>
+	</button>
+
+	<button>
+		<pref-width>30</pref-width>
+		<pref-height>20</pref-height>
+		<legend>R</legend>
+		<binding>
+             <command>property-adjust</command>
+             <property>/controls/flight/aileron-trim</property>
+             <step type="double">0.001</step>
+         </binding>
+	</button>
+	
+	<button>
+		<pref-width>30</pref-width>
+		<pref-height>20</pref-height>
+		<legend>A</legend>
+		<binding>
+	<command>nasal</command>
+		<script>
+	logger.screen.red("Autotrim not implemented yet",2);
+		</script>
+</binding>
+	</button>
+
+
+	<vrule/>
+
+	<button>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>				
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+		<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>close</tooltip-id>
+                <label>Close</label>
+            </binding>
+        </hovered>
+	</button>
+
+</PropertyList>

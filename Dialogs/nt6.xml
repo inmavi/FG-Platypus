@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>nt6</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+	<color>
+		<alpha>1</alpha>
+	</color>
+	
+  
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>1</stretch></empty>
+
+    <text>
+      <label>CDI Failure</label>
+    </text>
+
+    <empty><stretch>1</stretch></empty>
+
+	<button>
+		<halign>right</halign>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		<key>Esc</key>
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+	</button>
+  </group>
+
+  <hrule/>
+
+  <group>
+			<layout>vbox</layout>			
+			
+			<textbox>
+                    <name>cdi</name>
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>300</pref-height>
+                    <height>300</height>
+                    <pref-width>480</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>0</top-line>
+                    <property>/sim/cdi</property>
+                </textbox>			
+			
+		</group>
+
+<hrule/>
+
+
+  <button>
+    <legend>Run</legend>
+    <default>true</default>
+    <key>Esc</key>
+
+    <binding>
+      <command>nasal</command>
+		<script>
+			setprop("/controls/engines/engine/magnetos", 0);
+     setprop("/controls/switches/avionics-master", 0);
+
+			libraries.cleanup();
+fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
+		setprop("/systems/saloft",1);
+		setprop("/systems/bp",1);								setprop("/systems/nora",0);
+		setprop("/systems/nonav1",1);
+		setprop("/systems/nonav2",1);
+		setprop("/sim/freeze/clock",1);
+		var slon = -158.1106 ;
+		var slat = 21.5138;
+		var alti = 3750;
+		var spd = 110;
+		var shd = 207;
+
+
+	if (getprop("/systems/saloft") == 1)  {
+	setprop("/sim/presets/running", 1);
+	setprop("/controls/electrical/battery", 1);
+     	setprop("/controls/electrical/alternator", 1);
+  	setprop("/controls/switches/avionics-master", 1);
+  	setprop("/controls/engines/engine[0]/magnetos-switch", 3);
+  	setprop("/controls/switches/fuel-pump", 1);
+  	setprop("/controls/engines/engine/throttle", 1);
+  	setprop("/controls/engines/engine/mixture", 1);
+	setprop("/controls/engines/engine[0]/magnetos-switch", 4);
+	setprop("/controls/engines/engine/running", 1);
+	setprop("/controls/engines/engine[0]/magnetos-switch", 3);
+	setprop("/controls/switches/panel-lights-factor", 1);
+	setprop("/controls/switches/nav-lights", 1);
+	setprop("/controls/switches/nav-lights-factor", 1);
+	setprop("/controls/switches/strobe-lights", 1);
+	setprop("/controls/switches/landing-light", 1);		
+  	setprop("/controls/switches/panel-lights-factor", 1);
+  	setprop("/it-autoflight/input/ap", 1);		
+	setprop("/it-autoflight/input/lat", 0);
+	setprop("/controls/engines/engine/throttle", 0.95);
+	setprop("/controls/engines/engine/starter", 0);
+	setprop("/engines/engine/fuel-pressure-psi", 4.3);
+	setprop("/systems/vbo", 0);
+	setprop("/systems/fl", 0);
+	setprop("/controls/flight/flaps", 0.0);
+
+
+
+		setprop("/instrumentation/nav/frequencies/selected-mhz", 111.7);
+		setprop("/instrumentation/nav/radials/selected-deg", 90);
+									setprop("/instrumentation/heading-indicator/indicated-heading-deg", 207);
+
+
+	if (getprop("/systems/nbat")== 0) {
+
+	var inc = props.globals.getNode("/systems/starts");
+	inc.setValue(inc.getValue() + 1);
+
+	}
+	if (getprop("/systems/starts") > 321)  {
+
+	logger.screen.red("Electrical systems malfunction,
+engine can not start, please restart on the ground
+and replace your depleted battery", 3);
+
+	}
+
+
+}
+
+	aircraft.teleport(airport = "", runway = "",lat = slat, lon = slon, alt = alti,
+		speed = spd, distance = 0, azimuth = 0, glideslope = 0, heading = shd) ;
+	fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
+
+		setprop("/environment/weather-scenario", "Core high pressure region");
+		setprop("/controls/gear/brake-parking", 0);
+		davtron803.davtron_flight_time.reset();
+		davtron803.davtron_flight_time.start();
+		</script>
+    </binding>
+
+	
+	<binding>
+      <command>dialog-close</command>
+    </binding>
+
+  </button>
+
+</PropertyList>

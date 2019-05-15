@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+	<default>
+			               
+			<menu n="2">
+                  <item n="0">
+                  <label>Position Aircraft in Air</label>
+                    <binding>
+                      <command>nasal</command>
+                      <script>											fgcommand("dialog-show", props.Node.new({ "dialog-name" : "location-in-air-pa" }));		
+					</script>
+                    </binding>
+                  </item>
+                </menu>
+			
+
+		<menu n="5">
+                  <item n="4">
+                  <label>Fuel and Payload</label>
+                    <binding>
+                      <command>nasal</command>
+                      <script>
+					if (getprop("/gear/gear/wow") and getprop("/engines/engine/rpm") ==0) {
+						gui.showWeightDialog();
+
+					}                  	 
+					else {
+						gui.popupTip("No refuelling with engine running!", 6.0);               			
+					}
+					</script>
+
+                    </binding>
+                  </item>
+                </menu>
+			<menu n="5">
+                  <item n="6">
+                  <label>GPS Settings</label>
+                    <binding>
+                      <command>nasal</command>
+                      <script>
+					fgcommand("dialog-show", props.Node.new({ "dialog-name" : "gps" }));
+					</script>
+
+                    </binding>
+                  </item>
+                </menu>
+			<menu n="9">
+                  <item n="6">
+                  <label>Keyborad</label>
+				<key>K</key>
+                    					
+					<binding>
+						<command>dialog-show</command>
+					<dialog-name>shortcuts</dialog-name>
+						</binding>					
+                  </item>
+                </menu>
+
+
+				<menu n="100">
+					<label>Warrior II</label>
+					<enabled type="bool">true</enabled>
+					<item>
+						<label>Aircraft Config</label>
+						<key>w</key>
+						<binding>
+							<command>nasal</command>
+							<script>
+							acconfig.main_dlg.open();
+							</script>
+						</binding>
+					</item>
+
+					<item>
+						<label>Checklists</label>		
+						<binding>
+	<command>dialog-show</command>
+	<dialog-name>check1</dialog-name>
+	</binding>
+
+
+					</item>
+					<item>
+						<label>Dash Bar</label>
+						<key>D</key>
+
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>dash</dialog-name>
+						</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/dash", 1);		
+					</script>
+			</binding>
+
+					</item>
+
+					<item>
+						<label>Emergency Procs</label>		
+						<binding>
+	<command>dialog-show</command>
+	<dialog-name>check2</dialog-name>
+		</binding>
+
+
+					</item>
+
+					
+					<item>
+						<label>Flight Statistic</label>
+						<key>Ctrl-s</key>
+
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>stats</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Fuel Status</label>
+													<binding>					
+		<command>dialog-show</command>
+							<dialog-name>fuelstatus</dialog-name>
+						</binding>
+					</item>
+
+					
+					<item>
+						<label>Heading Selector</label>
+						<key>H</key>
+
+						<binding>
+						<condition>
+							<equals>
+							<property>options/nav-source</property>
+	<value>2</value>
+							</equals>				
+						</condition>
+							<command>show-message</command>
+					<id>hdgsele</id>
+					<label>This tool is not available in GPS/ RM Mode</label>					
+					<delay>3</delay>
+						</binding>
+
+						<binding>					
+						<condition>
+							<not-equals>
+							<property>options/nav-source</property>
+	<value>2</value>
+							</not-equals>
+						</condition>
+							<command>dialog-show</command>
+							<dialog-name>hdgselect</dialog-name>
+						</binding>
+						<binding>	
+						<command>property-assign</command>
+							<property>systems/bop</property>
+		<value>1</value>	
+						</binding>
+
+					</item>					
+
+					
+					<item>
+						<label>Presets Bar</label>
+						<key>c</key>
+
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>dpresets</dialog-name>
+						</binding>
+						<binding>
+					<command>nasal</command>
+					<script>				
+						setprop("/options/prs", 1);	
+					</script>
+				</binding>
+					</item>
+
+					<item>
+						<label>Adjust Pilot Seat</label> 
+						       
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>seatpos</dialog-name>
+
+						</binding>
+					</item>
+
+
+					<item>
+						<label>Set Call-Sign</label> 
+						<key>R</key>
+       
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>immat</dialog-name>
+
+						</binding>
+					</item>
+					<item>
+						<label>Specification</label>
+						<key>F5</key>
+
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>spec</dialog-name>
+						</binding>
+					</item>
+					
+					<item>
+						<label>Toggle View Bar</label>
+						
+						<binding>
+						<command>nasal</command>
+						<script>
+	if (getprop("/systems/vbo")== 1) {
+				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));		
+		setprop("/systems/vbo",0);		
+	}
+	else {
+		setprop("/systems/vbo",1);
+		var vw =getprop("/sim/current-view/view-number");	
+		 setprop("/sim/current-view/view-number",vw); 
+	}
+						</script>
+						</binding>					
+						
+					</item>
+					
+					<item>
+						<label>Wind Settings</label>
+						<key>W</key>
+
+						<binding>
+							<command>nasal</command>
+							<script>
+							if(getprop("/systems/mws")== 0) {
+						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windconfig" }));
+						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));
+
+	} else {
+						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));		
+};
+		
+
+						</script>
+						</binding>
+					</item>
+
+										
+
+	
+				</menu>
+				<menu n="101">
+					<label>How To..?</label>
+					<enabled type="bool">true</enabled>
+					<item>
+						<label>Getting Started</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/PA28-Warrior/Docs/FGN_Cockpit.pdf</path>
+						</binding>
+					</item>
+					
+					
+					<item>
+						<label>Fundamentals</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/PA28-Warrior/Docs/Fundamentals.pdf</path>
+						</binding>
+					</item>
+					<item>
+						<label>Fuel Management</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/PA28-Warrior/Docs/Fuel.pdf</path>
+						</binding>
+					</item>
+
+					<item>
+						<label>Go to SkyVector IFR</label>
+						<binding>
+							<command>open-browser</command>
+							<path>https://skyvector.com/</path>
+						</binding>
+					</item>
+					<item>
+						<label>General Stuff</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/PA28-Warrior/Docs/General_Stuff.pdf</path>
+						</binding>
+					</item>
+					<item>
+						<label>Tame the Beebs</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/PA28-Warrior/Docs/Sound_Management.pdf</path>
+						</binding>
+					</item>
+
+					<item>
+						<label>Practise Approaches </label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/PA28-Warrior/Docs/ApproachP.pdf</path>
+						</binding>
+					</item>
+					
+
+					<item>
+						<label>About Warrior Nav</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/PA28-Warrior/Docs/AboutFGN.pdf</path>
+						</binding>
+					</item>
+				</menu>
+				<menu n="102">
+					<label>Miscellaneous</label>
+					<enabled type="bool">true</enabled>
+					
+					<item>
+						<label>Show AP Control</label>	
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>qreset</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Banking Primer</label>	
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>tprimer</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Basic Calculations </label>
+						<key>C</key>
+						<binding>
+	<command>dialog-show</command>
+	<dialog-name>qcalc</dialog-name>
+	</binding>
+
+
+					</item>					
+					
+					<item>
+						<label>Download the World</label>
+						<binding>
+							<command>open-browser</command>
+							<path>http://www.?ightgear.org/download/scenery/</path>
+						</binding>
+					</item>
+
+					
+
+					<item>
+						<label>Open Docs Folder</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/PA28-Warrior/Docs/</path>
+						</binding>
+					</item>
+
+					
+
+					<item>
+						<label>Replace Faulty Battery</label>
+						
+						<binding>
+							<command>nasal</command>
+							<script>
+							setprop("/systems/nbat", 0);
+		setprop("/systems/electrical/batt-volt", 12);
+		setprop("/systems/electrical/batt-amp", 35);
+		setprop("/systems/starts",0);
+		            logger.screen.red("Depleted Battery has been replaced,
+close and restart!",2);
+
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Procedures Primer</label>
+						<key>A</key>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>procs</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Mass Weight Balance</label>						
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>massbal</dialog-name>
+						</binding>
+						<binding>
+                <command>nasal</command>
+			<script>libraries.showccg();</script>
+            				</binding>	
+					</item>
+
+
+					<item>
+						<label>Toggle Flashlight</label>
+						<binding>
+            				<command>nasal</command>
+            				<script>fl.toggle_flashlight()</script>
+       	 				</binding>
+					</item>	
+
+					<item>
+						<label>Toggle AC Config (restart!)</label>
+						<binding>
+				<command>property-toggle</command>
+				<property>systems/welcome-enabled</property>
+						</binding>
+					</item>			
+	
+					
+					<item>
+						<label>Show Trim Panel</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>trim-panel</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trp", 1);		
+					</script>
+			</binding>
+
+					</item>											
+				</menu>
+
+			<menu n="103">
+					<label>Nav-Scenarios</label>
+					<enabled type="bool">true</enabled>
+			
+					<item>
+						<label>Takeoff Practise</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt1</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 1);		
+					</script>
+			</binding>
+					</item>	
+					<item>
+						<label>Select Approach</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt2</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 2);		
+					</script>
+			</binding>
+					</item>
+					<item>
+						<label>IFR Approach</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt3</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 3);		
+					</script>
+			</binding>
+					</item>	
+					<item>
+						<label>Patterns</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt4</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 4);		
+					</script>
+			</binding>
+					</item>	
+					<item>
+						<label>Night IFR</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt5</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 5);		
+					</script>
+			</binding>
+					</item>
+					<item>
+						<label>CDI Failure</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt6</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 6);		
+					</script>
+			</binding>
+					</item>
+					<item>
+						<label>Engine Fail</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt7</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 7);		
+					</script>
+			</binding>
+					</item>		
+					<item>
+						<label>Flaps Fail</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt8</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 8);		
+					</script>
+			</binding>
+					</item>
+					<item>
+						<label>Taxi 2 Taxi</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt9</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 9);		
+					</script>
+			</binding>
+					</item>
+					<item>
+						<label>On Course ?</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt10</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 10);		
+					</script>
+			</binding>
+					</item>
+					<item>
+						<label>Alternate AP</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt11</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 11);		
+					</script>
+			</binding>
+					</item>
+					<item>
+						<label>Alps Challenge</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt12</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 12);		
+					</script>
+			</binding>
+					</item>
+					<item>
+						<label>Missed Approach</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt13</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 13);		
+					</script>
+			</binding>
+					</item>
+					<item>
+						<label>RNAV Procedure</label>
+						<binding>
+            				<command>dialog-show</command>
+            				<dialog-name>nt14</dialog-name>
+       	 				</binding>
+						<binding>
+				<command>nasal</command>
+					<script>											setprop("/options/trm", 14);		
+					</script>
+			</binding>
+					</item>
+
+				</menu>
+
+			</default>
+		
+</PropertyList>

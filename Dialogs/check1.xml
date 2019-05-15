@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Aircraft Config Dialog -->
+
+
+<PropertyList>
+
+	<name>check1</name>
+	<modal>false</modal>
+  	<width>330</width>
+	<color>
+		<alpha>1</alpha>
+	</color>
+
+
+	<x>1</x>
+	<y>1</y>
+
+	<layout>vbox</layout>
+	
+
+    <group>
+        <layout>hbox</layout>
+        <text>
+            <halign>left</halign>
+            <label>Phase -> </label>
+        </text>
+	  <button>
+            <halign>center</halign>
+            <pref-width>44</pref-width>
+            <pref-height>20</pref-height>
+            <legend>Pre-F</legend>
+            <key>Esc</key>
+            <binding>
+                <command>nasal</command>
+				<script>
+			setprop("/systems/checklist",1) ;
+			setprop("/systems/clname","preflight") ;
+	setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","preflight") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/preflight") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check1" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check1" }));
+					</script>
+            </binding>
+        </button>
+
+	   <button>
+            <halign>center</halign>
+            <pref-width>44</pref-width>
+            <pref-height>20</pref-height>
+            <legend>T/O</legend>
+            <key>Esc</key>
+            <binding>
+                <command>nasal</command>
+				<script>
+			setprop("/systems/checklist",10) ;
+			setprop("/systems/clname","nto") ;
+	setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","nto") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/nto") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check1" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check1" }));
+					</script>
+            </binding>
+
+        </button>
+		<button>
+            <halign>center</halign>
+            <pref-width>44</pref-width>
+            <pref-height>20</pref-height>
+            <legend>Cl-A</legend>
+            <key>Esc</key>
+            <binding>
+                <command>nasal</command>
+				<script>
+			setprop("/systems/checklist",15) ;
+			setprop("/systems/clname","clb") ;
+	setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","clb") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/clb") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check1" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check1" }));
+					</script>
+            </binding>
+
+        </button>
+		<button>
+            <halign>center</halign>
+            <pref-width>44</pref-width>
+            <pref-height>20</pref-height>
+            <legend>-Lnd</legend>
+            <key>Esc</key>
+            <binding>
+                <command>nasal</command>
+				<script>
+			setprop("/systems/checklist",18) ;
+			setprop("/systems/clname","apl") ;
+	setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","apl") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/apl") ;
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check1" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check1" }));
+					</script>
+            </binding>
+
+        </button>
+        <button>
+            <halign>right</halign>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+
+	
+
+	
+		<group>
+			<layout>vbox</layout>
+			
+			
+			
+			<textbox>
+                    <name>preflight</name>
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>570</pref-height>
+                    <pref-width>240</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>0</top-line>
+                    <property>/sim/preflight</property>
+                </textbox>			
+			
+		</group>
+		
+	    <hrule/>
+	
+		<group>
+			<layout>hbox</layout>
+			
+			<button>
+				<halign>left</halign>
+				<legend>Previous</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+				<enable>
+					<greater-than>	
+					<property>systems/checklist</property>
+<value>1</value>
+					</greater-than>
+				</enable>
+
+				<binding>
+					<command>nasal</command>
+					<script>
+    var chl = props.globals.getNode("/systems/checklist");
+	chl.setValue(chl.getValue() - 1);
+
+		if (getprop("/systems/checklist")== 1 ) {
+		setprop("/systems/clname","preflight") ;
+	setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","preflight") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/preflight") ;
+		}
+
+		if (getprop("/systems/checklist")== 2 ) {
+		setprop("/systems/clname","bes") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","bes") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/bes") ;
+		}
+
+		if (getprop("/systems/checklist")== 3 ) {
+		setprop("/systems/clname","ces") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","ces") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/ces") ;
+		}
+
+		if (getprop("/systems/checklist")== 4 ) {
+		setprop("/systems/clname","hes") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","hes") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/hes") ;
+		}
+if (getprop("/systems/checklist")== 5 ) {
+		setprop("/systems/clname","fes") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","fes") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/fes") ;
+		}
+if (getprop("/systems/checklist")== 6 ) {
+		setprop("/systems/clname","wup") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","wup") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/wup") ;
+		}
+if (getprop("/systems/checklist")== 7 ) {
+		setprop("/systems/clname","tax") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","tax") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/tax") ;
+		}
+if (getprop("/systems/checklist")== 8 ) {
+		setprop("/systems/clname","grc") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","grc") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/grc") ;
+		}
+if (getprop("/systems/checklist")== 9 ) {
+		setprop("/systems/clname","bto") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","bto") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/bto") ;
+		}
+if (getprop("/systems/checklist")== 10 ) {
+		setprop("/systems/clname","nto") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","nto") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/nto") ;
+		}
+if (getprop("/systems/checklist")== 11 ) {
+		setprop("/systems/clname","shfo") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","shfo") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/shfo") ;
+		}
+if (getprop("/systems/checklist")== 12 ) {
+		setprop("/systems/clname","shfn") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","shfn") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/shfn") ;
+		}
+if (getprop("/systems/checklist")== 13 ) {
+		setprop("/systems/clname","sofo") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","sofo") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/sofo") ;
+		}
+if (getprop("/systems/checklist")== 14 ) {
+		setprop("/systems/clname","sofn") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","sofn") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/sofn") ;
+		}
+if (getprop("/systems/checklist")== 15 ) {
+		setprop("/systems/clname","clb") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","clb") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/clb") ;
+		}
+if (getprop("/systems/checklist")== 16 ) {
+		setprop("/systems/clname","crs") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","crs") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/crs") ;
+		}
+if (getprop("/systems/checklist")== 17 ) {
+		setprop("/systems/clname","des") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","des") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/des") ;
+		}
+if (getprop("/systems/checklist")== 18 ) {
+		setprop("/systems/clname","apl") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","apl") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/apl") ;
+		}
+if (getprop("/systems/checklist")== 19 ) {
+		setprop("/systems/clname","ste") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","ste") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/ste") ;
+		}
+if (getprop("/systems/checklist")== 20 ) {
+		setprop("/systems/clname","pkg") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","pkg") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/pkg") ;
+		}
+
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check1" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check1" }));
+
+					</script>
+				</binding>
+			</button>
+
+			<button>
+				<halign>center</halign>
+				<legend>Next</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+				<enable>
+					<not-equals>	
+					<property>systems/checklist</property>
+<value>20</value>
+					</not-equals>
+				</enable>
+				<binding>
+					<command>nasal</command>
+					<script>
+    var chl = props.globals.getNode("/systems/checklist");
+	chl.setValue(chl.getValue() + 1);
+
+				if (getprop("/systems/checklist")== 1 ) {
+		setprop("/systems/clname","preflight") ;
+	setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","preflight") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/preflight") ;
+		}
+
+		if (getprop("/systems/checklist")== 2 ) {
+		setprop("/systems/clname","bes") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","bes") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/bes") ;
+		}
+
+		if (getprop("/systems/checklist")== 3 ) {
+		setprop("/systems/clname","ces") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","ces") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/ces") ;
+		}
+
+		if (getprop("/systems/checklist")== 4 ) {
+		setprop("/systems/clname","hes") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","hes") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/hes") ;
+		}
+if (getprop("/systems/checklist")== 5 ) {
+		setprop("/systems/clname","fes") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","fes") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/fes") ;
+		}
+if (getprop("/systems/checklist")== 6 ) {
+		setprop("/systems/clname","wup") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","wup") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/wup") ;
+		}
+if (getprop("/systems/checklist")== 7 ) {
+		setprop("/systems/clname","tax") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","tax") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/tax") ;
+		}
+if (getprop("/systems/checklist")== 8 ) {
+		setprop("/systems/clname","grc") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","grc") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/grc") ;
+		}
+if (getprop("/systems/checklist")== 9 ) {
+		setprop("/systems/clname","bto") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","bto") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/bto") ;
+		}
+if (getprop("/systems/checklist")== 10 ) {
+		setprop("/systems/clname","nto") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","nto") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/nto") ;
+		}
+if (getprop("/systems/checklist")== 11 ) {
+		setprop("/systems/clname","shfo") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","shfo") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/shfo") ;
+		}
+if (getprop("/systems/checklist")== 12 ) {
+		setprop("/systems/clname","shfn") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","shfn") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/shfn") ;
+		}
+if (getprop("/systems/checklist")== 13 ) {
+		setprop("/systems/clname","sofo") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","sofo") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/sofo") ;
+		}
+if (getprop("/systems/checklist")== 14 ) {
+		setprop("/systems/clname","sofn") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","sofn") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/sofn") ;
+		}
+if (getprop("/systems/checklist")== 15 ) {
+		setprop("/systems/clname","clb") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","clb") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/clb") ;
+		}
+if (getprop("/systems/checklist")== 16 ) {
+		setprop("/systems/clname","crs") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","crs") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/crs") ;
+		}
+if (getprop("/systems/checklist")== 17 ) {
+		setprop("/systems/clname","des") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","des") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/des") ;
+		}
+if (getprop("/systems/checklist")== 18 ) {
+		setprop("/systems/clname","apl") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","apl") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/apl") ;
+		}
+if (getprop("/systems/checklist")== 19 ) {
+		setprop("/systems/clname","ste") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","ste") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/ste") ;
+		}
+if (getprop("/systems/checklist")== 20 ) {
+		setprop("/systems/clname","pkg") ;			setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/name","pkg") ;		setprop("/sim/gui/dialogs/check1/dialog/group[1]/textbox/property","/sim/pkg") ;
+		}
+
+	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check1" }));
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check1" }));
+
+					</script>
+				</binding>
+			</button>
+
+			<button>
+				<halign>center</halign>
+				<legend>E-Procs</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+				<binding>
+					<command>nasal</command>
+						<script>
+		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "check2" }));
+		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check1" }));
+					</script>
+				</binding>
+			</button>
+
+			<button>
+				<halign>right</halign>
+				<legend>Close</legend>
+				<pref-width>70</pref-width>
+				<pref-height>20</pref-height>
+				<binding>
+					<command>dialog-close</command>
+				</binding>
+			</button>
+
+		</group>
+	
+</PropertyList>

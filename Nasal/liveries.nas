@@ -1,0 +1,1 @@
+aircraft.livery.init("Aircraft/FG-Platypus/Models/Liveries");

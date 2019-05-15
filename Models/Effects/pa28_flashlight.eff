@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+  <name>pa28_flashlight</name>
+  <inherits-from>Effects/model-interior</inherits-from>
+  <parameters>
+	<light-filter-one type="vec3d">0.7 0.7 0.7</light-filter-one>
+	<light-filter-two type="vec3d">0.4 0.1 0.0</light-filter-two>
+	<light-radius type="float">18</light-radius>
+  </parameters>
+</PropertyList>

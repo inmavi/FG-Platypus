@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+    <path>suitcase2.ac</path>
+    
+    <animation>
+		<type>scale</type>
+		<x-offset>0.75</x-offset>
+		<y-offset>0.75</y-offset>
+		<z-offset>0.75</z-offset>
+	</animation>
+
+    <animation>
+        <object-name>suitcase2</object-name>
+    </animation>
+
+</PropertyList>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Aircraft Config Dialog -->
+
+
+<PropertyList>
+
+	<name>spec</name>
+	<modal>false</modal>
+  	<width>400</width>
+	<x>1</x>
+<y>41</y>
+
+	<layout>vbox</layout>
+	<color>
+		<alpha>0.5</alpha>
+	</color>
+
+    <group>
+        <layout>hbox</layout>
+        <text>
+            <halign>left</halign>
+            <label>Performance Data: > Piper POH for the PA28-161 (160HP)</label>
+        </text>
+        <button>
+            <halign>right</halign>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+	
+		<group>
+			<layout>vbox</layout>
+			
+			
+			
+			<textbox>
+                    <name>Performance Data</name>
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>520</pref-height>
+                    <height>520</height>
+                    <pref-width>100</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>0</top-line>
+                    <property>/sim/spec</property>
+                </textbox>			
+			
+		</group>
+		
+	    <hrule/>
+	
+		<group>
+			<layout>hbox</layout>
+			
+			<button>
+				<halign>center</halign>
+				<legend>Close</legend>
+				<pref-width>210</pref-width>
+				<binding>
+					<command>dialog-close</command>
+				</binding>
+			</button>
+		</group>
+	
+</PropertyList>

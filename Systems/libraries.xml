@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+
+<PropertyList>
+
+	<filter>
+		<name>Gear AGL Altitude FT</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>
+			<expression>
+				<dif>
+					<property>/position/altitude-agl-ft</property>
+					<value>3.42</value>
+				</dif>
+			</expression>
+		</input>
+		<output>/position/gear-agl-ft</output>
+		<min>0</min>
+		<max>50000</max>
+	</filter>
+	
+	<filter>
+		<name>Gear AGL Altitude M</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>
+			<expression>
+				<product>
+					<property>/position/gear-agl-ft</property>
+					<value>0.3048</value>
+				</product>
+			</expression>
+		</input>
+		<output>/position/gear-agl-m</output>
+		<min>0</min>
+		<max>50000</max>
+	</filter>
+	
+	<filter>
+		<name>Fuel Selector Knob</name>
+		<type>noise-spike</type>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>/systems/fuel/selected-tank</input>
+		<output>/systems/fuel/selected-tank-knb</output>
+		<max-rate-of-change>2.0</max-rate-of-change>
+	</filter>
+
+	<filter>
+		<name>CDI0 lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>/instrumentation/nav[0]/heading-needle-deflection</input>
+		<output>/instrumentation/nav[0]/filtered-cdiNAV0-deflection</output>
+		<filter-time>2.0</filter-time>
+	</filter>
+
+	<filter>
+		<name>CDI1 lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>/instrumentation/nav[1]/heading-needle-deflection</input>
+		<output>/instrumentation/nav[1]/filtered-cdiNAV1-deflection</output>
+		<filter-time>2.0</filter-time>
+	</filter>
+
+	<filter>
+		<name>GS0 lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>/instrumentation/nav[0]/gs-needle-deflection-norm</input>
+		<output>/instrumentation/nav[0]/filtered-gsNAV0-deflection</output>
+		<filter-time>2.0</filter-time>
+	</filter>
+
+	<filter>
+		<name>GS1 lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>/instrumentation/nav[1]/gs-needle-deflection-norm</input>
+		<output>/instrumentation/nav[1]/filtered-gsNAV1-deflection</output>
+		<filter-time>2.0</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Attitude Indicator Roll lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>/instrumentation/attitude-indicator/indicated-roll-deg</input>
+		<output>/instrumentation/attitude-indicator/actual-indicated-roll-deg</output>
+		<filter-time>0.04</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Attitude Indicator Pitch lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>/instrumentation/attitude-indicator/indicated-pitch-deg</input>
+		<output>/instrumentation/attitude-indicator/actual-indicated-pitch-deg</output>
+		<filter-time>0.04</filter-time>
+	</filter>
+	
+	<!-- Instrument filters -->
+	
+	<filter>
+		<name>Ampere lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>/systems/electrical/altn-amp-calc</input>
+		<output>/systems/electrical/altn-amp-lag</output>
+		<filter-time>0.16</filter-time>
+	</filter>
+	
+	<filter>
+		<name>EGT lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/elec1</property>
+					<value>8</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>/fdm/jsbsim/fcs/egt-feedback</input>
+		<output>/engines/engine[0]/egt-actual</output>
+		<filter-time>0.16</filter-time>
+		<min>0</min>
+		<max>1800</max>
+	</filter>
+	
+	<filter>
+		<name>Left Tank lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/elec1</property>
+					<value>8</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>/consumables/fuel/tank[0]/level-gal_us</input>
+		<output>/consumables/fuel/tank[0]/level-gal_us-lag</output>
+		<filter-time>0.16</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Oil Temp lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/elec1</property>
+					<value>8</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>/fdm/jsbsim/fcs/oil-temp-feedback</input>
+		<output>/engines/engine[0]/oil-temperature-actual</output>
+		<filter-time>0.16</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Fuel Pressure lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/elec1</property>
+					<value>8</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>/systems/fuel/pressure-psi</input>
+		<output>/engines/engine[0]/fuel-pressure-actual</output>
+		<filter-time>0.16</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Oil Pressure lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/elec1</property>
+					<value>8</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>
+			<expression>
+				<table>
+					<property>/engines/engine[0]/rpm</property> 
+					<entry><ind> 200</ind><dep> 0</dep></entry>
+					<entry><ind> 500</ind><dep>60</dep></entry>
+					<entry><ind>2900</ind><dep>75</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/engines/engine[0]/oil-pressure-actual</output>
+		<filter-time>0.16</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Right Tank lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/elec1</property>
+					<value>8</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>/consumables/fuel/tank[1]/level-gal_us</input>
+		<output>/consumables/fuel/tank[1]/level-gal_us-lag</output>
+		<filter-time>0.16</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Suction lowpass</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/elec1</property>
+					<value>8</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>
+			<expression>
+				<table>
+					<property>/engines/engine[0]/rpm</property> 
+					<entry><ind> 300</ind><dep>0.0</dep></entry>
+					<entry><ind> 500</ind><dep>4.4</dep></entry>
+					<entry><ind>2900</ind><dep>5.1</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/systems/vacuum/suction-inhg-actual</output>
+		<filter-time>0.16</filter-time>
+		<min>0</min>
+		<max>1800</max>
+	</filter>
+
+<seat>
+    <pilot-z-offset-m type="double">0</pilot-z-offset-m>
+    <presets>
+      <enable-presets type="int">0></enable-presets>
+      <z-offset-m type="double">0</z-offset-m>
+      <y-offset-m type="double">0</y-offset-m>
+      <pitch-offset-deg type="double">0</pitch-offset-deg>
+    </presets>
+    <defaults>
+      <z-offset-m type="double">2.6</z-offset-m>
+      <y-offset-m type="double">0.5</y-offset-m>
+      <pitch-offset-deg type="double">-0.15</pitch-offset-deg>
+    </defaults>
+  </seat>
+
+
+</PropertyList>
+

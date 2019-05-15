@@ -1,0 +1,345 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>windsim</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+	
+	<x>990</x>
+	<y>71</y>
+  <nasal>
+
+    <open><![CDATA[
+      var update = func(){
+
+        setprop("/environment/config/boundary/entry/wind-from-heading-deg", int(getprop("/environment/config/boundary/entry/wind-from-heading-deg")));
+        setprop("/environment/config/boundary/entry/wind-speed-kt", int(getprop("/environment/config/boundary/entry/wind-speed-kt")));
+
+
+        setprop("/environment/config/boundary/entry[1]/wind-from-heading-deg", int(getprop("/environment/config/boundary/entry/wind-from-heading-deg")));
+
+        setprop("/environment/config/boundary/entry[1]/wind-speed-kt", int(getprop("/environment/config/boundary/entry/wind-speed-kt")));
+
+
+        setprop("/environment/config/aloft/entry[1]/wind-from-heading-deg", int(getprop("/environment/config/boundary/entry/wind-from-heading-deg")));
+        setprop("/environment/config/aloft/entry[1]/wind-speed-kt", int(getprop("/environment/config/boundary/entry/wind-speed-kt")));
+
+        setprop("/environment/config/aloft/entry/wind-from-heading-deg", int(getprop("/environment/config/boundary/entry/wind-from-heading-deg")));
+        setprop("/environment/config/aloft/entry/wind-speed-kt", int(getprop("/environment/config/boundary/entry/wind-speed-kt")));
+
+
+      }
+      var dirListener = setlistener("/environment/config/boundary/entry/wind-from-heading-deg", update);
+      var spdListener = setlistener("/environment/config/boundary/entry/wind-speed-kt", update);
+      update();
+    ]]></open>
+
+    <close><![CDATA[
+      removelistener(dirListener);
+      removelistener(spdListener);
+    ]]></close>
+  </nasal>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>1</stretch></empty>
+
+    <text>
+      <label>Set Wind Conditions </label>
+    </text>
+
+    <empty><stretch>1</stretch></empty>
+
+	<button>
+		<halign>right</halign>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		<key>Esc</key>
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+	</button>
+  </group>
+
+  <hrule/>
+
+  <group>
+    <layout>table</layout>
+    <default-padding>5</default-padding>
+
+    <text>
+      <row>0</row>
+      <col>0</col>
+      <halign>right</halign>
+      <label>Direction:</label>
+    </text>
+
+    <group>
+      <row>0</row>
+      <col>1</col>
+      <layout>hbox</layout>
+      <default-padding>0</default-padding>
+
+      <button>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/environment/config/boundary/entry/wind-from-heading-deg</property>
+          <min>1</min>
+          <max>361</max>
+          <step>-1</step>
+          <wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/environment/config/boundary/entry/wind-from-heading-deg</property>
+          <min>1</min>
+          <max>361</max>
+          <step>-10</step>
+          <wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+    <input>
+      <row>0</row>
+      <col>3</col>
+      <width>35</width>
+      <height>25</height>
+      <live>true</live>
+      <property>/environment/config/boundary/entry/wind-from-heading-deg</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>
+
+    <text>
+      <row>0</row>
+      <col>4</col>
+      <padding>0</padding>
+      <halign>left</halign>
+      <label>deg</label>
+    </text>
+
+	
+
+    <text>
+      <row>1</row>
+      <col>4</col>
+      <padding>0</padding>
+      <halign>left</halign>
+      <label>kts</label>
+    </text>
+
+    <group>
+      <layout>hbox</layout>
+      <row>0</row>
+      <col>5</col>
+      <default-padding>0</default-padding>
+
+      <button>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/environment/config/boundary/entry/wind-from-heading-deg</property>
+          <min>1</min>
+          <max>361</max>
+          <step>10</step>
+          <wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>
+        <row>1</row>
+        <col>6</col>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/environment/config/boundary/entry/wind-from-heading-deg</property>
+          <min>1</min>
+          <max>361</max>
+          <step>1</step>
+          <wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+    <text>
+      <row>1</row>
+      <col>0</col>
+      <halign>right</halign>
+      <label>Speed:</label>
+    </text>
+
+    <group>
+      <row>1</row>
+      <col>1</col>
+      <layout>hbox</layout>
+      <default-padding>0</default-padding>
+
+      <button>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/environment/config/boundary/entry/wind-speed-kt</property>
+          	<min>0</min>
+        	<max>61</max>
+		<step>-1</step>
+		<wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&lt;&lt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/environment/config/boundary/entry/wind-speed-kt</property>          
+		<min>0</min>
+        	<max>61</max>
+		<step>-10</step>
+		<wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+
+    <input>
+      <row>1</row>
+      <col>3</col>
+      <width>75</width>
+      <height>25</height>
+	<min>0</min>
+	<max>61</max>
+      <live>true</live>
+      <property>/environment/config/boundary/entry/wind-speed-kt</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </input>
+
+    <group>
+      <layout>hbox</layout>
+      <row>1</row>
+      <col>5</col>
+      <default-padding>0</default-padding>
+
+      <button>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&gt;&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/environment/config/boundary/entry/wind-speed-kt</property>
+          
+		<min>0</min>
+        	<max>61</max>
+		<step>10</step>
+		<wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      <button>
+        <row>1</row>
+        <col>6</col>
+        <width>35</width>
+        <height>26</height>
+        <border>1</border>
+        <legend>&gt;</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/environment/config/boundary/entry/wind-speed-kt</property>
+          	<min>0</min>
+        	<max>61</max>
+		<step>1</step>
+		<wrap>true</wrap>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+
+      
+
+    </group>
+
+    
+
+    <group>
+      <layout>hbox</layout>
+      <default-padding>0</default-padding>
+      <row>2</row>
+      <col>1</col>
+    </group>
+
+    
+    <group>
+      <layout>hbox</layout>
+      <default-padding>0</default-padding>
+      <row>2</row>
+      <col>5</col>
+    </group>
+  </group>
+
+  <hrule/>
+<group>
+<layout>hbox</layout>
+
+  <button>
+    <halign>left</halign>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+  </button>
+
+	<text>
+      <label>(Press W to reopen)</label>
+    </text>
+</group>
+
+</PropertyList>

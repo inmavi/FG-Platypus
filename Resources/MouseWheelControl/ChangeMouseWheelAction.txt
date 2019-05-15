@@ -1,0 +1,29 @@
+If you want the mousewheel to zoom views while in mouse mode 0 you can replace the original mice.xml in Flightgear 20xx.x.x/data with the mice_wheelControlsZoom.xml and rename it to mice.
+To restore the original, just copy back the mice_original and rename it to mice.
+
+If you would like to switch the mousewheel to either zoom or trim elevator use the above steps with the ChangeMouseWheelAction file.
+In this case you also need to open /systems/pa28_keyboard.xml and uncomment key 
+
+<!-- uncomment if you change mice.xml to toggle
+
+		<key n="85">
+                <name>U</name>
+
+
+After this you can use <Shift>+<U> to toggle the wheel mode.
+
+If in zoom mode the wheel should not be used on levers like the throttle ???
+
+In either case also go to WarriorII-main.xml in the aircrafts folder and comment out the secondary input
+
+<input>
+		<keyboard include="Systems/pa28-keyboard.xml"/>
+<!--
+		<mice include="Systems/Pa28-mice.xml"/>
+-->
+	</input>
+
+if not already as shown above.
+
+
+

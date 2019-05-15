@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2018 Joshua Davidson (it0uchpods) -->
+
+<!-- PA28-161 Control Panel Dialog -->
+
+<PropertyList>
+	
+	<name>mini-panel</name>
+	<layout>hbox</layout>
+	<x>194</x>
+	<y>636</y>	
+	
+	
+	
+
+	<button>	
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>C</legend>		
+			<binding>
+		<command>dialog-show</command>
+		<dialog-name>map</dialog-name>
+  </binding>
+  <binding>
+		<command>property-assign</command>
+		<property>gui/map/transparent</property>
+		<value>1</value>  
+  </binding>
+	<binding>
+		<command>property-assign</command>
+		<property>gui/map/modal</property>
+		<value>false</value>  
+  </binding>
+
+  <binding>
+		<command>dialog-close</command>
+		<dialog-name>map</dialog-name>
+  </binding>
+
+  <binding>
+		<command>dialog-show</command>
+		<dialog-name>map</dialog-name>
+  </binding>		                
+	</button>
+	
+
+	<button>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>H</legend>
+		<binding>
+						<condition>
+							<equals>
+							<property>options/nav-source</property>
+	<value>2</value>
+							</equals>				
+						</condition>
+							<command>show-message</command>
+					<id>hdgsele</id>
+					<label>This tool is not available in GPS/ RM Mode</label>					
+					<delay>3</delay>
+						</binding>
+
+						<binding>					
+						<condition>
+							<not-equals>
+							<property>options/nav-source</property>
+	<value>2</value>
+							</not-equals>
+						</condition>
+							<command>dialog-show</command>
+							<dialog-name>hdgselect</dialog-name>
+						</binding>
+						<binding>	
+						<command>property-assign</command>
+							<property>systems/bop</property>
+		<value>1</value>	
+						</binding>
+	</button>
+
+	
+	<button>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>K</legend>
+		<binding>
+							<command>dialog-show</command>
+							<dialog-name>shortcuts</dialog-name>
+						</binding>
+	</button>
+
+	<button>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>M</legend>
+		<binding>
+				<command>nasal</command>
+                                <script>
+                                  var n = props.globals.getNode("/sim/http/running");
+                                  if( props.globals.getNode("/").getValue("sim/http/running",0) != 1 ) {
+                                    gui.popupTip("Internal webserver not running. Restart FlightGear with -httpd=8080", 5.0);
+                                  } else {
+                                    var _url = "http://localhost:" ~ getprop("/sim/http/options/listening-port") ~ "#Map";
+                                    fgcommand("open-browser", props.Node.new({ "url": _url }));
+                                  }
+                                </script>
+			</binding>
+	</button>
+
+
+	<vrule/>
+
+	<button>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+		<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>close</tooltip-id>
+                <label>Close</label>
+            </binding>
+        </hovered>
+	</button>
+
+</PropertyList>
