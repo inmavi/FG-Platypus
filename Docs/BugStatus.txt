@@ -1,4 +1,3 @@
-reset failures in between scenarios and gen startup
 
 davtron sometimes not displaying info after quickstart
 
