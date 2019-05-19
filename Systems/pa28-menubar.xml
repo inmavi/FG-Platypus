@@ -260,7 +260,7 @@
 						<label>Getting Started</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/PA28-Warrior/Docs/FGN_Cockpit.pdf</path>
+							<path>Aircraft/FG-Platypus/Docs/FGN_Cockpit.pdf</path>
 						</binding>
 					</item>
 					
@@ -269,14 +269,14 @@
 						<label>Fundamentals</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/PA28-Warrior/Docs/Fundamentals.pdf</path>
+							<path>Aircraft/FG-Platypus/Docs/Fundamentals.pdf</path>
 						</binding>
 					</item>
 					<item>
 						<label>Fuel Management</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/PA28-Warrior/Docs/Fuel.pdf</path>
+							<path>Aircraft/FG-Platypus/Docs/Fuel.pdf</path>
 						</binding>
 					</item>
 
@@ -291,14 +291,14 @@
 						<label>General Stuff</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/PA28-Warrior/Docs/General_Stuff.pdf</path>
+							<path>Aircraft/FG-Platypus/Docs/General_Stuff.pdf</path>
 						</binding>
 					</item>
 					<item>
 						<label>Tame the Beebs</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/PA28-Warrior/Docs/Sound_Management.pdf</path>
+							<path>Aircraft/FG-Platypus/Docs/Sound_Management.pdf</path>
 						</binding>
 					</item>
 
@@ -306,7 +306,7 @@
 						<label>Practise Approaches </label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/PA28-Warrior/Docs/ApproachP.pdf</path>
+							<path>Aircraft/FG-Platypus/Docs/ApproachP.pdf</path>
 						</binding>
 					</item>
 					
@@ -315,7 +315,7 @@
 						<label>About Warrior Nav</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/PA28-Warrior/Docs/AboutFGN.pdf</path>
+							<path>Aircraft/FG-Platypus/Docs/AboutFGN.pdf</path>
 						</binding>
 					</item>
 				</menu>
@@ -362,7 +362,7 @@
 						<label>Open Docs Folder</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/PA28-Warrior/Docs/</path>
+							<path>Aircraft/FG-Platypus/Docs/</path>
 						</binding>
 					</item>
 

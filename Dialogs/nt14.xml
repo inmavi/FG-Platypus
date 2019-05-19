@@ -67,7 +67,7 @@
     <default>true</default>
    <binding>
 	<command>open-browser</command>
-	<path>Aircraft/PA28-Warrior/Docs/RNAV.pdf</path>
+	<path>Aircraft/FG-Platypus/Docs/RNAV.pdf</path>
 </binding>
 </button>
 
