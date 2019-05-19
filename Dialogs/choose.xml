@@ -3,17 +3,31 @@
   <name>choose</name>
   <modal>false</modal>
   <layout>vbox</layout>
+	<x>1064</x>
+	<y>573</y>
+	
+	<group>
+    <layout>hbox</layout>
+    <empty><stretch>1</stretch></empty>
 
-<x>1064</x>
-<y>573</y>
-
-
-  <text>
+    <text>
     <label>Select...</label>
   </text>
+    <empty><stretch>1</stretch></empty>
 
+	<button>
+		<halign>right</halign>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		<key>Esc</key>		
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+	</button>
+  </group>  
+  
 <hrule/>
-
   <group>
     <layout>hbox</layout>
     <halign>fill</halign>
@@ -30,7 +44,6 @@
     </button>
 
     <empty><stretch>true</stretch></empty>
-
     
     <button>
       <legend>Quit</legend>
