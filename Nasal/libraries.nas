@@ -1051,22 +1051,6 @@ if (getprop("/options/nfa") == 1){
 }	
 });
 
-##display cg on screen
-	
-var ccg = screen.display.new(10,650);
-
-var showccg = func() {
-	
-	ccg.setcolor(1,1,1);
-	ccg.format = "%.4g";
- 	ccg.add("/fdm/jsbsim/inertia/cg-x-in");
- 	
-
-}
-var closeccg = func { ccg.close(); }
-
-
-
 ##
 #  fail eng at 4200 ft for scenario and test auto mix
 ##

@@ -16,8 +16,6 @@ engine needs to be set to reflect poh values, at present speeds and rpm do not m
 
 mass weight settings and or fdm need to be adjusted to reflect reality and or poh values, takeoff, cruise etc way out...
 
-put the cg inside the box (massbalance)currently above due to weird property name
-
 stop radio sound when switching between scenarios
 
 wind instrument for hud
@@ -30,6 +28,8 @@ remove redundant and or duplicate code
 integrate all scenarios into one single dialog
 
 light up the 803 stopwatch lcd and the battery meter
+
+fix hotspot labels to only show up in pilotview
 
 
 

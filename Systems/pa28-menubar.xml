@@ -397,11 +397,7 @@ close and restart!",2);
 						<binding>
 							<command>dialog-show</command>
 							<dialog-name>massbal</dialog-name>
-						</binding>
-						<binding>
-                <command>nasal</command>
-			<script>libraries.showccg();</script>
-            				</binding>	
+						</binding>						
 					</item>
 
 

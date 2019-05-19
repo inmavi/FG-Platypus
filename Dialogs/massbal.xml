@@ -838,7 +838,7 @@
 		<layout>vbox</layout>
 
         	<text>
-               <label>ffffff</label>
+               <label>gross</label>
                <halign>left</halign>
                <format>Gross Weight:  %.1f lbs</format>
                <live>true</live>
@@ -846,15 +846,22 @@
 		</text>
       
 		<text>
-               <label>22222</label>
+               <label>mtow</label>
                <halign>left</halign>
                <format>MTOW: --->  %.1f lbs</format>
                <live>true</live>
           		<property>/limits/mass-and-balance/maximum-takeoff-mass-lbs</property> 
 		</text> 
+		
 		<text>
-			
-
+               <label>ccg</label>
+               <halign>left</halign>
+               <format>Current CG: ->  %.2f in</format>
+               <live>true</live>
+          		<property>/fdm/jsbsim/inertia/cg-x-in</property> 
+		</text> 		
+		
+		<text>
 				<color>
 					<red>1</red>
 					<green>1</green>
@@ -868,8 +875,7 @@
 				</greater-than>
 			</visible>
 			   <label>Aircraft is overloaded !</label>               
-		</text> 
-		
+		</text> 	
   
     <hrule/>
 		<text>
@@ -900,8 +906,7 @@
 			setprop("/payload/weight[4]/weight-lb",0);
 			</script>
             </binding>            
-        </button>
-	
+        </button>	
 
 	  <button>
             <legend>Default Weights</legend>
