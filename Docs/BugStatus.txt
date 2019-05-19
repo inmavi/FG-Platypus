@@ -1,5 +1,4 @@
 
-davtron sometimes not displaying info after quickstart
 
 windconfig  - only works with basic weather, need to execute apply button with weather dialog hidden
 
@@ -18,7 +17,6 @@ sometimes nav lights detach from wing while turning
 
 Fix reset behaviour on nav scenarios -crash at startup as reset does not clear previous properties when switching from airborne
 to runway
-need to also fix previous failures and time settings
 
 
 
