@@ -6,6 +6,8 @@ A NavTrainer based on the original PA28-WarriorII by Josh and Gerhard
 
 - FDM: Joshua Davidson (it0uchpods)
 - Systems: Joshua Davidson (it0uchpods)
+- Documentation: Gerhard Kick (inmavi)
+- Nav Scenarios and Command Line Files: Gerhard Kick 
 - Cockpit: Joshua Davidson (it0uchpods), Gerhard Kick (inmavi), 
 - Instruments: Joshua Davidson (it0uchpods), Gerhard Kick (inmavi)
 
@@ -21,14 +23,14 @@ If you wish to contribute the following streams could do with some work:
 Aircraft Specific -
 
 just check the todo and bug doco
-add something like the fg1000 or something less impacting on the framerate
+add something like the fg1000 or something less impacting on the framerate to replace the DG Panel
 anything to make the flight experience more enjoyable
 whatever you think may add value
 
 Nav-Scenario Specific -
 
 improvement of existing scenarios
-addition of new ones e.g. fly a DME arc, RNAV, etc
+addition of new ones e.g. fly a DME arc, RNAV, Radar Vectors, etc
 
 Maintenance -
 
