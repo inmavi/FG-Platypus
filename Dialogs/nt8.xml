@@ -59,7 +59,16 @@
     <legend>Run</legend>
     <default>true</default>
     <key>Esc</key>
-	
+		<binding>
+	<command>nasal</command>
+	<script>
+	var window = screen.window.new(nil, -65, 1, 2);
+			window.fg = [1, 1, 1, 1]; 		
+
+	 window.align = "left";
+window.write("Please wait, loading...",1,1,0 );
+	</script>
+	</binding>
 
     <binding>
       <command>nasal</command>

@@ -934,6 +934,7 @@ var cleanup = func {
 				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
 				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "trim-panel" }));
 				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
+				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "speedo" }));
 
 	setprop("/sim/freeze/clock",0);
 fgcommand("timeofday", props.Node.new({ "timeofday" : "afternoon" }));
