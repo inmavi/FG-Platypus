@@ -59,7 +59,7 @@
 
 
 				<menu n="100">
-					<label>Warrior II</label>
+					<label>FG-Platypus</label>
 					<enabled type="bool">true</enabled>
 					<item>
 						<label>Aircraft Config</label>

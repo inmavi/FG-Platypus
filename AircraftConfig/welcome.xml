@@ -8,7 +8,7 @@
 
 	<name>aircraft-config-welcome</name>
 	<layout>vbox</layout>
-	<x>920</x>
+	<x>894</x>
 	<y>461</y>
     <group>
         <layout>hbox</layout>
@@ -35,19 +35,16 @@
 			
 			<text>
 				<halign>center</halign>
-				<label>Welcome to the PA28-161 Warrior II FGNavigator!</label>
+				<label>Welcome to the FG-Platypus!</label>
+			</text>
+			
+			<text>
+				<halign>center</halign>
+				<label>The aircraft is still under development and updates will be available periodically.</label>
 			</text>
 			<text>
 				<halign>center</halign>
-				<label>This is a complex simulation of this amazing Piper Aircraft.</label>
-			</text>
-			<text>
-				<halign>center</halign>
-				<label>It currently is still under development, and therefore is not complete yet.</label>
-			</text>
-			<text>
-				<halign>center</halign>
-				<label>Use the Aircraft Config to manage panel states, and more!</label>
+				<label>Use the Aircraft Config to manage panel states and options!</label>
 			</text>
 			
 
