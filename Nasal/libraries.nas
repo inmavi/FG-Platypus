@@ -240,17 +240,14 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 	##libraries.variousReset();
 
-	libraries.seat_load_presets(); 
-	
-
+	libraries.seat_pilot_defaults(); 
+	#really should reset presets, but buggy
 
 		## flashlight ##
 
 if (getprop("/systems/fl") == 1)  {
 
-	setprop("/sim/rendering/als-secondary-lights/use-flashlight", 1);
-	
-	}
+	setprop("/sim/rendering/als-secondary-lights/use-flashlight", 1);}
 
 
 

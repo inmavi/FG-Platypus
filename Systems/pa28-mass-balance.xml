@@ -3,7 +3,8 @@
 
 <!--
 ##############################################
-# Copyright (c) Joshua Davidson (it0uchpods) #
+# Copyright (c) Joshua Davidson (it0uchpods)
+# modified by Gerhard Kick for the Platypus
 ##############################################
 -->
 
@@ -37,7 +38,7 @@
 	</pointmass>
 
 	<pointmass name="Co Pilot">
-		<weight unit="LBS"> 170.0 </weight>
+		<weight unit="LBS"> 0.0 </weight>
 		<location name="POINTMASS" unit="M">
 			<x> 2.6303 </x>
 			<y> 0.2512 </y>

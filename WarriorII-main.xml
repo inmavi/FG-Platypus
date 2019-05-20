@@ -1467,9 +1467,9 @@ Click Run to proceed
 			<alternator type="bool">0</alternator>
 		</electrical>
 
-				<flight>
+		<flight>
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
-			
+			<auto-coordination type="bool">1</auto-coordination>			
 		</flight>
 
 
