@@ -223,7 +223,7 @@
 					if (getprop("/gear/gear/wow") and getprop("/engines/engine/rpm") ==0) {
 
 						    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "massbal" }));
-			libraries.showccg();
+			
 					}                  	 
 					else {
 						gui.popupTip("No refuelling with engine running!", 6.0); 			

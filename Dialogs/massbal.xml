@@ -899,7 +899,7 @@
 		 <binding>
                 <command>nasal</command>
 			<script>
-			setprop("/payload/weight/weight-lb",140);
+			setprop("/payload/weight/weight-lb",150);
 			setprop("/payload/weight[1]/weight-lb",0);
 			setprop("/payload/weight[2]/weight-lb",0);
 			setprop("/payload/weight[3]/weight-lb",0);
@@ -930,10 +930,7 @@
             <equal>true</equal>
             <key>Esc</key>
             <default>true</default>
-		 <binding>
-                <command>nasal</command>
-			<script>libraries.closeccg();</script>
-            </binding>	
+		 
             <binding>
                 <command>dialog-close</command>
             </binding>

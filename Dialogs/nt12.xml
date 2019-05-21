@@ -27,10 +27,7 @@
 			<command>dialog-close</command>
 		</binding>
 	</button>
-  </group>
-
-
-  
+  </group> 
 
   <hrule/>
 	
@@ -50,10 +47,8 @@
                     <top-line>0</top-line>
                     <property>/sim/alp</property>
                 </textbox>			
-			
 		</group>
   <hrule/>
-
 
   <button>
     <legend>Run</legend>

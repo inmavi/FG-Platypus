@@ -194,7 +194,7 @@
 		<binding>
 	<command>nasal</command>
 	<script>
-	var window = screen.window.new(nil, -65, 1, 2);
+	var window = screen.window.new(nil, -65, 1, 3);
 			window.fg = [1, 1, 1, 1]; 		
 
 	 window.align = "left";
@@ -266,10 +266,7 @@ engine can not start, please restart on the ground
 and replace your depleted battery", 3);
 
 	}
-
-
 }
-
 
 	aircraft.teleport(airport = apid, runway = rwid,lat = -9999, lon = -9999, alt = alti,
 		speed = spd, distance = dist, azimuth = 0, glideslope = 0, heading = 9999) ;
@@ -279,12 +276,10 @@ and replace your depleted battery", 3);
 
 		</script>
     </binding>
-
 	
 	<binding>
       <command>dialog-close</command>
     </binding>
-
   </button>
 
 </PropertyList>
