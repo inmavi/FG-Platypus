@@ -905,7 +905,7 @@
 	
 	<model>
 		<name>TC</name>
-		<path>Aircraft/FG-Platypus/Models/Instruments/tc/tc.xml</path>
+		<path>Aircraft/Instruments-3d/tc/tc.xml</path>
 		<offsets>
 			<x-m>1.925</x-m>
 			<y-m>-0.336</y-m>
