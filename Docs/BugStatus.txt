@@ -1,4 +1,5 @@
 
+turn coord needs adjustment goes black at certin angles like pitch or roll
 
 windconfig  - only works with basic weather, need to execute apply button with weather dialog hidden
 
