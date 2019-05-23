@@ -23,6 +23,8 @@ wind instrument for hud
 -------------------------------------------------------
 clean up xml and nas files
 
+fix lower upper case issues
+
 remove redundant and or duplicate code
 
 integrate all scenarios into one single dialog
