@@ -790,7 +790,7 @@ var terrain_survol = func {
   }
 
   if(!getprop("sim/freeze/replay-state") and !getprop("/environment/terrain-type") and getprop("/position/gear-agl-m") < 0.5){
-    setprop("sim/messages/copilot", "Got the sinking feeling!");
+   gui.popupTip("Got that sinking feeling !", 6);
     setprop("sim/freeze/clock", 1);
     setprop("sim/freeze/master", 1);
 setprop("/systems/data/rip", getprop("/systems/data/rip") + 1);

@@ -41,12 +41,7 @@
 				<property>/controls/switches/stall_annunciator-click</property>
 				<value>0</value>
 			</binding>
-			<binding>
-		<command>dialog-show</command>
-		<dialog-name>qreset</dialog-name>
-  </binding>
-
-			<mod-up>
+				<mod-up>
 				<binding>
 					<command>property-assign</command>
 					<property>/controls/switches/stall_annunciator-click</property>

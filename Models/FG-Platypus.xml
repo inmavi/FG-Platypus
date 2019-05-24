@@ -907,10 +907,9 @@
 		<name>TC</name>
 		<path>Aircraft/Instruments-3d/tc/tc.xml</path>
 		<offsets>
-			<x-m>1.925</x-m>
+			<x-m>1.927</x-m>
 			<y-m>-0.336</y-m>
 			<z-m>0.183</z-m>
-			<pitch-deg>1</pitch-deg>
 		</offsets>
 	</model>
 	

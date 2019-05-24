@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+<!--modified by Gerhard Kick -->
 
-<!-- PA28-161 Aircraft Config Dialog -->
+<!-- FG-Platypus Aircraft Config Dialog -->
 
 <PropertyList>
 
@@ -16,7 +17,7 @@
 		<layout>hbox</layout>
 		<text>
 			<halign>left</halign>
-			<label>Aircraft Configuration V1.4.5</label>
+			<label>Aircraft Configuration</label>
 		</text>
 		<button>
 			<halign>right</halign>
