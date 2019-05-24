@@ -37,6 +37,16 @@
 			<button>0</button>
 			<repeatable>true</repeatable>
 			<binding>
+			<command>nasal</command>
+			<script>
+				if (getprop("/sim/freeze/clock") == 1) {
+				setprop("/sim/freeze/clock",0 );
+				} else {
+				setprop("/sim/freeze/clock",1 );
+				};
+				</script>
+			</binding>	
+			<binding>
 				<command>property-assign</command>
 				<property>/controls/switches/stall_annunciator-click</property>
 				<value>0</value>
@@ -54,7 +64,7 @@
                 <command>set-tooltip</command>
                 <tooltip-id>Stall-Warn</tooltip-id>
                 <label>Stall Indicator</label>
-            </binding>
+            </binding>				
         </hovered>
 	</animation>
 	

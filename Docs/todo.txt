@@ -10,7 +10,7 @@ add FG1000 PFD/MFD to DG Panel and rename Panel to EFIS
 limit the EFIS view to the panel
 Have the panel displayed in browser option or liftout aka canvas 777 or as a web panel
 
-fuselage needs windows for applying shades of taints or sim ice
+fuselage needs windows for applying shades of taints or sim ice and to keep the smoke out
 
 engine needs to be set to reflect poh values, at present speeds and rpm do not match
 

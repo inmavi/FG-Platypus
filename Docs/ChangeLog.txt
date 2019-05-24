@@ -1,5 +1,4 @@
-fixed crash count in stats
-added crash on water
+added pause7unpause hotspot on stallwarning light
 
 
 
