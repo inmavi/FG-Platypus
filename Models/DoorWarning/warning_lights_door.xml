@@ -5,6 +5,33 @@
 <path>warning_lights_door.ac</path>
 
 <animation>
+    <type>pick</type>    
+    <object-name>LampDoorOn</object-name>
+	<object-name>LampDoor</object-name>
+	<object-name>Bezel</object-name>
+    <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+            <binding>
+				<command>nasal</command>
+				<script>
+	      		view.resetView();
+	    	  </script>
+			</binding>
+     </action>
+
+      <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rm</tooltip-id>
+                <label>Reset View</label>
+            </binding>
+        </hovered>
+  </animation>	
+			
+			
+
+<animation>
   <type>select</type>
   <object-name>LampDoorOn</object-name>
   <condition>
