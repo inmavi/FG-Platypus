@@ -69,7 +69,7 @@
 </action>
 
 	
-   <hovered>
+		<hovered>
             <binding>
                 <command>set-tooltip</command>
                 <tooltip-id>rpm</tooltip-id>

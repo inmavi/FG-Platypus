@@ -60,9 +60,19 @@
 		<step>-.25</step>            
           </binding>
      </action>
+	
+		<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rpm</tooltip-id>
+                <mapping>rpm</mapping>
+                <label>VS: %3d</label>
+                <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+            </binding>
+        </hovered>
   </animation>
 
 </PropertyList>
 
-
+ 
 
