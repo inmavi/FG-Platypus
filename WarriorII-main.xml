@@ -1326,10 +1326,8 @@ Click Run to proceed
 		<aircraft-data>
 			<path>sim/model/immat</path>
 			<path>sim/model/livery/name</path>
-
-<path>/sim/model/equipment/ground-services/fuel-truck/enable</path>
-<path>/sim/model/equipment/ground-services/kr87-windhud/enable</path>
-
+			<path>/sim/model/equipment/ground-services/fuel-truck/enable</path>
+			<path>/sim/model/equipment/ground-services/kr87-windhud/enable</path>
 			<path>limits/warnings-enabled</path>
 			<path>sim/bindings/menu/binding[10]/dialog-name</path>
 			<path>/fdm/jsbsim/inertia/pointmass-weight-lbs[0]</path>
@@ -1337,9 +1335,7 @@ Click Run to proceed
             <path>/fdm/jsbsim/inertia/pointmass-weight-lbs[2]</path>
             <path>/fdm/jsbsim/inertia/pointmass-weight-lbs[3]</path>
             <path>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</path>
-			            <path>/fdm/jsbsim/inertia/pointmass-weight-lbs[5]</path>
-
-  			
+			<path>/fdm/jsbsim/inertia/pointmass-weight-lbs[5]</path>  			
 			<path>systems/walt</path>
 			<path>systems/autofuel</path>
 			<path>systems/vbo</path>
@@ -1365,7 +1361,6 @@ Click Run to proceed
 			<path>instrumentation/radar-altimeter/decision-height</path>
 			<path>/instrumentation/nav[0]/radials/selected-deg</path>
 			<path>/instrumentation/kcs55/ki525/selected-course-deg</path>
-
 			<path>instrumentation/comm[0]/volume</path>
 			<path>instrumentation/comm[0]/frequencies/selected-mhz</path>
 			<path>instrumentation/comm[0]/frequencies/standby-mhz</path>
@@ -1374,8 +1369,7 @@ Click Run to proceed
 			<path>instrumentation/nav[0]/power-btn</path>
 			<path>instrumentation/nav[0]/volume</path>
 			<path>/instrumentation/davtron803/bot-mode</path>
-			<path>/instrumentation/davtron803/top-mode</path>            
-
+			<path>/instrumentation/davtron803/top-mode</path>
 			<path>instrumentation/nav[0]/frequencies/selected-mhz</path>
 			<path>instrumentation/nav[0]/frequencies/standby-mhz</path>
 			<path>instrumentation/nav[0]/radials/selected-deg</path>
@@ -1417,18 +1411,6 @@ Click Run to proceed
  			<path>systems/seat/presets/y-offset-m</path>
 			<path>systems/seat/presets/pitch-offset-deg</path>		
 		</aircraft-data>
-
-<!-- need to load this only for menu senario 12 via nasal ?
-
-	<ai>
-      <enabled type="bool">true</enabled>
-      <scenarios-enabled type="bool" userarchive="y">true</scenarios-enabled>
-      <scenario>balloon_demo</scenario>
-      <groundnet-cache type="bool">true</groundnet-cache>
-      <tankers include="AI/tankers.xml"/>
-    </ai>
-
--->
 	</sim>
 	
 	<airport>
@@ -1436,7 +1418,6 @@ Click Run to proceed
 			<start-offset-m>20</start-offset-m>
 		</runways>
 	</airport>
-
 	
 	<consumables>
 		<fuel>
@@ -1471,7 +1452,6 @@ Click Run to proceed
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
 			<auto-coordination type="bool">1</auto-coordination>			
 		</flight>
-
 
 		<engines>
 			<engine n="0">		
@@ -1531,10 +1511,8 @@ Click Run to proceed
       		<engine n="0" type="bool">0</engine>      
    	 	</fire>
   	</hazards>
-
-
 	
-   <mass-and-balance>
+		<mass-and-balance>
             <maximum-ramp-mass-lbs>2447</maximum-ramp-mass-lbs>
             <maximum-takeoff-mass-lbs>2440</maximum-takeoff-mass-lbs>
             <maximum-landing-mass-lbs>2440</maximum-landing-mass-lbs>
@@ -1580,8 +1558,6 @@ Click Run to proceed
         <pax-state type="int">0</pax-state>
         <securing-state type="int">0</securing-state>
     </payload>
-
-
 	
 	<gear n="0">
 		<gear n="0">
@@ -1672,7 +1648,6 @@ Click Run to proceed
 			<volume type="double">1</volume>
 		</dme1>
 
-
 		<elt>
 			<armed type="bool">true</armed>
 			<on type="bool">false</on>
@@ -1685,9 +1660,7 @@ Click Run to proceed
 		
 		<encoder>
 			<serviceable type="bool">true</serviceable>
-		</encoder>
-
-		
+		</encoder>		
 
 		<kcs55>
 			<ka51>
@@ -1724,7 +1697,6 @@ Click Run to proceed
 			<test type="int" archive="y">0</test>
 		</kma20>
 
-
 		<nav n="0">
 			<frequencies>
 				<selected-mhz type="double">108.5</selected-mhz>
@@ -1748,7 +1720,6 @@ Click Run to proceed
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</nav>
-
 
 		<oat>
 			<mode type="int">0</mode>
@@ -1875,8 +1846,6 @@ Click Run to proceed
 	<ftime type="double">0</ftime>
 	<acc type="string">" "</acc>
 
-
-
 	<data>
 		<total-use type="float">0</total-use>
 		<acc-flight-secs type="double">0</acc-flight-secs>
@@ -1962,16 +1931,16 @@ Click Run to proceed
 
 <limits>
         <max-flap-extension-speed>
-            <flaps>0.33</flaps>
-            <speed>80</speed>
+        <flaps>0.33</flaps>
+        <speed>80</speed>
         </max-flap-extension-speed>
         <max-flap-extension-speed>
-            <flaps>0.66</flaps>
-            <speed>70</speed>
+        <flaps>0.66</flaps>
+        <speed>70</speed>
         </max-flap-extension-speed>
         <max-flap-extension-speed>
-            <flaps>1</flaps>
-            <speed>65</speed>
+        <flaps>1</flaps>
+        <speed>65</speed>
         </max-flap-extension-speed>
         <max-positive-g>3.8</max-positive-g>
         <vne>160</vne>
