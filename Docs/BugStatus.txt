@@ -17,6 +17,11 @@ sometimes nav lights detach from wing while turning
 Fix reset behaviour on nav scenarios -crash at startup as reset does not clear previous properties when switching from airborne
 to runway
 
+hanging stopwatch needs lights
+
+hide that "file opens in a webbrowser" msg or autoclose onc the doc is open.
+
+
 
 
 
