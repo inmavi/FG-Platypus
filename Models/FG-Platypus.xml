@@ -236,7 +236,16 @@
 		</emission>
 	</animation>
 
-	
+	<!-- Pilots FlightRallyeWath -->
+    <model>
+      <path>Aircraft/FG-Platypus/Models/frw/frw.xml</path>
+      <offsets>
+        <x-m>1.953</x-m>
+        <y-m>-0.001</y-m>
+        <z-m>0.515</z-m>
+        <pitch-deg> -5 </pitch-deg>
+      </offsets>
+    </model>
 
     <!-- Fuel truck controls -->
     <model>
