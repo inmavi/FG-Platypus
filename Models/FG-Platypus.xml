@@ -177,6 +177,19 @@
 	<animation>
         <object-name>suitcase3</object-name>
     </animation>
+	
+	<model>
+  <name>ashtray</name>
+  <path>Aircraft/FG-Platypus/models/ashtray/ceniceros.xml</path>
+	 <offsets>
+        <x-m>2.05</x-m>
+        <y-m>-0.501</y-m>
+        <z-m>0.100</z-m>		
+		<heading-deg>89</heading-deg>
+		<yaw-deg>-94</yaw-deg>		
+		<pitch-deg>-15</pitch-deg>
+    </offsets>
+	</model>
 
 	<model>
 	    <path>Aircraft/FG-Platypus/Models/Effects/cranking/crankingL.xml</path>

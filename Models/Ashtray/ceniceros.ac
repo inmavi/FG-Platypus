@@ -4,7 +4,6 @@ OBJECT world
 kids 1
 OBJECT poly
 name "ceniceros"
-loc 0 0 -0
 data 9
 ceniceros
 texture "divers.png"
