@@ -33,6 +33,8 @@ light up the 803 stopwatch lcd and the battery meter
 
 fix hotspot labels and tooltips to only show up in pilotview
 
+implement auto update from github aka warrior
+
 
 
 

@@ -2,6 +2,14 @@
 
 A NavTrainer based on the original PA28-WarriorII by Josh and Gerhard
 
+Prerequisites:
+
+current version of Flightgear 2018.3.2 or higher
+miniumum of 6gig of RAM or better
+a good graphic adapter
+a joystick
+
+can do with less but framerate will suffer, responsetime lagging etc...
 
 
 - FDM: Joshua Davidson (it0uchpods)
