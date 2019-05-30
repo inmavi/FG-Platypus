@@ -1,5 +1,7 @@
 on approach scenarios and quickstart set altimeter to ap elevation
 
+add throttle mix lever drag by mouse feature aka DR400
+
 if presets have airport and runway info or if autopiot/routemanager has destination airport runway info, populate nav1 with frquency and radial of localiser if exist.
 
 fix ground reactions - wheels to deep into runway surface

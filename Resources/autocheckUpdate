@@ -1,0 +1,40 @@
+place code into acconfig.nas and test
+
+
+
+http.load("https://github.com/inmavi/FG-Platypus/master/revision.txt").done(func(r) setprop("/systems/acconfig/new-revision", r.response));
+var revisionFile = (getprop("/sim/aircraft-dir") ~ "/revision.txt");
+var current_revision = io.readfile(revisionFile);
+print("FG-Platypus Revision: " ~ current_revision);
+setprop("/systems/acconfig/revision", current_revision);
+
+setlistener("/systems/acconfig/new-revision", func {
+	if (getprop("/systems/acconfig/new-revision") > current_revision) {
+		setprop("/systems/acconfig/out-of-date", 1);
+	} else {
+		setprop("/systems/acconfig/out-of-date", 0);
+	}
+});
+
+setlistener("/sim/signals/fdm-initialized", func {
+	init_dlg.close();
+	if (getprop("/systems/acconfig/out-of-date") == 1) {
+		update_dlg.open();
+		print("System: The FG-Platypus is out of date!");
+	}
+	readSettings();
+	if (getprop("/systems/acconfig/out-of-date") != 1 and getprop("/systems/acconfig/options/revision") < current_revision) {
+		updated_dlg.open();
+	} else if (getprop("/systems/acconfig/out-of-date") != 1 and getprop("/systems/acconfig/options/welcome-skip") != 1) {
+		welcome_dlg.open();
+	}
+	setprop("/systems/acconfig/options/revision", current_revision);
+	writeSettings();
+	spinning.stop();
+	
+});
+
+------------------------
+
+plus dialogs in acconfig/new-revision  register
+
