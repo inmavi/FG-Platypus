@@ -46,29 +46,21 @@ gui.Dialog.new("sim/gui/dialogs/accft/dialog",
 gui.Dialog.new("sim/gui/dialogs/instrumentsAlt/dialog", 
 "Aircraft/FG-Platypus/Dialogs/instrumentsAlt.xml");
 
-
 ####disable acconfig for commandline starts####
-
 
 if (getprop("/systems/bp") == 0 and getprop("/systems/welcome-enabled") == 1) {
 		spinning.start();
 		init_dlg.open();
 }
 
-
-
-
 setlistener("/sim/signals/fdm-initialized", func {
 		if (getprop("/systems/bp") == 0 and getprop("/systems/welcome-enabled") == 1) {
 
-	init_dlg.close();
-	welcome_dlg.open();	
-	spinning.stop();
+			init_dlg.close();
+			welcome_dlg.open();	
+			spinning.stop();
 					
-	}
-		
-
-	
+		}	
 		
 	if (getprop("/options/mini-panel") == 1) {
 		minipanel_dlg.open();
@@ -83,12 +75,8 @@ setlistener("/sim/signals/fdm-initialized", func {
     	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "trim-panel" }));
 	}
 
-
 });
 
-	
-
-	
 var readSettings = func {
 	io.read_properties(getprop("/sim/fg-home") ~ "/Export/FG-Platypus-config.xml", "/systems/acconfig/options");
 	setprop("/options/autocoordinate", getprop("/systems/acconfig/options/autocoordinate"));
@@ -117,17 +105,10 @@ var autopilotSettings = func {
 		setprop("/it-autoflight/internal/hsi-equipped", 0);
 	}
 }
-	
-
-
-
-
-
 
 var saveSettings = func {
 	aircraft.data.add("/options/panel","/options/autocoordinate","/options/qnh","/options/limits","/options/mini-panel");
 ("/instrumentation/nav/radials/selected-deg");
-
 
 	aircraft.data.save();
 }
@@ -140,15 +121,12 @@ if (getprop("/systems/autofuel") == 0)  {
 	
 	}
 
-
 var systemsReset = func {
 	systems.elec_init();
 	systems.engine_init();
 	systems.fuel_init();
     itaf.ap_init();
 	libraries.variousReset();
-
-
 }
 
 ################

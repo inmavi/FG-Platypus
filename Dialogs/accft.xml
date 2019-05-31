@@ -19,9 +19,6 @@
 			var start_time = props.globals.getNode(p ~ "start-time", 1).getValue();
 			var accu = props.globals.getNode(p ~ "accu", 
 
-
-
-
 1).getValue();
 			if (start_time == nil)
 				start_time = time;
@@ -79,9 +76,8 @@
 				show(accu);
 			}
 
-start()
+			start()
 	
-
 		</open>
 
 		<close>
@@ -109,6 +105,5 @@ start()
 			<alpha>1</alpha>
 		</color>
 	</text>
-
 
 </PropertyList>

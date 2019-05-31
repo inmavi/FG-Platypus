@@ -34,7 +34,6 @@
 		<label>No ATC in range 50 nm.</label>
 	</text>
 
-
 	<group>
 		<layout>hbox</layout>
 		<empty><stretch>true</stretch></empty>

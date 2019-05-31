@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
-
-<!-- PA28-161 Aircraft Config Dialog -->
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods)adapted by Gerhard Kick -->
+<!-- FG-Platypus Aircraft Config Dialog -->
 
 <PropertyList>
 
@@ -45,8 +44,7 @@
 			<text>
 				<halign>center</halign>
 				<label>Use the Aircraft Config to manage panel states and options!</label>
-			</text>
-			
+			</text>			
 
 			<text>
 				<halign>center</halign>
@@ -120,13 +118,11 @@
 				<binding>
 					<command>dialog-show</command>
 				<dialog-name>accft</dialog-name>
-				</binding>
-				
+				</binding>				
 				
 				<binding>
 					<command>dialog-close</command>
-				</binding>
-				
+				</binding>				
 			
 			</button>
 			

@@ -3,16 +3,13 @@
 <PropertyList>
 	<name>cdigsbrg</name>    
 <layout>vbox</layout>
-	
 
 <x>746</x>	
 <y>675</y>
 	
 	<group>
 		<layout>hbox</layout>
-						<pref-height>25</pref-height>
-
-
+			<pref-height>25</pref-height>
 		<text>
 			<label>Deviations:</label>
 				<color>
@@ -45,8 +42,6 @@
 				<format> Actual  %3.2f     </format>
 				<live>true</live>					
 		</text>
-
-
  
 		<text>
 			<pref-width>75</pref-width>
@@ -70,11 +65,8 @@
 				<label>GS -1000 fpm</label>
 				<property>instrumentation/nav[0]/gs-rate-of-climb-fpm</property>
 				<format>GS %4.0f fpm</format>
-				<live>true</live>
-						
+				<live>true</live>						
 		</text>			
-
-		
 		
 		<button>
 			<pref-width>16</pref-width>
@@ -84,9 +76,7 @@
 			<binding>
 				<command>dialog-close</command>
 			</binding>
-		</button>
-
-		
+		</button>		
 		
 	</group>
 </PropertyList>

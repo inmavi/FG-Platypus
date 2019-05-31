@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-
 <PropertyList>
-	
-
 	
 	<name>fuelstatus</name>
 	<layout>hbox</layout>
@@ -30,7 +27,7 @@
 			<text>
 		<pref-width>105</pref-width>
 				<label>fflow</label>
-<property>/engines/engine/fuel-flow-gph</property>
+				<property>/engines/engine/fuel-flow-gph</property>
 				<format>FFlow: %2.2f gph</format>
 				<live>true</live>
 				<color>
@@ -85,8 +82,7 @@
 			<button>
 			<pref-width>21</pref-width>
 			<pref-height>16</pref-height>
-			<legend>...</legend>
-					
+			<legend>...</legend>					
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apn();</script>
@@ -102,7 +98,8 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					if (getprop("/systems/np")== 0 ) {							libraries.nap.close();
+					if (getprop("/systems/np")== 0 ) {
+						libraries.nap.close();
 						setprop("/systems/np",1);
 					}	
 				</script>						

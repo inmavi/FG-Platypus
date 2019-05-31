@@ -4,9 +4,7 @@
 
 <!-- PA28-161 Aircraft Config Dialog -->
 
-
 <PropertyList>
-
 	<name>aircraft-config-about</name>
 	<layout>vbox</layout>
 	<pref-width>500</pref-width>
@@ -32,8 +30,7 @@
     <hrule/>
 	
 		<group>
-			<layout>vbox</layout>
-			
+			<layout>vbox</layout>	
 			<text>
 				<halign>left</halign>
 				<label>PA28-161 Warrior II by Gerhard Kick (gkick) and Joshua Davidson (it0uchpods)</label>

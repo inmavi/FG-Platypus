@@ -56,9 +56,6 @@
 				}
 			}
 
-
-
-
 			var show = func(s) {
 				var hours = s / 3600;
 				var minutes = int(math.mod(s / 60, 60));
@@ -75,8 +72,7 @@
 					accu = 0;
 				show(accu);
 			}
-
-start()
+		start()
 
 		</open>
 

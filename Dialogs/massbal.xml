@@ -9,7 +9,6 @@
     <draggable>true</draggable>
 	<x>1</x>
 	<y>95</y>	
-
 	
     <group>
         <layout>hbox</layout>
@@ -19,7 +18,6 @@
             <label>Adjust Mass Balance</label>
         </text>
         <empty><stretch>true</stretch></empty>
-
         
     </group>
     
@@ -53,8 +51,6 @@
                 <label></label>
             </text>
         </group>
-
-
             
    <group>
             <layout>vbox</layout>           
@@ -156,9 +152,7 @@
           <command>dialog-update</command>
         </binding>
       </button>
-    </group>
-
-    
+    </group>    
 
     <group>      
       <layout>hbox</layout>
@@ -207,7 +201,6 @@
         <command>dialog-apply</command>
       </binding>
     </input>
-
     
       <button>
         <pref-height>30</pref-height>
@@ -249,8 +242,7 @@
                 <format>Totals:    %.1f gal US</format>
                 <live>true</live>
                 <property>/consumables/fuel/total-fuel-gal_us</property>
-            </text>      
-
+            </text>  
   
   </group>
             
@@ -316,9 +308,7 @@
     
     <hrule/>
 
-	<!--Pax n Bags-->
-
-    
+	<!--Pax n Bags-->    
       <group>
         <layout>hbox</layout>
         <padding>6</padding>
@@ -328,8 +318,7 @@
             <text>
                 <label>Loads</label>
                 <halign>left</halign>
-            </text>
-		
+            </text>		
 
             <text>
                 <label>Pilot i. C:</label>
@@ -355,8 +344,6 @@
                 <label></label>
             </text>
         </group>
-
-
             
    <group>
             <layout>vbox</layout>           
@@ -454,9 +441,7 @@
           <command>dialog-update</command>
         </binding>
       </button>
-    </group>
-
-    
+    </group>    
 
     <group>      
       <layout>hbox</layout>
@@ -794,8 +779,7 @@
           <command>dialog-update</command>
         </binding>
       </button>
-    </group>
-	
+    </group>	
   
   </group>
 		
@@ -830,8 +814,7 @@
             
         </group>
         
-    </group>  
-        
+    </group>          
     
     <hrule/>
 

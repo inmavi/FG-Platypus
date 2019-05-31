@@ -19,7 +19,6 @@
 		<alpha>0.9</alpha>
 	</color>
 
-
     <group>
 		<layout>hbox</layout>
 		<empty>
@@ -49,7 +48,6 @@
 		</button>
 	</group>
 	<hrule/>
-
 	
 	<group>
 		<layout>table</layout>
@@ -238,7 +236,6 @@
 <layout>table</layout>
 <name>distance</name>	
 
-
 		<text>
 		<halign>left</halign>
 			<row>0</row>
@@ -276,9 +273,6 @@
 					<alpha>0.8</alpha>			
 				</color>			
 		</text>
-
-
-		
 
 		<text>
 			<halign>left</halign>
@@ -336,7 +330,6 @@
 					<alpha>0.8</alpha>			
 				</color>				
 		</text>
-		
 
 </group>
 	<hrule/>
@@ -382,9 +375,6 @@
 				</color>			
 		</text>
 
-
-			
-
 		<text>
 			<halign>left</halign>
 			<row>1</row>
@@ -423,7 +413,6 @@
 				</color>	
 		</text>
 
-
 		<text>
 			<halign>left</halign>
 			<row>2</row>
@@ -461,7 +450,6 @@
 				</color>	
 		</text>
 
-
 		<text>
 			<halign>left</halign>
 			<row>3</row>
@@ -498,8 +486,6 @@
 					<alpha>0.8</alpha>			
 				</color>	
 		</text>
-
-
 
 		<text>
 			<halign>left</halign>
@@ -539,13 +525,9 @@
 				</color>				
 		</text>		
 
-
-		
-
 	</group>
 	
 	<hrule/>
-	
 	
 	<group>
 		<layout>table</layout>
@@ -581,17 +563,16 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-setprop("/controls/gear/brake-parking",1);
-var apid = getprop("/sim/presets/airport-id");
-var rwid = getprop("/sim/presets/runway");
-aircraft.teleport(airport = apid, runway = rwid);
-		</script>
+				setprop("/controls/gear/brake-parking",1);
+				var apid = getprop("/sim/presets/airport-id");
+				var rwid = getprop("/sim/presets/runway");
+				aircraft.teleport(airport = apid, runway = rwid);
+			</script>
 			</binding>
 			<binding>
 				<command>dialog-close</command>
 			</binding>
 		</button>
-
 
 		<button>
 			<row>0</row>

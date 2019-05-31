@@ -70,8 +70,7 @@
         }
         
         cd = positioned.courseAndDistance(result);
-      }
-  
+      }  
       
       dlg.getNode("scratch-mag-bearing-deg", 1).setValue(cd[0] - magvar());
       dlg.getNode("scratch-distance-nm", 1).setValue(cd[1]);

@@ -19,7 +19,6 @@
 		<alpha>0.9</alpha>
 	</color>
 
-
     <group>
 		<layout>hbox</layout>
 		<empty>
@@ -49,7 +48,6 @@
 		</button>
 	</group>
 	<hrule/>
-
 	
 	<group>
 		<layout>table</layout>
@@ -220,7 +218,6 @@
 <layout>table</layout>
 <name>noAp</name>	
 
-
 		<text>
 		<halign>left</halign>
 			<row>0</row>
@@ -229,11 +226,7 @@
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 			<label> Current Data::</label>			
-		</text>
-
-
-
-		
+		</text>		
 
 		<text>
 			<halign>left</halign>
@@ -290,9 +283,7 @@
 					<blue>0.5</blue>
 					<alpha>0.8</alpha>			
 				</color>				
-		</text>
-
-		
+		</text>		
 
 		<text>
 			<halign>left</halign>
@@ -366,9 +357,7 @@
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 			<label> Lift-off Data:</label>			
-		</text>
-
-			
+		</text>			
 
 		<text>
 			<halign>left</halign>
@@ -407,7 +396,6 @@
 					<alpha>1</alpha>
 				</color>
 		</text>
-
 
 		<text>
 			<halign>left</halign>

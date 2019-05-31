@@ -10,9 +10,6 @@
 	<layout>hbox</layout>
 	<x>194</x>
 	<y>636</y>	
-	
-	
-	
 
 	<button>	
 		<pref-width>20</pref-width>
@@ -43,7 +40,6 @@
 		<dialog-name>map</dialog-name>
   </binding>		                
 	</button>
-	
 
 	<button>
 		<pref-width>20</pref-width>
@@ -107,7 +103,6 @@
                                 </script>
 			</binding>
 	</button>
-
 
 	<vrule/>
 

@@ -15,14 +15,8 @@
 			var p = "/Aircraft/PA28-Warrior/Dialogs/eta/";
 			var display = props.globals.getNode(p ~ "display", 1);
 			var time = props.globals.getNode("/systems/eta");
-
 			var start_time = props.globals.getNode(p ~ "start-time", 1).getValue();
-			var accu = props.globals.getNode(p ~ "accu", 
-
-
-
-
-1).getValue();
+			var accu = props.globals.getNode(p ~ "accu",1).getValue();
 			if (start_time == nil)
 				start_time = 0;
 			if (accu == nil)
@@ -61,13 +55,9 @@
 #### variables for eta####
 
 var ct = (getprop("instrumentation/clock/indicated-sec"));
-
 var ta = (getprop("autopilot/route-manager/ete"));
-
 var arr = ct+ta ;
-
 setprop("/systems/eta", arr);
-
 
 ####need to convert into hh:mm format####
 
@@ -92,9 +82,7 @@ setprop("/systems/eta", arr);
 					accu = 0;
 				show(accu);
 			}
-
-start()
-	
+			start()	
 
 		</open>
 
@@ -123,6 +111,5 @@ start()
 			<alpha>1</alpha>
 		</color>
 	</text>
-
 
 </PropertyList>

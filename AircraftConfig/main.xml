@@ -2,7 +2,6 @@
 
 <!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
 <!--modified by Gerhard Kick -->
-
 <!-- FG-Platypus Aircraft Config Dialog -->
 
 <PropertyList>
@@ -178,7 +177,6 @@
 				</group>
 			</group>
 		</group>
-
 		
 		<vrule/>
 		
@@ -275,7 +273,6 @@
 				</binding>
 				<live>true</live>
 			</checkbox>
-
 			
 			<checkbox>
 				<label>GPS slaves Nav</label>
@@ -289,12 +286,9 @@
 				<value>0</value>
 				</binding>			  
 
-
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
-
-				
 				
 				<binding>
 					<command>nasal</command>
@@ -306,14 +300,11 @@
 				<command>nasal</command>
 					<script>
 if (getprop("/instrumentation/nav/slaved-to-gps")== 1) {	
-    logger.screen.red("Autopilot now restricted to Heading mode only!",1);				
-
-	
+    logger.screen.red("Autopilot now restricted to Heading mode only!",1);
 } 
 
 if (getprop("/instrumentation/nav/slaved-to-gps")== 0) {
 	logger.screen.blue("Autopilot now returned to full functionality!!!",1);}			
-
 	
 					</script>				
 				</binding>

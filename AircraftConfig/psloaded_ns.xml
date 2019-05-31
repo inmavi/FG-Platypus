@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
-
 <!-- PA28-161 Aircraft Config Dialog -->
 
 <PropertyList>
@@ -45,16 +44,11 @@
 				<label>Check fuel, electrical systems...</label>
 			</text>
 
-
-
-
-
 			<button>
 				<halign>center</halign>
 				<legend>Close</legend>
 				<pref-width>160</pref-width>			
 				<key>Esc</key>
-
 
   <binding>
 	<command>nasal</command>
@@ -71,7 +65,6 @@ var inc = props.globals.getNode("/systems/starts");
 		</script>
 </binding>
 
-
   <binding>
 	<condition>
          		<equals>
@@ -82,8 +75,6 @@ var inc = props.globals.getNode("/systems/starts");
    <command>dialog-show</command>
 	<dialog-name>instrumentsAlt</dialog-name>
   </binding>
-
-
 				
 <binding>
    <command>property-assign</command>
@@ -91,33 +82,11 @@ var inc = props.globals.getNode("/systems/starts");
 		<value>1</value>
 </binding>
 
-<!--
-<binding>
-   <command>property-assign</command>
-   <property>sim/hud/visibility[0]</property>
-		<value>1</value>
-				</binding>
-
-<binding>
-   <command>property-assign</command>
-   <property>sim/gui/dialogs/metar/mode/manual-weather</property>
-		<value>1</value>
-</binding>
-
-<binding>
-   <command>property-assign</command>
-   <property>sim/gui/dialogs/metar/mode/global-weather</property>
-		<value>1</value>
-</binding>
-
--->
 
 <binding>
 		<command>dialog-close</command>		
 </binding>
   
-
-
 			</button>
 			
 		</group>

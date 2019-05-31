@@ -295,29 +295,6 @@
           </binding>
         </input>
 
-<!-- 
-        <button>
-          <legend>Clear</legend>
-          <binding>
-            <command>property-assign</command>
-            <property>/sim/gui/dialogs/airports/mode</property>
-            <value>search</value>
-          </binding>
-          <binding>
-            <command>property-assign</command>
-            <property>/sim/gui/dialogs/airports/list</property>
-            <value></value>
-          </binding>
-          <binding>
-            <command>dialog-update</command>
-            <object-name>input</object-name>
-          </binding>
-          <binding>
-            <command>dialog-update</command>
-            <object-name>airport-list</object-name>
-          </binding>
-        </button>
--->
         <button>
           <legend>Search</legend>
           <default>true</default>

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <PropertyList>
+
   <name>nt1</name>
   <modal>false</modal>
   <layout>vbox</layout>
 	<color>
 		<alpha>1</alpha>
-	</color>
-	
+	</color>	
 
   <group>
     <layout>hbox</layout>
@@ -41,8 +41,7 @@
       <col>1</col>
       <halign>right</halign>
       <label>Airport:</label>
-    </text>
-      
+    </text>      
 
     <input>
       <row>0</row>
@@ -51,20 +50,17 @@
       <height>25</height>
       <live>true</live>
       <property>/nt/airport-id</property>
-      <binding>
-        <command>dialog-apply</command>
-      </binding>
-    </input>    
-
+		<binding>
+			<command>dialog-apply</command>
+		</binding>
+    </input>  
 
     <text>
       <row>1</row>
       <col>1</col>
       <halign>right</halign>
       <label>Runway:</label>
-    </text>
-
-      
+    </text>      
      
     <input>
       <row>1</row>
@@ -73,9 +69,9 @@
       <height>25</height>
       <live>true</live>
       <property>/nt/runway</property>
-      <binding>
-        <command>dialog-apply</command>
-      </binding>
+		<binding>
+			<command>dialog-apply</command>
+		</binding>
     </input>       
    </group> 
 
@@ -101,80 +97,72 @@
 		</group>
   <hrule/>
 
-
   <button>
     <legend>Run</legend>
     <default>true</default>
     <key>Esc</key>
-	<binding>
-	<command>nasal</command>
-	<script>
-	var window = screen.window.new(nil, -65, 1, 5);
-			window.fg = [1, 1, 1, 1]; 		
-
-	 window.align = "left";
-window.write("Please wait, loading...",1,1,0 );
-	</script>
-	</binding>
+		<binding>
+			<command>nasal</command>
+				<script>
+					var window = screen.window.new(nil, -65, 1, 5);
+					window.fg = [1, 1, 1, 1]; 	
+					window.align = "left";
+					window.write("Please wait, loading...",1,1,0 );
+				</script>
+		</binding>	
 	
-	
-    <binding>
-      <command>nasal</command>
-		<script>
-			setprop("/controls/engines/engine/magnetos", 0);
-     setprop("/controls/switches/avionics-master", 0);
-
-				libraries.cleanup();
-			fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));		
-  
-   controls.centerFlightControls();  	
-	  	setprop("/controls/engines/engine/mixture", 0);
-		setprop("/controls/engines/engine/throttle", 0);
-
+		<binding>
+			<command>nasal</command>
+				<script>
+					setprop("/controls/engines/engine/magnetos", 0);
+					setprop("/controls/switches/avionics-master", 0);
+					libraries.cleanup();
+					fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));  
+					controls.centerFlightControls();  	
+					setprop("/controls/engines/engine/mixture", 0);
+					setprop("/controls/engines/engine/throttle", 0);
 					setprop("/systems/lapa",1);
 					setprop("/systems/nbat",0);
 					setprop("/options/trm",1);
-					setprop("/systems/bp",1);								setprop("/systems/nonav1",0);
+					setprop("/systems/bp",1);
+					setprop("/systems/nonav1",0);
 					setprop("/systems/nonav2",0);
-			var apid = getprop("/nt/airport-id");
-			var rwid = getprop("/nt/runway");
-	if (getprop("/systems/lapa") == 1)  {
-	setprop("/sim/presets/running",1);	
-	setprop("/controls/electrical/battery", 1);
-     	setprop("/controls/electrical/alternator", 1);
-  	setprop("/controls/switches/avionics-master", 1);
-  	setprop("/controls/engines/engine[0]/magnetos-switch", 3);
-  	setprop("/controls/switches/fuel-pump", 1);
-  	setprop("/controls/engines/engine/throttle", 1);
-  	setprop("/controls/engines/engine/mixture", 1);
-  	setprop("/controls/engines/engine/throttle", 0.1);
-	setprop("/controls/switches/panel-lights-factor", 1);
-	setprop("/controls/switches/nav-lights", 1);
-	setprop("/controls/switches/nav-lights-factor", 1);
-	setprop("/controls/switches/strobe-lights", 1);	
-  	setprop("/controls/switches/panel-lights-factor", 1);
-	setprop("/environment/weather-scenario", "Fair weather");
-	setprop("/systems/iso",0) ;
-	setprop("/sim/hud/visibility[1]", 0);
-	setprop("/systems/vbo", 0);
-	setprop("/systems/fl", 0);
-	setprop("/controls/flight/flaps", 0.0);
+					var apid = getprop("/nt/airport-id");
+					var rwid = getprop("/nt/runway");
+					
+					if (getprop("/systems/lapa") == 1)  {
+						setprop("/sim/presets/running",1);	
+						setprop("/controls/electrical/battery", 1);
+						setprop("/controls/electrical/alternator", 1);
+						setprop("/controls/switches/avionics-master", 1);
+						setprop("/controls/engines/engine[0]/magnetos-switch", 3);
+						setprop("/controls/switches/fuel-pump", 1);
+						setprop("/controls/engines/engine/throttle", 1);
+						setprop("/controls/engines/engine/mixture", 1);
+						setprop("/controls/engines/engine/throttle", 0.1);
+						setprop("/controls/switches/panel-lights-factor", 1);
+						setprop("/controls/switches/nav-lights", 1);
+						setprop("/controls/switches/nav-lights-factor", 1);
+						setprop("/controls/switches/strobe-lights", 1);	
+						setprop("/controls/switches/panel-lights-factor", 1);
+						setprop("/environment/weather-scenario", "Fair weather");
+						setprop("/systems/iso",0) ;
+						setprop("/sim/hud/visibility[1]", 0);
+						setprop("/systems/vbo", 0);
+						setprop("/systems/fl", 0);
+						setprop("/controls/flight/flaps", 0.0);
 
+						if (getprop("/engines/engine/fuel-flow-gph") ==0) {
+							var delay = 5;
+							settimer(func {
+							gui.popupTip("No RPM - press s to start engine! q to hide the properties ", 6);                   
+							}, delay);
+						}
 
+					}
 
-
-if (getprop("/engines/engine/fuel-flow-gph") ==0) {
-	var delay = 5;
-    	settimer(func {
-		gui.popupTip("No RPM - press s to start engine!
-q to hide the properties ", 6);                   
-    }, delay);
-	}
-
-}
-
-	aircraft.teleport(airport = apid, runway = rwid);
-		</script>
+					aircraft.teleport(airport = apid, runway = rwid);
+				</script>
 
     </binding>
 	<binding>

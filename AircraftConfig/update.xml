@@ -136,7 +136,7 @@
 			<pref-width>220</pref-width>
 			<binding>
 				<command>open-browser</command>
-				<path>https://www.github.com/it0uchpods/IDG-PA28X/archive/master.zip</path>
+				<path>https://www.github.com/inmavi/FG-Platypus/archive/master.zip</path>
 			</binding>
 			<binding>
 				<command>exit</command>
