@@ -15,7 +15,7 @@ set /p sp=Airspeed:
 --prop:/systems/saloft=1 ^
 --prop:/systems/bp=1 ^
 --prop:/systems/nora=1 ^
---aircraft=WarriorII-180 ^
+--aircraft=FG-Platypus-180 ^
 --in-air ^
 --prop:/controls/gear/brake-parking=0 ^
 --prop:/controls/electrical/battery=true ^

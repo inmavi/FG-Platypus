@@ -33,7 +33,6 @@ var ps_load_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psload/dialog", "Airc
 var ps_loaded_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psloaded/dialog", "Aircraft/FG-Platypus/AircraftConfig/psloaded.xml");
 var ps_loaded_ns_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psloaded_ns/dialog", "Aircraft/FG-Platypus/AircraftConfig/psloaded_ns.xml");
 var init_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/init/dialog", "Aircraft/FG-Platypus/AircraftConfig/ac_init.xml");
-var help_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/help/dialog", "Aircraft/FG-Platypus/AircraftConfig/help.xml");
 var about_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/about/dialog", "Aircraft/FG-Platypus/AircraftConfig/about.xml");
 var minipanel_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/minipanel/dialog", "Aircraft/FG-Platypus/AircraftConfig/mini-panel.xml");
 var update_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/update/dialog", "Aircraft/FG-Platypus/AircraftConfig/update.xml");

@@ -6,7 +6,7 @@
 --prop:/systems/nopo=1 ^
 --prop:/systems/nhtp=1 ^
 --prop:/systems/nora=0 ^
---aircraft=WarriorII-180 ^
+--aircraft=FG-Platypus-180 ^
 --in-air ^
 --altitude=1500 ^
 --heading=81 ^

@@ -12,7 +12,7 @@ set /p or=Heading:
 --prop:/systems/saloft=0 ^
 --prop:/systems/bp=1 ^
 --prop:/systems/nora=1 ^
---aircraft=WarriorII-180 ^
+--aircraft=FG-Platypus-180 ^
 --geometry=800x600 ^
 --enable-auto-coordination ^
 --disable-real-weather-fetch ^

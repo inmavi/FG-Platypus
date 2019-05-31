@@ -4,7 +4,7 @@
 --prop:/systems/saloft=1 ^
 --prop:/systems/bp=1 ^
 --prop:/systems/nora=1 ^
---aircraft=WarriorII-180 ^
+--aircraft=FG-Platypus-180 ^
 --in-air ^
 --altitude=3000 ^
 --heading=263 ^

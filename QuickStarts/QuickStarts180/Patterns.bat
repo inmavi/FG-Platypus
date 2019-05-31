@@ -6,7 +6,7 @@
 --nav1=263:109.3 ^
 --prop:/systems/saloft=1 ^
 --prop:/systems/bp=1 ^
---aircraft=WarriorII-180 ^
+--aircraft=FG-Platypus-180 ^
 --in-air ^
 --altitude=900 ^
 --heading=258 ^

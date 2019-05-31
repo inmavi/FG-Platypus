@@ -4,7 +4,7 @@
 --prop:/systems/bp=1 ^
 --prop:/systems/lapa=1 ^
 --airport=EDRW ^
---aircraft=WarriorII-180 ^
+--aircraft=FG-Platypus-180 ^
 --runway=07 ^
 --language=en ^
 --geometry=800x600 ^           

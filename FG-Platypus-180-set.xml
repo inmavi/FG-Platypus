@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
+<!-- Copyright (c) 2017 Joshua Davidson (it0uchpods)adapted by Gerhard Kick -->
 
-<PropertyList include="WarriorII-main.xml">
+<PropertyList include="FG-Platypus-main.xml">
 
 	<sim>
 		<description>FG-Platypus(180hp)</description>
 		<flight-model>jsb</flight-model>
-		<aero>WarriorII-180</aero>
+		<aero>FG-Platypus-180</aero>
 		<primary-set>true</primary-set>
 
 		<model>

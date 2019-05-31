@@ -8,7 +8,7 @@ set /p pa=ParkPos:
 --parkpos=%pa% ^
 --timeofday=afternoon ^
 --language=en ^
---aircraft=WarriorII-180 ^
+--aircraft=FG-Platypus-180 ^
 --geometry=800x600 ^
 --enable-auto-coordination ^
 --disable-real-weather-fetch ^
