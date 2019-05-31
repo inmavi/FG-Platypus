@@ -1647,6 +1647,11 @@ Click Run to proceed
 			<switch-position type="int">3</switch-position>
 			<volume type="double">1</volume>
 		</dme1>
+		
+		<aglradar>
+			<power-btn type="bool">1</power-btn>
+			<switch-meter-ft type="bool">0</switch-meter-ft>
+		</aglradar>
 
 		<elt>
 			<armed type="bool">true</armed>

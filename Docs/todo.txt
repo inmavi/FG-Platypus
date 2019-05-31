@@ -22,6 +22,8 @@ stop radio sound when switching between scenarios
 
 wind instrument for hud
 
+get the propeller spinning with engine off on the ground aka original pa28-161 (maybe a yasim thing  ???)
+
 -------------------------------------------------------
 clean up xml and nas files
 

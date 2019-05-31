@@ -547,7 +547,16 @@
 		</offsets>
 	</model>
 
-
+	<model>
+        <name>AGL Radar</name>
+        <path>Aircraft/FG-Platypus/Models/agl-radar/aglradar.xml</path>
+		<offsets>
+            <x-m>1.938</x-m>
+            <y-m>-0.224</y-m>
+            <z-m> 0.327</z-m>
+            <pitch-deg>-8</pitch-deg>
+        </offsets>
+	</model>
 	
 		<model>
 		<name>radalt</name>
