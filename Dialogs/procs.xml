@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!-- Copyright (c) 2017 Joshua Davidson (it0uchpods) -->
-
 <!-- PA28-161 Aircraft Config Dialog -->
-
 
 <PropertyList>
 
 	<name>procs</name>
 	<modal>false</modal>
   	<width>500</width>
-	<color>
-		<alpha>1</alpha>
-	</color>
-
-
+		<color>
+			<alpha>1</alpha>
+		</color>
 	<x>1</x>
 	<y>1</y>
 
-	<layout>vbox</layout>
-	
+	<layout>vbox</layout>	
 
     <group>
         <layout>hbox</layout>
@@ -42,9 +37,7 @@
     <hrule/>
 	
 		<group>
-			<layout>vbox</layout>
-			
-			
+			<layout>vbox</layout>			
 			
 			<textbox>
                     <name>procs</name>

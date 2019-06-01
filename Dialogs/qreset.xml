@@ -6,14 +6,12 @@
 <PropertyList>
 	<name>qreset</name>
 
-
     <layout>vbox</layout>
 	<x>525</x>
 	<y>24</y>	
 	<group>
 		<layout>hbox</layout>
 		<pref-height>25</pref-height>
-
 	
 		<button>		
 			<name>0</name>							
@@ -22,12 +20,15 @@
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 				<color>
-				<red type="float">0.3</red>			 				<green type="float">0.3</green>
-				<blue type="float">0.3</blue>							<alpha type="float">0.9</alpha>						</color>
+				<red type="float">0.3</red>			 				
+				<green type="float">0.3</green>
+				<blue type="float">0.3</blue>							
+				<alpha type="float">0.9</alpha>						
+				</color>
 			<binding>				
 				<command>nasal</command>				
 					<script>				
-setprop("/controls/engines/engine/throttle",0);
+					setprop("/controls/engines/engine/throttle",0);
 					</script>
 			</binding>
 		</button>		
@@ -39,8 +40,11 @@ setprop("/controls/engines/engine/throttle",0);
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 			<color>
-				<red type="float">0.3</red>			 				<green type="float">0.3</green>
-				<blue type="float">0.3</blue>							<alpha type="float">0.9</alpha>						</color>
+				<red type="float">0.3</red>			 				
+				<green type="float">0.3</green>
+				<blue type="float">0.3</blue>							
+				<alpha type="float">0.9</alpha>						
+				</color>
 			<binding>
 				<command>nasal</command>
 				<script>setprop("/controls/engines/engine/mixture",0);</script>
@@ -53,14 +57,16 @@ setprop("/controls/engines/engine/throttle",0);
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 			<color>
-				<red type="float">0.3</red>			 				<green type="float">0.3</green>
-				<blue type="float">0.3</blue>							<alpha type="float">0.9</alpha>						</color>
+				<red type="float">0.3</red>			 				
+				<green type="float">0.3</green>
+				<blue type="float">0.3</blue>							
+				<alpha type="float">0.9</alpha>						
+				</color>
 			<binding>
 				<command>nasal</command>
 				<script>setprop("/controls/engines/engine/mixture",1);</script>
 			</binding>
 		</button>	
-
 				
 		<button>			
 			<name>3</name>
@@ -69,8 +75,11 @@ setprop("/controls/engines/engine/throttle",0);
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 			<color>
-				<red type="float">0.3</red>			 				<green type="float">0.3</green>
-				<blue type="float">0.3</blue>							<alpha type="float">0.9</alpha>						</color>
+				<red type="float">0.3</red>			 				
+				<green type="float">0.3</green>
+				<blue type="float">0.3</blue>							
+				<alpha type="float">0.9</alpha>						
+				</color>
 			<binding>
 				<command>property-assign</command>
 				<property>environment/wind-speed-kt</property>
@@ -130,8 +139,7 @@ setprop("/controls/engines/engine/throttle",0);
 				<not>			
 					<property>instrumentation/nav/slaved-to-gps</property>
 				</not>	
-				</visible>
-
+			</visible>
 				
 			<binding>
 				<command>nasal</command>
@@ -154,7 +162,6 @@ setprop("/controls/engines/engine/throttle",0);
 					<property>instrumentation/nav/slaved-to-gps</property>
 				</not>	
 				</visible>
-
 				
 			<binding>
 				<command>nasal</command>
@@ -170,8 +177,11 @@ setprop("/controls/engines/engine/throttle",0);
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 				<color>
-				<red type="float">0.2</red>			 				<green type="float">0.1</green>
-				<blue type="float">1.0</blue>							<alpha type="float">0.9</alpha>							</color>
+				<red type="float">0.2</red>			 				
+				<green type="float">0.1</green>
+				<blue type="float">1.0</blue>							
+				<alpha type="float">0.9</alpha>							
+				</color>
 			<enable>
 				<not>			
 					<property>systems/n1</property>		
@@ -190,8 +200,11 @@ setprop("/controls/engines/engine/throttle",0);
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 				<color>
-				<red type="float">0.2</red>			 				<green type="float">0.1</green>
-				<blue type="float">1.0</blue>							<alpha type="float">0.9</alpha>						</color>
+				<red type="float">0.2</red>			 				
+				<green type="float">0.1</green>
+				<blue type="float">1.0</blue>							
+				<alpha type="float">0.9</alpha>						
+				</color>
 			<enable>
 				<not>			
 					<property>systems/n3</property>		
@@ -211,8 +224,11 @@ setprop("/controls/engines/engine/throttle",0);
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 				<color>
-				<red type="float">0.2</red>			 				<green type="float">0.1</green>
-				<blue type="float">1.0</blue>							<alpha type="float">0.9</alpha>						</color>
+				<red type="float">0.2</red>			 				
+				<green type="float">0.1</green>
+				<blue type="float">1.0</blue>							
+				<alpha type="float">0.9</alpha>						
+				</color>
 			<enable>
 				<not>			
 					<property>systems/n2</property>		
@@ -224,12 +240,10 @@ setprop("/controls/engines/engine/throttle",0);
 				<value>2</value>				
 			</binding>
 
-		</button>	
-
+		</button>
 		<text>
 			<label> VS:</label>			
 		</text>
-
 
 		<group>
 			<layout>hbox</layout>
@@ -241,20 +255,19 @@ setprop("/controls/engines/engine/throttle",0);
 					<condition>
 						<greater-than>
 							   <property>it-autoflight/input/vs</property>
-
 							<value>-1500</value>
 						</greater-than>
 					</condition>
 					<command>property-adjust</command>
 					   <property>it-autoflight/input/vs</property>
 					<step>-50</step>
-					</binding>
-					
+					</binding>					
 					</button>
+					
 			<text>
-		<pref-width>35</pref-width>
+				<pref-width>35</pref-width>
 				<label>vsa</label>
-<property>it-autoflight/input/vs</property>
+				<property>it-autoflight/input/vs</property>
 				<format>%2d</format>
 				<live>true</live>				
 			</text>
@@ -267,19 +280,13 @@ setprop("/controls/engines/engine/throttle",0);
 					<condition>
 						<less-than>
 							   <property>it-autoflight/input/vs</property>
-
-
 							<value>1200</value>
 						</less-than>
 					</condition>
 					<command>property-adjust</command>
 					   <property>it-autoflight/input/vs</property>
-
-
 					<step>50</step>
 				</binding>
-				
-
 			</button>	
 		</group>
 
@@ -316,9 +323,7 @@ setprop("/controls/engines/engine/throttle",0);
 			<binding>
 				<command>dialog-close</command>
 			</binding>
-		</button>
-
-		
+		</button>		
 		
 	</group>
 </PropertyList>

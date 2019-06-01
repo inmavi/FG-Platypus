@@ -6,7 +6,7 @@
 		<alpha>0.9</alpha>
 	</color>
 
-<nasal>
+	<nasal>
 		<open>
 			#
 			#/sim/current-view/view-number does not use the view number but consecutive numbers (0..viewCount)
@@ -23,15 +23,13 @@
 			
 			var me = gui.findElementByName(cmdarg(), "PA28Views");
 		</open>
-	</nasal>
+		</nasal>
 
     <layout>hbox</layout>
-	<default-padding>1</default-padding>
-  			
+	<default-padding>1</default-padding>  			
 	
 		<layout>hbox</layout>
 				<empty><stretch>1</stretch></empty>
-
 	            
 		<button>
 			<name>101</name>
@@ -89,7 +87,6 @@
 				<script>setViewByIndex(1);</script>
 			</binding>
 		</button>
-
 		
 		<button>
 			<name>7</name>
@@ -126,8 +123,6 @@
 				<script>setViewByIndex(103);</script>
 			</binding>
 		</button>
-
-
 				
 		<button>
 			<legend>Reset</legend>
@@ -160,20 +155,5 @@
 				<value>220</value>
 			</binding>			
 		</button>
-
-
-<!--
-		<button>
-			<pref-width>16</pref-width>
-			<pref-height>16</pref-height>
-			<legend>X</legend>
-			<keynum>27</keynum>
-			<border>2</border>
-			<binding>
-				<command>dialog-close</command>
-			</binding>
-		</button>
-
-		-->
 		
 </PropertyList>

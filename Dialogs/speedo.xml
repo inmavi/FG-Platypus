@@ -8,19 +8,15 @@
 	<name>speedo</name>
 	<layout>hbox</layout>
 	<x>645</x>
-	<y>604</y>			
-
+	<y>604</y>	
 
 			<text>
 			<pref-width>50</pref-width>
-
-			<label>ias </label>
-			
+			<label>ias </label>			
          		<visible>
             			<property>/sim/failure-manager/instrumentation/airspeed-indicator/serviceable</property>
 					<value>true</value>
-         		</visible>
-      		
+         		</visible>      		
 				<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 				<format>IAS: %d</format>
 				<live>true</live>
@@ -31,6 +27,5 @@
 					<alpha>1</alpha>
 				</color>
 			</text>				
-			
 
 </PropertyList>

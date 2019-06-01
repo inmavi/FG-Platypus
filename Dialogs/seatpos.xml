@@ -27,9 +27,7 @@
       </binding>
     </button>
   </group>
-  <hrule><dummy/></hrule>
-  
-     
+  <hrule><dummy/></hrule>     
 
   <group>
     <layout>hbox</layout>

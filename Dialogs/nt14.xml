@@ -5,10 +5,7 @@
   <layout>vbox</layout>
 	<color>
 		<alpha>0.8</alpha>
-	</color>
-	
-	
-  
+	</color>  
 
   <group>
     <layout>hbox</layout>
@@ -39,9 +36,8 @@
 			
 			<textbox>
 				<color>
-		<alpha>0.7</alpha>
-	</color>
-
+					<alpha>0.7</alpha>
+				</color>
                     <name>patterns</name>
                     <halign>fill</halign>
                     <stretch>true</stretch>
@@ -78,97 +74,83 @@
 		<binding>
 	<command>nasal</command>
 	<script>
-	var window = screen.window.new(nil, -65, 1, 5);
-			window.fg = [1, 1, 1, 1]; 		
-
-	 window.align = "left";
-window.write("Please wait, loading...",1,1,0 );
+		var window = screen.window.new(nil, -65, 1, 5);
+		window.fg = [1, 1, 1, 1]; 	
+		window.align = "left";
+		window.write("Please wait, loading...",1,1,0 );
 	</script>
 	</binding>
 	
     <binding>
       <command>nasal</command>
 		<script>
-			  		setprop("/controls/engines/engine/magnetos", 0);
-     setprop("/controls/switches/avionics-master", 0);
-				    	
+			 setprop("/controls/engines/engine/magnetos", 0);
+			setprop("/controls/switches/avionics-master", 0);				    	
 			libraries.cleanup();
 			setprop("/environment/weather-scenario", "Core high pressure region");
-fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
+			fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 		setprop("/systems/saloft",1);
 		setprop("/options/trm",14);
-		setprop("/systems/bp",1);								setprop("/systems/nora",0);
+		setprop("/systems/bp",1);								
+		setprop("/systems/nora",0);
 		setprop("/sim/freeze/clock",1);
 		var long = -87.27485;
 		var lati = 14.22449;
 		var alti = 7400;
 		var spd = 100;
 		var dist = 6;
-		var headg = 222;
-		
-		
+		var headg = 222;		
 
 	if (getprop("/systems/saloft") == 1)  {
-	setprop("/sim/presets/running", 1);
-	setprop("/controls/electrical/battery", 1);
+		setprop("/sim/presets/running", 1);
+		setprop("/controls/electrical/battery", 1);
      	setprop("/controls/electrical/alternator", 1);
-  	setprop("/controls/switches/avionics-master", 1);
-  	setprop("/controls/engines/engine[0]/magnetos-switch", 3);
-  	setprop("/controls/switches/fuel-pump", 1);
-  	setprop("/controls/engines/engine/throttle", 1);
-  	setprop("/controls/engines/engine/mixture", 1);
-	setprop("/controls/engines/engine[0]/magnetos-switch", 4);
-	setprop("/controls/engines/engine/running", 1);
-	setprop("/controls/engines/engine[0]/magnetos-switch", 3);
-	setprop("/controls/switches/panel-lights-factor", 1);
-	setprop("/controls/switches/nav-lights", 1);
-	setprop("/controls/switches/nav-lights-factor", 1);
-	setprop("/controls/switches/strobe-lights", 1);	
-  	setprop("/controls/switches/panel-lights-factor", 1);
-  	setprop("/controls/flight/elevator", -0.009);
-	setprop("/orientation/pitch-deg",0.5);
-	setprop("/it-autoflight/input/ap", 1);	
-	setprop("/it-autoflight/input/lat", 0);	
-	setprop("/controls/engines/engine/throttle", 0.9);
-	setprop("/controls/engines/engine/starter", 0);
-	setprop("/engines/engine/fuel-pressure-psi", 4.3);
-	setprop("/systems/vbo", 0);
-	setprop("/systems/awc", 1);
-	setprop("/systems/fl", 0);
-	setprop("/systems/nonav1",0);
-	setprop("/systems/nonav2",0);
-	setprop("/instrumentation/altimeter/setting-hpa", 1025);
-
-	setprop("/instrumentation/nav/frequencies/selected-mhz", 112.3);
+		setprop("/controls/switches/avionics-master", 1);
+		setprop("/controls/engines/engine[0]/magnetos-switch", 3);
+		setprop("/controls/switches/fuel-pump", 1);
+		setprop("/controls/engines/engine/throttle", 1);
+		setprop("/controls/engines/engine/mixture", 1);
+		setprop("/controls/engines/engine[0]/magnetos-switch", 4);
+		setprop("/controls/engines/engine/running", 1);
+		setprop("/controls/engines/engine[0]/magnetos-switch", 3);
+		setprop("/controls/switches/panel-lights-factor", 1);
+		setprop("/controls/switches/nav-lights", 1);
+		setprop("/controls/switches/nav-lights-factor", 1);
+		setprop("/controls/switches/strobe-lights", 1);	
+		setprop("/controls/switches/panel-lights-factor", 1);
+		setprop("/controls/flight/elevator", -0.009);
+		setprop("/orientation/pitch-deg",0.5);
+		setprop("/it-autoflight/input/ap", 1);	
+		setprop("/it-autoflight/input/lat", 0);	
+		setprop("/controls/engines/engine/throttle", 0.9);
+		setprop("/controls/engines/engine/starter", 0);
+		setprop("/engines/engine/fuel-pressure-psi", 4.3);
+		setprop("/systems/vbo", 0);
+		setprop("/systems/awc", 1);
+		setprop("/systems/fl", 0);
+		setprop("/systems/nonav1",0);
+		setprop("/systems/nonav2",0);
+		setprop("/instrumentation/altimeter/setting-hpa", 1025);
+		setprop("/instrumentation/nav/frequencies/selected-mhz", 112.3);
 		setprop("/instrumentation/nav/radials/selected-deg", 18);
-									setprop("/instrumentation/heading-indicator/indicated-heading-deg", 222);
-		
+		setprop("/instrumentation/heading-indicator/indicated-heading-deg", 222);		
 
 	if (getprop("/systems/nbat")== 0) {
-
-	var inc = props.globals.getNode("/systems/starts");
-	inc.setValue(inc.getValue() + 1);
-
+		var inc = props.globals.getNode("/systems/starts");
+		inc.setValue(inc.getValue() + 1);
 	}
 	if (getprop("/systems/starts") > 321)  {
-
-	logger.screen.red("Electrical systems malfunction,
-engine can not start, please restart on the ground
+		logger.screen.red("Electrical systems malfunction,engine can not start, please restart on the ground
 and replace your depleted battery", 3);
-
 	}
-
-
 }
 
 	aircraft.teleport(airport = "", runway = "",lat = lati, lon = long, alt = alti,
-		speed = spd, distance = dist, azimuth = 0, glideslope = 0, heading = 222) ;
+	speed = spd, distance = dist, azimuth = 0, glideslope = 0, heading = 222) ;
 	setprop("/controls/gear/brake-parking", 0);
 	davtron803.davtron_flight_time.reset();
 	davtron803.davtron_flight_time.start();
-fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));		
-
-	
+	fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));	
 		</script>
     </binding>
 	
@@ -185,15 +167,13 @@ fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 	<binding>
 	<command>dialog-show</command>
 	<dialog-name>qreset</dialog-name>
-    </binding> 
-	
+    </binding> 	
 
 	<binding>
       <command>dialog-close</command>
     </binding>
 
   </button>
-</group>
-	
+</group>	
 
 </PropertyList>

@@ -9,8 +9,6 @@
 	<pref-width>250</pref-width>
 	<x>57</x>
 	<y>57</y>
-	
-
 
     <group>
         <layout>hbox</layout>
@@ -105,7 +103,6 @@
 				<label>0.12 hrs*110 kts = 13 nm</label>
 			</text>
 
-
 			<hrule/>
 
 			<text>
@@ -147,7 +144,6 @@
 			</text>
 
 			<hrule/>
-
 						
 			<text>
 				<halign>center</halign>
@@ -185,9 +181,7 @@
 			<text>
 				<halign>center</halign>
 				<label>(Distance*60)/Groundspeed</label>
-			</text>
-
-			
+			</text>			
 	
 		</group>
 		
@@ -209,7 +203,6 @@
 					</script>
 				</binding>
 			</button>
-
 			
 			<button>
 				<halign>right</halign>

@@ -19,7 +19,6 @@
 		<alpha>0.9</alpha>
 	</color>
 
-
     <group>
 		<layout>hbox</layout>
 		<empty>
@@ -49,7 +48,6 @@
 		</button>
 	</group>
 	<hrule/>
-
 	
 	<group>
 		<layout>table</layout>
@@ -79,7 +77,6 @@
 				<format> Aircraft: %s</format>		
 		</text>
 
-
 		<text>
 		<halign>left</halign>
 			<row>1</row>
@@ -87,14 +84,10 @@
 			<pref-height>21</pref-height>
 			<pref-width>45</pref-width>
 			<margin>1</margin>
-				<label> Mode: GPS/RM</label>			
-				
-			<visible>
-										
-						<property>autopilot/route-manager/active</property>
-					
-						
-				</visible>		
+				<label> Mode: GPS/RM</label>				
+			<visible>										
+				<property>autopilot/route-manager/active</property>						
+			</visible>		
 		</text>
 
 		<text>
@@ -104,16 +97,13 @@
 			<pref-height>21</pref-height>
 			<pref-width>45</pref-width>
 			<margin>1</margin>
-				<label> Mode: Non GPS</label>			
-				
+				<label> Mode: Non GPS</label>				
 			<visible>
 				<not>							
 						<property>autopilot/route-manager/active</property>
 					</not>						
 				</visible>		
 		</text>
-
-
 
 		<text>
 			<halign>left</halign>
@@ -123,7 +113,7 @@
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 			<label>alt</label>
-<property>sim/airport/closest-airport-id</property>
+			<property>sim/airport/closest-airport-id</property>
 				<format> Closest APt: %s</format>
 				<live>true</live>
 				<color>
@@ -214,7 +204,6 @@
 				</visible>
 		</text>
 
-
 		<text>
 			<halign>left</halign>
 			<row>1</row>
@@ -232,7 +221,8 @@
 					<blue>0.2</blue>
 					<alpha>1</alpha>
 				</color>
-				<visible>											<property>autopilot/route-manager/active</property>					
+				<visible>											
+				<property>autopilot/route-manager/active</property>					
 				</visible>
 		</text>
 
@@ -244,7 +234,7 @@
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 				<label>dRwy</label>		
-<property>autopilot/route-manager/departure/runway</property>
+			<property>autopilot/route-manager/departure/runway</property>
 				<format> Runway:      %s</format>
 				<live>false</live>
 				<color>
@@ -253,7 +243,8 @@
 					<blue>0.2</blue>
 					<alpha>1</alpha>
 				</color>
-				<visible>											<property>autopilot/route-manager/active</property>					
+				<visible>											
+				<property>autopilot/route-manager/active</property>					
 				</visible>
 		</text>
 
@@ -265,7 +256,7 @@
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 			<label>Arr</label>
-<property>autopilot/route-manager/destination/airport</property>
+			<property>autopilot/route-manager/destination/airport</property>
 				<format> Arrival: %s</format>
 				<live>true</live>
 				<color>
@@ -274,7 +265,8 @@
 					<blue>0.2</blue>
 					<alpha>1</alpha>
 				</color>
-				<visible>											<property>autopilot/route-manager/active</property>					
+				<visible>											
+				<property>autopilot/route-manager/active</property>					
 				</visible>
 		</text>
 
@@ -286,7 +278,7 @@
 			<pref-width>45</pref-width>
 			<margin>1</margin>
 			<label>aRwy</label>
-<property>autopilot/route-manager/destination/runway</property>
+			<property>autopilot/route-manager/destination/runway</property>
 				<format> Rwy: %s</format>
 				<live>true</live>
 				<color>
@@ -295,7 +287,8 @@
 					<blue>0.2</blue>
 					<alpha>1</alpha>
 				</color>
-				<visible>											<property>autopilot/route-manager/active</property>					
+				<visible>											
+				<property>autopilot/route-manager/active</property>					
 				</visible>
 		</text>
 		
@@ -322,8 +315,7 @@
 					<blue>0.2</blue>
 					<alpha>1</alpha>
 				</color>
-		</text>
-			
+		</text>			
 
 		<text>
 			<halign>left</halign>
@@ -370,46 +362,21 @@
 			<pref-height>21</pref-height>
 			<pref-width>45</pref-width>
 			<margin>1</margin>
-			<label>rem</label>							<property>/autopilot/route-manager/distance-remaining-nm</property>
+			<label>rem</label>							
+			<property>/autopilot/route-manager/distance-remaining-nm</property>
 				<format>Rem: %1.1f nm</format>
 				<live>true</live>
-
 				<color>
 					<red>0.6</red>
 					<green>0.4</green>
 					<blue>0.2</blue>
 					<alpha>1</alpha>
 				</color>
-				<visible>											<property>autopilot/route-manager/active</property>					
+				<visible>											
+				<property>autopilot/route-manager/active</property>					
 				</visible>
 		</text>
-<!--
-		<text>
-			<halign>left</halign>
-			<row>4</row>
-			<col>2</col>			
-			<pref-height>21</pref-height>
-			<pref-width>45</pref-width>
-			<margin>1</margin>
-			<label>rem</label>
-							<property>/autopilot/route-manager/distance-remaining-nm</property>
-
-				<format>Rem: %1.1f nm</format>
-				<live>true</live>
-
-				<color>
-					<red>0.6</red>
-					<green>0.4</green>
-					<blue>0.2</blue>
-					<alpha>1</alpha>
-				</color>
-				<visible>
-					<not>
-						<property>autopilot/route-manager/active</property>
-					</not>
-				</visible>
-		</text>
-				-->	
+	
 		<text>
 			<halign>left</halign>
 			<row>5</row>
@@ -433,31 +400,6 @@
 					
 				</visible>
 		</text>
-<!--
-		<text>
-			<halign>left</halign>
-			<row>5</row>
-			<col>2</col>			
-			<pref-height>21</pref-height>
-			<pref-width>45</pref-width>
-			<margin>1</margin>
-			<label>ete</label>
-				<property>/Aircraft/PA28-Warrior/Dialogs/etwatch/display</property>
-				<format>ETE Dest: %s</format>
-				<live>true</live>
-				<color>
-					<red>0.6</red>
-					<green>0.4</green>
-					<blue>0.2</blue>
-					<alpha>1</alpha>
-				</color>
-				<visible>
-					<not>
-						<property>autopilot/route-manager/active</property>
-					</not>
-				</visible>
-		</text>
--->
 
 		<text>
 			<halign>left</halign>
@@ -476,10 +418,6 @@
 					<blue>0.2</blue>
 					<alpha>1</alpha>
 				</color>
-<!--
-				<visible>											<property>autopilot/route-manager/active</property>
-				</visible>
--->
 		</text>
 
 		<text>
@@ -500,11 +438,11 @@
 					<alpha>1</alpha>
 				</color>
 				<visible>
-					<not>											<property>autopilot/route-manager/active</property>
+					<not>											
+					<property>autopilot/route-manager/active</property>
 					</not>
 				</visible>
 		</text>
-
 
 		<text>
 			<halign>left</halign>
@@ -680,8 +618,6 @@
 				</color>
 			</text>
 
-
-
 		<text>
 			<halign>left</halign>
 			<row>3</row>
@@ -718,9 +654,7 @@
 					<blue>0.2</blue>
 					<alpha>1</alpha>
 				</color>
-			</text>
-
-			
+			</text>			
 		
 	</group>
 	
@@ -742,16 +676,14 @@
 			<margin>1</margin>
 			<keynum>27</keynum>
 			<border>2</border>
-				<visible>
-			
-					<property>gear/gear/wow</property>
-			
+				<visible>			
+					<property>gear/gear/wow</property>			
 				</visible>	
 			<binding>
 				<command>nasal</command>
 					<script>libraries.statsreset();
-				setprop("/instrumentation/hobbs-meter/seconds",0);
-</script>
+						setprop("/instrumentation/hobbs-meter/seconds",0);
+					</script>
 			</binding>
 		</button>
 
@@ -769,7 +701,6 @@
 					<blue>0</blue>
 					<alpha>1</alpha>
 				</color>
-
 		</text>
 
 		<button>

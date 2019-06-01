@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-
-
 <PropertyList>
 
 	<name>qconv</name>
@@ -9,8 +7,6 @@
 	<pref-width>250</pref-width>
 	<x>57</x>
 	<y>57</y>
-	
-
 
     <group>
         <layout>hbox</layout>
@@ -82,8 +78,6 @@
 				<label>M2IN = 1 / IN2M</label>
 			</text>
 			
-
-			
 			<hrule/>			
 
 			<text>
@@ -100,8 +94,7 @@
 			<text>
 				<halign>center</halign>
 				<label>M2NM = 1 / NM2M</label>
-			</text>
-			
+			</text>			
 
 			<hrule/>
 
@@ -140,7 +133,6 @@
 			</text>
 			
 			<hrule/>
-
 						
 			<text>
 				<halign>center</halign>
@@ -151,13 +143,11 @@
 					<blue>0.1</blue>
 					<alpha>1</alpha>
 					</color>
-
 			</text>
 			<text>
 				<halign>center</halign>
 				<label>KG2LB = 1 / LB2KG</label>
-			</text>
-			
+			</text>			
 
 			<hrule/>
 						
@@ -194,7 +184,6 @@
 				<halign>center</halign>
 				<label>GAL2LBS = 7</label>
 			</text>
-
 	
 		</group>
 		
@@ -211,12 +200,11 @@
 				<binding>
 					<command>nasal</command>
 						<script>
-		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "qcalc" }));
-		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "qconv" }));
+							fgcommand("dialog-show", props.Node.new({ "dialog-name" : "qcalc" }));
+							fgcommand("dialog-close", props.Node.new({ "dialog-name" : "qconv" }));
 					</script>
 				</binding>
 			</button>
-
 			
 			<button>
 				<halign>right</halign>

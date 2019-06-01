@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 
-
 <PropertyList>
     <name>tprimer</name>
     <layout>vbox</layout>
@@ -96,9 +95,7 @@
 
     <group>
         <layout>hbox</layout>
-        <default-padding>6</default-padding>
-
-        
+        <default-padding>6</default-padding>        
         <button>
             <halign>right</halign>
             <legend>Close</legend>

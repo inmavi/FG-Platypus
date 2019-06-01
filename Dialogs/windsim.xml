@@ -13,21 +13,12 @@
 
         setprop("/environment/config/boundary/entry/wind-from-heading-deg", int(getprop("/environment/config/boundary/entry/wind-from-heading-deg")));
         setprop("/environment/config/boundary/entry/wind-speed-kt", int(getprop("/environment/config/boundary/entry/wind-speed-kt")));
-
-
         setprop("/environment/config/boundary/entry[1]/wind-from-heading-deg", int(getprop("/environment/config/boundary/entry/wind-from-heading-deg")));
-
         setprop("/environment/config/boundary/entry[1]/wind-speed-kt", int(getprop("/environment/config/boundary/entry/wind-speed-kt")));
-
-
         setprop("/environment/config/aloft/entry[1]/wind-from-heading-deg", int(getprop("/environment/config/boundary/entry/wind-from-heading-deg")));
         setprop("/environment/config/aloft/entry[1]/wind-speed-kt", int(getprop("/environment/config/boundary/entry/wind-speed-kt")));
-
         setprop("/environment/config/aloft/entry/wind-from-heading-deg", int(getprop("/environment/config/boundary/entry/wind-from-heading-deg")));
-        setprop("/environment/config/aloft/entry/wind-speed-kt", int(getprop("/environment/config/boundary/entry/wind-speed-kt")));
-
-
-      }
+        setprop("/environment/config/aloft/entry/wind-speed-kt", int(getprop("/environment/config/boundary/entry/wind-speed-kt")));      }
       var dirListener = setlistener("/environment/config/boundary/entry/wind-from-heading-deg", update);
       var spdListener = setlistener("/environment/config/boundary/entry/wind-speed-kt", update);
       update();
@@ -135,9 +126,7 @@
       <padding>0</padding>
       <halign>left</halign>
       <label>deg</label>
-    </text>
-
-	
+    </text>	
 
     <text>
       <row>1</row>
@@ -299,13 +288,9 @@
         <binding>
           <command>dialog-update</command>
         </binding>
-      </button>
+      </button>      
 
-      
-
-    </group>
-
-    
+    </group>    
 
     <group>
       <layout>hbox</layout>
@@ -313,7 +298,6 @@
       <row>2</row>
       <col>1</col>
     </group>
-
     
     <group>
       <layout>hbox</layout>

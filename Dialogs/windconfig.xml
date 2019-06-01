@@ -5,9 +5,7 @@
   <layout>vbox</layout>
 	<color>
 		<alpha>1</alpha>
-	</color>
-	
-  
+	</color>  
 
   <group>
     <layout>hbox</layout>
@@ -64,25 +62,18 @@
 			<command>nasal</command>
 			<script>
 				fgcommand("dialog-show", props.Node.new({ "dialog-name" : "weather" }));
-
-
-setprop( "/environment/params/metar-updates-environment", 0 );
-setprop( "/environment/realwx/enabled", 0 ); setprop( "/environment/config/enabled", 1 );
-setprop("/nasal/manual_weather/enabled", "true");
-setprop("/nasal/local_weather/enabled", "false");
-setprop( "/sim/gui/dialogs/metar/mode/global-weather", "1" );
-setprop( "/sim/gui/dialogs/metar/mode/local-weather", "0" );
-setprop( "/sim/gui/dialogs/metar/mode/manual-weather", "1" );
-
-      gui.dialog_update("weather");
-	 gui.dialog_apply("weather");
-
-fgcommand("dialog-close", props.Node.new({ "dialog-name" : "weather" }));
-
-      
-fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windconfig" }));
-setprop("/systems/mws",1);
-
+				setprop( "/environment/params/metar-updates-environment", 0 );
+				setprop( "/environment/realwx/enabled", 0 ); setprop( "/environment/config/enabled", 1 );
+				setprop("/nasal/manual_weather/enabled", "true");
+				setprop("/nasal/local_weather/enabled", "false");
+				setprop( "/sim/gui/dialogs/metar/mode/global-weather", "1" );
+				setprop( "/sim/gui/dialogs/metar/mode/local-weather", "0" );
+				setprop( "/sim/gui/dialogs/metar/mode/manual-weather", "1" );
+				gui.dialog_update("weather");
+				gui.dialog_apply("weather");
+				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "weather" }));      
+				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windconfig" }));
+				setprop("/systems/mws",1);
 			</script>
 		</binding>
 			
@@ -95,7 +86,7 @@ setprop("/systems/mws",1);
 		<binding>
 			<command>nasal</command>
 		<script>
-		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
+			fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
 		</script>
 		</binding>
 				
