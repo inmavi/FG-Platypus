@@ -7,8 +7,7 @@
 		<alpha>1</alpha>
 	</color>
 	<x>674</x>
-	<y>368</y>
-  
+	<y>368</y>  
 
   <group>
     <layout>hbox</layout>
@@ -48,8 +47,7 @@
       <row>0</row>
       <col>1</col>
       <layout>hbox</layout>
-      <default-padding>0</default-padding>
-      
+      <default-padding>0</default-padding>      
 
     <input>
       <row>0</row>
@@ -61,8 +59,7 @@
       <binding>
         <command>dialog-apply</command>
       </binding>
-    </input>    
-
+    </input> 
 
     <text>
       <row>1</row>
@@ -75,7 +72,6 @@
       <col>1</col>
       <layout>hbox</layout>
       <default-padding>0</default-padding>
-
      
     <input>
       <row>1</row>
@@ -100,7 +96,6 @@
       <col>1</col>
       <layout>hbox</layout>
       <default-padding>0</default-padding>
-
      
     <input>
       <row>2</row>
@@ -125,7 +120,6 @@
       <col>1</col>
       <layout>hbox</layout>
       <default-padding>0</default-padding>
-
      
     <input>
       <row>3</row>
@@ -150,7 +144,6 @@
       <col>1</col>
       <layout>hbox</layout>
       <default-padding>0</default-padding>
-
      
     <input>
       <row>4</row>
@@ -174,24 +167,22 @@
 		<binding>
 	<command>nasal</command>
 	<script>
-	var window = screen.window.new(nil, -65, 1, 5);
-			window.fg = [1, 1, 1, 1]; 		
-
-	 window.align = "left";
-window.write("Please wait, loading...",1,1,0 );
+		var window = screen.window.new(nil, -65, 1, 5);
+		window.fg = [1, 1, 1, 1]; 	
+		window.align = "left";
+		window.write("Please wait, loading...",1,1,0 );
 	</script>
 	</binding>
     <binding>
       <command>nasal</command>
 		<script>
 			setprop("/controls/engines/engine/magnetos", 0);
-     setprop("/controls/switches/avionics-master", 0);
-
+			setprop("/controls/switches/avionics-master", 0);
 			libraries.cleanup();
-		fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
-
+			fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 		setprop("/systems/saloft",1);
-		setprop("/systems/bp",1);								setprop("/systems/nora",1);
+		setprop("/systems/bp",1);								
+		setprop("/systems/nora",1);
 		setprop("/systems/soup",1);
 		setprop("/systems/trm",0);
 		setprop("/sim/freeze/clock",1);
@@ -201,8 +192,7 @@ window.write("Please wait, loading...",1,1,0 );
 		var spd = getprop("/nt/spd");
 		var dist = getprop("/nt/dist");
 		setprop("/systems/nonav1",0);
-		setprop("/systems/nonav2",0);	
-
+		setprop("/systems/nonav2",0);
 	if (getprop("/systems/saloft") == 1)  {
 	setprop("/sim/presets/running", 1);
 	setprop("/controls/electrical/battery", 1);
@@ -231,30 +221,38 @@ window.write("Please wait, loading...",1,1,0 );
 	setprop("/controls/flight/flaps", 0.0);
 
 	if (getprop("/systems/nbat")== 0) {
-
 	var inc = props.globals.getNode("/systems/starts");
 	inc.setValue(inc.getValue() + 1);
-
 	}
 	if (getprop("/systems/starts") > 321)  {
-
 	logger.screen.red("Electrical systems malfunction,
 engine can not start, please restart on the ground
 and replace your depleted battery", 3);
-
 	}
-
-
 }
-
 	aircraft.teleport(airport = apid, runway = rwid,lat = -9999, lon = -9999, alt = alti,
 		speed = spd, distance = dist, azimuth = 0, glideslope = 0, heading = 9999) ;
 	setprop("/controls/gear/brake-parking", 0);
 	davtron803.davtron_flight_time.reset();
 	davtron803.davtron_flight_time.start();
+	# set ILS frequency
+      var cur_runway = getprop("sim/presets/runway");
+      var runways = airportinfo(getprop("sim/presets/airport-id")).runways;
+      var r =runways[cur_runway];
+      if (r != nil and r.ils != nil) {
+            setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));				
+				var win = screen.window.new(nil, -80, 1, 9);
+				win.fg = [1, 1, 1, 1]; 	
+				win.align = "left";
+				win.write("ILS Frequency set to Nav1",1,0,0 );
+				} else {
+				var win = screen.window.new(nil, -80, 1, 9);
+				win.fg = [1, 1, 1, 1]; 	
+				win.align = "left";
+				win.write("Selected Runway has no ILS",1,0,0 );
+				}
 		</script>
     </binding>
-
 	
 	<binding>
       <command>dialog-close</command>

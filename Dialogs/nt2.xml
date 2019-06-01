@@ -186,11 +186,10 @@
 		<binding>
 	<command>nasal</command>
 	<script>
-	var window = screen.window.new(nil, -65, 1, 5);
-			window.fg = [1, 1, 1, 1]; 		
-
-	 window.align = "left";
-window.write("Please wait, loading...",1,1,0 );
+		var window = screen.window.new(nil, -65, 1, 5);
+		window.fg = [1, 1, 1, 1]; 	
+		window.align = "left";
+		window.write("Please wait, loading...",1,1,0 );
 	</script>
 	</binding>
     <binding>
@@ -248,13 +247,28 @@ window.write("Please wait, loading...",1,1,0 );
 								logger.screen.red("Electrical systems malfunction,engine can not start, please restart on the ground
 and replace your depleted battery", 3);
 							}
-					}
-
+					}					 
 		aircraft.teleport(airport = apid, runway = rwid,lat = -9999, lon = -9999, alt = alti,
 		speed = spd, distance = dist, azimuth = 0, glideslope = 0, heading = 9999) ;
 		setprop("/controls/gear/brake-parking", 0);
 		davtron803.davtron_flight_time.reset();
 		davtron803.davtron_flight_time.start();
+		# set ILS frequency
+      var cur_runway = getprop("sim/presets/runway");
+      var runways = airportinfo(getprop("sim/presets/airport-id")).runways;
+      var r =runways[cur_runway];
+      if (r != nil and r.ils != nil) {
+            setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));				
+				var win = screen.window.new(nil, -80, 1, 9);
+				win.fg = [1, 1, 1, 1]; 	
+				win.align = "left";
+				win.write("ILS Frequency set to Nav1",1,0,0 );
+				} else {
+				var win = screen.window.new(nil, -80, 1, 9);
+				win.fg = [1, 1, 1, 1]; 	
+				win.align = "left";
+				win.write("Selected Runway has no ILS",1,0,0 );
+				}
 		</script>
     </binding>
 	

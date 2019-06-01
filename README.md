@@ -1,6 +1,6 @@
 # FG-Platypus by Gerhard Kick and Joshua Davidson
 
-A NavTrainer based on the original PA28-WarriorII by Josh and Gerhard
+A NavTrainer based on the PA28-WarriorII by Josh and Gerhard
 
 Prerequisites:
 
@@ -16,7 +16,8 @@ can do with less but framerate will suffer, responsetime lagging etc...
 - Systems: Joshua Davidson (it0uchpods)
 - Documentation: Gerhard Kick (inmavi)
 - Nav Scenarios and Command Line Files: Gerhard Kick 
-- Cockpit: Joshua Davidson (it0uchpods), Gerhard Kick (inmavi), 
+- Cockpit: Joshua Davidson (it0uchpods), Gerhard Kick (inmavi)
+- Nav Scenarios: Gerhard Kick (inmavi) 
 - Instruments: Joshua Davidson (it0uchpods), Gerhard Kick (inmavi)
 
 The purpose of this aircraft is to provide training wheels for getting to know the various instruments, scenarios for both IFR VFR flights and lots more

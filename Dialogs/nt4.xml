@@ -5,9 +5,7 @@
   <layout>vbox</layout>
 	<color>
 		<alpha>1</alpha>
-	</color>
-	
-  
+	</color>  
 
   <group>
     <layout>hbox</layout>
@@ -54,7 +52,6 @@
 
 <hrule/>
 
-
   <button>
     <legend>Run</legend>
     <default>true</default>
@@ -87,7 +84,6 @@ fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 		var spd = 115;
 		var dist = 5;
 
-
 	if (getprop("/systems/saloft") == 1)  {
 	setprop("/sim/presets/running", 1);
 	setprop("/controls/electrical/battery", 1);
@@ -115,44 +111,31 @@ fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 	setprop("/controls/flight/flaps", 0.0);
 	setprop("/systems/nonav1",0);
 	setprop("/systems/nonav2",0);
-
 	setprop("/instrumentation/adf[1]/frequencies/selected-khz", 338);
 		setprop("/instrumentation/nav/frequencies/selected-mhz", 110.9);
 		setprop("/instrumentation/nav/radials/selected-deg", 257);
 		setprop("/instrumentation/nav/frequencies/standby-mhz", 77);
-									setprop("/instrumentation/heading-indicator/indicated-heading-deg", 258);
+		setprop("/instrumentation/heading-indicator/indicated-heading-deg", 258);
 		setprop("/environment/config/presets/wind-override", 1);
 
-
-
-
 	if (getprop("/systems/nbat")== 0) {
-
-	var inc = props.globals.getNode("/systems/starts");
-	inc.setValue(inc.getValue() + 1);
-
+		var inc = props.globals.getNode("/systems/starts");
+		inc.setValue(inc.getValue() + 1);
 	}
 	if (getprop("/systems/starts") > 321)  {
 
 	logger.screen.red("Electrical systems malfunction,
 engine can not start, please restart on the ground
 and replace your depleted battery", 3);
-
 	}
-
-
 }
-
 	aircraft.teleport(airport = apid, runway = rwid,lat = -9999, lon = -9999, alt = alti,
 		speed = spd, distance = dist, azimuth = 0, glideslope = 0, heading = 9999) ;
 	setprop("/controls/gear/brake-parking", 0);
 	davtron803.davtron_flight_time.reset();
 	davtron803.davtron_flight_time.start();
-
-
 		</script>
     </binding>
-
 	
 	<binding>
       <command>dialog-close</command>

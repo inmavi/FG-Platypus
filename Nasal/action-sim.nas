@@ -226,8 +226,6 @@ setlistener("/controls/gear/brake-parking", func {
 	setprop("/systems/nopo",3 );
 }});
 
-
-
 ##
 #  capture takeoff time as it is reset by rm on bounce
 ##
