@@ -5,33 +5,25 @@
 # Init Vars #
 #############
 
-
-setlistener("/instrumentation/dme/indicated-distance-nm", func {
-	
+setlistener("/instrumentation/dme/indicated-distance-nm", func {	
 	var cag = getprop("/instrumentation/dme/indicated-distance-nm");
 });
 
 var wdawc_init = func {
 	wdawc_timer.start();
-
 }
 
 ##################
 # Main Loop #
 ##################
 
-var master_wdawc = func {
-	
+var master_wdawc = func {	
 	cag = getprop("/instrumentation/dme/indicated-distance-nm");
-
 	if (getprop("/systems/awc")== 1) {
-
 		 	
 		if (cag > 40 and cag < 40.1)  {
 
-		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));		
-
-			
+		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));			
  		setprop("/environment/config/boundary/entry/wind-from-heading-deg",182);
 	setprop("/environment/config/boundary/entry/wind-speed-kt",20);
 
@@ -40,7 +32,6 @@ keep an eye on he groundspeed", 3);
 
 		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
 		}
-
 		if (cag > 33 and cag < 33.1)  {
 
 		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));
@@ -66,25 +57,19 @@ adjust heading for drift", 3);
 adjust your WCA", 3);
 
 		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
-
 		}
-
 
 		if (cag > 19 and cag < 19.1)  {			
  		
 	gui.popupTip("Switch Nav1 frequency to Localiser -
 and prepare for approach", 3);
-
 		}
-
 
 		if (cag > 16 and cag < 16.1)  {			
  		
 	gui.popupTip("We are on the correct bearing, are we?
 approaching slightly below the Glideslope", 3);
-
 		}
-
 
 		if (cag > 12 and cag < 12.1)  {
 
@@ -110,10 +95,4 @@ watch your engine settings on approach", 3);
 var update_wdawc = func {
 	master_wdawc();
 }
-
 var wdawc_timer = maketimer(0.1, update_wdawc);
-
-
-
-
-

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+?xml version="1.0" encoding="ISO-8859-1"?>
 <PropertyList>
 
   <path>deviation.ac</path>
@@ -9,6 +9,5 @@
   <y-offset>1.8</y-offset>
   <z-offset>1.8</z-offset>
  </animation>
-
 
 </PropertyList>

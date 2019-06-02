@@ -194,7 +194,6 @@ var ampereCalc = maketimer(0.05, func {
 	}
 });
 
-
 ###################
 # Update Function #
 ###################

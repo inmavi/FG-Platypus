@@ -54,10 +54,8 @@ now inoperable ! ";
     }
     if (ltext != "") {
       screen.log.write(ltext);
-    }  
-	
+    } 	
 }
-
 
 # Set the listeners
 setlistener("controls/flight/flaps", checkFlaps);

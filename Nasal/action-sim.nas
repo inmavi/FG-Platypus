@@ -170,7 +170,6 @@ setprop("/controls/gear/brake-parking", 1);
 
 }});
 
-
 ###check if planned route is within fuel capacity#####
 
 setlistener("/autopilot/route-manager/distance-remaining-nm", func {
@@ -180,7 +179,6 @@ setlistener("/autopilot/route-manager/distance-remaining-nm", func {
 	if (getprop("/autopilot/route-manager/distance-remaining-nm") > 500) {
 
     	gui.popupTip("Selected Route exceeds maximum fuel load capacity, either schedule refuel stops, clear the route or define an alternate route !", 3);
-
 
 }});
 
@@ -235,12 +233,9 @@ setlistener("/autopilot/route-manager/departure/takeoff-time", func {
 #capture values for takeoff practise quickstart
 
 	setlistener("/autopilot/route-manager/airborne", func {
-
-	if(getprop("/autopilot/route-manager/airborne") == 1 and getprop("/engines/engine/rpm") > 2000) {
-		
+	if(getprop("/autopilot/route-manager/airborne") == 1 and getprop("/engines/engine/rpm") > 2000) {		
 		davtron803.davtron_flight_time.start();
-
-		if (getprop("/systems/lapa") ==  1) {		
+		if (getprop("/systems/lapa") ==  1) {	
 
 		var los = getprop("/velocities/airspeed-kt");
 		var tpi = getprop("/orientation/pitch-deg");
@@ -257,16 +252,12 @@ setlistener("/autopilot/route-manager/departure/takeoff-time", func {
 				setprop("/systems/api", tpi);
 				setprop("/systems/aro", tro);
 				setprop("/systems/elv", hel);
-				setprop("/systems/flt", tfl);
-			
+				setprop("/systems/flt", tfl);			
 	logger.screen.red("Sim paused for review,
 press Reset or Continue or ESC to quit...",2);
-
     	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "lifo" }));
 	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "speedo" }));
-
-	setprop("/sim/freeze/clock",1);
-		
+	setprop("/sim/freeze/clock",1);		
    } 
 }});
 
@@ -341,8 +332,7 @@ davtron803.davtron_elapsed_time.stop();
 setprop("/systems/odo2mt", o2f * 0.304878);
 
     	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "abort" }));
-	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "speedo" }));	
-	
+	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "speedo" }));		
 
 ###some conversion to metric		
 		
@@ -358,8 +348,7 @@ setprop("/systems/odo2mt", o2f * 0.304878);
 	}
 }
 
-
-}});    
+}});   
 
 
 # fuel consumption code from syd adams twin otter
@@ -425,7 +414,6 @@ setlistener("/options/nav-source", func {
 		
 }});
 
-
 ##display instructions for scen11
 
 setlistener("/instrumentation/davtron803/flight-time-secs", func {
@@ -451,7 +439,6 @@ setlistener("/controls/electrical/battery", func {
 
 }});
 
-
 setlistener("/engines/engine/fuel-flow-gph", func {
 
 	if (getprop("/engines/engine/fuel-flow-gph")> 0.2 ) {
@@ -467,7 +454,6 @@ var fuel_time = remaining/cflow;
 
 	var fuel_reach = remaining * mpg;
 	setprop("/systems/freach",fuel_reach);
-
 	
 }});
 
@@ -494,8 +480,7 @@ if (getprop("systems/vbo")== 1) {
 }	
 }});
 
-		setprop("/systems/vbo",0);		
-
+		setprop("/systems/vbo",0);	
 
 ##
 #  toggle left brake for failure
@@ -512,7 +497,6 @@ logger.screen.red("One of the brakes appears to be defective");
 }});
 
 ##open viewbar at startup
-
 
 ##############
 # get nearest airport data
@@ -532,11 +516,9 @@ var ap_long_Node = props.globals.getNode("/tracking/lgst_rw", 1);
 
       var MAX_RUNWAYS = 28; # number of entries at KEDW
 
-
 	var a = airportinfo();
 		apt = getprop("/sim/airports/closest-airport-id");	
 		apt = a;
-
           var airport_pos = geo.Coord.new();
           airport_pos.set_latlon(apt.lat, apt.lon);
 
@@ -544,21 +526,16 @@ var ap_long_Node = props.globals.getNode("/tracking/lgst_rw", 1);
           var dst = pos.distance_to(airport_pos) / 1852.0;
           var crs = pos.course_to(airport_pos);
       var dlg = props.globals.getNode("/sim/gui/dialogs/napt", 1);
-
       var avail_runways = dlg.getNode("available-runways", 1);
-
           var longest_runway = 0;
           var runways = apt.runways;
           var infoAboutRunways = [];   # list of strings for display
-
           avail_runways.removeChildren("value");
           var runway_keys = sort(keys(runways), string.icmp);
           var i = 0;
-
           foreach(var rwy; runway_keys) {
               var r = runways[rwy];
-              longest_runway = math.max(longest_runway, r.length * 3.28);
-		
+              longest_runway = math.max(longest_runway, r.length * 3.28);		
 		
               avail_runways.getNode("value[" ~ i ~ "]", 1).setValue(rwy);
 			if (r.length * 3.28 == longest_runway) {
@@ -639,7 +616,6 @@ setlistener("/it-autoflight/input/lat", func {
 		setprop("/systems/na",1) ;		
 
 }});
-
 
 setlistener("/it-autoflight/input/vert", func {
 	if (getprop("/it-autoflight/input/vert")== 2 ) {
@@ -756,9 +732,7 @@ setprop("/systems/data/rip", getprop("/systems/data/rip") + 1);
 
       }
     }
-  ;
-
-	
+  ;	
 
   settimer(eltmsg, 0);  
 };
@@ -796,7 +770,6 @@ global_system = func{
   terrain_survol();
   crashes();
   settimer(global_system, 0);
-
 }
 
 ##########################################
@@ -820,11 +793,9 @@ var nasalInit = setlistener("/sim/signals/fdm-initialized", func{
 
 ###set crashflag, needs a lot more conditions
 
-
 var crashes= func {
   
   #settimer(crashes, 0);
-
 
 if (getprop("/gear/gear/wow") == 0 and getprop("/position/gear-agl-m") < 0.1){
 	
@@ -859,7 +830,6 @@ var delay = 4;
 
 }});
 
-
 ##############
 #if the fire is killed adhering to checklist
 ############################################
@@ -869,8 +839,7 @@ setlistener("/engines/engine/running", func {
 		if (getprop("/hazards/fire/engine") == 1) {
 
 	var delay = 120;
-    settimer(func {   					
-	
+    settimer(func { 	
 		
 		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
 		

@@ -1,11 +1,8 @@
 <?xml version="1.0"?>
- 
-<!-- New Sounds By Gabriel Hernandez(YV3399) -->
-
+ <!-- New Sounds By Gabriel Hernandez(YV3399) -->
 <PropertyList>
 
  <fx>
-
     <!-- Out Of Fuel -->
     <oof>
       <name>Alarme-carburant</name>
@@ -38,7 +35,6 @@
       <reference-dist>80</reference-dist>
       <max-dist>1000</max-dist>      
     </oof>
-
 	
 	<flap>
             <name>flaps</name>
@@ -52,17 +48,11 @@
             </position>
             <volume>
 			<factor>1.1</factor>
-
 		<reference-dist>70</reference-dist>
-		<max-dist>1000</max-dist>
-		
+		<max-dist>1000</max-dist>		
 			<offset> 1.1 </offset>
-		</volume>
-
-            
+		</volume>            
         </flap>
-
-
 
 <!-- Running -->
 

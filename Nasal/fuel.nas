@@ -24,8 +24,6 @@ var fuel_init = func {
 # Main Fuel Loop #
 ##################
 
-
-
 var master_fuel = func {
 	rpm = getprop("/engines/engine[0]/rpm");
 	elec_pump = getprop("/systems/electrical/outputs/fuel-pump");
@@ -46,7 +44,6 @@ var master_fuel = func {
 		setprop("/systems/fuel/selected-tank",2) ;
 		setprop("/systems/fuel/selected-tank-knb",2) ;
 	}
-
 	
 	if (getprop("/consumables/fuel/total-fuel-gal_us") < 3) {
 		if (getprop("/systems/fuel/low-fuel") != 1) {
@@ -58,7 +55,6 @@ var master_fuel = func {
 		}
 	}
 }
-
 
 setlistener("/systems/fuel/low-fuel", func {
 	if (getprop("/systems/fuel/low-fuel") == 1) {

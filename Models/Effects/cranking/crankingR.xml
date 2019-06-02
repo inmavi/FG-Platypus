@@ -5,18 +5,14 @@
   <particlesystem>
     <name>smoke</name>
     <type>normal</type>
-
     <texture>smoke.png</texture>
-
     <emissive type="bool">false</emissive>
     <lighting type="bool">false</lighting>
-
     <condition>
           <property>controls/engines/engine/starter</property>
 			<value>true</value>
 	</condition>
     <attach>world</attach>
-
     <placer>
       <type>point</type>
     </placer>
@@ -89,4 +85,3 @@
   </particlesystem>
 
 </PropertyList>
-

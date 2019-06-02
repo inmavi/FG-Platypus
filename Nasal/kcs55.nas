@@ -2,36 +2,28 @@
 # This file is part of FlightGear, the free flight simulator
 # http://www.flightgear.org/
 #
-# Copyright (C) 2009 Torsten Dreyer, Torsten (at) t3r _dot_ de
-#
+# Copyright (C) 2009 Torsten Dreyer, Torsten (at) t3r _dot_ de#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
 # published by the Free Software Foundation; either version 2 of the
-# License, or (at your option) any later version.
-#
+# License, or (at your option) any later version.#
 # This program is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 # General Public License for more details.
 #############################################################################
-
 # This is a model of the HONEYWELL BENDIX/KING KCS55/55a 
-# Pictorial Navigation System
-#
+# Pictorial Navigation System#
 # It is based on the corresponding manuals
 # - Installation Manual 006-00111-0010, 10 February 2002
 # - Pilots Guide KFC225 006-18035-0000, September 2004, Part KCS55A
-# - Real life experience
-#
-# 
+# - Real life experience## 
 # Copyright (C) 2008 Torsten Dreyer - Torsten (at) t3r _dot_ de
-# The names HONEYWELL, BENDIX/KING are copyright of the owners
-#
+# The names HONEYWELL, BENDIX/KING are copyright of the owners#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
 # published by the Free Software Foundation; either version 2 of the
-# License, or (at your option) any later version.
-#
+# License, or (at your option) any later version.#
 # This program is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU

@@ -12,8 +12,6 @@ var enableOSD = func() {
      tako.add("/environment/wind-from-heading-deg");
      tako.add("/environment/wind-speed-kt");
      tako.add("/orientation/alpha-deg");
-
 }
-
 
 var close_enableOSD = func { tako.close(); }

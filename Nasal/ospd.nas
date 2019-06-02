@@ -42,20 +42,14 @@ var master_ospd = func {
 		setprop("/systems/fuel/suck-fuel", 0);
 	}
 
-
 	rez = getprop("/environment/config/interpolated/wind-from-heading-deg");
-
 
 if (rez < 180) {
 		setprop("/systems/reci", rez+200-20);
 } else {
 		setprop("/systems/reci", rez-200+20);
 }
-
-
 	if (getprop("/instrumentation/airspeed-indicator/true-speed-kt") > 160 and getprop("/gear/gear/wow") != 1){
-
-
 	
 		if (getprop("/systems/sqt/sq") != 1) {
 			setprop("/systems/sqt/sq", 1);
@@ -70,10 +64,8 @@ if (rez < 180) {
 setlistener("/systems/sqt/sq", func {
 	if (getprop("/systems/sqt/sq") == 1) {
 		setprop("/controls/gear/brake-parking", 1);
-
 	}
 });
-
 
 ###################
 # Update Function #

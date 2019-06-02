@@ -1,21 +1,15 @@
 ###############################################################################
-##
 ## Davtron 803
 ##
 ##  Original from Nasal for DR400-dauphin by dany93;
 ##                    Clément de l'Hamaide - PAF Team - http://equipe-flightgear.forumactif.com
 ##  Heavily modified in 2017 for c182s by Benedikt Hallinger
-##  
 ##  This file is licensed under the GPL license version 2 or later.
-##
 ###############################################################################
-
-
 ##########################################
 # Flight timer / Elapsed timer
 # Note: Currently only counting upwards is supported; whilst the device also supports count down mode!
 ##########################################
-
 
 # Floor function
 var floor = func(v) v < 0.0 ? -int(-v) - 1 : int(v);
@@ -38,7 +32,6 @@ var timeFormat = func(timeProp){
   
   return formattedTime;
 }
-
 
 # Called from Action binding when Control button is pressed
 var controlButtonPressed = func {
@@ -64,7 +57,6 @@ var controlButtonPressed = func {
             elapsedTimeResetMarker = 1;
         }
     }
-
 }
 
 # Called from Action binding when Control button is released
@@ -78,10 +70,8 @@ var controlButtonReleased = func {
             davtron_flight_time.reset();
         }
         controlBtnPressedAt = 0;
-    }
-    
+    }    
 }
-
 
 ###########
 # INIT

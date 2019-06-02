@@ -1,25 +1,5 @@
 <?xml version="1.0" ?>
-<!--
-    This is the ki266 3d instrument.
-    Modeled after King KI266 DME Indicator
 
-    This instrument needs the file
-    Aircraft/Instruments-3d/ki266/ki266.nas
-    to be included in your -set.xml nasal section
-    like this:
-
-    <nasal>
-      <YourAircraft>
-        <file>Aircraft/Instruments-3d/ki266/ki266.nas</file>
-      </YourAircraft>
-    </nasal>
-
-    and at least one instance of the ki266 class to be created
-    in your aircraft nasal code like this:
-    ki266.new(0); # for your first dme at /instrumentation/dme[0]
-    ki266.new(1); # if you have another at /instrumentation/dme[1]
-    Maintainer: Torsten Dreyer
--->
 <PropertyList>
   <params>
     <power-btn>/instrumentation/aglradar/power-btn</power-btn>
@@ -31,8 +11,7 @@
   </params>
 
   <path>agl-radar.ac</path>
-
-  <!-- turn it off, when u/s or switched off -->
+ 
   <animation>
     <type>select</type>
     <object-name>Indicators</object-name>

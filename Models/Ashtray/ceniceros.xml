@@ -4,11 +4,8 @@
 
   <path>ceniceros.ac</path>
 
-  <animation>
-    <!-- Objets opaques -->
-    <object-name>ceniceros</object-name>
-
-    <!-- Objets transparents -->
+  <animation>    
+    <object-name>ceniceros</object-name>    
   </animation>
 
 </PropertyList>

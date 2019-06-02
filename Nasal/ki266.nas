@@ -18,19 +18,14 @@
 # Dave PERRY:
 #
 # "This patch adds instrument lights to the radio stack and a repaint of
-# the fuselage and tail to look better with osg."
-#
+# the fuselage and tail to look better with osg."#
 # Revision 1.2  2008/11/21 09:21:03  torsten
-# make use of new Node.initNode() method
-#
+# make use of new Node.initNode() method#
 # Revision 1.1  2008/11/03 16:18:06  torsten
-# added ki266 3d-instrument, see ki266.xml for help
-#
-#
+# added ki266 3d-instrument, see ki266.xml for help#
 # Basically, we check the "time to station", "distance to station" and "speed"
 # properties and generate the values to show on the displays, based on the switch-
-# setting.
-#
+# setting.#
 # Usage:
 # just create one instance of ki266 class for each dme you have in your aircraft
 # like this:
