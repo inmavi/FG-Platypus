@@ -6,10 +6,6 @@ fix ground reactions - wheels to deep into runway surface
 
 adjust position of strobes (nonALS) to eliminate those black spots
 
-add FG1000 PFD/MFD to DG Panel and rename Panel to EFIS
-limit the EFIS view to the panel
-Have the panel displayed in browser option or liftout aka canvas 777 or as a web panel
-
 fuselage needs windows for applying shades of taints or sim ice and to keep the smoke out
 
 engine needs to be set to reflect poh values, at present speeds and rpm do not match
@@ -21,7 +17,6 @@ stop radio sound when switching between scenarios
 wind instrument for hud
 
 get the propeller spinning with engine off on the ground aka original pa28-161 (maybe a yasim thing  ???)
-
 -------------------------------------------------------
 clean up xml and nas files
 

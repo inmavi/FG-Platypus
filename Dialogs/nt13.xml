@@ -5,9 +5,7 @@
   <layout>vbox</layout>
 	<color>
 		<alpha>1</alpha>
-	</color>
-	
-  
+	</color>  
 
   <group>
     <layout>hbox</layout>
@@ -35,7 +33,6 @@
 
   <group>
 			<layout>vbox</layout>			
-			
 			<textbox>
                     <name>patterns</name>
                     <halign>fill</halign>
@@ -54,7 +51,6 @@
 
 <hrule/>
 
-
   <button>
     <legend>Run</legend>
     <default>true</default>
@@ -62,34 +58,31 @@
 		<binding>
 	<command>nasal</command>
 	<script>
-	var window = screen.window.new(nil, -65, 1, 5);
-			window.fg = [1, 1, 1, 1]; 		
-
-	 window.align = "left";
-window.write("Please wait, loading...",1,1,0 );
+		var window = screen.window.new(nil, -65, 1, 5);
+		window.fg = [1, 1, 1, 1];
+		window.align = "left";
+		window.write("Please wait, loading...",1,1,0 );
 	</script>
 	</binding>
 	
     <binding>
       <command>nasal</command>
 		<script>
-			  		setprop("/controls/engines/engine/magnetos", 0);
-     setprop("/controls/switches/avionics-master", 0);
-				    	
+			  setprop("/controls/engines/engine/magnetos", 0);
+     setprop("/controls/switches/avionics-master", 0);				    	
 			libraries.cleanup();
 			setprop("/environment/weather-scenario", "Core high pressure region");
 fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 		setprop("/systems/saloft",1);
 		setprop("/options/trm",13);
-		setprop("/systems/bp",1);								setprop("/systems/nora",0);
+		setprop("/systems/bp",1);								
+		setprop("/systems/nora",0);
 		setprop("/sim/freeze/clock",1);
 		var apid = "mhtg";
 		var rwid = "02";
 		var alti = 4100;
 		var spd = 80;
-		var dist = 1.2;		
-		
-
+		var dist = 1.2;	
 	if (getprop("/systems/saloft") == 1)  {
 	setprop("/sim/presets/running", 1);
 	setprop("/controls/electrical/battery", 1);
@@ -124,46 +117,34 @@ fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 
 	setprop("/instrumentation/nav/frequencies/selected-mhz", 112.3);
 		setprop("/instrumentation/nav/radials/selected-deg", 08);
-									setprop("/instrumentation/heading-indicator/indicated-heading-deg", 02);
-		
+	setprop("/instrumentation/heading-indicator/indicated-heading-deg", 02);		
 
 	if (getprop("/systems/nbat")== 0) {
 
 	var inc = props.globals.getNode("/systems/starts");
 	inc.setValue(inc.getValue() + 1);
-
 	}
 	if (getprop("/systems/starts") > 321)  {
 
 	logger.screen.red("Electrical systems malfunction,
 engine can not start, please restart on the ground
 and replace your depleted battery", 3);
-
 	}
-
-
 }
-
 	aircraft.teleport(airport = apid, runway = rwid,lat = 99999, lon = 99999, alt = alti,
 		speed = spd, distance = dist, azimuth = 0, glideslope = 0, heading = 0) ;
 	setprop("/controls/gear/brake-parking", 0);
 	davtron803.davtron_flight_time.reset();
 	davtron803.davtron_flight_time.start();
 fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
-			
-
 	
 		</script>
-    </binding>
-
-	
+    </binding>	
 
 	<binding>
       <command>dialog-close</command>
     </binding>
 
-  </button>
-
-	
+  </button>	
 
 </PropertyList>

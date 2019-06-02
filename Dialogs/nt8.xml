@@ -27,10 +27,7 @@
 			<command>dialog-close</command>
 		</binding>
 	</button>
-  </group>
-
-
-  
+  </group>  
 
   <hrule/>
 	
@@ -53,7 +50,6 @@
 			
 		</group>
   <hrule/>
-
 
   <button>
     <legend>Run</legend>
@@ -81,7 +77,8 @@ window.write("Please wait, loading...",1,1,0 );
 		setprop("/systems/lapa", 0);
 					setprop("/systems/flp",1);
 					setprop("/systems/nbat",0);
-					setprop("/systems/bp",1);								setprop("/systems/nonav1",0);
+					setprop("/systems/bp",1);								
+					setprop("/systems/nonav1",0);
 					setprop("/systems/nonav2",0);
 					setprop("/options/trm",0);
 			var apid = "EDNY";
@@ -93,11 +90,7 @@ window.write("Please wait, loading...",1,1,0 );
 	setprop("/payload/weight[4]/weight-lb",100);
 	setprop("/consumables/fuel/tank/level-gal_us",24);
 	setprop("/consumables/fuel/tank[1]/level-gal_us",24);
-
-
 			setprop("/environment/weather-scenario", "Core high pressure region");
-
-
 	aircraft.teleport(airport = apid, runway = rwid);
 		</script>
 
@@ -117,9 +110,6 @@ window.write("Please wait, loading...",1,1,0 );
 	<command>timeofday</command>
 	<timeofday>morning</timeofday>
     </binding>
-
-
-
               
 	<binding>
       <command>dialog-close</command>

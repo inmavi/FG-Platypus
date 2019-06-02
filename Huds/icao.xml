@@ -3,7 +3,6 @@
 <PropertyList>
 	<name>ICAO</name>	
 	<enable3d>false</enable3d>
-
 	
  <label>
 		<name>ICAO-Alphabet</name>
@@ -44,7 +43,6 @@
 		<halign>left</halign>
 		<format>D = Delta</format>		
 	</label>
-
 
 	<label>
 		<name>e</name>
@@ -118,9 +116,6 @@
 		<format>M = Mike</format>		
 	</label>	
 
-
-	
-
 	<label>
 		<name>n</name>
 		<x>-350</x>
@@ -152,7 +147,6 @@
 		<halign>left</halign>
 		<format>Q = Quebec</format>		
 	</label>
-
 
 	<label>
 		<name>r</name>
@@ -227,6 +221,3 @@
 	</label>
 
 </PropertyList>
-
-
-

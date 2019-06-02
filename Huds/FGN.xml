@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 
-
 <PropertyList>
 	<name>Default Aircraft Hud</name>	
 	<enable3d>false</enable3d>
@@ -19,16 +18,13 @@
          		<equals>
             			<property>/options/nav-source</property>
 					<value>1</value>
-
          		</equals>
-      		</condition>
-      		
+      		</condition>      		
         		<x>-420</x>
         		<y>200</y>
         		<format>Nav1 Mode active</format>
         		<halign>left</halign>
    	</label>
-
 			
 		<label>
         	<name>GPS/Route Manager active</name>
@@ -36,10 +32,8 @@
          		<equals>
             			<property>/options/nav-source</property>
 					<value>2</value>
-
          		</equals>
-      		</condition>
-      		
+      		</condition>      		
         		<x>-420</x>
         		<y>200</y>
         		<format>GPS/Route Manager active</format>
@@ -52,16 +46,13 @@
          		<equals>
             			<property>/options/nav-source</property>
 					<value>3</value>
-
          		</equals>
-      		</condition>
-      		
+      		</condition>      		
         		<x>-420</x>
         		<y>200</y>
         		<format>Nav2 Mode active</format>
         		<halign>left</halign>
    	</label>
-
 
 	<label>
 		<name>dmem</name>
@@ -84,9 +75,6 @@
 			<property>/instrumentation/dme/indicated-time-min</property>
 		</input>
 </label>
-
-
-
 	
 	<label>
         	<name>GSR</name>
@@ -108,9 +96,7 @@
 	<import>
 		<path>Huds/Sets/coordinates.xml</path>
 		<y-offset>190</y-offset>
-	</import>
-
-	
+	</import>	
 
 	<tape>
 		<name>KIAS</name>
@@ -141,8 +127,6 @@
 			<min>0.0</min>
 		</input>
 	</tape>
-
-
 	
 	<tape>
 		<condition>			
@@ -150,22 +134,18 @@
             		<property>/systems/nhtp</property>
 				<value>1</value>
          		</not-equals>			
-      	</condition>      		
-
+      	</condition> 
 		<name>Gyrocompass</name>
 		<x>-100</x>
 		<y>190</y>
 		<width>200</width>
 		<height>28</height>
-
 		<input>
 			<property>/orientation/heading-magnetic-deg</property>
 		</input>
 		<display-span>25.0</display-span>
 		<modulo>360</modulo>
-
 		<option>top</option>
-
 		<major-divisions>5</major-divisions>
 		<minor-divisions>1</minor-divisions>
 		<tick-bottom>false</tick-bottom>
@@ -182,8 +162,6 @@
 		<tick-type>line</tick-type>
 		<tick-length>variable</tick-length>
 	</tape>
-
-
 	
 	 <label>
 		<name>Wind</name>
@@ -206,8 +184,6 @@
 			<property>/environment/config/interpolated/wind-from-heading-deg</property>
 		</input>
 </label>
-
-
 
 		<label>
 		<name>rpm</name>
@@ -275,8 +251,6 @@
 		</input>
 </label>
 
-
-
  <label>
 		<name>maghead</name>
 		<x>-420</x>
@@ -325,7 +299,6 @@
 		</input>
 	</label>
 
-
   <label>
 		<name>FuelR</name>
 		<width>2</width>
@@ -352,8 +325,6 @@
 		</input>
 	</label>
 
-
-
    <label>
 		<name>rem</name>
 		<width>2</width>
@@ -367,8 +338,6 @@
 		</input>
 	</label>
 
-
-
     <import>
 		<path>Huds/Sets/gps.xml</path>
 		<x-offset>-420</x-offset>
@@ -376,7 +345,6 @@
 	</import>
 
 <tape>
-
 		<condition>
          		<equals>
             			<property>/sim/failure-manager/instrumentation/altimeter/serviceable</property>
@@ -428,7 +396,6 @@
 		<y>-90</y>
 		<width>120</width>
 		<height>130</height>
-
 		<roll-input>
 			<property>/orientation/roll-deg</property>
 		</roll-input>
@@ -474,22 +441,6 @@
   </sideslip-input>
   <bank-scale>true</bank-scale>
   <option>bottom</option>
- </turn-bank-indicator>
-
- 
+ </turn-bank-indicator> 
 
 </PropertyList>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

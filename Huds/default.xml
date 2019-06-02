@@ -32,9 +32,6 @@
 			<property>/instrumentation/dme/indicated-time-min</property>
 		</input>
 </label>
-
-
-
 		
 	<import>
 		<path>Huds/Instruments/turn-bank-indicator.xml</path>
@@ -84,7 +81,6 @@
 		<tick-type>line</tick-type>
 		<tick-length>variable</tick-length>
 	</tape>
-
 
 	<import>
 		<path>Huds/Sets/controls.xml</path>
@@ -196,8 +192,6 @@
 		</input>
 </label>
 
-
-
  <label>
 		<name>maghead</name>
 		<x>-420</x>
@@ -288,6 +282,3 @@
 	</label>
 
 </PropertyList>
-
-
-

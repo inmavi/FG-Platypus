@@ -122,14 +122,10 @@ fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 		setprop("/instrumentation/nav/frequencies/selected-mhz", 108.4);
 		setprop("/instrumentation/nav/radials/selected-deg", 02);
 		setprop("/instrumentation/nav/frequencies/standby-mhz", 111.95);
-									setprop("/instrumentation/heading-indicator/indicated-heading-deg", 02);
+		setprop("/instrumentation/heading-indicator/indicated-heading-deg", 02);
 		
 	setprop("/instrumentation/nav[1]/frequencies/selected-mhz", 111.95);
 		setprop("/instrumentation/nav[1]/radials/selected-deg", 02);
-
-
-
-
 	if (getprop("/systems/nbat")== 0) {
 
 	var inc = props.globals.getNode("/systems/starts");
@@ -144,9 +140,7 @@ and replace your depleted battery", 3);
 
 	}
 
-
 }
-
 	aircraft.teleport(airport = apid, runway = rwid,lat = -9999, lon = -9999, alt = alti,
 		speed = spd, distance = dist, azimuth = 0, glideslope = 0, heading = 9999) ;
 	setprop("/controls/gear/brake-parking", 0);
@@ -154,18 +148,14 @@ and replace your depleted battery", 3);
 	davtron803.davtron_flight_time.start();
 fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 
-
 		if(getprop("/systems/mws")== 0) {
 						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windconfig" }));
-				
-
 
 };
 
 
 		</script>
     </binding>
-
 	
 	<binding>
       <command>dialog-close</command>

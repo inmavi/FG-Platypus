@@ -115,31 +115,21 @@ fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 	setprop("/systems/vbo", 0);
 	setprop("/systems/fl", 0);
 	setprop("/controls/flight/flaps", 0.0);
-
-
-
-		setprop("/instrumentation/nav/frequencies/selected-mhz", 111.7);
-		setprop("/instrumentation/nav/radials/selected-deg", 90);
-									setprop("/instrumentation/heading-indicator/indicated-heading-deg", 207);
-
+	setprop("/instrumentation/nav/frequencies/selected-mhz", 111.7);
+	setprop("/instrumentation/nav/radials/selected-deg", 90);
+	setprop("/instrumentation/heading-indicator/indicated-heading-deg", 207);
 
 	if (getprop("/systems/nbat")== 0) {
-
-	var inc = props.globals.getNode("/systems/starts");
-	inc.setValue(inc.getValue() + 1);
-
+		var inc = props.globals.getNode("/systems/starts");
+		inc.setValue(inc.getValue() + 1);
 	}
 	if (getprop("/systems/starts") > 321)  {
 
 	logger.screen.red("Electrical systems malfunction,
 engine can not start, please restart on the ground
 and replace your depleted battery", 3);
-
 	}
-
-
 }
-
 	aircraft.teleport(airport = "", runway = "",lat = slat, lon = slon, alt = alti,
 		speed = spd, distance = 0, azimuth = 0, glideslope = 0, heading = shd) ;
 	fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
@@ -150,7 +140,6 @@ and replace your depleted battery", 3);
 		davtron803.davtron_flight_time.start();
 		</script>
     </binding>
-
 	
 	<binding>
       <command>dialog-close</command>

@@ -18,7 +18,6 @@ var initDone = 0;
 
 # set up filters for these actions
 
-
 var init_actions = func {
     setprop("engines/engine[0]/fuel-flow-gph", 0.0);
     setprop("/surface-positions/flap-pos-norm", 0.0);
@@ -40,7 +39,6 @@ var init_actions = func {
     # Request that the update fuction be called next frame
     settimer(update_actions, 0);
 }
-
 
 var update_actions = func {
 ##
@@ -139,8 +137,6 @@ var update_actions = func {
 setlistener("/sim/signals/fdm-initialized", init_actions);  
 
 
-
-
 ##
 #  stop the flight timer as the ap one resets on bounce
 ##
@@ -177,8 +173,6 @@ setprop("/controls/gear/brake-parking", 1);
 
 ###check if planned route is within fuel capacity#####
 
-
-
 setlistener("/autopilot/route-manager/distance-remaining-nm", func {
 
     	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "eta" }));
@@ -191,17 +185,12 @@ setlistener("/autopilot/route-manager/distance-remaining-nm", func {
 }});
 
 
-
-
 ##
 #  Crash Counter
 ##
 
-
 setlistener("/sim/crashed", func {
 	if (getprop("/sim/crashed") == 1 ) {
-
-
 }});
 
 #part of takeoff quickstart takeoff below
@@ -215,8 +204,7 @@ setlistener("/controls/flight/elevator", func {
 			setprop("/systems/rsp",rosp );
 			setprop("/systems/nopo",2 );
 
-		}
-	
+		}	
 });
 
 setlistener("/controls/gear/brake-parking", func {
@@ -244,13 +232,11 @@ setlistener("/autopilot/route-manager/departure/takeoff-time", func {
 
 }});
 
-
 #capture values for takeoff practise quickstart
 
 	setlistener("/autopilot/route-manager/airborne", func {
 
 	if(getprop("/autopilot/route-manager/airborne") == 1 and getprop("/engines/engine/rpm") > 2000) {
-
 		
 		davtron803.davtron_flight_time.start();
 
@@ -263,8 +249,7 @@ setlistener("/autopilot/route-manager/departure/takeoff-time", func {
 		var alf = getprop("/orientation/alpha-deg");
 		var hel = getprop("/controls/flight/elevator");
 		var gew = getprop("/fdm/jsbsim/inertia/weight-lbs");
-		var nmt = getprop("/instrumentation/gps/trip-odometer");
-		
+		var nmt = getprop("/instrumentation/gps/trip-odometer");		
 				setprop("/systems/tor", nmt*6076);
 				setprop("/systems/tos", los);
 				setprop("/systems/grw", gew);
@@ -285,17 +270,13 @@ press Reset or Continue or ESC to quit...",2);
    } 
 }});
 
-
-
 #capture values for aborting takeoff roll 
 
 ##get the timer ready
 	
 	setlistener("/controls/gear/brake-parking", func {		
 		if (getprop("/systems/gost") ==  1) {	
-
-	if(getprop("/controls/engines/engine/throttle") > 0.75 and getprop("/controls/gear/brake-parking") == 0) {
-		
+	if(getprop("/controls/engines/engine/throttle") > 0.75 and getprop("/controls/gear/brake-parking") == 0) {		
 	davtron803.davtron_elapsed_time.stop();
 	davtron803.davtron_elapsed_time.reset();
 	davtron803.davtron_elapsed_time.start();
@@ -335,12 +316,9 @@ setprop("/systems/odo1mt", o1f * 0.304878);
 	davtron803.davtron_elapsed_time.stop();
 	davtron803.davtron_elapsed_time.reset();
 	davtron803.davtron_elapsed_time.start();
-   } 	
-
-	
+   } 		
 
 }});
-
 
 ###capture decelleration data
 
@@ -361,21 +339,12 @@ davtron803.davtron_elapsed_time.stop();
 				setprop("/systems/tim2", tts);
 		var o2f = getprop("/systems/odo2f");
 setprop("/systems/odo2mt", o2f * 0.304878);
-		
-		
-												
-
 
     	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "abort" }));
-	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "speedo" }));
-
-
-		
+	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "speedo" }));	
 	
 
-###some conversion to metric
-
-		
+###some conversion to metric		
 		
 		var rwl = getprop("/systems/rwlg");
 		var rwu = getprop("/systems/odo2f");
@@ -390,26 +359,18 @@ setprop("/systems/odo2mt", o2f * 0.304878);
 }
 
 
-}});
-
-
-
-		
-    
+}});    
 
 
 # fuel consumption code from syd adams twin otter
 
-
 var fuel_used_value = 0;
 var last_fuel_read = 0;
-
 var init = func {
 	fuel_at_start = getprop("/consumables/fuel/total-fuel-gal_us");
 	
 	last_fuel_read = getprop("/consumables/fuel/total-fuel-gal_us");
-	print("Fuel Meter active...");
-	
+	print("Fuel Meter active...");	
 	
 	main_loop();
 }
@@ -421,8 +382,7 @@ setlistener("sim/signals/fdm-initialized", init);
 #main loop
 var main_loop = func {
 
-	fuel_used();
-	
+	fuel_used();	
 	
 	settimer(main_loop, 0);
 }
@@ -453,11 +413,7 @@ var fuel_used = func{
 #fuel used reset, for the fuel used instrument
 var reset_fuel_used = func{
 	fuel_used_value = 0;
-}
-
-
-
-		
+}		
 
 ##sync dme switch with nav switch
 
@@ -482,9 +438,7 @@ setlistener("/instrumentation/davtron803/flight-time-secs", func {
 		setprop("/sim/freeze/clock",1);
 		setprop("/systems/dev",0);	
 
-		}
-
-		
+		}		
 }});
 
 
@@ -547,7 +501,6 @@ if (getprop("systems/vbo")== 1) {
 #  toggle left brake for failure
 ##
 
-
 setlistener("/systems/lbr", func {
 	  if (getprop("/systems/lbr")== 3 ) {
 setprop("/input/keyboard/key[44]/binding/script","controls.applyBrakes(0,-1)");
@@ -566,8 +519,7 @@ logger.screen.red("One of the brakes appears to be defective");
 # code adapted from bluebird and ap dialog
 ##########################################
 
-setlistener("/instrumentation/gps/odometer", func {
- 
+setlistener("/instrumentation/gps/odometer", func { 
 
 var ap_callsign_Node = props.globals.getNode("/tracking/icao", 1);
 var ap_dist_Node = props.globals.getNode("/tracking/distance-nm", 1);
@@ -625,9 +577,6 @@ var ap_long_Node = props.globals.getNode("/tracking/lgst_rw", 1);
                   break;
           }
 
-
-
-
 		ap_callsign_Node.setValue(apt.id);		
 		ap_name_Node.setValue(apt.name);
 		ap_lat_Node.setValue(apt.lat);
@@ -644,13 +593,11 @@ setlistener("/it-autoflight/output/alt-arm", func {
 	if (getprop("/it-autoflight/output/alt-arm")== 1 ) {
 		setprop("/systems/ro",1) ;
 	    } else {
-		setprop("/systems/ro",0) ;
-		
+		setprop("/systems/ro",0) ;	
 	
 }});
 
 ##switch nav source in ap bar
-
 
 setlistener("/options/nav-source", func {
 	if (getprop("/options/nav-source")== 1 ) {
@@ -668,7 +615,6 @@ setlistener("/options/nav-source", func {
 		} else {
 		setprop("/systems/n3",0) ;
 }});
-
 
 ##switch buttons in ap bar
 
@@ -690,9 +636,7 @@ setlistener("/it-autoflight/input/lat", func {
 		setprop("/systems/na",0) ;
 		setprop("/systems/ar",1) ;
 		} else {
-		setprop("/systems/na",1) ;
-		
-			
+		setprop("/systems/na",1) ;		
 
 }});
 
@@ -712,23 +656,17 @@ var grw = getprop("/fdm/jsbsim/inertia/weight-lbs") ;
 var tow = getprop("/limits/mass-and-balance/maximum-takeoff-mass-lbs");
 		if (grw != tow) {
 			var bla = (tow-grw);
-			setprop("/systems/wdif",bla);		
+			setprop("/systems/wdif",bla);	
 
 }});
-
 		
 ####disable weight dialog once airborne
 
 setlistener("/gear/gear/wow", func {
-	if (getprop("/gear/gear/wow") == 0) {
-		
+	if (getprop("/gear/gear/wow") == 0) {		
 	setprop("/sim/menubar/default/menu[102]/item[7]/enabled", 0);
-
 	} else {
-
 	setprop("/sim/menubar/default/menu[102]/item[7]/enabled", 1);
-
-
 }});
 
 setlistener("/sim/current-view/view-number", func {
@@ -740,10 +678,7 @@ setlistener("/sim/current-view/view-number", func {
 
 	setprop("/sim/menubar/default/menu[100]/item[8]/enabled", 0);
 
-
 }});
-
-
 
 ###############
 ## dive for scenario 13
@@ -754,7 +689,6 @@ setlistener("/sim/freeze/clock", func {
 		setprop("/it-autoflight/input/vs",-800) ;		
 		setprop("/options/trm", 0);
 }});
-
 
 ##########################################
 # Ground Detection from DR400
@@ -799,8 +733,6 @@ setprop("/systems/data/rip", getprop("/systems/data/rip") + 1);
 #  settimer(terrain_survol, 0);
 }
 
-
-
 ############################################
 # ELT System from Cessna337 taken from the DR400
 # Authors: Pavel Cueto, with A LOT of collaboration from Thorsten and AndersG
@@ -811,7 +743,6 @@ var eltmsg = func {
   var lon = getprop("/position/longitude-string");
   var aircraft = getprop("/sim/description");
   var callsign = getprop("/sim/multiplay/callsign");
-
   
     if(getprop("/sim/crashed")){
       if(getprop("/instrumentation/elt/armed")) {
@@ -902,30 +833,21 @@ if (getprop("/gear/gear/wow") == 0 and getprop("/position/gear-agl-m") < 0.1){
 		setprop("sim/freeze/clock", 1);
     		setprop("sim/freeze/master", 1);
 	    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));
-
-
 	}
-
 }
-
 
 ###############
 ## Engine on fire auto scenario every 200th start
 
-
-
 var fireInit = setlistener("/engines/engine/running", func {
 	if (getprop("/engines/engine/running") == 1) {
 
-		if (getprop("/systems/starts") == 200 and getprop("/systems/saloft") == 0 ) {	
-
+		if (getprop("/systems/starts") == 200 and getprop("/systems/saloft") == 0 ) {
 		setprop("systems/orf", 0);
-		setprop("hazards/fire/engine", 1);
-		
+		setprop("hazards/fire/engine", 1);		
 
 var delay = 4;
-    settimer(func {    					
-
+    settimer(func { 
 
 	setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/name","efs") ;		setprop("/sim/gui/dialogs/check2/dialog/group[1]/textbox/property","/sim/efs") ;
 	    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
@@ -964,9 +886,6 @@ fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));
 			setprop("hazards/fire/engine", 0);
 			fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
 		gui.popupTip("Gee, that was close, well done!!!", 6);
-fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));
-		
+fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));		
 		
 }});
-
-

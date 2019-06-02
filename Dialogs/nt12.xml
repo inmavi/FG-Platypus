@@ -58,8 +58,7 @@
 	<command>nasal</command>
 	<script>
 	var window = screen.window.new(nil, -65, 1, 5);
-			window.fg = [1, 1, 1, 1]; 		
-
+			window.fg = [1, 1, 1, 1]; 
 	 window.align = "left";
 window.write("Please wait, loading...",1,1,0 );
 	</script>
@@ -69,12 +68,12 @@ window.write("Please wait, loading...",1,1,0 );
 		<script>
 			setprop("/controls/engines/engine/magnetos", 0);
      setprop("/controls/switches/avionics-master", 0);
-
 			libraries.cleanup();
 		fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));	
 		setprop("/systems/lapa", 0);					
 					setprop("/systems/nbat",0);
-					setprop("/systems/bp",1);								setprop("/systems/nonav1",0);
+					setprop("/systems/bp",1);								
+					setprop("/systems/nonav1",0);
 					setprop("/systems/nonav2",0);
 					setprop("/options/trm",12);
 			var apid = "LOWI";
@@ -86,11 +85,7 @@ window.write("Please wait, loading...",1,1,0 );
 	setprop("/payload/weight[4]/weight-lb",0);
 	setprop("/consumables/fuel/tank/level-gal_us",6);
 	setprop("/consumables/fuel/tank[1]/level-gal_us",6);
-
-
-			setprop("/environment/weather-scenario", "Core high pressure region");
-
-
+	setprop("/environment/weather-scenario", "Core high pressure region");
 	aircraft.teleport(airport = apid, runway = rwid);
 		setprop("/payload/weight/weight-lb",160);
 	setprop("/payload/weight[1]/weight-lb",0);

@@ -5,8 +5,7 @@
   <layout>vbox</layout>
 	<color>
 		<alpha>1</alpha>
-	</color>
-	
+	</color>	
 
   <group>
     <layout>hbox</layout>
@@ -28,10 +27,7 @@
 			<command>dialog-close</command>
 		</binding>
 	</button>
-  </group>
-
-
-  
+  </group>  
 
   <hrule/>
 	
@@ -54,7 +50,6 @@
 			
 		</group>
   <hrule/>
-
 
   <button>
     <legend>Run</legend>
@@ -98,8 +93,7 @@ window.write("Please wait, loading...",1,1,0 );
 	aircraft.teleport(airport = apid, runway = rwid);
 
 		</script>
-    </binding>			
-
+    </binding>
 
 	<binding>
       <command>dialog-close</command>

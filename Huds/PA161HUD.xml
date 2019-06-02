@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 
-
 <PropertyList>
 	<name>FGNav</name>
 	<enable3d>false</enable3d>
@@ -11,10 +10,6 @@
 		<halign>left</halign>
 		<format>NavHud</format>
   </label>
-
-  
-
-
 
 <label>
 		<name>rwele</name>
@@ -34,24 +29,19 @@
 		</input>
 </label>
 
-
-
 <label>
         	<name>Nav1</name>
       		<condition>
          		<equals>
             			<property>/options/nav-source</property>
 					<value>1</value>
-
          		</equals>
-      		</condition>
-      		
+      		</condition>      		
         		<x>-420</x>
         		<y>200</y>
         		<format>Nav1 Mode active</format>
         		<halign>left</halign>
    	</label>
-
 			
 		<label>
         	<name>GPS/Route Manager</name>
@@ -59,10 +49,8 @@
          		<equals>
             			<property>/options/nav-source</property>
 					<value>2</value>
-
          		</equals>
-      		</condition>
-      		
+      		</condition>      		
         		<x>-420</x>
         		<y>200</y>
         		<format>GPS/Route Manager active</format>
@@ -75,17 +63,13 @@
          		<equals>
             			<property>/options/nav-source</property>
 					<value>3</value>
-
          		</equals>
-      		</condition>
-      		
+      		</condition>      		
         		<x>-420</x>
         		<y>200</y>
         		<format>Nav2 Mode active</format>
         		<halign>left</halign>
    	</label>
-
-
 
 <label>
         	<name>GSR</name>
@@ -121,18 +105,14 @@
         		<halign>left</halign>
    	</label>
 
-
-
 <label>
 		<name>dmem</name>
 		<condition>
          		<equals>
             			<property>/instrumentation/dme/in-range</property>
 					<value>true</value>
-
          		</equals>
       		</condition>
-
 		<x>-420</x>
 		<y>180</y>
 		<halign>left</halign>
@@ -148,10 +128,8 @@
          		<equals>
             			<property>/instrumentation/dme/in-range</property>
 					<value>true</value>
-
          		</equals>
       		</condition>
-
 		<x>-360</x>
 		<y>180</y>
 		<halign>left</halign>
@@ -160,14 +138,12 @@
 			<property>/instrumentation/dme/indicated-time-min</property>
 		</input>
 </label>
-
 	
 	<import>
 		<path>Huds/Sets/gps.xml</path>
 		<x-offset>-420</x-offset>
 		<y-offset>160</y-offset>
-	</import>
-	
+	</import>	
 
  <label>
 		<name>Wind</name>
@@ -199,7 +175,6 @@
 					<value>true</value>
          		</equals>
       		</condition>
-
 		<x>-420</x>
 		<y>-60</y>
 		<halign>left</halign>
@@ -326,8 +301,6 @@
 			</input>
    	</label>
 
-
-
 <tape>
 			<condition>
          		<equals>
@@ -335,9 +308,6 @@
 					<value>true</value>
          		</equals>
       		</condition>
-
-
-
 		<name>RadioAltimeter</name>
 		<x>-420</x>
 		<y>-40</y>
@@ -388,8 +358,6 @@
     <value>500.0</value>
    </less-than>
   </condition>
-
-
 		<name>AMSL</name>
 		<x>-380</x>
 		<y>-40</y>
@@ -397,7 +365,6 @@
 		<height>150</height>
 		<option>left</option>
 		<option>vertical</option>
-
 		<major-divisions>100</major-divisions>
 		<minor-divisions>20</minor-divisions>
 		<display-span>200.0</display-span>
@@ -420,7 +387,6 @@
 
 		</input>
 	</tape>
-
 
   <label>
 		<name>FuelR</name>
@@ -447,7 +413,6 @@
 				<property>consumables/fuel/total-fuel-used-gal_us</property>
 		</input>
 	</label>
-
 	
    <label>
 		<name>odom</name>
@@ -468,10 +433,8 @@
          		<equals>
             			<property>/options/nav-source</property>
 					<value>2</value>
-
          		</equals>
-      		</condition>
-    		
+      		</condition>   		
       		
         		<x>-420</x>
         		<y>120</y>
@@ -488,10 +451,8 @@
          		<equals>
             			<property>/options/nav-source</property>
 					<value>2</value>
-
          		</equals>
-      		</condition>
-    		
+      		</condition>   		
       		
         		<x>-420</x>
         		<y>130</y>
@@ -501,8 +462,6 @@
 			<property>/Aircraft/PA28-Warrior/Dialogs/eta/display</property>
 			</input>
    	</label>
-
-
 
    <label>
 		<name>rem</name>
@@ -523,7 +482,7 @@
             		<property>/systems/nhtp</property>
 				<value>1</value>
          		</not-equals>			
-      	</condition>      		
+      	</condition>     		
 
 		<name>Gyrocompass</name>
 		<x>-100</x>
@@ -536,9 +495,7 @@
 		</input>
 		<display-span>25.0</display-span>
 		<modulo>360</modulo>
-
 		<option>top</option>
-
 		<major-divisions>5</major-divisions>
 		<minor-divisions>1</minor-divisions>
 		<tick-bottom>false</tick-bottom>
@@ -555,64 +512,5 @@
 		<tick-type>line</tick-type>
 		<tick-length>variable</tick-length>
 	</tape>
-
-	
-
  	
 </PropertyList>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
