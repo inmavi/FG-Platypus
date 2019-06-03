@@ -1,6 +1,10 @@
-on approach scenarios and quickstart set altimeter to ap elevation
+add throttle mix lever drag by mouse feature aka DR400 
 
-add throttle mix lever drag by mouse feature aka DR400
+fix hud colours
+
+fix devtron startup upper display to show celsius
+
+change the colour of the windrose needle to avoid confusion with the rmi
 
 fix ground reactions - wheels to deep into runway surface
 
@@ -19,6 +23,8 @@ wind instrument for hud
 get the propeller spinning with engine off on the ground aka original pa28-161 (maybe a yasim thing  ???)
 -------------------------------------------------------
 clean up xml and nas files
+
+replace borrowed models, code text with own
 
 fix lower upper case issues
 
