@@ -5,10 +5,8 @@
   </params>
 
   <path>DCVolts.ac</path>
-
     
-  <animation>
-	
+  <animation>	
 
     <type>rotate</type>
     <object-name>Needle</object-name>
@@ -53,7 +51,5 @@
             </binding>
         </hovered>
 </animation>
-
-
 
 </PropertyList>

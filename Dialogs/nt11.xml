@@ -59,8 +59,7 @@
 	<command>nasal</command>
 	<script>
 	var window = screen.window.new(nil, -65, 1, 5);
-			window.fg = [1, 1, 1, 1]; 		
-
+			window.fg = [1, 1, 1, 1]; 
 	 window.align = "left";
 window.write("Please wait, loading...",1,1,0 );
 	</script>
@@ -83,7 +82,7 @@ window.write("Please wait, loading...",1,1,0 );
 					setprop("/systems/bp",1);								
 					setprop("/systems/nonav1",0);
 					setprop("/systems/nonav2",0);
-					setprop("/options/trm",0);
+					setprop("/options/trm",11);
 			var apid = "LFMQ";
 			var rwid = "31";
 			setprop("/environment/weather-scenario", "Early morning fog");

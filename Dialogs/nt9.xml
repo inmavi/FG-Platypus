@@ -59,8 +59,7 @@
 	<command>nasal</command>
 	<script>
 	var window = screen.window.new(nil, -65, 1, 5);
-			window.fg = [1, 1, 1, 1]; 		
-
+			window.fg = [1, 1, 1, 1]; 
 	 window.align = "left";
 window.write("Please wait, loading...",1,1,0 );
 	</script>
@@ -77,6 +76,7 @@ fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 		setprop("/systems/saloft",0);
 		setprop("/systems/bp",1);								
 		setprop("/systems/nora",0);
+		setprop("/options/trm",9);
 		setprop("/sim/freeze/clock",0);
 		var long = -0.1728;
 		var lati = 51.1473;

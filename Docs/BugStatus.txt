@@ -19,6 +19,10 @@ crash at startup as reset does not clear previous properties when switching from
 
 hanging stopwatch needs lights
 
+fix kcs55/ki525 problem - 
+<ki525>
+	<selected-course-property>instrumentation/nav[0]/radials/selected-deg</selected-course-prop - that causes nav0 radials sel deg not populating
+
 hide that "file opens in a webbrowser" msg or autoclose onc the doc is open.
 
 

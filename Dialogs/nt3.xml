@@ -184,7 +184,7 @@
 		setprop("/systems/bp",1);								
 		setprop("/systems/nora",1);
 		setprop("/systems/soup",1);
-		setprop("/systems/trm",0);
+		setprop("/systems/trm",3);
 		setprop("/sim/freeze/clock",1);
 		var apid = getprop("/nt/apid");
 		var rwid = getprop("/nt/rwid");
@@ -235,21 +235,23 @@ and replace your depleted battery", 3);
 	setprop("/controls/gear/brake-parking", 0);
 	davtron803.davtron_flight_time.reset();
 	davtron803.davtron_flight_time.start();
-	# set ILS frequency
+	# set ILS frequency if airborne and change to sim preset ap or ap7rm destination
+		#if no ils get vor, if no vor message no vor or ils present
       var cur_runway = getprop("sim/presets/runway");
       var runways = airportinfo(getprop("sim/presets/airport-id")).runways;
       var r =runways[cur_runway];
       if (r != nil and r.ils != nil) {
-            setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));				
+            setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));
+			setprop("instrumentation/nav/radials/selected-deg", (r.heading));
 				var win = screen.window.new(nil, -80, 1, 9);
 				win.fg = [1, 1, 1, 1]; 	
 				win.align = "left";
-				win.write("ILS Frequency set to Nav1",1,0,0 );
+				win.write("Nav1 set to ILS Frequency ",0.8,0,0 );
 				} else {
 				var win = screen.window.new(nil, -80, 1, 9);
 				win.fg = [1, 1, 1, 1]; 	
 				win.align = "left";
-				win.write("Selected Runway has no ILS",1,0,0 );
+				win.write("Selected Runway has no ILS",0.8,0,0 );
 				}
 		</script>
     </binding>

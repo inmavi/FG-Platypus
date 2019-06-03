@@ -5,9 +5,7 @@
   <layout>vbox</layout>
 	<color>
 		<alpha>1</alpha>
-	</color>
-	
-  
+	</color>  
 
   <group>
     <layout>hbox</layout>
@@ -54,7 +52,6 @@
 
 <hrule/>
 
-
   <button>
     <legend>Run</legend>
     <default>true</default>
@@ -63,8 +60,7 @@
 	<command>nasal</command>
 	<script>
 	var window = screen.window.new(nil, -65, 1, 5);
-			window.fg = [1, 1, 1, 1]; 		
-
+			window.fg = [1, 1, 1, 1]; 
 	 window.align = "left";
 window.write("Please wait, loading...",1,1,0 );
 	</script>
@@ -78,7 +74,9 @@ window.write("Please wait, loading...",1,1,0 );
 			libraries.cleanup();
 fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 		setprop("/systems/saloft",1);
-		setprop("/systems/bp",1);								setprop("/systems/nora",0);
+		setprop("/systems/bp",1);								
+		setprop("/options/trm",6);
+		setprop("/systems/nora",0);
 		setprop("/systems/nonav1",1);
 		setprop("/systems/nonav2",1);
 		setprop("/sim/freeze/clock",1);
@@ -87,8 +85,6 @@ fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 		var alti = 3750;
 		var spd = 110;
 		var shd = 207;
-
-
 	if (getprop("/systems/saloft") == 1)  {
 	setprop("/sim/presets/running", 1);
 	setprop("/controls/electrical/battery", 1);

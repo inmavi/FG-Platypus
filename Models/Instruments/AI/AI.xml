@@ -13,7 +13,6 @@
         <object-name>HdgBug</object-name>
     </effect>
 
-
 <animation>
 		<type>scale</type>
 		<x-offset>1.1</x-offset>
@@ -97,5 +96,3 @@
  </animation>
 
 </PropertyList>
-
-

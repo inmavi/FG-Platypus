@@ -1,8 +1,6 @@
 set /p ap=Airport:
 set /p rw=Runway:
-
 "D:\FlightGear 2018.3.2\bin\fgfs.exe" --fg-root="D:\FlightGear 2018.3.2\data" ^
-
 --timeofday=noon ^
 --prop:/systems/bp=1 ^
 --prop:/systems/eng=1 ^

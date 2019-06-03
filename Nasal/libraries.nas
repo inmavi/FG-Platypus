@@ -156,7 +156,7 @@ setprop("/systems/apd",1) ;
 setprop("/systems/checklist",1) ;
 setprop("/systems/clname","preflight") ;
 setprop("/systems/em",1) ;
-setprop("/options/trm",0) ;
+setprop("/options/trm",20) ;
 setprop("/systems/emname","efs") ;
 setprop("/sim/current-view/view-number", "0");
 
@@ -827,7 +827,7 @@ var cleanup = func {
      	setprop("/controls/electrical/alternator", 0);
 	setprop("/controls/engines/engine/magnetos", 0);
      setprop("/controls/switches/avionics-master", 0);
-	setprop("/options/trm", 0);
+	setprop("/options/trm", 20);
 	setprop("/sim/current-view/view-number", "0");
 	setprop("/sim/failure-manager/controls/flight/flaps/failure-level", 0);
 	setprop("/sim/failure-manager/controls/flight/flaps/mtbf", "0");

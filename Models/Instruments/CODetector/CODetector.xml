@@ -17,7 +17,6 @@
 			</binding>
      </action>
 
-
       <hovered>
             <binding>
                 <command>set-tooltip</command>

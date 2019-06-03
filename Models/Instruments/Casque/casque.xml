@@ -32,8 +32,6 @@
 				acconfig.main_dlg.open();
 			</script>
 	</binding>
-
-
 </action>
 
 	<hovered>
@@ -73,11 +71,4 @@
         </hovered>
   </animation>
 
-
 </PropertyList>
-
-
-
-
-
-

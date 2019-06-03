@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-    ##########################################
-    
+   
      # DR400-dauphin by PAF team
      # April 2012 : Modified by PAF team
      # http://equipe-flightgear.forumactif.com
-    
-    ##########################################
--->
-
-<!--
+ 
     ELT based on an Artex ELT (now Cobham)
     http://www.acrelectronics.com/products/b/aviation/catalog/elt-remote-switches/remote-switch-standard
     Author: Pavel Cueto
@@ -46,15 +41,12 @@
         </emission>
     </animation>
 
-
 	<animation>
 		<type>scale</type>
 		<x-offset>0.8</x-offset>
 		<y-offset>0.8</y-offset>
 		<z-offset>0.8</z-offset>
 	</animation>
-
-
 
     <animation>
         <type>pick</type>
@@ -259,10 +251,4 @@
         </condition>
     </animation>
 
-
-
 </PropertyList>
-
-
-
-

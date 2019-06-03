@@ -196,16 +196,14 @@
       <command>nasal</command>
 		<script>
 			setprop("/controls/engines/engine/magnetos", 0);
-     setprop("/controls/switches/avionics-master", 0);
-		    	
+     setprop("/controls/switches/avionics-master", 0);		    	
 			libraries.cleanup();
 	fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
-
 		setprop("/systems/saloft",1);
 		setprop("/systems/bp",1);								
 		setprop("/systems/nora",1);
 		setprop("/systems/nonav1",0);
-		setprop("/options/trm",0);
+		setprop("/options/trm",2);
 		setprop("/systems/nonav2",0);
 		setprop("/sim/freeze/clock",1);
 		var apid = getprop("/nt/apid");
@@ -259,16 +257,17 @@ and replace your depleted battery", 3);
       var runways = airportinfo(getprop("sim/presets/airport-id")).runways;
       var r =runways[cur_runway];
       if (r != nil and r.ils != nil) {
-            setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));					
+            setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));
+			setprop("instrumentation/nav/radials/selected-deg", (r.heading));
 				var win = screen.window.new(nil, -80, 1, 9);
 				win.fg = [1, 1, 1, 1]; 	
 				win.align = "left";
-				win.write("Nav1 set to ILS Frequency ",1,0,0 );
+				win.write("Nav1 set to ILS Frequency ",0.8,0,0 );
 				} else {
 				var win = screen.window.new(nil, -80, 1, 9);
 				win.fg = [1, 1, 1, 1]; 	
 				win.align = "left";
-				win.write("Selected Runway has no ILS",1,0,0 );
+				win.write("Selected Runway has no ILS",0.8,0,0 );
 				}
 		</script>
     </binding>

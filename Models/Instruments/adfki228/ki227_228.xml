@@ -2,14 +2,11 @@
 <!--
  This file is part of FlightGear, the free flight simulator
  http://www.flightgear.org/
-
  Copyright (C) 2009 Torsten Dreyer, Torsten (at) t3r _dot_ de
-
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License as
  published by the Free Software Foundation; either version 2 of the
  License, or (at your option) any later version.
-
  This program is distributed in the hope that it will be useful, but
  WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
@@ -18,17 +15,14 @@
 <!--
   Animations for the ki227 adf and ki228 rmi indicator
   Maintainer: Torsten Dreyer
-
   The VOR needle is currently hardwired to NAV1
   The ADF needle is currently hardwired to ADF1
   To show the KI228 RMI instrument, set the property
   instrumentation/adf/model=ki228
-
   To show the KI227 ADF instrument, set the property
   instrumentation/adf/mode=ki227
   or any other value (or leave empty)
 -->
-
 <PropertyList>
 
   <path>ki227_228.ac</path>
@@ -49,7 +43,6 @@
     <z-offset>0.85</z-offset>
     <roll-deg>-1</roll-deg>
    </animation>
-
 
   <animation>
     <type>noshadow</type>
@@ -211,7 +204,6 @@
     </center>
   </animation>
 
-
   <animation>
     <type>pick</type>
     <object-name>HDGSelector</object-name>
@@ -244,20 +236,3 @@
   </animation>
 
 </PropertyList>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

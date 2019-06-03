@@ -6,7 +6,6 @@
 	<color>
 		<alpha>1</alpha>
 	</color>
-	
 
   <group>
     <layout>hbox</layout>
@@ -15,7 +14,6 @@
     <text>
       <label>Night IFR</label>
     </text>
-
 
 	<button>
 		<halign>right</halign>
@@ -53,17 +51,13 @@
       <binding>
         <command>dialog-apply</command>
       </binding>
-    </input>    
-
-
+    </input>  
     <text>
       <row>1</row>
       <col>1</col>
       <halign>right</halign>
       <label>Runway:</label>
-    </text>
-
-      
+    </text>      
      
     <input>
       <row>1</row>
@@ -100,7 +94,6 @@
 		</group>
   <hrule/>
 
-
   <button>
     <legend>Run</legend>
     <default>true</default>
@@ -120,13 +113,10 @@ window.write("Please wait, loading...",1,1,0 );
 		<script>
 			setprop("/controls/engines/engine/magnetos", 0);
      setprop("/controls/switches/avionics-master", 0);
-
 			libraries.cleanup();
 					setprop("/systems/bp",1);				
 			var apid = getprop("/nt/airport-id");
 			var rwid = getprop("/nt/runway");
-
-
 	setprop("/controls/electrical/battery", 0);
      	setprop("/controls/electrical/alternator", 0);
   	setprop("/controls/switches/avionics-master", 0);
@@ -145,9 +135,7 @@ window.write("Please wait, loading...",1,1,0 );
 	setprop("/controls/flight/flaps", 0.0);
 	setprop("/systems/nonav1",0);
 	setprop("/systems/nonav2",0);
-	setprop("/systems/trm",0);
-	
-
+	setprop("/systems/trm",5);
 	aircraft.teleport(airport = apid, runway = rwid);
 		</script>
     </binding>
@@ -172,8 +160,6 @@ window.write("Please wait, loading...",1,1,0 );
 					</script>
 
             </binding>
-
-
 	<binding>
       <command>dialog-close</command>
     </binding>

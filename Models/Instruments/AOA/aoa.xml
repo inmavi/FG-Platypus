@@ -8,7 +8,6 @@
     <z-offset>0.75</z-offset>
 </animation>
 
-
     <animation>
         <type>rotate</type>
         <object-name>AOA.needle</object-name>
@@ -31,11 +30,7 @@
 
     </animation>
 
-
-
 <!--show it all-->
-
-
 
  <animation>
     <type>pick</type>
@@ -46,25 +41,21 @@
 	<command>dialog-show</command>
 	<dialog-name>dash</dialog-name>
     </binding>
-
     <binding>
 	<command>dialog-show</command>
 	<dialog-name>dpresets</dialog-name>
     </binding>
-
 	<binding>
 	<command>dialog-show</command>
 	<dialog-name>qreset</dialog-name>
     </binding>
-
     	<binding>
 	<command>property-assign</command>
 	<property>/sim/hud/visibility[1]</property>
 	<value>true</value>					
     </binding>
-
 	<binding>
-						<command>nasal</command>
+		<command>nasal</command>
 						<script>
 	if (getprop("/systems/vbo")== 1) {
 				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));		
@@ -102,11 +93,6 @@
             </binding>
         </hovered>
 
-
   </animation>
 
-
-
 </PropertyList>
-
-

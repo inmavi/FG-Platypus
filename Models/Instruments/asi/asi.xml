@@ -13,7 +13,6 @@
 	   <object-name>OBS-Knob</object-name>
         <object-name>HdgBug</object-name>
     </effect>
-
 	
 	<animation>
 		<type>scale</type>
@@ -120,6 +119,5 @@
             </binding>
         </hovered>
 </animation>
-
 
 </PropertyList>

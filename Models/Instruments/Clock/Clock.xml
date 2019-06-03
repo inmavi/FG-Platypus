@@ -12,7 +12,6 @@
 	   <object-name>OBS-Knob</object-name>
         <object-name>HdgBug</object-name>
     </effect>
-
   
    <animation>
   <type>scale</type>
@@ -27,7 +26,6 @@
     <object-name>Seconds</object-name>
     <object-name>Minutes</object-name>
     <object-name>Hours</object-name>
-
     <object-name>vitre</object-name>
   </animation>
 
@@ -104,8 +102,3 @@
   </animation>
 
 </PropertyList>
-
-
-
-
-

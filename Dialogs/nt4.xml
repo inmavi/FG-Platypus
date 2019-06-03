@@ -70,24 +70,24 @@ window.write("Please wait, loading...",1,1,0 );
       <command>nasal</command>
 		<script>
 			  		setprop("/controls/engines/engine/magnetos", 0);
-     setprop("/controls/switches/avionics-master", 0);
-				    	
+     setprop("/controls/switches/avionics-master", 0);				    	
 			libraries.cleanup();
 			setprop("/environment/weather-scenario", "Core high pressure region");
 fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 		setprop("/systems/saloft",1);
-		setprop("/systems/bp",1);								setprop("/systems/nora",0);
+		setprop("/systems/bp",1);	
+		setprop("/options/trm",4);	
+		setprop("/systems/nora",0);
 		setprop("/sim/freeze/clock",1);
 		var apid = "egkk";
 		var rwid = "26L";
 		var alti = 1100;
 		var spd = 115;
 		var dist = 5;
-
 	if (getprop("/systems/saloft") == 1)  {
 	setprop("/sim/presets/running", 1);
 	setprop("/controls/electrical/battery", 1);
-     	setprop("/controls/electrical/alternator", 1);
+     setprop("/controls/electrical/alternator", 1);
   	setprop("/controls/switches/avionics-master", 1);
   	setprop("/controls/engines/engine[0]/magnetos-switch", 3);
   	setprop("/controls/switches/fuel-pump", 1);

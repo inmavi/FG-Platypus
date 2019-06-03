@@ -13,7 +13,6 @@
         <object-name>HdgBug</object-name>
     </effect>
 
-
 	<animation>
     <type>pick</type>
     <type>material</type>
@@ -27,7 +26,6 @@
 			</binding>
      </action>
   </animation>
-
 	
 	<animation>
 		<type>scale</type>
@@ -212,6 +210,5 @@
             </binding>
         </hovered>
 </animation>
-
 
 </PropertyList>
