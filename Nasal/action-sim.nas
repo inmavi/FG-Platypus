@@ -858,3 +858,28 @@ fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));
 fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));		
 		
 }});
+
+#preset ils freq on change in routemanager runway_keys
+
+setlistener("/autopilot/route-manager/destination/runway", func {
+	if (getprop("/autopilot/route-manager/destination/runway") != nil and getprop("/options/trm") == 20) {
+	
+		var cur_runway = getprop("autopilot/route-manager/destination/runway");
+      var runways = airportinfo(getprop("autopilot/route-manager/destination/airport")).runways;
+      var r =runways[cur_runway];
+      if (r != nil and r.ils != nil) {
+            setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));
+			setprop("instrumentation/nav/radials/selected-deg", (r.heading));
+				var win = screen.window.new(nil, -80, 1, 9);
+				win.fg = [1, 1, 1, 1]; 	
+				win.align = "left";
+				win.write("Nav1 set to ILS Frequency ",0.8,0,0 );
+				} else {
+				var win = screen.window.new(nil, -80, 1, 9);
+				win.fg = [1, 1, 1, 1]; 	
+				win.align = "left";
+				win.write("Selected Runway has no ILS",0.8,0,0 );
+				}
+}});
+
+
