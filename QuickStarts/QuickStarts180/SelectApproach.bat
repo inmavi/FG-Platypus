@@ -14,6 +14,7 @@ set /p of=Distance:
 --prop:/systems/saloft=1 ^
 --prop:/systems/bp=1 ^
 --prop:/systems/nora=1 ^
+--prop:/systems/ils=1 ^
 --aircraft=FG-Platypus-180 ^
 --in-air ^
 --prop:/controls/gear/brake-parking=0 ^

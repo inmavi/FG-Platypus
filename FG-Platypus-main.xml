@@ -1811,6 +1811,7 @@ Click Run to proceed
 		<nopo type="int">0</nopo>
 		<nhtp type="int">0</nhtp>
 		<bop type="int">0</bop>
+		<ils type="bool">0</ils>
 		<tmw type="bool">0</tmw>	
 		<eta type="double">0</eta>
 		<rsp type="double">0</rsp>

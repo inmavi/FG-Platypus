@@ -13,6 +13,7 @@ set /p of=Distance:
 --language=en ^
 --prop:/systems/saloft=1 ^
 --prop:/systems/bp=1 ^
+--prop:/systems/ils=1 ^
 --prop:/systems/nora=1 ^
 --prop:/systems/soup=1 ^
 --aircraft=FG-Platypus-180 ^

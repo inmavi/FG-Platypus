@@ -156,7 +156,7 @@ setprop("/systems/apd",1) ;
 setprop("/systems/checklist",1) ;
 setprop("/systems/clname","preflight") ;
 setprop("/systems/em",1) ;
-setprop("/options/trm",20) ;
+setprop("/options/trm",18) ;
 setprop("/systems/emname","efs") ;
 setprop("/sim/current-view/view-number", "0");
 
@@ -235,6 +235,29 @@ if (getprop("/systems/autofuel") == 1)  {
 
 	setprop("/consumables/fuel/tank/level-gal_us", 17);
 	setprop("/consumables/fuel/tank[1]/level-gal_us", 17);	
+	}
+	
+	## fetch Ils data for quickstarts ##
+
+if (getprop("/systems/ils") == 1)  {
+
+	var cur_runway = getprop("sim/presets/runway");
+      var runways = airportinfo(getprop("sim/presets/airport-id")).runways;
+      var r =runways[cur_runway];
+      if (r != nil and r.ils != nil) {
+            setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));
+			setprop("instrumentation/nav/radials/selected-deg", (r.heading));
+				var win = screen.window.new(nil, -80, 1, 9);
+				win.fg = [1, 1, 1, 1]; 	
+				win.align = "left";
+				win.write("Nav1 set to ILS Frequency ",0.8,0,0 );
+				} else {
+				var win = screen.window.new(nil, -80, 1, 9);
+				win.fg = [1, 1, 1, 1]; 	
+				win.align = "left";
+				win.write("Selected Runway has no ILS",0.8,0,0 );
+				}	
+				setprop("/systems/ils",0);
 	}
 
 if (getprop("/systems/autofuel") == 0)  {

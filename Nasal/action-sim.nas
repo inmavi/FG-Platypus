@@ -862,7 +862,7 @@ fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));
 #preset ils freq on change in routemanager runway_keys
 
 setlistener("/autopilot/route-manager/destination/runway", func {
-	if (getprop("/autopilot/route-manager/destination/runway") != nil and getprop("/options/trm") == 20) {
+	if (getprop("/autopilot/route-manager/destination/runway") != nil ) {
 	
 		var cur_runway = getprop("autopilot/route-manager/destination/runway");
       var runways = airportinfo(getprop("autopilot/route-manager/destination/airport")).runways;
