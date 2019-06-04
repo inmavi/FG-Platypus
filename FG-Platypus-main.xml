@@ -1600,8 +1600,8 @@ Click Run to proceed
     </presets>
     <defaults>
       <z-offset-m type="double">2.6</z-offset-m>
-      <y-offset-m type="double">0.5</y-offset-m>
-      <pitch-offset-deg type="double">-14.5455</pitch-offset-deg>
+      <y-offset-m type="double">0.53</y-offset-m>
+      <pitch-offset-deg type="double">-15.19</pitch-offset-deg>
     </defaults>
   </seat>
 	</systems>

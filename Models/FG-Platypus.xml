@@ -3,6 +3,10 @@
 <PropertyList>
 
 	<path>FG-Platypus.ac</path>
+	
+	<offsets>
+        <z-m>0.04</z-m>
+    </offsets>
 
 	<!-- LIVERY SELECT -->
 	<!-- Animation -->
