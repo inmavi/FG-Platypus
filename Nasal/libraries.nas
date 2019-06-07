@@ -703,6 +703,20 @@ toggle=1-toggle;
 setprop("controls/switches/strobe-lights",toggle);
 }
 
+###############
+## lookup atis on change of ap experimental
+##below working but need to eliminate error	if no ATIS or didd name aka eham egkk loih			
+		
+var airport = airportinfo(getprop("sim/presets/airport-id"));
+var atis = airport.comms('atis');
+if (!size(atis))
+    atis = airport.comms('awos');	
+printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
+
+	setprop("/systems/catis",atis[0]);
+	setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));
+	
+
 ##
 #gross weight exceeding max takeoff weight
 ##
