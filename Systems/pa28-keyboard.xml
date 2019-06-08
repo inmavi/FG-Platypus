@@ -716,16 +716,20 @@ if (getprop("/systems/tmw")== 1) {
 	<command>dialog-show</command>
 	<dialog-name>qcalc</dialog-name>
 	</binding>
+	
  </key>
 
 
   <key n="70">
-  <name>F</name>
-  <desc>SFrequency</desc>
-   <binding>
-				<command>dialog-show</command>
-				<dialog-name>freq-search</dialog-name>
-			</binding>
+	<name>F</name>
+	<desc>SFrequency</desc>
+		<binding>
+          <command>nasal</command>
+			<script>
+				setprop("/sim/atc/freq-airport", (getprop("/sim/airport/closest-airport-id")));	
+				fgcommand("dialog-show", props.Node.new({ "dialog-name" : "freq-search"}));			
+			</script>	           
+		</binding>			
  </key>
 
 <key n="76">

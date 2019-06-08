@@ -793,7 +793,9 @@ var closenap = func { nap.close(); }
 
 var apn = func() {
 	if (getprop("/systems/np")== 1 ) {
-		libraries.shownap();
+		libraries.shownap();		
+			setprop("/sim/atc/freq-airport", (getprop("/sim/airport/closest-airport-id")));	
+			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "freq-search" }));			
 		setprop("/systems/np",0) ;
 	    } else {
 		libraries.nap.close();

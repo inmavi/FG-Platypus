@@ -883,3 +883,12 @@ setlistener("/autopilot/route-manager/destination/runway", func {
 }});
 
 
+###setlisteners counter 
+
+var ls = setlistener("/sim/test", func(){
+    print("Property '/sim/test' has been changed");
+});
+setprop("/sim/test", "blah"); # trigger listener
+var rem = removelistener(ls); # remove listener
+print("There are ", rem, " listeners remaining");
+

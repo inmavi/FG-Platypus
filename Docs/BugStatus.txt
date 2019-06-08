@@ -1,4 +1,6 @@
 
+review nearest ap code as not always in sync with sim closest ap
+
 windconfig  - only works with basic weather, need to execute apply button with weather dialog hidden
 
 Somethings wrong - fuelflow drops with strong headwind ???
@@ -18,10 +20,6 @@ Fix reset behaviour on nav scenarios -occasional
 crash at startup as reset does not clear previous properties when switching from airborne to runway
 
 hanging stopwatch needs lights
-
-fix kcs55/ki525 problem - 
-<ki525>
-	<selected-course-property>instrumentation/nav[0]/radials/selected-deg</selected-course-prop - that causes nav0 radials sel deg not populating
 
 hide that "file opens in a webbrowser" msg or autoclose onc the doc is open.
 
