@@ -1,7 +1,6 @@
 var tako = screen.display.new(10,-30);
 
-var enableOSD = func() {
-	
+var enableOSD = func() {	
 	tako.setcolor(0.0,0.0,0.0);
 	tako.format = "%.3g";
  	tako.add("/orientation/heading-deg");
@@ -13,5 +12,4 @@ var enableOSD = func() {
      tako.add("/environment/wind-speed-kt");
      tako.add("/orientation/alpha-deg");
 }
-
 var close_enableOSD = func { tako.close(); }

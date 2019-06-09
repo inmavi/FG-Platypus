@@ -18,7 +18,6 @@ var refresh_immat = func {
   props.globals.getNode("/sim/multiplay/generic/int["~i~"]", 1).setValue(glyph+1);
     }
 }
-
 var immat_dialog = gui.Dialog.new("/sim/gui/dialogs/immat/dialog", "Aircraft/FG-Platypus/Dialogs/immat.xml");
 
 var immatInit = setlistener("/sim/signals/fdm-initialized", func {

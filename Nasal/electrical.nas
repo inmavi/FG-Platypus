@@ -49,7 +49,6 @@ var elec_init = func {
 	ampereCalc.start();
 	elec_timer.start();
 }
-
 ######################
 # Main Electric Loop #
 ######################
@@ -97,12 +96,8 @@ var master_elec = func {
 	avionics_master = getprop("/controls/switches/avionics-master");
 	elec1 = getprop("/systems/electrical/bus/elec1");
 	elec2 = getprop("/systems/electrical/bus/elec2");
-	
-
-
 	setprop("/systems/electrical/outputs/map-lights", elec1);
 	setprop("/systems/electrical/outputs/oat", elec1);
-
 
 	if (elec1 >= 8 and getprop("/controls/switches/fuel-pump") == 1) {
 		setprop("/systems/electrical/outputs/fuel-pump", elec1);

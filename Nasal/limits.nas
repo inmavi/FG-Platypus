@@ -11,15 +11,11 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-###############################################################
-#
-# Custom limit functions and callouts for the PA28-Warrior taken  # from DHC-6 Twin Otter
-#
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.#
+################################################################
+# Custom limit functions and callouts for the PA28-Warrior taken  # from DHC-6 Twin Otter#
 # Originally taken from Aircraft/Generic/limits.nas
-# Modified by Jonathan Schellhase (DG-505), Dec 2015
-#
+# Modified by Jonathan Schellhase (DG-505), Dec 2015#
 ###############################################################
 
 # Flaps extension limits
@@ -142,7 +138,6 @@ var checkALT = func {
 }
 checkALT();
 
-
 # Prop RPM
 var checkLHrpm = func {
   if (getprop("/sim/freeze/replay-state"))
@@ -162,4 +157,3 @@ var checkLHrpm = func {
     settimer(checkLHrpm, 1);
   }
 }
-

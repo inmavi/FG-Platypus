@@ -15,7 +15,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var elec_pump = getprop("/systems/electrical/outputs/fuel-pump");
 	var starter = getprop("/engines/engine[0]/rpm");
 	var 	rez = getprop("/environment/config/interpolated/wind-from-heading-deg");
-
 });
 
 var ospd_init = func {
@@ -23,7 +22,6 @@ var ospd_init = func {
 	setprop("/controls/switches/fuel-pump", 0);
 	setprop("/systems/sqt/sq", 0);
 	setprop("/systems/reci", 0);
-
 	ospd_timer.start();
 }
 
@@ -74,5 +72,4 @@ setlistener("/systems/sqt/sq", func {
 var update_ospd = func {
 	master_ospd();
 }
-
 var ospd_timer = maketimer(0.2, update_ospd);

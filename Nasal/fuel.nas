@@ -1,13 +1,11 @@
 # PA28-161 Fuel
-# Copyright (c) 2017 Joshua Davidson (it0uchpods)
+# Copyright (c) 2017 Joshua Davidson (it0uchpods) adapted by gerhard kick
 
 #############
 # Init Vars #
 #############
 
 setprop("/systems/fuel/low-fuel", 0);
-
-
 setlistener("/sim/signals/fdm-initialized", func {
 	var rpm = getprop("/engines/engine[0]/rpm");
 	var elec_pump = getprop("/systems/electrical/outputs/fuel-pump");

@@ -1,10 +1,6 @@
-# code adapted from the beautiful Connie
-#
-# Custom 1049H routines for seat support
-#
+# code adapted from the beautiful Connie#
+# Custom 1049H routines for seat support#
 # Gary Neely aka 'Buckaroo'
-#
-
 
 var current_z		= props.globals.getNode("/sim/current-view/z-offset-m");
 var current_y		= props.globals.getNode("/sim/current-view/y-offset-m");
@@ -26,7 +22,6 @@ var enable_presets	= props.globals.getNode("/systems/seat/presets/enable-presets
 
 var seat_pilot_offset_z	= props.globals.getNode("/systems/seat/pilot-z-offset-m");
 
-
 # Calculate offset for moving pilot's seat forward-back according to custom preferences;
 #   current view settings - default view settings = offset along z (+x in Blender)
 # The offset is used for a cockpit animation.
@@ -37,7 +32,6 @@ var seat_pilot_update = func {
   preset_y.setValue(current_y.getValue());
   preset_pitch.setValue(current_pitch.getValue());
 }
-
 
 # Reset viewing properties to aircraft configuration settings.
 
@@ -54,7 +48,6 @@ var seat_pilot_defaults = func {
 #  current_view_pitch.setValue(default_view_pitch.getValue());
 #  seat_pilot_offset_z.setValue(0);
 #}
-
 
 var seat_load_presets = func {
   view_z.setValue(preset_z.getValue());

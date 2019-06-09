@@ -1,15 +1,14 @@
-# PA28-161 Libraries
+# Platypus Libraries
 # Joshua Davidson (it0uchpods) adapted by gk
 # gdoors ============================================================
 rightDoor = aircraft.door.new( "/sim/model/door-positions/rightDoor", 2, 0 );
 
 var checkUse = func () {
-	var totalUse = props.globals.getNode("/systems/data/total-use");
-	
+	var totalUse = props.globals.getNode("/systems/data/total-use");	
 	totalUse.setValue(totalUse.getValue() + 1);
 }
 
-aircraft.data.add(
+	aircraft.data.add(
         "instrumentation/kma20/test",
         "instrumentation/kma20/auto",
         "instrumentation/kma20/com1",
@@ -39,11 +38,10 @@ if (getprop("/systems/starts") > 321) {
 } 
 
 if (getprop("/systems/starts") < 321) {
-
 	setprop("/sim/menubar/default/menu[102]/item[5]/enabled", 0);
-		setprop("/systems/nbat", 0);
-		setprop("/systems/electrical/batt-volt", 12);
-		setprop("/systems/electrical/batt-amp", 35);		
+	setprop("/systems/nbat", 0);
+	setprop("/systems/electrical/batt-volt", 12);
+	setprop("/systems/electrical/batt-amp", 35);		
 }
 
 # reset compass rose rotation for the ki228
@@ -160,8 +158,8 @@ setprop("/options/trm",18) ;
 setprop("/systems/emname","efs") ;
 setprop("/sim/current-view/view-number", "0");
 
-			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "etwatch" }));
-			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "accft" }));
+	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "etwatch" }));
+	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "accft" }));
 
 setlistener("/sim/sounde/switch1", func {
 	if (!getprop("/sim/sounde/switch1")) {
@@ -215,7 +213,7 @@ setlistener("/sim/sounde/knob", func {
 	systems.wdheight_init();
 	systems.wdawc_init();
 	checkUse();
-		print("FDM initialised...");
+	print("FDM initialised...");
 	itaf.ap_init();
 
 	##libraries.variousReset();
@@ -266,8 +264,7 @@ if (getprop("/systems/autofuel") == 0)  {
 		if (getprop("/consumables/fuel/total-fuel-gal_us") < 9)  {
 
 if(getprop("/gear/gear/wow")==1){
-	        setprop("/controls/gear/brake-parking", 1);       
-
+	        setprop("/controls/gear/brake-parking", 1); 
  var msgwait_delay = 6.0;
     settimer(func {
         if (getprop("/sim/sceneryloaded")) {
@@ -285,50 +282,41 @@ if(getprop("/gear/gear/wow")==1){
 	##Takeoff Practise engine running
 
 	if (getprop("/systems/lapa") == 1)  {
-	setprop("/sim/presets/running",1);	
-	setprop("/controls/electrical/battery", 1);
+		setprop("/sim/presets/running",1);	
+		setprop("/controls/electrical/battery", 1);
      	setprop("/controls/electrical/alternator", 1);
-  	setprop("/controls/switches/avionics-master", 1);
-  	setprop("/controls/engines/engine[0]/magnetos-switch", 3);
-  	setprop("/controls/switches/fuel-pump", 1);
-  	setprop("/controls/engines/engine/throttle", 1);
-  	setprop("/controls/engines/engine/mixture", 1);
-  	setprop("/controls/engines/engine/throttle", 0.2);
-	setprop("/controls/switches/panel-lights-factor", 1);
-	setprop("/controls/switches/nav-lights", 1);
-	setprop("/controls/switches/nav-lights-factor", 1);
-	setprop("/controls/switches/strobe-lights", 1);	
-  	setprop("/controls/switches/panel-lights-factor", 1);
-	setprop("/environment/weather-scenario", "Fair weather");
-	setprop("/systems/iso",0) ;
-	setprop("/sim/hud/visibility[1]", 0);
+		setprop("/controls/switches/avionics-master", 1);
+		setprop("/controls/engines/engine[0]/magnetos-switch", 3);
+		setprop("/controls/switches/fuel-pump", 1);
+		setprop("/controls/engines/engine/throttle", 1);
+		setprop("/controls/engines/engine/mixture", 1);
+		setprop("/controls/engines/engine/throttle", 0.2);
+		setprop("/controls/switches/panel-lights-factor", 1);
+		setprop("/controls/switches/nav-lights", 1);
+		setprop("/controls/switches/nav-lights-factor", 1);
+		setprop("/controls/switches/strobe-lights", 1);	
+		setprop("/controls/switches/panel-lights-factor", 1);
+		setprop("/environment/weather-scenario", "Fair weather");
+		setprop("/systems/iso",0) ;
+		setprop("/sim/hud/visibility[1]", 0);
 
 	## get selected runway length
 	var a = airportinfo();
 		apt = getprop("/sim/presets/airport-id");	
 		apt = a;
-	var cur_runway = getprop("sim/presets/runway");
-        
-            var runways = airportinfo(getprop("sim/presets/airport-id")).runways;
-		
-		var lg = apt.runways[cur_runway].length;
-
+	var cur_runway = getprop("sim/presets/runway");        
+    var runways = airportinfo(getprop("sim/presets/airport-id")).runways;		
+	var lg = apt.runways[cur_runway].length;
 		setprop("/systems/rwlg",lg/0.304878);
 		setprop("/systems/rwlgm",lg);
+		    if(getprop("/systems/mws")== 0) {
+				fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windconfig" }));
+				fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));
+			} else {
+				fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));
+	};
 
-		    		if(getprop("/systems/mws")== 0) {
-						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windconfig" }));
-
-						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));
-
-
-	} else {								
-
-						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));
-
-};
-
-fgcommand("dialog-show", props.Node.new({ "dialog-name" : "speedo" }));
+		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "speedo" }));
 
 if (getprop("/engines/engine/fuel-flow-gph") ==0) {
 	var delay = 5;
@@ -337,7 +325,6 @@ if (getprop("/engines/engine/fuel-flow-gph") ==0) {
 q to hide the properties ", 6);                   
     }, delay);
 	}
-
 }
 
 ##on ground engine running
@@ -383,7 +370,7 @@ settimer(func {
 	if (getprop("/systems/saloft") == 1)  {
 		
 	setprop("/controls/electrical/battery", 1);
-     	setprop("/controls/electrical/alternator", 1);
+    setprop("/controls/electrical/alternator", 1);
   	setprop("/controls/switches/avionics-master", 1);
   	setprop("/controls/engines/engine[0]/magnetos-switch", 3);
   	setprop("/controls/switches/fuel-pump", 1);
@@ -408,26 +395,20 @@ settimer(func {
 	davtron803.davtron_flight_time.start();
 
 	if (getprop("/systems/nbat")== 0) {
-
-	var inc = props.globals.getNode("/systems/starts");
-	inc.setValue(inc.getValue() + 1);
-
+		var inc = props.globals.getNode("/systems/starts");
+		inc.setValue(inc.getValue() + 1);
 	}
 	if (getprop("/systems/starts") > 321)  {
-
 	logger.screen.red("Electrical systems malfunction,
 engine can not start, please restart on the ground
 and replace your depleted battery", 3);
-
 	}
 
 		## compass failure ##	
 	
-if (getprop("/systems/noco") == 1)  {
-	
+	if (getprop("/systems/noco") == 1)  {	
 	setprop("/sim/failure-manager/instrumentation/magnetic-compass/mtbf",45);
-     	setprop("/sim/failure-manager/instrumentation/heading-indicator/mtbf", 60);
-  	
+     setprop("/sim/failure-manager/instrumentation/heading-indicator/mtbf", 60);  	
 	}
 		## brake failure ##	
 	
@@ -464,52 +445,40 @@ if (getprop("/systems/noalt") == 1)  {
 	setprop("/controls/engines/engine/throttle",0.75);
 
 	}
-
 		## combined nav failure##
 
 if (getprop("/systems/nonav1") == 1)  {
 
 		setprop("/sim/failure-manager/instrumentation/nav/cdi/mtbf", 75);
-		setprop("/sim/failure-manager/instrumentation/nav/gs/mtbf", 75);
-     
+		setprop("/sim/failure-manager/instrumentation/nav/gs/mtbf", 75);     
 	}
 
 if (getprop("/systems/nonav1") == 0)  {
 
 		setprop("/sim/failure-manager/instrumentation/nav/cdi/serviceable", 1);
-
-		setprop("/sim/failure-manager/instrumentation/nav/gs/serviceable", 1);
-     
+		setprop("/sim/failure-manager/instrumentation/nav/gs/serviceable", 1);     
 	}
 
 if (getprop("/systems/nonav2") == 1)  {
-
 		setprop("/sim/failure-manager/instrumentation/nav[1]/cdi/mtbf", 100);
      	setprop("/sim/failure-manager/instrumentation/nav[1]/gs/mtbf", 100);
-
 	}
 
 if (getprop("/systems/nonav2") == 0)  {
-
 		setprop("/sim/failure-manager/instrumentation/nav[1]/cdi/serviceable", 1);
      	setprop("/sim/failure-manager/instrumentation/nav[1]/gs/serviceable", 1);
-
 	}
 
 		## cloud ceiling##
 
 if (getprop("/systems/soup") == 1)  {
-
-	setprop("/environment/weather-scenario", "CAT II minimum");
-	
+	setprop("/environment/weather-scenario", "CAT II minimum");	
 	}
 		## nav settings##
 
 if (getprop("/systems/proc") == 1)  {
-
 	setprop("/instrumentation/nav/frequencies/selected-mhz",110.9);
-     	setprop("/instrumentation/nav/radials/selected-deg", 258);
-	
+    setprop("/instrumentation/nav/radials/selected-deg", 258);	
 	}
 
 if (getprop("/systems/starts") < 321)  {
@@ -537,8 +506,7 @@ if (getprop("/sim/freeze/clock")== 1) {
     setprop("/instrumentation/nav/volume", 1); 
     setprop("/instrumentation/nav[1]/volume", 1); 
     setprop("/instrumentation/davtron803/bot-mode", "FT");
-	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
-	
+	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));	
 }); 
 
 var inc = props.globals.getNode("/systems/starts");
@@ -560,7 +528,6 @@ var variousReset = func {
 	setprop("/controls/engines/engine[0]/mixture", 0);
 	setprop("/fdm/jsbsim/extra/door-main-cmd", 0);
 	setprop("/instrumentation/transponder/id-code", 3158);
-
 }
 
 setlistener("/options/nav-source", func {
@@ -603,12 +570,9 @@ var statsreset = func {
      	setprop("/systems/data/nof",0);
 	setprop("/systems/data/takeoffs",0);
 	setprop("/systems/data/tof",0);
-	setprop("/systems/data/total-use",1);
-	
-logger.screen.red("Flight History and Hobbs have been reset !",1);
- 
-    	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "stats" }));  	
-    	
+	setprop("/systems/data/total-use",1);	
+	logger.screen.red("Flight History and Hobbs have been reset !",1); 
+    fgcommand("dialog-close", props.Node.new({ "dialog-name" : "stats" }));     	
 }
 
 var aborted = func {
@@ -621,28 +585,20 @@ var aborted = func {
 var lost = func {
 	var ld = getprop("/systems/data/landings");
 	var to = getprop("/systems/data/takeoffs");
-	var lo = to - ld;
-	
+	var lo = to - ld;	
 	setprop("/systems/data/lost", lo);
 }
 
 var inair = func {
-
-	if (getprop("/gear/gear/wow") == 0) {
-			
-	var tc = getprop("/instrumentation/davtron803/flight-time-secs");
-	var ac = getprop("/systems/data/acc-flight-secs");
-	var up = tc + ac;
-
-    setprop("/systems/data/acc-flight-secs", up);
-		
-
-if (getprop("/sim/time/sun-angle-rad") > 1.57)  {
-
-	setprop("/sim/rendering/als-secondary-lights/use-flashlight", 1);
-	
-	}
-}}
+	if (getprop("/gear/gear/wow") == 0) {			
+		var tc = getprop("/instrumentation/davtron803/flight-time-secs");
+		var ac = getprop("/systems/data/acc-flight-secs");
+		var up = tc + ac;
+		setprop("/systems/data/acc-flight-secs", up);	
+			if (getprop("/sim/time/sun-angle-rad") > 1.57)  {
+				setprop("/sim/rendering/als-secondary-lights/use-flashlight", 1);	
+			}
+	}}
 
 ##########################################
 # Put the weights into the fuel dialog
@@ -714,26 +670,21 @@ if (!size(atis))
 printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
 
 	setprop("/systems/catis",atis[0]);
-	setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));
-	
+	setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));	
 
 ##
 #gross weight exceeding max takeoff weight
 ##
-
 setlistener("/controls/gear/brake-parking", func {
 
 var grw = getprop("/fdm/jsbsim/inertia/weight-lbs") ;
 var tow = getprop("/limits/mass-and-balance/maximum-takeoff-mass-lbs");
 		
 		if (grw > tow) {
-			setprop("/systems/ow",1);
-		
-			if (getprop("/systems/ow") == 1)  {
-		
+			setprop("/systems/ow",1);		
+			if (getprop("/systems/ow") == 1)  {		
 		            logger.screen.red("EXCEEDING maximum takeoff weight - 
 delay takeoff until you have shed some weight !",9);
-
 			}
 					setprop("/systems/ow",0);	
 }});
@@ -758,7 +709,6 @@ var showtaco = func() {
      tako.add("/environment/wind-from-heading-deg");
      tako.add("/environment/wind-speed-kt");
      tako.add("/orientation/alpha-deg");
-
 }
 var closetako = func { tako.close(); }
 
@@ -800,7 +750,6 @@ var apn = func() {
 	    } else {
 		libraries.nap.close();
 		setprop("/systems/np",1) ;
-
 }}
 
 ##toggle props on off via key
@@ -855,7 +804,7 @@ var teleport = func(airport = "", runway = "", lat = -9999, lon = -9999, alt = 0
 }
 
 ##########
-# function to clean up stuff between ifr scenarios
+# function to clean up stuff between nav scenarios
 ##################################################
 
 var cleanup = func {
@@ -863,9 +812,9 @@ var cleanup = func {
 	setprop("/systems/dev",0);
 	setprop("/it-autoflight/input/vs", 0);
 	setprop("/controls/electrical/battery", 0);
-     	setprop("/controls/electrical/alternator", 0);
+    setprop("/controls/electrical/alternator", 0);
 	setprop("/controls/engines/engine/magnetos", 0);
-     setprop("/controls/switches/avionics-master", 0);
+    setprop("/controls/switches/avionics-master", 0);
 	setprop("/options/trm", 20);
 	setprop("/sim/current-view/view-number", "0");
 	setprop("/sim/failure-manager/controls/flight/flaps/failure-level", 0);
@@ -895,9 +844,8 @@ var cleanup = func {
 				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "trim-panel" }));
 				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
 				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "speedo" }));
-
 	setprop("/sim/freeze/clock",0);
-fgcommand("timeofday", props.Node.new({ "timeofday" : "afternoon" }));
+	fgcommand("timeofday", props.Node.new({ "timeofday" : "afternoon" }));
 	setprop("/it-autoflight/input/ap", 0);		
 	setprop("/it-autoflight/input/lat", 0);
 	setprop("/controls/engines/engine/throttle", 0.00);
@@ -929,9 +877,7 @@ var waypt = getprop("/autopilot/route-manager/wp[0]/id");
 	var arri = getprop("/autopilot/route-manager/wp[0]/eta-seconds");
 	var nms = int(getprop("/autopilot/route-manager/wp[0]/dist"));
 	gui.popupTip("About " ~ arri ~ " seconds  short of  " ~ waypt , 2); 
-
 		}
-
 		}
 	}
 });
@@ -977,8 +923,7 @@ if (getprop("/options/nfa") == 1){
 			if (getprop("/position/altitude-agl-ft") > 1000 ) {
 
 		if (getprop("/systems/freach") < 75) {
-			    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "fuelstatus" }));
-			
+			    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "fuelstatus" }));		
 
 			var wpe = screen.window.new(nil, -130, 2, 1);
      wpe.fg = [1, 1, 1, 1];    
@@ -988,8 +933,7 @@ if (getprop("/options/nfa") == 1){
 			}
 			if (getprop("/systems/nfa") == 0){
 					fgcommand("dialog-close", props.Node.new({ "dialog-name" : "fuelstatus" }));
-					}
- 
+					} 
 			}
 		}
 	}

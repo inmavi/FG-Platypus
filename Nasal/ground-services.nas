@@ -2,7 +2,8 @@
 ### Ground services configuration for the DHC-6 Twin Otter #############
 ### Taken from the A330-200 by theomegahangar ##########################
 ### Adapted for this project by Jonathan Schellhase (dg-505) ###########
-### This file is licensed under the terms of the GNU GPL v2 or later ###adapted for the PA28-Warrior by Gerhard Kick
+### This file is licensed under the terms of the GNU GPL v2 or later 
+###adapted for the Platypus by Gerhard Kick
 ########################################################################
 
 var ground_services = {
@@ -13,17 +14,14 @@ var ground_services = {
 	# External power
 	setprop("/sim/model/equipment/ground-services/external-power/enable", 1);
 
-
 	# Set it to 0 if the aircraft is not stationary
 	if (getprop("/velocities/groundspeed-kt") > 1) {
 		setprop("/sim/model/equipment/ground-services/fuel-truck/enable", 0);
 		setprop("/sim/model/equipment/ground-services/external-power/enable", 0);
 	}
-
 	me.reset();
 	},
 	update : func {
-
 		# External Power
 		if (getprop("/velocities/groundspeed-kt") > 1)
 			setprop("/sim/model/equipment/ground-services/external-power/enable", 0);

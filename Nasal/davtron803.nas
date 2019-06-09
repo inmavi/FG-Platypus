@@ -1,6 +1,5 @@
 ###############################################################################
 ## Davtron 803
-##
 ##  Original from Nasal for DR400-dauphin by dany93;
 ##                    Clément de l'Hamaide - PAF Team - http://equipe-flightgear.forumactif.com
 ##  Heavily modified in 2017 for c182s by Benedikt Hallinger
@@ -32,7 +31,6 @@ var timeFormat = func(timeProp){
   
   return formattedTime;
 }
-
 # Called from Action binding when Control button is pressed
 var controlButtonPressed = func {
     # Get the clock mode

@@ -19,15 +19,14 @@ var wdawc_init = func {
 
 var master_wdawc = func {	
 	cag = getprop("/instrumentation/dme/indicated-distance-nm");
-	if (getprop("/systems/awc")== 1) {
-		 	
+	if (getprop("/systems/awc")== 1) {		 	
 		if (cag > 40 and cag < 40.1)  {
 
 		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));			
  		setprop("/environment/config/boundary/entry/wind-from-heading-deg",182);
-	setprop("/environment/config/boundary/entry/wind-speed-kt",20);
+		setprop("/environment/config/boundary/entry/wind-speed-kt",20);
 
-	gui.popupTip("Wind from 6 o clock @ 20 knots,
+		gui.popupTip("Wind from 6 o clock @ 20 knots,
 keep an eye on he groundspeed", 3);
 
 		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
@@ -37,25 +36,20 @@ keep an eye on he groundspeed", 3);
 		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));
 			
  		setprop("/environment/config/boundary/entry/wind-from-heading-deg",92);
-	setprop("/environment/config/boundary/entry/wind-speed-kt",30);
+		setprop("/environment/config/boundary/entry/wind-speed-kt",30);
 
-	gui.popupTip("Wind from 3 o clock @ 30 knots,
+		gui.popupTip("Wind from 3 o clock @ 30 knots,
 adjust heading for drift", 3);
 
 		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
-
 		}
 
 		if (cag > 24 and cag < 24.1)  {
-
-		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));
-			
- 		setprop("/environment/config/boundary/entry/wind-from-heading-deg",272);
-	setprop("/environment/config/boundary/entry/wind-speed-kt",37);
-
+			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "windsim" }));			
+			setprop("/environment/config/boundary/entry/wind-from-heading-deg",272);
+			setprop("/environment/config/boundary/entry/wind-speed-kt",37);
 	gui.popupTip("Wind from 9 o clock @ 37 knots,
 adjust your WCA", 3);
-
 		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
 		}
 

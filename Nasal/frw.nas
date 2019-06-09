@@ -26,7 +26,6 @@ var frw_start_stop = func {
     frw_show(accu);
   }
 }
-
 var frw_reset = func {
   var running = props.globals.getNode(p~"running");
   setprop(p~"flight-time/accu", 0);
@@ -37,7 +36,6 @@ var frw_reset = func {
     frw_show(0);
   }
 }
-
 var frw_loop = func {
   var running = props.globals.getNode(p~"running");
   if(running.getBoolValue()){
@@ -45,7 +43,6 @@ var frw_loop = func {
     settimer(frw_loop, 0.02);
   }
 }
-
 var frw_show = func(s) {
   var hours = s / 3600;
   var minutes = int(math.mod(s / 60, 60));
@@ -56,7 +53,6 @@ var frw_show = func(s) {
   setprop(p~"flight-time/minutes",minutes);
   setprop(p~"flight-time/seconds",seconds);
 }
-
 var frw_show_time_on_screen = func{
   var hours = getprop(p~"flight-time/hours");
   var minutes = getprop(p~"flight-time/minutes");

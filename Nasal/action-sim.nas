@@ -163,13 +163,6 @@ var tc = getprop("/instrumentation/davtron803/flight-time-secs");
 
 }});
 
-setlistener("/sim/scenery-loaded", func {
-	if (getprop("/sim/scenery-loaded") == 1) {
-
-setprop("/controls/gear/brake-parking", 1);
-
-}});
-
 ###check if planned route is within fuel capacity#####
 
 setlistener("/autopilot/route-manager/distance-remaining-nm", func {
@@ -179,9 +172,7 @@ setlistener("/autopilot/route-manager/distance-remaining-nm", func {
 	if (getprop("/autopilot/route-manager/distance-remaining-nm") > 500) {
 
     	gui.popupTip("Selected Route exceeds maximum fuel load capacity, either schedule refuel stops, clear the route or define an alternate route !", 3);
-
 }});
-
 
 ##
 #  Crash Counter
@@ -194,14 +185,10 @@ setlistener("/sim/crashed", func {
 #part of takeoff quickstart takeoff below
 
 setlistener("/controls/flight/elevator", func {
-
 		if (getprop("/controls/flight/elevator") >  - 0.09) {
-
-
 			var rosp = getprop("/velocities/airspeed-kt");
 			setprop("/systems/rsp",rosp );
 			setprop("/systems/nopo",2 );
-
 		}	
 });
 
@@ -217,13 +204,10 @@ setlistener("/controls/gear/brake-parking", func {
 ##
 
 setlistener("/autopilot/route-manager/departure/takeoff-time", func {
-	if (getprop("/gear/gear/wow") == 0) {
-		
+	if (getprop("/gear/gear/wow") == 0) {		
 	var dt = (getprop("instrumentation/clock/indicated-string"));
 	if (getprop("/systems/takeoff") ==  nil) {
-
-			setprop("/systems/takeoff", dt);
-	
+			setprop("/systems/takeoff", dt);	
 	var tof = props.globals.getNode("/systems/data/takeoffs");
 	tof.setValue(tof.getValue() + 1);
 }
@@ -348,29 +332,25 @@ setprop("/systems/odo2mt", o2f * 0.304878);
 	}
 }
 
-}});   
-
+}});  
 
 # fuel consumption code from syd adams twin otter
 
 var fuel_used_value = 0;
 var last_fuel_read = 0;
 var init = func {
-	fuel_at_start = getprop("/consumables/fuel/total-fuel-gal_us");
-	
+	fuel_at_start = getprop("/consumables/fuel/total-fuel-gal_us");	
 	last_fuel_read = getprop("/consumables/fuel/total-fuel-gal_us");
 	print("Fuel Meter active...");	
 	
 	main_loop();
 }
 
-
 # Setup listener call to start update loop once the fdm is initialized
 setlistener("sim/signals/fdm-initialized", init);
 
 #main loop
 var main_loop = func {
-
 	fuel_used();	
 	
 	settimer(main_loop, 0);
@@ -420,24 +400,13 @@ setlistener("/instrumentation/davtron803/flight-time-secs", func {
 	if (getprop("/systems/dev")== 1) {
 		 	
 		if (getprop("/instrumentation/davtron803/flight-time-secs")> 240){
-
-		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "instruct11" }));		
-
-		setprop("/sim/freeze/clock",1);
-		setprop("/systems/dev",0);	
-
+			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "instruct11" }));	
+			setprop("/sim/freeze/clock",1);
+			setprop("/systems/dev",0);
 		}		
 }});
 
 
-##turn off avionics and ap with battery
-
-setlistener("/controls/electrical/battery", func {
-	if (getprop("/controls/electrical/battery")== 0 ) {
-		setprop("/controls/switches/avionics-master",0) ;
-		setprop("/it-autoflight/input/ap",0) ;
-
-}});
 
 setlistener("/engines/engine/fuel-flow-gph", func {
 
@@ -468,15 +437,13 @@ if (getprop("systems/vbo")== 1) {
 	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/y",675);
 		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));
 
-
 	    } else {
 			fgcommand("dialog-close", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));
 
 	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/x",1);
 	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/y",1);
 	
-	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));
-		
+	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));		
 }	
 }});
 
@@ -553,7 +520,6 @@ var ap_long_Node = props.globals.getNode("/tracking/lgst_rw", 1);
               if (i == MAX_RUNWAYS)
                   break;
           }
-
 		ap_callsign_Node.setValue(apt.id);		
 		ap_name_Node.setValue(apt.name);
 		ap_lat_Node.setValue(apt.lat);
@@ -570,8 +536,7 @@ setlistener("/it-autoflight/output/alt-arm", func {
 	if (getprop("/it-autoflight/output/alt-arm")== 1 ) {
 		setprop("/systems/ro",1) ;
 	    } else {
-		setprop("/systems/ro",0) ;	
-	
+		setprop("/systems/ro",0) ;		
 }});
 
 ##switch nav source in ap bar
@@ -594,7 +559,6 @@ setlistener("/options/nav-source", func {
 }});
 
 ##switch buttons in ap bar
-
 
 setlistener("/it-autoflight/input/lat", func {
 	if (getprop("/it-autoflight/input/lat")== 1 ) {
@@ -849,14 +813,12 @@ fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));
 	}
 }
 
-	if (getprop("/controls/engines/engine/throttle") == 1 and getprop("/controls/engines/engine/mixture") == 0 and getprop("/controls/switches/fuel-pump") == 0 and getprop("/systems/fuel/selected-tank-knb") == 0) {
-	
+	if (getprop("/controls/engines/engine/throttle") == 1 and getprop("/controls/engines/engine/mixture") == 0 and getprop("/controls/switches/fuel-pump") == 0 and getprop("/systems/fuel/selected-tank-knb") == 0) {	
 			
-			setprop("hazards/fire/engine", 0);
-			fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
+		setprop("hazards/fire/engine", 0);
+		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));
 		gui.popupTip("Gee, that was close, well done!!!", 6);
-fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));		
-		
+		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));			
 }});
 
 #preset ils freq on change in routemanager runway_keys
@@ -865,11 +827,11 @@ setlistener("/autopilot/route-manager/destination/runway", func {
 	if (getprop("/autopilot/route-manager/destination/runway") != nil ) {
 	
 		var cur_runway = getprop("autopilot/route-manager/destination/runway");
-      var runways = airportinfo(getprop("autopilot/route-manager/destination/airport")).runways;
-      var r =runways[cur_runway];
-      if (r != nil and r.ils != nil) {
-            setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));
-			setprop("instrumentation/nav/radials/selected-deg", (r.heading));
+		var runways = airportinfo(getprop("autopilot/route-manager/destination/airport")).runways;
+		var r =runways[cur_runway];
+			if (r != nil and r.ils != nil) {
+				setprop("instrumentation/nav/frequencies/selected-mhz", (r.ils.frequency / 100));
+				setprop("instrumentation/nav/radials/selected-deg", (r.heading));
 				var win = screen.window.new(nil, -80, 1, 9);
 				win.fg = [1, 1, 1, 1]; 	
 				win.align = "left";
@@ -879,7 +841,7 @@ setlistener("/autopilot/route-manager/destination/runway", func {
 				win.fg = [1, 1, 1, 1]; 	
 				win.align = "left";
 				win.write("Selected Runway has no ILS",0.8,0,0 );
-				}
+			}
 }});
 
 
