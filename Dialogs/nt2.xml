@@ -254,19 +254,20 @@ and replace your depleted battery", 3);
 		davtron803.davtron_flight_time.reset();
 		davtron803.davtron_flight_time.start();
 		
-		###############
-## lookup atis on change of ap experimental
-##below working but need to eliminate error	if no ATIS or didd name aka eham egkk loih			
+## lookup atis on change of ap 		
 		
-		var airport = airportinfo(getprop("sim/presets/airport-id"));
-		var atis = airport.comms('atis');
-		if (!size(atis))
-			atis = airport.comms('awos');	
-			printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
-
-			setprop("/systems/catis",atis[0]);
-			setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));
-	
+var airport = airportinfo(getprop("sim/presets/airport-id"));
+var atis = airport.comms('atis');
+if (!size(atis))
+    atis = airport.comms('awos');
+if (size(atis)== 0){
+		print ("no atis data");					
+		setprop("/instrumentation/comm/frequencies/selected-mhz", 111.11);
+		} else {	
+	printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
+	setprop("/systems/catis",atis[0]);
+	setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));	
+}	
 # set ILS frequency if airborne and change to sim preset ap or ap-rm destination
 		#if no ils get vor, if no vor message no vor or ils present
       var cur_runway = getprop("sim/presets/runway");

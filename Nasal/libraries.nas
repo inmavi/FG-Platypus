@@ -7,7 +7,6 @@ var checkUse = func () {
 	var totalUse = props.globals.getNode("/systems/data/total-use");	
 	totalUse.setValue(totalUse.getValue() + 1);
 }
-
 	aircraft.data.add(
         "instrumentation/kma20/test",
         "instrumentation/kma20/auto",
@@ -330,7 +329,6 @@ q to hide the properties ", 6);
 ##on ground engine running
 
 if (getprop("/systems/eng") == 1)  {
-
 	setprop("/controls/flight/flaps", 0.0);
 	setprop("/controls/flight/elevator-trim", 0);
 	setprop("/controls/flight/rudder-trim", 0);	
@@ -426,7 +424,6 @@ if (getprop("/systems/nopo") == 1)  {
 	setprop("/controls/electrical/battery", 0);
      	setprop("/controls/electrical/alternator", 0);
 	setprop("/it-autoflight/input/vs",500);
-
 	}
 
 		## engine failure ##
@@ -487,8 +484,7 @@ if (getprop("/sim/freeze/clock")== 1) {
 	logger.screen.red("Set relevant parameters and press p to continue.",4);
 	}
 	}
-}	
-
+}
     var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/FG-Platypus/Systems/kap140-dlg.xml");
 	setprop("/it-autoflight/input/hdg", getprop("/orientation/heading-magnetic-deg"));
 	setprop("/it-autoflight/input/alt", 2500);
@@ -659,18 +655,20 @@ toggle=1-toggle;
 setprop("controls/switches/strobe-lights",toggle);
 }
 
-###############
-## lookup atis on change of ap experimental
-##below working but need to eliminate error	if no ATIS or didd name aka eham egkk loih			
+## lookup atis on change of ap 		
 		
 var airport = airportinfo(getprop("sim/presets/airport-id"));
 var atis = airport.comms('atis');
 if (!size(atis))
-    atis = airport.comms('awos');	
-printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
-
+    atis = airport.comms('awos');
+if (size(atis)== 0){
+		print ("no atis data found, comm1 set to 111.1");			
+		setprop("/instrumentation/comm/frequencies/selected-mhz", 111.11);
+		} else {	
+	printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
 	setprop("/systems/catis",atis[0]);
 	setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));	
+}	
 
 ##
 #gross weight exceeding max takeoff weight
@@ -714,11 +712,9 @@ var closetako = func { tako.close(); }
 
 		setprop("/systems/np",1) ;
 
-
 ##display closest ap info on screen
 	
 var nap = screen.display.new(410,-130);
-
 var shownap = func() {
 	if (getprop("/sim/time/sun-angle-rad") > 1.57)  {
 			nap.setcolor(1,0.9,0);	
@@ -726,7 +722,6 @@ var shownap = func() {
 	if (getprop("/sim/time/sun-angle-rad") < 1.57)  {
 			nap.setcolor(0,0,0);	
 	}
-
 	nap.format = "%.5g";
  	nap.add("/tracking/airport");
 	nap.add("/tracking/distance-nm");
