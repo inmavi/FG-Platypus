@@ -823,8 +823,8 @@ fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));
 
 #preset ils freq on change in routemanager runway_keys
 
-setlistener("/autopilot/route-manager/destination/runway", func {
-	if (getprop("/autopilot/route-manager/destination/runway") != nil ) {
+	setlistener("/autopilot/route-manager/destination/runway", func {
+	if (getprop("/autopilot/route-manager/destination/runway") != nil ) {	
 	
 		var cur_runway = getprop("autopilot/route-manager/destination/runway");
 		var runways = airportinfo(getprop("autopilot/route-manager/destination/airport")).runways;
@@ -844,6 +844,25 @@ setlistener("/autopilot/route-manager/destination/runway", func {
 			}
 }});
 
+#Fetch atis if route-manager destination ap changes
+
+setlistener("/autopilot/route-manager/destination/airport", func {
+	if (getprop("/autopilot/route-manager/destination/airport") != nil ) {			
+		if (getprop("/systems/eap")==1) {		
+var airport = airportinfo(getprop("autopilot/route-manager/destination/airport"));
+var atis = airport.comms('atis');
+if (!size(atis))
+    atis = airport.comms('awos');
+if (size(atis)== 0){
+		print ("no atis data found, comm1 set to 111.1");			
+		setprop("/instrumentation/comm/frequencies/selected-mhz", 111.11);
+		} else {	
+	printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
+	setprop("/systems/catis",atis[0]);
+	setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));	
+}
+}	
+}});
 
 ###setlisteners counter 
 ###need to clean up a bit to speed up things

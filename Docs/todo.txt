@@ -1,5 +1,7 @@
 remove one time setlisteners
 
+use combos for runways in nav scens aka rm
+
 hud switch fg platypus
 
 add throttle mix lever drag by mouse feature aka DR400 
