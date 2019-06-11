@@ -236,7 +236,8 @@ and replace your depleted battery", 3);
 	davtron803.davtron_flight_time.reset();
 	davtron803.davtron_flight_time.start();
 	
-## lookup atis on change of ap 		
+## lookup atis on change of ap 	
+if (getprop("/systems/eap")==1) {	
 		
 var airport = airportinfo(getprop("sim/presets/airport-id"));
 var atis = airport.comms('atis');
@@ -249,6 +250,7 @@ if (size(atis)== 0){
 	printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
 	setprop("/systems/catis",atis[0]);
 	setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));	
+}
 }	
 # set ILS frequency if airborne and change to sim preset ap or ap-rm destination
 		#if no ils get vor, if no vor message no vor or ils present

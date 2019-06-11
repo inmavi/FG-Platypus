@@ -655,7 +655,8 @@ toggle=1-toggle;
 setprop("controls/switches/strobe-lights",toggle);
 }
 
-## lookup atis on change of ap 		
+## lookup atis on change of ap 	
+if (getprop("/systems/eap")==1) {	
 		
 var airport = airportinfo(getprop("sim/presets/airport-id"));
 var atis = airport.comms('atis');
@@ -668,6 +669,7 @@ if (size(atis)== 0){
 	printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
 	setprop("/systems/catis",atis[0]);
 	setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));	
+}
 }	
 
 ##

@@ -1350,6 +1350,7 @@ Click Run to proceed
 			<path>systems/data/total-use</path> 
 			<path>systems/data/landings</path>
 			<path>systems/starts</path>
+			<path>systems/eap</path>
 			<path>systems/data/takeoffs</path>
 			<path>systems/data/nof</path> 
 			<path>systems/data/aborted</path>	
@@ -1812,6 +1813,7 @@ Click Run to proceed
 		<nhtp type="int">0</nhtp>
 		<bop type="int">0</bop>
 		<ils type="bool">0</ils>
+		<eap type="bool">1</eap>
 		<tmw type="bool">0</tmw>	
 		<eta type="double">0</eta>
 		<rsp type="double">0</rsp>

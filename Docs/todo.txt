@@ -1,5 +1,7 @@
 remove one time setlisteners
 
+hud switch fg platypus
+
 add throttle mix lever drag by mouse feature aka DR400 
 
 fix hud colours

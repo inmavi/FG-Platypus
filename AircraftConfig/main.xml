@@ -42,18 +42,64 @@
 			<group>
 				<layout>vbox</layout>
 				
+					
+				
+				<group>
+				<layout>table</layout>
+				
 				<button>
+					<visible>
+					<property>/systems/eap</property>
+					</visible>
+					<row>0</row>
+					<col>0</col>
 					<halign>center</halign>
-					<legend>Welcome</legend>
+					<legend>Disable ATIS Presets</legend>
 					<pref-width>140</pref-width>
 					<binding>
 						<command>nasal</command>
 						<script>
-						acconfig.welcome_dlg.open();
+						setprop("/systems/eap",0);
 						</script>
 					</binding>
 				</button>
+				
 				<button>
+					<visible>
+					<not>
+					<property>/systems/eap</property>
+					</not>
+					</visible>
+					<row>0</row>
+					<col>0</col>
+					<halign>center</halign>
+					<legend>Enable ATIS Presets</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>nasal</command>
+						<script>
+						setprop("/systems/eap",1);						
+							if (getprop("/systems/eap")==1) {		
+							var airport = airportinfo(getprop("sim/presets/airport-id"));
+							var atis = airport.comms('atis');
+								if (!size(atis))
+									atis = airport.comms('awos');
+								if (size(atis)== 0){
+									print ("no atis data found, comm1 set to 111.1");			
+									setprop("/instrumentation/comm/frequencies/selected-mhz", 111.11);
+								} else {	
+									printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
+									setprop("/systems/catis",atis[0]);
+									setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));	
+								}
+							}	
+						</script>
+					</binding>
+				</button>
+				
+				<button>
+					<row>1</row>
+					<col>0</col>
 					<halign>center</halign>
 					<legend>Select Livery</legend>
 					<pref-width>140</pref-width>
@@ -63,7 +109,10 @@
 						</script>
 					</binding>
 				</button>
+				
 				<button>
+					<row>2</row>
+					<col>0</col>
 					<halign>center</halign>
 					<legend>Aircraft Help</legend>
 					<pref-width>140</pref-width>
@@ -72,6 +121,7 @@
 				<script>gui.showHelpDialog("/sim/help")</script>
 			</binding>
 				</button>
+				</group>
 			</group>
 			
 			<group>
