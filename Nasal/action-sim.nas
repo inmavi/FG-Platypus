@@ -846,7 +846,7 @@ setlistener("/autopilot/route-manager/destination/runway", func {
 
 
 ###setlisteners counter 
-
+###need to clean up a bit to speed up things
 var ls = setlistener("/sim/test", func(){
     print("Property '/sim/test' has been changed");
 });
