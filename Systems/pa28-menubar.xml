@@ -601,10 +601,30 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 14);		
+					<script>											
+						setprop("/options/trm", 14);		
 					</script>
-			</binding>
+				</binding>
 					</item>
+					</menu>
+					<menu n="104">
+					<label>DevTools</label>
+					<enabled type="bool">true</enabled>
+			
+					<item>
+						<label>Listeners Active</label>
+						<binding>
+            				<command>nasal</command>
+            				<script>								
+								var ls = setlistener("/sim/test", func(){
+									print("Property '/sim/test' has been changed");
+								});
+								setprop("/sim/test", "blah"); # trigger listener
+								var rem = removelistener(ls); # remove listener
+								gui.popupTip("There are  " ~ rem ~ " listeners open  " , 4);									
+							</script>
+						</binding>
+					</item>	
 
 				</menu>
 

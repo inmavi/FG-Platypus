@@ -203,13 +203,14 @@ setlistener("/controls/gear/brake-parking", func {
 #  capture takeoff time as it is reset by rm on bounce
 ##
 
-setlistener("/autopilot/route-manager/departure/takeoff-time", func {
+var ab = setlistener("/autopilot/route-manager/departure/takeoff-time", func {
 	if (getprop("/gear/gear/wow") == 0) {		
 	var dt = (getprop("instrumentation/clock/indicated-string"));
 	if (getprop("/systems/takeoff") ==  nil) {
 			setprop("/systems/takeoff", dt);	
 	var tof = props.globals.getNode("/systems/data/takeoffs");
 	tof.setValue(tof.getValue() + 1);
+	var rem = removelistener(ab);
 }
 
 }});
@@ -872,4 +873,4 @@ var ls = setlistener("/sim/test", func(){
 setprop("/sim/test", "blah"); # trigger listener
 var rem = removelistener(ls); # remove listener
 print("There are ", rem, " listeners remaining");
-
+gui.popupTip("There are  " ~ rem ~ " listeners open  " , 4);
