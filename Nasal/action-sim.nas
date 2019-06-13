@@ -136,7 +136,6 @@ var update_actions = func {
 # 
 setlistener("/sim/signals/fdm-initialized", init_actions);  
 
-
 ##
 #  stop the flight timer as the ap one resets on bounce
 ##
@@ -161,25 +160,6 @@ var tc = getprop("/instrumentation/davtron803/flight-time-secs");
 
     setprop("/systems/data/acc-flight-secs", up);
 
-}});
-
-###check if planned route is within fuel capacity#####
-
-setlistener("/autopilot/route-manager/distance-remaining-nm", func {
-
-    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "eta" }));
-
-	if (getprop("/autopilot/route-manager/distance-remaining-nm") > 500) {
-
-    	gui.popupTip("Selected Route exceeds maximum fuel load capacity, either schedule refuel stops, clear the route or define an alternate route !", 3);
-}});
-
-##
-#  Crash Counter
-##
-
-setlistener("/sim/crashed", func {
-	if (getprop("/sim/crashed") == 1 ) {
 }});
 
 #part of takeoff quickstart takeoff below
@@ -239,8 +219,8 @@ var ab = setlistener("/autopilot/route-manager/departure/takeoff-time", func {
 				setprop("/systems/elv", hel);
 				setprop("/systems/flt", tfl);			
 	logger.screen.red("Sim paused for review,
-press Reset or Continue or ESC to quit...",2);
-    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "lifo" }));
+	press Reset or Continue or ESC to quit...",2);
+    fgcommand("dialog-show", props.Node.new({ "dialog-name" : "lifo" }));
 	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "speedo" }));
 	setprop("/sim/freeze/clock",1);		
    } 
@@ -251,7 +231,7 @@ press Reset or Continue or ESC to quit...",2);
 ##get the timer ready
 	
 	setlistener("/controls/gear/brake-parking", func {		
-		if (getprop("/systems/gost") ==  1) {	
+	if (getprop("/systems/gost") ==  1) {	
 	if(getprop("/controls/engines/engine/throttle") > 0.75 and getprop("/controls/gear/brake-parking") == 0) {		
 	davtron803.davtron_elapsed_time.stop();
 	davtron803.davtron_elapsed_time.reset();
@@ -397,34 +377,31 @@ setlistener("/options/nav-source", func {
 
 ##display instructions for scen11
 
-setlistener("/instrumentation/davtron803/flight-time-secs", func {
+var sc11 = setlistener("/instrumentation/davtron803/flight-time-secs", func {
 	if (getprop("/systems/dev")== 1) {
 		 	
 		if (getprop("/instrumentation/davtron803/flight-time-secs")> 240){
 			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "instruct11" }));	
 			setprop("/sim/freeze/clock",1);
 			setprop("/systems/dev",0);
-		}		
+		}
+	var rem = removelistener(sc11);
 }});
-
-
 
 setlistener("/engines/engine/fuel-flow-gph", func {
 
 	if (getprop("/engines/engine/fuel-flow-gph")> 0.2 ) {
 
 		var remaining = getprop("/consumables/fuel/total-fuel-gal_us") ;
-var cflow = getprop("/engines/engine/fuel-flow-gph");
-var cspeed = getprop("/velocities/airspeed-kt");
-var fuel_time = remaining/cflow;
+	var cflow = getprop("/engines/engine/fuel-flow-gph");
+	var cspeed = getprop("/velocities/airspeed-kt");
+	var fuel_time = remaining/cflow;
 	setprop("/systems/remains",remaining);
 		setprop("/systems/ftime",fuel_time);
 
 	var mpg = cspeed/getprop("engines/engine/fuel-flow-gph");
-
 	var fuel_reach = remaining * mpg;
-	setprop("/systems/freach",fuel_reach);
-	
+	setprop("/systems/freach",fuel_reach);	
 }});
 
 ##move viewbar if view 7 is activated
@@ -435,21 +412,20 @@ if (getprop("systems/vbo")== 1) {
 		
 		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));
 		setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/x",924);
-	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/y",675);
+		setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/y",675);
 		fgcommand("dialog-show", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));
 
 	    } else {
 			fgcommand("dialog-close", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));
 
-	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/x",1);
-	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/y",1);
+		setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/x",1);
+		setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/y",1);
 	
 	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));		
 }	
 }});
 
 		setprop("/systems/vbo",0);	
-
 ##
 #  toggle left brake for failure
 ##
@@ -464,12 +440,8 @@ logger.screen.red("One of the brakes appears to be defective");
 
 }});
 
-##open viewbar at startup
-
-##############
 # get nearest airport data
 # code adapted from bluebird and ap dialog
-##########################################
 
 setlistener("/instrumentation/gps/odometer", func { 
 
@@ -493,8 +465,8 @@ var ap_long_Node = props.globals.getNode("/tracking/lgst_rw", 1);
           var pos = geo.aircraft_position();
           var dst = pos.distance_to(airport_pos) / 1852.0;
           var crs = pos.course_to(airport_pos);
-      var dlg = props.globals.getNode("/sim/gui/dialogs/napt", 1);
-      var avail_runways = dlg.getNode("available-runways", 1);
+		var dlg = props.globals.getNode("/sim/gui/dialogs/napt", 1);
+		var avail_runways = dlg.getNode("available-runways", 1);
           var longest_runway = 0;
           var runways = apt.runways;
           var infoAboutRunways = [];   # list of strings for display
@@ -624,11 +596,12 @@ setlistener("/sim/current-view/view-number", func {
 ###############
 ## dive for scenario 13
 
-setlistener("/sim/freeze/clock", func {
+var sc13 = setlistener("/sim/freeze/clock", func {
 	if (getprop("/sim/freeze/clock") == 0 and getprop("/options/trm") == 13) {
 	
 		setprop("/it-autoflight/input/vs",-800) ;		
 		setprop("/options/trm", 0);
+	var rem = removelistener(sc13);
 }});
 
 ##########################################
@@ -694,7 +667,6 @@ var eltmsg = func {
 setprop("/systems/data/rip", getprop("/systems/data/rip") + 1);        
     setprop("sim/messages/copilot", "Hmm, those insurance premiums!");
     	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "choose" }));
-
       }
     }
   ;	

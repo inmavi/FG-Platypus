@@ -45,7 +45,10 @@ Maintenance -
 
 xml and nas code needs to be brought up to standard
 the documentation needs a complete overhaul
-
+Improve runtime performance by whatever means.
 
 Basically the aim is to provide an easy to use interface and tools for complete novices to aeronautical navigation.
+
+Testing debugging and error handling
+
 
