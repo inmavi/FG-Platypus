@@ -162,6 +162,18 @@ var tc = getprop("/instrumentation/davtron803/flight-time-secs");
 
 }});
 
+###check if planned route is within fuel capacity#####
+
+setlistener("/autopilot/route-manager/distance-remaining-nm", func {
+
+    	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "eta" }));
+
+	if (getprop("/autopilot/route-manager/distance-remaining-nm") > 500) {
+
+    	gui.popupTip("Selected Route exceeds maximum fuel load capacity, either schedule refuel stops, clear the route or define an alternate route !", 3);
+}});
+
+
 #part of takeoff quickstart takeoff below
 
 setlistener("/controls/flight/elevator", func {

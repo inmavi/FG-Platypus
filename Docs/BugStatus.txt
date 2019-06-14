@@ -1,3 +1,6 @@
+
+pilot head distorted depending on view angle
+
 vor s seem to be incorrect maybe because of view settings '??
 
 eddm has atis console shows freq but com not updated ???
