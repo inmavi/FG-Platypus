@@ -1,3 +1,6 @@
+eddm has atis console shows freq but com not updated ???
+
+if option renering als checked landing light is on even though switch is in off position
 
 review nearest ap code as not always in sync with sim closest ap
 

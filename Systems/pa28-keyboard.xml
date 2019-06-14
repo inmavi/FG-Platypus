@@ -726,8 +726,8 @@ if (getprop("/systems/tmw")== 1) {
 		<binding>
           <command>nasal</command>
 			<script>
-				setprop("/sim/atc/freq-airport", (getprop("/sim/airport/closest-airport-id")));	
-				fgcommand("dialog-show", props.Node.new({ "dialog-name" : "freq-search"}));			
+				fgcommand("ATC-freq-display", props.Node.new({ "icao" : getprop("/sim/airport/closest-airport-id") }) );
+				fgcommand("dialog-show", props.Node.new({ "dialog-name" : "atc-freq-display" }) );		
 			</script>	           
 		</binding>			
  </key>
