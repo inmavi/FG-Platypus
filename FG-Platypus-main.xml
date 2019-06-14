@@ -1416,7 +1416,7 @@ Click Run to proceed
 	
 	<airport>
 		<runways>
-			<start-offset-m>20</start-offset-m>
+			<start-offset-m>0</start-offset-m>
 		</runways>
 	</airport>
 	
