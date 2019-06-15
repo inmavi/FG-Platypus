@@ -105,7 +105,8 @@
 					<pref-width>140</pref-width>
 					<binding>
 						<command>nasal</command>
-						<script>										aircraft.livery.dialog.toggle();
+						<script>
+							aircraft.livery.dialog.toggle();
 						</script>
 					</binding>
 				</button>
@@ -115,6 +116,18 @@
 					<col>0</col>
 					<halign>center</halign>
 					<legend>Aircraft Help</legend>
+					<pref-width>140</pref-width>
+					<binding>
+				<command>nasal</command>
+				<script>gui.showHelpDialog("/sim/help")</script>
+			</binding>
+				</button>
+				
+				<button>
+					<row>3</row>
+					<col>0</col>
+					<halign>center</halign>
+					<legend>Spare</legend>
 					<pref-width>140</pref-width>
 					<binding>
 				<command>nasal</command>
