@@ -842,19 +842,9 @@ if (size(atis)== 0){
 		print ("no atis data found, comm1 set to 111.1");			
 		setprop("/instrumentation/comm/frequencies/selected-mhz", 111.11);
 		} else {	
-	printf('%s %.2f', airport.id, size(atis) ? atis[0] : 'Not found');
 	setprop("/systems/catis",atis[0]);
 	setprop("/instrumentation/comm/frequencies/selected-mhz", (getprop("/systems/catis")));	
 }
 }	
 }});
 
-###setlisteners counter 
-###need to clean up a bit to speed up things
-var ls = setlistener("/sim/test", func(){
-    print("Property '/sim/test' has been changed");
-});
-setprop("/sim/test", "blah"); # trigger listener
-var rem = removelistener(ls); # remove listener
-print("There are ", rem, " listeners remaining");
-gui.popupTip("There are  " ~ rem ~ " listeners open  " , 4);
