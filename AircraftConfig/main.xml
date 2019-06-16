@@ -136,7 +136,7 @@
 						<command>nasal</command>
 						<script>
 						setprop("/systems/frp",0);
-						logger.screen.red("I am not doing anything yet...",2);
+						logger.screen.red("I am not doing anything yet...",1);
 						</script>
 					</binding>
 				</button>
@@ -156,7 +156,7 @@
 						<command>nasal</command>
 						<script>
 						setprop("/systems/frp",1);	
-						logger.screen.red("I am not doing anything yet...",2);				
+						logger.screen.red("I am not doing anything yet...",1);				
 							##if swtich to plus remove stuff else add stuff
 						</script>
 					</binding>
