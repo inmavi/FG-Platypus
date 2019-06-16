@@ -3,13 +3,13 @@ pilot head distorted depending on view angle
 
 vor s seem to be incorrect maybe because of view settings '??
 
-eddm has atis console shows freq but com not updated ???
+eddm has atis console shows freq in console but com not updated ???
 
-if option renering als checked landing light is on even though switch is in off position
+if option rendering als checked landing light is on even though switch is in off position
 
 review nearest ap code as not always in sync with sim closest ap
 
-nav scenarios and quickstarts need some error handling if runway entered incorrect ( at the moment causing a nasal error on line 309
+nav scenarios and quickstarts need some error handling if runway entered incorrect - at the moment causing a nasal error on line 309
 
 windconfig  - only works with basic weather, need to execute apply button with weather dialog hidden - sort of needs a fake enter key press
 

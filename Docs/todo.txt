@@ -1,12 +1,6 @@
 add some more liveries aka AUA Qantas
 
-remove one time setlisteners
-
 use combos for runways in nav scens aka rm to eliminate runtime errors if incorrect runway is entered
-
-hud switch fg and platypus
-
-add throttle mix lever drag by mouse feature aka DR400 
 
 fix hud colours
 

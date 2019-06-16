@@ -124,15 +124,42 @@
 				</button>
 				
 				<button>
+					<visible>
+					<property>/systems/frp</property>
+					</visible>
 					<row>3</row>
 					<col>0</col>
 					<halign>center</halign>
-					<legend>Spare</legend>
+					<legend>Turn Booster On</legend>
 					<pref-width>140</pref-width>
 					<binding>
-				<command>nasal</command>
-				<script>gui.showHelpDialog("/sim/help")</script>
-			</binding>
+						<command>nasal</command>
+						<script>
+						setprop("/systems/frp",0);
+						logger.screen.red("I am not doing anything yet...",2);
+						</script>
+					</binding>
+				</button>
+				
+				<button>
+					<visible>
+					<not>
+					<property>/systems/frp</property>
+					</not>
+					</visible>
+					<row>3</row>
+					<col>0</col>
+					<halign>center</halign>
+					<legend>Turn Booster Off</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>nasal</command>
+						<script>
+						setprop("/systems/frp",1);	
+						logger.screen.red("I am not doing anything yet...",2);				
+							##if swtich to plus remove stuff else add stuff
+						</script>
+					</binding>
 				</button>
 				</group>
 			</group>
