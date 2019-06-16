@@ -203,7 +203,7 @@
           <command>property-adjust</command>
           <property>/environment/config/boundary/entry/wind-speed-kt</property>
           	<min>0</min>
-        	<max>61</max>
+        	<max>91</max>
 		<step>-1</step>
 		<wrap>true</wrap>
         </binding>
@@ -221,7 +221,7 @@
           <command>property-adjust</command>
           <property>/environment/config/boundary/entry/wind-speed-kt</property>          
 		<min>0</min>
-        	<max>61</max>
+        	<max>91</max>
 		<step>-10</step>
 		<wrap>true</wrap>
         </binding>
@@ -237,7 +237,7 @@
       <width>75</width>
       <height>25</height>
 	<min>0</min>
-	<max>61</max>
+	<max>91</max>
       <live>true</live>
       <property>/environment/config/boundary/entry/wind-speed-kt</property>
       <binding>
@@ -261,7 +261,7 @@
           <property>/environment/config/boundary/entry/wind-speed-kt</property>
           
 		<min>0</min>
-        	<max>61</max>
+        	<max>91</max>
 		<step>10</step>
 		<wrap>true</wrap>
         </binding>
@@ -281,7 +281,7 @@
           <command>property-adjust</command>
           <property>/environment/config/boundary/entry/wind-speed-kt</property>
           	<min>0</min>
-        	<max>61</max>
+        	<max>91</max>
 		<step>1</step>
 		<wrap>true</wrap>
         </binding>
