@@ -1,3 +1,6 @@
+Nav Scen 2 and 3 (approach) at times have problem with rwy 34 at lszh and loww, the reciprocals ils works well on 16 but 
+once on 34 the aircraft turns a 180 degrees even though frequency and radial correct in radio.
+
 eddf shows longest runway ils frequency twice in fuelstatus
 
 pilot head distorted depending on view angle
