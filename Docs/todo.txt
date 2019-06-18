@@ -1,3 +1,6 @@
+add booster function to config menu button - basically run through a list of toggling properties and settings to improve response time 
+framerate on hopelessly underpowered machines.
+
 add some more liveries aka AUA Qantas
 
 use combos for runways in nav scens aka rm to eliminate runtime errors if incorrect runway is entered

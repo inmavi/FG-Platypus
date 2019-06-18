@@ -62,11 +62,13 @@
 				</color>
 
 				<color n="3">
-					<alpha>1</alpha>
-					<brightness>1</brightness>              
-					<red type="float">0.6</red>
-						<green type="float">0.4</green>
-					<blue type="float">0.2</blue>
+					<transparent type="bool">true</transparent>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<alpha type="float">0.85</alpha>
+					<red type="float">0.38</red>
+					<green type="float">1.0</green>
+					<blue type="float">0.22</blue>
 				</color>
 			</palette>
 		</hud>
@@ -1585,7 +1587,8 @@ Click Run to proceed
 	<input>
 		<mice include="mice.xml"/>
 		<keyboard include="Systems/pa28-keyboard.xml"/>
-<!--
+		<multikey include="multikey.xml"/> 
+     <!--
 		<mice include="Systems/Pa28-mice.xml"/>
 -->
 	</input>
