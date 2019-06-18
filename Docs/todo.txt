@@ -1,3 +1,5 @@
+modify multikey and add documentation
+
 add booster function to config menu button - basically run through a list of toggling properties and settings to improve response time 
 framerate on hopelessly underpowered machines.
 
