@@ -5,10 +5,11 @@
 # Init Vars #
 #############
 
-setlistener("/instrumentation/dme/indicated-distance-nm", func {	
+if (getprop("/options/trm")==10) {
+	setlistener("/instrumentation/dme/indicated-distance-nm", func {	
 	var cag = getprop("/instrumentation/dme/indicated-distance-nm");
-});
-
+	});
+}
 var wdawc_init = func {
 	wdawc_timer.start();
 }
@@ -90,3 +91,5 @@ var update_wdawc = func {
 	master_wdawc();
 }
 var wdawc_timer = maketimer(0.1, update_wdawc);
+
+

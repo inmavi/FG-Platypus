@@ -627,7 +627,15 @@ close and restart!",2);
 								gui.popupTip("There are  " ~ rem ~ " listeners open  " , 4);									
 							</script>
 						</binding>
-					</item>	
+					</item>
+
+					<item>
+						<name>property-browser</name>
+							<binding>
+								<command>nasal</command>
+								<script>gui.property_browser()</script>
+							</binding>
+					</item>
 					
 					<item>
 						<label>Capture GoogleMapLink</label>

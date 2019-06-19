@@ -1910,8 +1910,7 @@ Click Run to proceed
 		<systems>
 			<file>Aircraft/FG-Platypus/Nasal/electrical.nas</file>
 			<file>Aircraft/FG-Platypus/Nasal/engines.nas</file>
-			<file>Aircraft/FG-Platypus/Nasal/fuel.nas</file>
-			<file>Aircraft/FG-Platypus/Nasal/ospd.nas</file>			
+			<file>Aircraft/FG-Platypus/Nasal/fuel.nas</file>						
 			<file>Aircraft/FG-Platypus/Nasal/wdawc.nas</file> 
 			<file>Aircraft/FG-Platypus/Nasal/wdheight.nas</file> 			
 		</systems>
