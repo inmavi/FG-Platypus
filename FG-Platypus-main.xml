@@ -1587,7 +1587,8 @@ Click Run to proceed
 	<input>
 		<mice include="mice.xml"/>
 		<keyboard include="Systems/pa28-keyboard.xml"/>	
-			 <multikey include="multikey.xml"/>
+			  <multikey include="Systems/FG-Platypus-multikey.xml"/>
+
      <!--
 		<mice include="Systems/Pa28-mice.xml"/>
 -->
