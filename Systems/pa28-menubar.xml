@@ -633,10 +633,10 @@ close and restart!",2);
 						<label>Capture GoogleMapLink</label>
 						<binding>
 							<command>nasal</command>
-							<script>
+							<script>							
 								printf("http://maps.google.com/maps?ll=%.10f,%.10f&amp;z=12&amp;t=h",
 								getprop("/position/latitude-deg"),
-								getprop("/position/longitude-deg"));
+								getprop("/position/longitude-deg"));														
 							</script>
 						</binding>
 					</item>	
