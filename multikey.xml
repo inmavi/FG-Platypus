@@ -75,7 +75,7 @@
 			<exit/>
 			<binding>
 				<command>dialog-show</command>
-				<dialog-name>nasal-console</dialog-name>
+				<dialog-name>nt1</dialog-name>
 			</binding>
 		</key>
 
@@ -501,7 +501,7 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/sim/rendering/wireframe</property>
-
+			
 			</binding>
 		</key>
 

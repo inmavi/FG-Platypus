@@ -8,7 +8,8 @@
                   <label>Position Aircraft in Air</label>
                     <binding>
                       <command>nasal</command>
-                      <script>											fgcommand("dialog-show", props.Node.new({ "dialog-name" : "location-in-air-pa" }));		
+                      <script>											
+					  fgcommand("dialog-show", props.Node.new({ "dialog-name" : "location-in-air-pa" }));		
 					</script>
                     </binding>
                   </item>
@@ -606,7 +607,9 @@ close and restart!",2);
 					</script>
 				</binding>
 					</item>
+					
 					</menu>
+					
 					<menu n="104">
 					<label>DevTools</label>
 					<enabled type="bool">true</enabled>
@@ -625,6 +628,26 @@ close and restart!",2);
 							</script>
 						</binding>
 					</item>	
+					
+					<item>
+						<label>Capture GoogleMapLink</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								printf("http://maps.google.com/maps?ll=%.10f,%.10f&amp;z=12&amp;t=h",
+								getprop("/position/latitude-deg"),
+								getprop("/position/longitude-deg"));
+							</script>
+						</binding>
+					</item>	
+					
+					<item>
+						<name>Nasal-Console</name>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>nasal-console</dialog-name>
+						</binding>
+					</item>			
 
 				</menu>
 

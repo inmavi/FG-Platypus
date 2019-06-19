@@ -848,6 +848,3 @@ if (size(atis)== 0){
 }	
 }});
 
-var dest = airportinfo("loww");
-var (course, dist) = courseAndDistance(dest);
-print("Turn to heading ", math.round(course), ". You have ", sprintf("%.2f", dist), " nm to go");
