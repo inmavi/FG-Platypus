@@ -40,31 +40,6 @@
 			var getpropf = func {
 				getprop(call(sprintf, size(arg) and typeof(arg[0]) == "vector" ? arg[0] : arg));
 			}
-			
-			var radio_fmt = "/instrumentation/%s[%u]/frequencies/%s-mhz";
-
-			var setfreq = func(type, index, which, value) {
-				index = (index >= 1) ? index - 1 : 0;
-				setpropf(radio_fmt, type, index, which, value);
-			}
-
-			var togglefreq = func(type, index) {
-				index = (index >= 1) ? index - 1 : 0;
-				var sel = sprintf(radio_fmt, type, index, "selected");
-				var stby = sprintf(radio_fmt, type, index, "standby");
-				var s = getprop(stby);
-				setprop(stby, getprop(sel));
-				setprop(sel, s);
-			}
-
-			var settacan = func(number, letter) {
-				var ch = sprintf("%03u%s", number, letter);
-				var p = "/instrumentation/tacan/frequencies/selected-channel[%u]";
-				setpropf(p, 1, chr(ch[0]));
-				setpropf(p, 2, chr(ch[1]));
-				setpropf(p, 3, chr(ch[2]));
-				setpropf(p, 4, chr(ch[3]));
-			}
 		]]></script>
 	</nasal>
 
@@ -186,114 +161,122 @@
 		<key n="100">  
 			<name>d</name>
 			<desc>Dialogs</desc>
+			
+		<key n="97">
+			<name>a</name>
+			<desc>Autopilot Settings</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>autopilot</dialog-name>
+			</binding>
+		</key>
 
-			<key n="115">
-				<name>s</name>
-				<desc>tba</desc>
-				<exit/>
-				<binding>
-					<command>property-assign</command>
-					<property>sim/hud/visibility[0]</property>
-					<value>0</value>
-				</binding>
-				<binding>
-					<command>property-toggle</command>
-					<property>sim/model/f-14b/controls/hud/on-off</property>
-				</binding>
-			</key>
+		<key n="102">
+			<name>f</name>
+			<desc>Fuel and Payload</desc>
+			<exit/>
+			<binding>
+				<command>nasal</command>
+				<script>gui.showWeightDialog()</script>
+			</binding>
+		</key>
 
-			<!-- Mode -->
-			<key n="116">
-				<name>t</name>
-				<desc>tba</desc>
-				<exit/>
-				<binding>
-					<command>nasal</command>
-					<script>f14_instruments.sel_displays_main_mode("sim/model/f-14b/controls/pilots-displays/mode", "to-bt")</script>
-				</binding>
-			</key>
+		<key n="103">
+			<name>g</name>
+			<desc>GPS Settings</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>gps</dialog-name>
+			</binding>
+		</key>
 
-			<key n="99">
-				<name>c</name>
-				<desc>tba</desc>
-				<exit/>
-				<binding>
-					<command>nasal</command>
-					<script>f14_instruments.sel_displays_main_mode("sim/model/f-14b/controls/pilots-displays/mode", "cruise-bt")</script>
-				</binding>
-			</key>
+		<key n="104">
+			<name>h</name>
+			<desc>Chat History</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>chat-full</dialog-name>
+			</binding>
+		</key>
 
+		<key n="105">
+			<name>i</name>
+			<desc>Instrument Settings</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>instruments</dialog-name>
+			</binding>
+		</key>
+
+		<key n="109">
+			<name>m</name>
+			<desc>Multiplayer Pilot List</desc>
+			<exit/>
+			<binding>
+				<command>nasal</command>
+				<script>multiplayer.dialog.show()</script>
+			</binding>
+		</key>
+
+		<key n="112">
+			<name>p</name>
+			<desc>Position aircraft</desc>
 			<key n="97">
 				<name>a</name>
-				<desc>Testing</desc>
+				<desc>Position aircraft in air</desc>
 				<exit/>
 				<binding>
 					<command>dialog-show</command>
-	<dialog-name>dash</dialog-name>
-    </binding>
-    <binding>
-	<command>dialog-show</command>
-	<dialog-name>dpresets</dialog-name>
-    </binding>
-	<binding>
-	<command>dialog-show</command>
-	<dialog-name>qreset</dialog-name>
-    </binding>
-    	<binding>
-	<command>property-assign</command>
-	<property>/sim/hud/visibility[1]</property>
-	<value>true</value>					
-    </binding>
-	<binding>
-		<command>nasal</command>
-						<script>
-	if (getprop("/systems/vbo")== 1) {
-				fgcommand("dialog-close", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));		
-		setprop("/systems/vbo",0);		
-	}
-	else {
-		setprop("/systems/vbo",1);
-		var vw =getprop("/sim/current-view/view-number");	
-		 setprop("/sim/current-view/view-number",vw); 
-	}
-
-	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/x",1);
-	setprop("/sim/gui/dialogs/viewBarWarrior_h/dialog/y",1);
-	
-	fgcommand("dialog-show", props.Node.new({ "dialog-name" : "viewBarWarrior_h" }));
-
-						</script>
-						</binding>	
-
-    <binding>
-	<command>property-assign</command>
-	<property>/controls/switches/panel-lights-factor</property>
-	<value>1</value>					
-    </binding>
-
-			</key>
-
-			<key n="103">
-				<name>g</name>
-				<desc>tba</desc>
-				<exit/>
-				<binding>
-					<command>nasal</command>
-					<script>f14_instruments.sel_displays_main_mode("sim/model/f-14b/controls/pilots-displays/mode", "ag-bt")</script>
+					<dialog-name>location-in-air</dialog-name>
 				</binding>
-			</key>
-
-			<key n="108">
-				<name>l</name>
-				<desc>HUD Landing mode</desc>
-				<exit/>
-				<binding>
-					<command>nasal</command>
-					<script>f14_instruments.sel_displays_main_mode("sim/model/f-14b/controls/pilots-displays/mode", "ldg-bt")</script>
-				</binding>
-			</key>
-
+			</key>			
 		</key>
+
+		<key n="114">
+			<name>r</name>
+			<desc>Radio Settings</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>radios</dialog-name>
+			</binding>
+		</key>
+		
+		<key n="116">
+			<name>t</name>
+			<desc>Time Settings</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>timeofday</dialog-name>
+			</binding>
+		</key>
+
+		<key n="118">
+			<name>v</name>
+			<desc>View options</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>view</dialog-name>
+			</binding>
+		</key>
+
+		<key n="119">
+			<name>w</name>
+			<desc>Weather Conditions</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>weather</dialog-name>
+			</binding>
+		</key>
+	</key>
+
 		
 		<!--sub3-->
 		<key n="101">  
