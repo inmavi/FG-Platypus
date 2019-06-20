@@ -18,7 +18,55 @@
 -->
 
 <PropertyList>
+	<nasal>
+		<script><![CDATA[
+			var clamp = func(val, min, max) {
+				return (val > max) ? max : (val < min) ? min : val;
+			}
 
+			var adjustprop = func(path, offset, min = -1, max = 1) {
+				var val = getprop(path) + offset;
+				setprop(path, clamp(val, min, max));
+				return val;
+			}
+
+			# Usage: setpropf(<format>, <vector or list of args>, <value>);
+			var setpropf = func {
+				var val = pop(arg);
+				setprop(call(sprintf, size(arg) and typeof(arg[0]) == "vector" ? arg[0] : arg), val);
+			}
+
+			# Usage: getpropf(<format>, <vector or list of args>);
+			var getpropf = func {
+				getprop(call(sprintf, size(arg) and typeof(arg[0]) == "vector" ? arg[0] : arg));
+			}
+			
+			var radio_fmt = "/instrumentation/%s[%u]/frequencies/%s-mhz";
+
+			var setfreq = func(type, index, which, value) {
+				index = (index >= 1) ? index - 1 : 0;
+				setpropf(radio_fmt, type, index, which, value);
+			}
+
+			var togglefreq = func(type, index) {
+				index = (index >= 1) ? index - 1 : 0;
+				var sel = sprintf(radio_fmt, type, index, "selected");
+				var stby = sprintf(radio_fmt, type, index, "standby");
+				var s = getprop(stby);
+				setprop(stby, getprop(sel));
+				setprop(sel, s);
+			}
+
+			var settacan = func(number, letter) {
+				var ch = sprintf("%03u%s", number, letter);
+				var p = "/instrumentation/tacan/frequencies/selected-channel[%u]";
+				setpropf(p, 1, chr(ch[0]));
+				setpropf(p, 2, chr(ch[1]));
+				setpropf(p, 3, chr(ch[2]));
+				setpropf(p, 4, chr(ch[3]));
+			}
+		]]></script>
+	</nasal>
 
 	<key n="97">
 		<name>a</name>
@@ -360,69 +408,170 @@
 
 		</key>
 		
-		<!-- sub4 -->
-		<key n="102">
-			<name>f</name>
-			<desc>Frequencies</desc>
-			<binding>
-				<command>null</command>
-			</binding>
+<!-- Radio sub4-->
+	<nasal>
+		<script>
+			var radio_fmt = "/instrumentation/%s[%u]/frequencies/%s-mhz";
 
-			<key n="99">
-				<name>c</name>
-				<desc>UHF set Channel</desc>
-				<key n="60">
-					<name>&gt;</name>
-					<desc>UHF set Channel up</desc>
-					<no-exit/>
+			var setfreq = func(type, index, which, value) {
+				index = (index >= 1) ? index - 1 : 0;
+				setpropf(radio_fmt, type, index, which, value);
+			}
+
+			var togglefreq = func(type, index) {
+				index = (index >= 1) ? index - 1 : 0;
+				var sel = sprintf(radio_fmt, type, index, "selected");
+				var stby = sprintf(radio_fmt, type, index, "standby");
+				var s = getprop(stby);
+				setprop(stby, getprop(sel));
+				setprop(sel, s);
+			}
+
+			var settacan = func(number, letter) {
+				var ch = sprintf("%03u%s", number, letter);
+				var p = "/instrumentation/tacan/frequencies/selected-channel[%u]";
+				setpropf(p, 1, chr(ch[0]));
+				setpropf(p, 2, chr(ch[1]));
+				setpropf(p, 3, chr(ch[2]));
+				setpropf(p, 4, chr(ch[3]));
+			}
+		</script>
+	</nasal>
+
+	<key n="102">
+		<name>f</name>
+		<desc>Frequencies</desc>
+
+		<key n="97">
+			<name>a</name>
+			<desc>ADF</desc>
+			<key n="102">
+				<name>f</name>
+				<desc>ADF frequency = ? kHz</desc>
+				<key n="902">
+					<name>%u</name>
+					<desc>ADF frequency = %u kHz</desc>
 					<binding>
 						<command>nasal</command>
-						<script>_ = sprintf("Chan %02u Freq %3f", an_arc_159v1.adj_channel(1), an_arc_159v1.get_selected())</script>
-					</binding>
-
-
-				</key>
-				<key n="62">
-					<name>&lt;</name>
-					<desc>UHF set Channel down</desc>
-					<no-exit/>
-					<binding>
-						<command>nasal</command>
-						<script>_ = sprintf("Chan %02u Freq %3f", an_arc_159v1.adj_channel(-1), an_arc_159v1.get_selected())</script>
+						<script>setprop("/instrumentation/adf[0]/frequencies/selected-khz", arg[0])</script>
 					</binding>
 				</key>
+			</key>
+		</key>
 
+		<key n="99">
+			<name>c</name>
+			<desc>Comm</desc>
+			<key n="902">
+				<name>%u</name>
+				<desc>Comm%u</desc>
 				<key n="102">
 					<name>f</name>
-					<desc>UHF change Channel Frequency = ? kHz (225000-400000)</desc>
-					<key n="902">
-						<name>%u</name>
-						<desc>UHF frequency = %u kHz</desc>
+					<desc>Comm%u frequency = ? MHz</desc>
+					<key n="37">
+						<name>%f</name>
+						<desc>Comm%u frequency = %.3f MHz</desc>
 						<binding>
 							<command>nasal</command>
-							<script>an_arc_159v1.set_freq(arg[0]); an_arc_159v1.load(arg[0])</script>
+							<script>setfreq("comm", arg[0], "selected", arg[1])</script>
 						</binding>
 					</key>
 				</key>
-			</key>
 
-			<key n="111">
-				<name>o</name>
-				<desc>UHF set Function PRESET - Mode MAIN</desc>
-				<binding>
-					<command>nasal</command>
-					<script>an_arc_159v1.Mode.setValue(1); an_arc_159v1.turn_on(); an_arc_159v1.Function.setValue(0);</script>
-				</binding>
-			</key>
-			<key n="47">
-				<name>/</name>
-				<desc>UHF set Mode OFF</desc>
-				<binding>
-					<command>nasal</command>
-					<script>an_arc_159v1.Mode.setValue(0); an_arc_159v1.turn_off()</script>
-				</binding>
+				<key n="115">
+					<name>s</name>
+					<desc>Comm%u standby frequency = ? MHz</desc>
+					<key n="901">
+						<name>%f</name>
+						<desc>Comm%u standby frequency = %.3f MHz</desc>
+						<binding>
+							<command>nasal</command>
+							<script>setfreq("comm", arg[0], "standby", arg[1])</script>
+						</binding>
+					</key>
+				</key>
+
+				<key n="116">
+					<name>t</name>
+					<desc>Comm%u toggle selected/standby</desc>
+					<binding>
+						<command>nasal</command>
+						<script>togglefreq("comm", arg[0])</script>
+					</binding>
+				</key>
 			</key>
 		</key>
+
+		<key n="110">
+			<name>n</name>
+			<desc>Nav</desc>
+			<key n="902">
+				<name>%u</name>
+				<desc>Nav%u</desc>
+				<key n="102">
+					<name>f</name>
+					<desc>Nav%u frequency = ? MHz</desc>
+					<key n="901">
+						<name>%f</name>
+						<desc>Nav%u frequency = %.3f MHz</desc>
+						<binding>
+							<command>nasal</command>
+							<script>setfreq("nav", arg[0], "selected", arg[1])</script>
+						</binding>
+					</key>
+				</key>
+
+				<key n="115">
+					<name>s</name>
+					<desc>Nav%u standby frequency = ? MHz</desc>
+					<key n="901">
+						<name>%f</name>
+						<desc>Nav%u standby frequency = %.3f MHz</desc>
+						<binding>
+							<command>nasal</command>
+							<script>setfreq("nav", arg[0], "standby", arg[1])</script>
+						</binding>
+					</key>
+				</key>
+
+				<key n="116">
+					<name>t</name>
+					<desc>Nav%u toggle selected/standby</desc>
+					<binding>
+						<command>nasal</command>
+						<script>togglefreq("nav", arg[0])</script>
+					</binding>
+				</key>
+			</key>
+		</key>
+
+		<key n="116">
+			<name>t</name>
+			<desc>TACAN channel = ?</desc>
+			<key n="902">
+				<name>%3u</name>
+				<desc>TACAN channel = %u</desc>
+				<key n="120">
+					<name>x</name>
+					<desc>TACAN channel = %uX</desc>
+					<binding>
+						<command>nasal</command>
+						<script>settacan(arg[0], "X")</script>
+					</binding>
+				</key>
+
+				<key n="121">
+					<name>y</name>
+					<desc>TACAN channel = %uY</desc>
+					<binding>
+						<command>nasal</command>
+						<script>settacan(arg[0], "Y")</script>
+					</binding>
+				</key>
+			</key>
+		</key>
+	</key>
+
 		
 			<!-- sub5 -->
 		<key n="114">
