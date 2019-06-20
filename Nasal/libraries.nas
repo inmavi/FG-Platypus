@@ -207,7 +207,8 @@ setlistener("/sim/sounde/knob", func {
 	setlistener("/sim/signals/fdm-initialized", func {
 	systems.elec_init();
 	systems.engine_init();
-	systems.fuel_init();	
+	systems.fuel_init();
+	systems.ospd_init();	
 	systems.wdheight_init();
 	systems.wdawc_init();
 	checkUse();
