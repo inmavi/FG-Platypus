@@ -848,7 +848,3 @@ if (size(atis)== 0){
 }	
 }});
 
-var apt = airportinfo("LFPG").runways;
-foreach(var key;keys(apt)) {
-print (key);
-}

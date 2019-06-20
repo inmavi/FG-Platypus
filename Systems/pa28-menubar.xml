@@ -427,7 +427,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trp", 1);		
+					<script>											
+					setprop("/options/trp", 1);		
 					</script>
 			</binding>
 
@@ -446,7 +447,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 1);		
+					<script>											
+					setprop("/options/trm", 1);		
 					</script>
 			</binding>
 					</item>	
@@ -458,7 +460,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 2);		
+					<script>											
+					setprop("/options/trm", 2);		
 					</script>
 			</binding>
 					</item>
@@ -470,7 +473,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 3);		
+					<script>											
+					setprop("/options/trm", 3);		
 					</script>
 			</binding>
 					</item>	
@@ -482,7 +486,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 4);		
+					<script>											
+					setprop("/options/trm", 4);		
 					</script>
 			</binding>
 					</item>	
@@ -494,7 +499,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 5);		
+					<script>											
+					setprop("/options/trm", 5);		
 					</script>
 			</binding>
 					</item>
@@ -506,7 +512,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 6);		
+					<script>											
+					setprop("/options/trm", 6);		
 					</script>
 			</binding>
 					</item>
@@ -518,7 +525,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 7);		
+					<script>											
+					setprop("/options/trm", 7);		
 					</script>
 			</binding>
 					</item>		
@@ -530,7 +538,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 8);		
+					<script>											
+					setprop("/options/trm", 8);		
 					</script>
 			</binding>
 					</item>
@@ -542,7 +551,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 9);		
+					<script>											
+					setprop("/options/trm", 9);		
 					</script>
 			</binding>
 					</item>
@@ -554,7 +564,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 10);		
+					<script>											
+					setprop("/options/trm", 10);		
 					</script>
 			</binding>
 					</item>
@@ -566,7 +577,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 11);		
+					<script>											
+					setprop("/options/trm", 11);		
 					</script>
 			</binding>
 					</item>
@@ -578,7 +590,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 12);		
+					<script>											
+					setprop("/options/trm", 12);		
 					</script>
 			</binding>
 					</item>
@@ -590,7 +603,8 @@ close and restart!",2);
        	 				</binding>
 						<binding>
 				<command>nasal</command>
-					<script>											setprop("/options/trm", 13);		
+					<script>
+					setprop("/options/trm", 13);		
 					</script>
 			</binding>
 					</item>
@@ -606,59 +620,8 @@ close and restart!",2);
 						setprop("/options/trm", 14);		
 					</script>
 				</binding>
-					</item>
-					
-					</menu>
-					
-					<menu n="104">
-					<label>DevTools</label>
-					<enabled type="bool">true</enabled>
-			
-					<item>
-						<label>Listeners Active</label>
-						<binding>
-            				<command>nasal</command>
-            				<script>								
-								var ls = setlistener("/sim/test", func(){
-									print("Property '/sim/test' has been changed");
-								});
-								setprop("/sim/test", "blah"); # trigger listener
-								var rem = removelistener(ls); # remove listener
-								gui.popupTip("There are  " ~ rem ~ " listeners open  " , 4);									
-							</script>
-						</binding>
-					</item>
-
-					<item>
-						<name>property-browser</name>
-							<binding>
-								<command>nasal</command>
-								<script>gui.property_browser()</script>
-							</binding>
-					</item>
-					
-					<item>
-						<label>Capture GoogleMapLink</label>
-						<binding>
-							<command>nasal</command>
-							<script>							
-								printf("http://maps.google.com/maps?ll=%.10f,%.10f&amp;z=12&amp;t=h",
-								getprop("/position/latitude-deg"),
-								getprop("/position/longitude-deg"));														
-							</script>
-						</binding>
-					</item>	
-					
-					<item>
-						<name>Nasal-Console</name>
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>nasal-console</dialog-name>
-						</binding>
-					</item>			
-
-				</menu>
-
+					</item>					
+					</menu>					
 			</default>
 		
 </PropertyList>
