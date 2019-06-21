@@ -457,6 +457,20 @@
 		    </binding>
 		</key>
 		
+		<key n="103">
+			<name>g</name>
+			<desc>Dump Google Maps link</desc>
+			<exit/>
+			<binding>
+				<command>nasal</command>
+				<script>
+					printf("http://maps.google.com/maps?ll=%.10f,%.10f&amp;z=12&amp;t=h",
+							getprop("/position/latitude-deg"),
+							getprop("/position/longitude-deg"));
+				</script>
+			</binding>
+		</key>
+		
 		<key n="104">
 			<name>h</name>
 			<desc>Reload Hud</desc>
