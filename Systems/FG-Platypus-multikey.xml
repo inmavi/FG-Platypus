@@ -447,6 +447,29 @@
 				</binding>
 		</key>
 		
+		<key n="99">
+			<name>c</name>
+			<desc>Convert</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>qcalc</dialog-name>
+			</binding>
+		</key>
+		
+		<key n="107">
+			<name>k</name>
+			<desc>Find KeyCode</desc>
+			<exit/>
+			<binding>
+				<command>nasal</command>
+				<script>
+					gui.property_browser("/devices/status/keyboard/event");
+					logger.screen.red("Press any key to find its value...",1);
+					</script>
+			</binding>
+		</key>			
+		
 		<key n="109">
 			<name>m</name>
 			<desc>Reload Aircraft Model</desc>
@@ -467,6 +490,7 @@
 					printf("http://maps.google.com/maps?ll=%.10f,%.10f&amp;z=12&amp;t=h",
 							getprop("/position/latitude-deg"),
 							getprop("/position/longitude-deg"));
+					logger.screen.red("Google Map Reference Link now in console",1);
 				</script>
 			</binding>
 		</key>

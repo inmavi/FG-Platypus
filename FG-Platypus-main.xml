@@ -53,6 +53,18 @@
 					<green type="float">255</green>
 					<blue type="float">255</blue>
 				</color>
+				
+				<color n="1">
+					<!-- night -->
+					<transparent type="bool">false</transparent>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">0.75</brightness>
+					<alpha type="float">0.67</alpha>
+					<red type="float">0.00</red>
+					<green type="float">0.3</green>
+					<blue type="float">1.00</blue>
+				</color>
+				
 				<color n="2">
 					<alpha>1</alpha> 
 					<brightness>1</brightness>             
