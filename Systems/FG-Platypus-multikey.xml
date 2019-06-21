@@ -330,6 +330,10 @@
 				<command>dialog-show</command>
 				<dialog-name>windconfig</dialog-name>
 			</binding>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>windsim</dialog-name>
+			</binding>
 		</key>
 
 		<key n="116">
