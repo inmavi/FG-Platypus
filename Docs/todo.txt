@@ -1,6 +1,5 @@
 
-add booster function to config menu button - basically run through a list of toggling properties and settings to improve response time 
-framerate on hopelessly underpowered machines.
+add booster function to config menu button 
 
 add some more liveries aka AUA Qantas
 
@@ -37,8 +36,6 @@ integrate all scenarios into one single dialog
 light up the 803 stopwatch lcd and the battery meter
 
 fix hotspot labels and tooltips to only show up in pilotview
-
-
 
 
 

@@ -1,4 +1,4 @@
-Wind Config needs to be adjusted for user switching wether scenario as the code does not place the check into manual config, thus blocking the windsim dialog.
+Wind Config needs to be adjusted for user switching weather scenario as the code does not place the check into manual config, thus blocking the windsim dialog.
 
 Nav Scen 2 and 3 (approach) at times have problem with rwy 34 at lszh and loww, the reciprocals ils works well on 16 but 
 once on 34 the aircraft turns a 180 degrees even though frequency and radial correct in radio.

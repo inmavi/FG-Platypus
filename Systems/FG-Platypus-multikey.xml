@@ -538,6 +538,16 @@
 				</binding>
 			</key>
 		</key>
+		
+		<key n="117">
+			<name>u</name>
+			<desc>Check Update</desc>
+			<exit/>
+				<binding>
+					<command>open-browser</command>
+					<url>https://github.com/inmavi/FG-Platypus/</url>
+				</binding>
+		</key>
 				
 	</key>
 				
