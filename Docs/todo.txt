@@ -6,8 +6,6 @@ add some more liveries aka AUA Qantas
 
 use combos for runways in nav scens aka rm to eliminate runtime errors if incorrect runway is entered
 
-fix devtron startup upper display to show celsius
-
 change the colour of the windrose needle to avoid confusion with the rmi
 
 fix ground reactions - wheels to deep into runway surface

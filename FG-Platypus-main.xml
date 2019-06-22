@@ -1342,6 +1342,7 @@ Click Run to proceed
 			<path>sim/model/livery/name</path>
 			<path>/sim/model/equipment/ground-services/fuel-truck/enable</path>
 			<path>/sim/model/equipment/ground-services/kr87-windhud/enable</path>
+			<path>instrumentation/davtron803/top-mode</path>
 			<path>limits/warnings-enabled</path>
 			<path>sim/bindings/menu/binding[10]/dialog-name</path>
 			<path>/fdm/jsbsim/inertia/pointmass-weight-lbs[0]</path>
