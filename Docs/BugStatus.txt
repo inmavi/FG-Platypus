@@ -1,3 +1,6 @@
+non objects have no members nasal error 
+line 838 action sim caused by atis procedure
+
 Wind Config needs to be adjusted for user switching weather scenario as the code does not place the check into manual config, thus blocking the windsim dialog.
 
 Nav Scen 2 and 3 (approach) at times have problem with rwy 34 at lszh and loww, the reciprocals ils works well on 16 but 
