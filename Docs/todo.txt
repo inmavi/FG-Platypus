@@ -21,8 +21,6 @@ stop radio sound when switching between scenarios
 
 wind instrument for hud
 
-get the propeller spinning with engine off on the ground aka original pa28-161 (maybe a yasim thing  ???)
--------------------------------------------------------
 clean up xml and nas files
 
 replace borrowed models, code text with own
@@ -33,7 +31,7 @@ remove redundant and or duplicate code
 
 integrate all scenarios into one single dialog
 
-light up the 803 stopwatch lcd and the battery meter
+light up the 803 stopwatch lcd and the battery meter maybe change electrical sys
 
 fix hotspot labels and tooltips to only show up in pilotview
 

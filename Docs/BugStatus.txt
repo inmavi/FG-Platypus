@@ -28,14 +28,10 @@ Views need fixing -
 the front view is actually the helicopter view and the helicopter view is the model view
 only confusing when using instant replay
 
-Fix - too many poi open message on fuel alert popup, but not when opened manually
-
 Fix reset behaviour on nav scenarios -occasional 
 crash at startup as reset does not clear previous properties when switching from airborne to runway
 
 hanging stopwatch needs lights
-
-hide that "file opens in a webbrowser" msg or autoclose onc the doc is open.
 
 
 
