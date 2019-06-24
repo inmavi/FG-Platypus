@@ -497,7 +497,8 @@ if (getprop("/sim/freeze/clock")== 1) {
     setprop("/accelerations/pilot-g", 1.0);
     setprop("/sim/model/material/LandingLight/factor", 0.0);
     setprop("/sim/rendering/lightning-enable", 1);	
-    setprop("/sim/model/material/LandingLight/factorAGL", 0.0); 
+    setprop("/environment/config/presets/wind-override", 0); 
+	setprop("/sim/model/material/LandingLight/factorAGL", 0.0); 
     setprop("/instrumentation/dme/volume", 1);
     setprop("/instrumentation/nav/volume", 1); 
     setprop("/instrumentation/nav[1]/volume", 1); 
