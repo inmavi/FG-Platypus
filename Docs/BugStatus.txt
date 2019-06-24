@@ -1,3 +1,6 @@
+commandline does not seem to load libraries.nas or part maybe need to incorporate procs into the init part ?
+
+
 non objects have no members nasal error 
 line 838 action sim caused by atis procedure
 
