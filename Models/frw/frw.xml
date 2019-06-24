@@ -361,19 +361,31 @@
       </condition>
     </animation>
 
-    <!-- Click on the vitre showing the flighttime on the screen -->    
-    <animation>
-      <type>pick</type>
-      <object-name>vitre</object-name>
-      <visible>true</visible>
-      <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-			  <binding>
-				  <command>nasal</command>
-				  <script>frw.frw_show_time_on_screen()</script>
-			  </binding>
-      </action>
-    </animation>
+    <!-- Click on the vitre showing distance to nearest ap -->    
+    	
+	<animation>
+    <type>pick</type>
+    <object-name>vitre</object-name>
+    <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+          <binding>
+             <command>nasal</command>
+             <script>
+				libraries.apn();
+			</script>
+          </binding>
+     </action>
+
+	<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>output</tooltip-id>
+                <mapping>x1</mapping>
+                <label>Distance Nst AP</label>		
+            </binding>
+        </hovered>
+
+  </animation>
     
 </PropertyList>

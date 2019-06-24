@@ -720,10 +720,10 @@ var closetako = func { tako.close(); }
 var nap = screen.display.new(410,-130);
 var shownap = func() {
 	if (getprop("/sim/time/sun-angle-rad") > 1.57)  {
-			nap.setcolor(1,0.9,0);	
+			nap.setcolor(1,0.8,0);	
 	}
 	if (getprop("/sim/time/sun-angle-rad") < 1.57)  {
-			nap.setcolor(0,0,0);	
+			nap.setcolor(1,0,0);	
 	}
 	nap.format = "%.5g";
  	nap.add("/tracking/airport");
@@ -743,7 +743,7 @@ var apn = func() {
 	if (getprop("/systems/np")== 1 ) {
 		libraries.shownap();		
 			setprop("/sim/atc/freq-airport", (getprop("/sim/airport/closest-airport-id")));	
-			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "freq-search" }));			
+			##fgcommand("dialog-show", props.Node.new({ "dialog-name" : "freq-search" }));			
 		setprop("/systems/np",0) ;
 	    } else {
 		libraries.nap.close();
