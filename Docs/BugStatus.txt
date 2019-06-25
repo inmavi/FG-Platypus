@@ -1,4 +1,5 @@
-commandline does not seem to load libraries.nas or part maybe need to incorporate procs into the init part ?
+need to adjust electrical system it allow for battery to drain and if alternator not on trigger failure mode once battery depleted.
+
 
 
 non objects have no members nasal error 
@@ -32,7 +33,7 @@ the front view is actually the helicopter view and the helicopter view is the mo
 only confusing when using instant replay
 
 Fix reset behaviour on nav scenarios -occasional 
-crash at startup as reset does not clear previous properties when switching from airborne to runway
+crash at startup as reset does not clear previous properties when switching from airborne to runway even though cleanup function runs.
 
 hanging stopwatch needs lights
 

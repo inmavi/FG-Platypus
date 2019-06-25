@@ -31,13 +31,13 @@ setprop("/sim/menubar/default/menu[9]/item[6]/enabled",1);
 
 if (getprop("/systems/starts") > 321) {
 	setprop("/systems/nbat", 1);
-	setprop("/sim/menubar/default/menu[102]/item[5]/enabled", 1);
+	setprop("/sim/menubar/default/menu[102]/item[4]/enabled", 1);
 	setprop("/systems/electrical/batt-volt", 0);
 	setprop("/systems/electrical/batt-amp", 0);
 } 
 
 if (getprop("/systems/starts") < 321) {
-	setprop("/sim/menubar/default/menu[102]/item[5]/enabled", 0);
+	setprop("/sim/menubar/default/menu[102]/item[4]/enabled", 0);
 	setprop("/systems/nbat", 0);
 	setprop("/systems/electrical/batt-volt", 12);
 	setprop("/systems/electrical/batt-amp", 35);		
@@ -77,8 +77,6 @@ gui.Dialog.new("sim/gui/dialogs/freq-search/dialog",
 "Aircraft/FG-Platypus/Dialogs/freq-search.xml");
 gui.Dialog.new("sim/gui/dialogs/instrumentsAlt/dialog", 
 "Aircraft/FG-Platypus/Dialogs/instrumentsAlt.xml");
-gui.Dialog.new("sim/gui/dialogs/cdigsbrg/dialog", 
-"Aircraft/FG-Platypus/Dialogs/cdigsbrg.xml");
 gui.Dialog.new("sim/gui/dialogs/check1/dialog", 
 "Aircraft/FG-Platypus/Dialogs/check1.xml");
 gui.Dialog.new("sim/gui/dialogs/check2/dialog", 
@@ -89,8 +87,6 @@ gui.Dialog.new("sim/gui/dialogs/hdgselect/dialog",
 "Aircraft/FG-Platypus/Dialogs/hdgselect.xml");
 gui.Dialog.new("sim/gui/dialogs/qcalc/dialog", 
 "Aircraft/FG-Platypus/Dialogs/qcalc.xml");
-gui.Dialog.new("sim/gui/dialogs/tprimer/dialog", 
-"Aircraft/FG-Platypus/Dialogs/tprimer.xml");
 gui.Dialog.new("sim/gui/dialogs/lifo/dialog", 
 "Aircraft/FG-Platypus/Dialogs/lifo.xml");
 gui.Dialog.new("sim/gui/dialogs/trim-panel/dialog", 

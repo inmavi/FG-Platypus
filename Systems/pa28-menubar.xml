@@ -331,13 +331,7 @@
 							<dialog-name>qreset</dialog-name>
 						</binding>
 					</item>
-					<item>
-						<label>Banking Primer</label>	
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>tprimer</dialog-name>
-						</binding>
-					</item>
+					
 					<item>
 						<label>Basic Calculations </label>
 						<key>C</key>
@@ -355,9 +349,7 @@
 							<command>open-browser</command>
 							<path>http://www.?ightgear.org/download/scenery/</path>
 						</binding>
-					</item>
-
-					
+					</item>					
 
 					<item>
 						<label>Open Docs Folder</label>
@@ -365,9 +357,7 @@
 							<command>open-browser</command>
 							<path>Aircraft/FG-Platypus/Docs/</path>
 						</binding>
-					</item>
-
-					
+					</item>				
 
 					<item>
 						<label>Replace Faulty Battery</label>
@@ -400,7 +390,6 @@ close and restart!",2);
 							<dialog-name>massbal</dialog-name>
 						</binding>						
 					</item>
-
 
 					<item>
 						<label>Toggle Flashlight</label>

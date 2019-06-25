@@ -32,9 +32,9 @@
         	</tags>
 		
 		<hud>
-			<path n="1">Aircraft/FG-Platypus/Huds/PA161HUD.xml</path>
-			<path n="2">Aircraft/FG-Platypus/Huds/FGN.xml</path>
-			<path n="4">Aircraft/FG-Platypus/Huds/ICAO.xml</path>
+			<path n="1">Aircraft/FG-Platypus/Huds/pa-hud.xml</path>
+			<path n="2">Aircraft/FG-Platypus/Huds/fgn.xml</path>
+			<path n="4">Aircraft/FG-Platypus/Huds/icao.xml</path>
 			<path n="3">Aircraft/FG-Platypus/Huds/default.xml</path>
 			<path n="5">Aircraft/FG-Platypus/Huds/gps.xml</path>
 
@@ -325,47 +325,6 @@ C - Show Presets Config
 </kbindings>
 
 
-<bank>
-
-Standard Rate of turn = 3 degrees per second regardless of speed - the variable being the bank angle. A 180 degree turn will take 1 minute, a full 360 degree circle will take 2 minutes.
-
-To determine the bank angle either:
-
-Divide the airspeed by 10 and add 7
-e.g. Airspeed = 120 knots / 10 + 7 = Bank angle of 19 degrees
-or Rule of thumb simply divide TAS by 15
-e.g.Airspeed=120 knots / 15 = Bank angle of 18 degrees
-
-Standard Rate of Turn Calcs:
-
-Rule of thumb for small heading change:
-The bank angle should be less or equal to the number of heading degree change required.
-
-ROT =( Constant (1091) x tangent of bank angle)/airspeed
-The tangent of 18 degrees = 0.3249 ...Calculator handy ?
-e.g. 1091 x 0.3249/120 = 2.95 degrees per second
-
-Radius of Turn Calcs
-R = Airspeed squared /( 11.26 x Tangent of Bank Angle)
-e.g. 120knots squared = 14400, Tangent of 20 degrees = 0.3639
-	_14400 / (11.26 x 0.3639) = 3514 feet
-
-Assume the bank angle were 30 degrees the calc would return
-Tangent of 30 degrees = 0.5773
-	_14400 / (11.26 x 0.5773) = 2115 feet
-
-Assume bank angle at 30 degrees and airspeed 90 knots
-Airspeed squared = 8100
-	_8100 / (11.26 x 0.5773) = 1246 feet
-
-The higher the speed the greater the radius
-For more info consult the FAA handbooks.
-Note: Steepening the turn results in a higher stall speed !    
-...
-
-</bank>
-
-        
 
 	<procs>
 ->
