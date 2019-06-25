@@ -680,17 +680,6 @@ if (getprop("/systems/tmw")== 1) {
 	</script>
    </binding>
 </mod-up>	
-	<binding>
-	<condition>
-		<not>
-		<property>controls/gear/brake-parking</property>
-		</not>
-	</condition>	
-			<command>show-message</command>
-			<id>strap</id>
-			<label>Fasten Your Seat Belt</label>
-			<delay>3.75</delay>
-	</binding>	
  </key>
 
  <key n="82">

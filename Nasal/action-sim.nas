@@ -199,6 +199,7 @@ var ab = setlistener("/autopilot/route-manager/departure/takeoff-time", func {
 	if (getprop("/gear/gear/wow") == 0) {		
 	var dt = (getprop("instrumentation/clock/indicated-string"));
 	if (getprop("/systems/takeoff") ==  nil) {
+	var dt = 0;
 			setprop("/systems/takeoff", dt);	
 	var tof = props.globals.getNode("/systems/data/takeoffs");
 	tof.setValue(tof.getValue() + 1);

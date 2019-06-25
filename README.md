@@ -11,7 +11,7 @@ a joystick
 
 can do with less but framerate will suffer, responsetime lagging etc...
 
-
+- Concept: Gerhard Kick
 - FDM: Joshua Davidson (it0uchpods)
 - Systems: Joshua Davidson (it0uchpods)
 - Documentation: Gerhard Kick (inmavi)
@@ -28,6 +28,8 @@ The aircraft does not exist in the real world as it simply is a mockup of what k
 The emphasis rests on user friendlyness rather then beeing authentic.
 
 If you wish to contribute the following streams could do with some work:
+
+The aircraft is incomplete and is not maintained and could do with some work:
 
 Aircraft Specific -
 
