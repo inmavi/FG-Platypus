@@ -158,32 +158,32 @@
 			<preview>
 				<type>n1</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash1.png</path>
+				<path>Splash/splash1.png</path>
 			</preview>
 			<preview>
 				<type>n2</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash2.png</path>
+				<path>Splash/splash2.png</path>
 			</preview>	
 			<preview>
 				<type>n3</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash3.png</path>
+				<path>Splash/splash3.png</path>
 			</preview>						
 			<preview>
 				<type>n4</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash4.png</path>
+				<path>Splash/splash4.png</path>
 			</preview>			
 			<preview>
 				<type>n5</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash5.png</path>
+				<path>Splash/splash5.png</path>
 			</preview>				
 			<preview>
 				<type>n9</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash9.png</path>
+				<path>Splash/splash6.png</path>
 			</preview>							
 		</previews>
 
@@ -1559,7 +1559,7 @@ Click Run to proceed
 	<input>
 		<mice include="mice.xml"/>
 		<keyboard include="Systems/pa28-keyboard.xml"/>	
-			  <multikey include="Systems/FG-Platypus-multikey.xml"/>
+			  <multikey include="Systems/fg-platypus-multikey.xml"/>
 
      <!--
 		<mice include="Systems/Pa28-mice.xml"/>
