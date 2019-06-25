@@ -233,7 +233,7 @@ if (getprop("/systems/autofuel") == 1)  {
 	## fetch Ils data for quickstarts ##
 
 if (getprop("/systems/ils") == 1)  {
-
+	setprop("/sim/presets/runway", (getprop("/sim/atc/runway")));	
 	var cur_runway = getprop("sim/presets/runway");
       var runways = airportinfo(getprop("sim/presets/airport-id")).runways;
       var r =runways[cur_runway];

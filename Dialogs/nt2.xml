@@ -249,7 +249,8 @@ and replace your depleted battery", 3);
 					}					 
 		aircraft.teleport(airport = apid, runway = rwid,lat = -9999, lon = -9999, alt = alti,
 		speed = spd, distance = dist, azimuth = 0, glideslope = 0, heading = 9999) ;
-		setprop("/sim/presets/aircraft-id", apid);
+		setprop("/sim/presets/runway", (getprop("/sim/atc/runway")));	
+		setprop("/sim/presets/airport-id", apid);
 		setprop("/controls/gear/brake-parking", 0);
 		davtron803.davtron_flight_time.reset();
 		davtron803.davtron_flight_time.start();
