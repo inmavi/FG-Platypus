@@ -1,20 +1,12 @@
 need to adjust electrical system it allow for battery to drain and if alternator not on trigger failure mode once battery depleted.
 
-
-
-non objects have no members nasal error 
-line 838 action sim caused by atis procedure
-
 Wind Config needs to be adjusted for user switching weather scenario as the code does not place the check into manual config, thus blocking the windsim dialog.
-
-Nav Scen 2 and 3 (approach) at times have problem with rwy 34 at lszh and loww, the reciprocals ils works well on 16 but 
-once on 34 the aircraft turns a 180 degrees even though frequency and radial correct in radio.
 
 eddf shows longest runway ils frequency twice in fuelstatus
 
 pilot head distorted depending on view angle
 
-vor s seem to be incorrect maybe because of view settings '??
+vor s seem to be incorrect at times '??
 
 eddm has atis console shows freq in console but com not updated ???
 
@@ -22,7 +14,7 @@ if option rendering als checked landing light is on even though switch is in off
 
 review nearest ap code as not always in sync with sim closest ap
 
-nav scenarios and quickstarts need some error handling if runway entered incorrect - at the moment causing a nasal error on line 309
+nav scenarios and quickstarts need some error handling if runway entered incorrect - at the moment causing a nasal error 
 replace input with a combo
 
 Somethings wrong - fuelflow drops with strong headwind ???

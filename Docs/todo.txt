@@ -25,8 +25,6 @@ clean up xml and nas files
 
 replace borrowed models, code text with own
 
-fix lower upper case issues
-
 remove redundant and or duplicate code
 
 integrate all scenarios into one single dialog
