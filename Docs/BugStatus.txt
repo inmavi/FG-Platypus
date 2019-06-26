@@ -8,18 +8,11 @@ pilot head distorted depending on view angle
 
 vor s seem to be incorrect at times '??
 
-eddm has atis console shows freq in console but com not updated ???
-
-if option rendering als checked landing light is on even though switch is in off position
+eddm has atis, console shows freq in console but com not updated or twr freq???
 
 review nearest ap code as not always in sync with sim closest ap
 
-nav scenarios and quickstarts need some error handling if runway entered incorrect - at the moment causing a nasal error 
-replace input with a combo
-
 Somethings wrong - fuelflow drops with strong headwind ???
-
-Views need fixing -
 
 the front view is actually the helicopter view and the helicopter view is the model view
 only confusing when using instant replay
