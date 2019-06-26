@@ -41,7 +41,7 @@ whatever you think may add value
 Nav-Scenario Specific -
 
 improvement of existing scenarios
-addition of new ones e.g. fly a DME arc, RNAV, Radar Vectors, etc
+addition of new ones e.g. fly a DME arc, RNAV, Radar Vectors, Side Slipping, etc
 
 Maintenance -
 
