@@ -20,7 +20,7 @@ only confusing when using instant replay
 Fix reset behaviour on nav scenarios -occasional 
 crash at startup as reset does not clear previous properties when switching from airborne to runway even though cleanup function runs.
 
-hanging stopwatch needs lights
+hanging stopwatch needs lights, so does the voltmeter
 
 
 

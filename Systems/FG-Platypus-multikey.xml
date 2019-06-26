@@ -201,16 +201,12 @@
 
 		<key n="112">
 			<name>p</name>
-			<desc>Position aircraft</desc>
-			<key n="97">
-				<name>a</name>
-				<desc>Position aircraft in air</desc>
-				<exit/>
-				<binding>
-					<command>dialog-show</command>
-					<dialog-name>location-in-air</dialog-name>
-				</binding>
-			</key>			
+			<desc>Position aircraft in air</desc>
+			<exit/>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>location-in-air-pa</dialog-name>
+			</binding>						
 		</key>
 
 		<key n="114">
