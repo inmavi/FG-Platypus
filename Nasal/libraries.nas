@@ -499,7 +499,7 @@ if (getprop("/sim/freeze/clock")== 1) {
     setprop("/instrumentation/nav/volume", 1); 
     setprop("/instrumentation/nav[1]/volume", 1); 
 	setprop("/instrumentation/davtron803/top-mode","C");
-    setprop("/instrumentation/davtron803/bot-mode", "LT");
+    setprop("/instrumentation/davtron803/bot-mode", "UT");
 	fgcommand("dialog-close", props.Node.new({ "dialog-name" : "check2" }));	
 }); 
 
