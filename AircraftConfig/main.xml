@@ -424,6 +424,11 @@ if (getprop("/instrumentation/nav/slaved-to-gps")== 0) {
 				<binding>
 					<command>nasal</command>
 					<script>
+					if (getprop("/sim/hud/visibility[1]")== 0){
+						fgcommand("dialog-close", props.Node.new({ "dialog-name" : "hudcolor" }));
+						} else {
+						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "hudcolor" }));
+					};
 					acconfig.saveSettings();
 					</script>
 				</binding>

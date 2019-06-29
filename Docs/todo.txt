@@ -33,6 +33,11 @@ light up the 803 stopwatch lcd and the battery meter maybe change electrical sys
 
 fix hotspot labels and tooltips to only show up in pilotview
 
+dlg physics ???
+
+
+
+
 
 
 

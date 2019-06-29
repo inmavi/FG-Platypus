@@ -168,18 +168,24 @@ controls.adjMixture(1)
 		<key n="104">
   <name>h</name>
   <desc>Cycle HUD</desc>
-<!--
-  <binding>
-					<command>property-cycle</command>
+
+			<binding>
+				<command>property-cycle</command>
 					<property>/sim/hud/visibility[1]</property>
-					<value>true</value>
-					<value>false</value>
-				</binding>
--->
-		<binding>
-   <command>nasal</command>
-   <script>aircraft.HUD.cycle_color()</script>
-  </binding>
+						<value>true</value>
+						<value>false</value>
+			</binding>
+ 
+			<binding>
+				<command>nasal</command>
+					<script>
+					if (getprop("/sim/hud/visibility[1]")== 0){
+						fgcommand("dialog-close", props.Node.new({ "dialog-name" : "hudcolor" }));
+						} else {
+						fgcommand("dialog-show", props.Node.new({ "dialog-name" : "hudcolor" }));
+					};
+					</script>
+			</binding>
 
  </key>
 

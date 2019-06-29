@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2019 Gerhard Kick -->
+
+<!-- Platypus Switch Hudcolors rather then default cycling -->
+
+<PropertyList>
+	
+	<name>hudcolor</name>
+	<layout>vbox</layout>
+	<x>0</x>
+	<y>90</y>	
+
+	<button>	
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>R</legend>		
+		<binding>
+			<command>nasal</command>
+				<script>
+					setprop("/sim/hud/current-color",2);
+				</script>
+		</binding>  		                
+	</button>
+
+	<button>	
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>G</legend>		
+		<binding>
+			<command>nasal</command>
+				<script>
+					setprop("/sim/hud/current-color",3);
+				</script>
+		</binding>  		                
+	</button>
+
+	<button>	
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>B</legend>		
+		<binding>
+			<command>nasal</command>
+				<script>
+					setprop("/sim/hud/current-color",1);
+				</script>
+		</binding>  		                
+	</button>
+	
+	<button>	
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>Y</legend>		
+		<binding>
+			<command>nasal</command>
+				<script>
+					setprop("/sim/hud/current-color",1);
+				</script>
+		</binding>  		                
+	</button>
+	
+	<button>	
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>W</legend>		
+		<binding>
+			<command>nasal</command>
+				<script>
+					setprop("/sim/hud/current-color",0);
+				</script>
+		</binding>  		                
+	</button>
+
+	<hrule/>
+
+	<button>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		<binding>
+			<command>nasal</command>
+				<script>
+					setprop("/sim/hud/visibility[1]",0);
+				</script>
+		</binding>		
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+		<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>close</tooltip-id>
+                <label>Close</label>
+            </binding>
+        </hovered>
+	</button>
+
+</PropertyList>

@@ -143,6 +143,8 @@ gui.Dialog.new("sim/gui/dialogs/seatpos/dialog",
 "Aircraft/FG-Platypus/Dialogs/seatpos.xml");
 gui.Dialog.new("sim/gui/dialogs/abort/dialog", 
 "Aircraft/FG-Platypus/Dialogs/abort.xml");
+gui.Dialog.new("sim/gui/dialogs/hudcolor/dialog", 
+"Aircraft/FG-Platypus/Dialogs/hudcolor.xml");
 gui.Dialog.new("sim/gui/dialogs/choose/dialog", 
 "Aircraft/FG-Platypus/Dialogs/choose.xml");
 setprop("/systems/apd",1) ;
