@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>divert</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+	<color>
+		<alpha>1</alpha>
+	</color>	
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>1</stretch></empty>
+
+    <text>
+      <label>Deviate to alternate airport</label>
+    </text>
+
+    <empty><stretch>1</stretch></empty>
+
+	<button>
+		<halign>right</halign>
+		<pref-width>20</pref-width>
+		<pref-height>20</pref-height>
+		<legend>X</legend>
+		<key>Esc</key>
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+	</button>
+  </group>
+
+  <hrule/>  
+	
+	<group>
+			<layout>vbox</layout>			
+			
+			<textbox>
+                    <name>dvt</name>
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>300</pref-height>
+                    <height>300</height>
+                    <pref-width>480</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>0</top-line>
+                    <property>/sim/dvt</property>
+                </textbox>			
+			
+		</group>
+  <hrule/>
+
+  <button>
+    <legend>Run</legend>
+    <default>true</default>
+    <key>Esc</key>
+		<binding>
+			<command>nasal</command>
+				<script>					
+					setprop("/it-autoflight/input/hdg", getprop("/orientation/heading-magnetic-deg"));
+					setprop("/autopilot/route-manager/active",0);			
+					kap140.btnHDG();
+					setprop("/options/nav-source",1);
+					setprop("/autopilot/route-manager/destination/airport"," ");	
+					setprop("/autopilot/route-manager/departure/airport"," ");			
+					fgcommand("dialog-show", props.Node.new({ "dialog-name" : "route-manager" }));	
+				</script>
+		</binding>		
+	<binding>
+      <command>dialog-close</command>
+    </binding>
+  </button>
+
+</PropertyList>

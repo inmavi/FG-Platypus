@@ -67,6 +67,8 @@ gui.Dialog.new("sim/gui/dialogs/etwatch/dialog",
 "Aircraft/FG-Platypus/Dialogs/etwatch.xml");
 gui.Dialog.new("sim/gui/dialogs/eta/dialog", 
 "Aircraft/FG-Platypus/Dialogs/eta.xml");
+gui.Dialog.new("sim/gui/dialogs/divert/dialog", 
+"Aircraft/FG-Platypus/Dialogs/divert.xml");
 gui.Dialog.new("sim/gui/dialogs/stats/dialog", 
 "Aircraft/FG-Platypus/Dialogs/stats.xml");
 gui.Dialog.new("sim/gui/dialogs/dash/dialog", 

@@ -1109,6 +1109,21 @@ For additional practise you can use the StartAtParkPos quickstart command file i
 
 </tar>
 
+<dvt>
+This option will :
+
+	-	change the Nav Source to Nav1	
+	-	place the auto pilot in HDG mode
+	-	clear the current route in route manager
+	-	open the route manager dialog for input
+	YOU NEED TO:
+		-	enter the new arrival destination, desired runway and approach
+		-	activate the new route and close the dialog
+		-	switch Nav Source back to GPS
+		-	switch the auto pilot back in Nav mode		
+Click Run to proceed or cancel with the x button.
+</dvt>
+
 <sap>
 Select Approach
 
