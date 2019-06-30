@@ -85,12 +85,12 @@ window.write("Please wait, loading...",1,1,0 );
 					setprop("/options/trm",11);
 			var apid = "LFMQ";
 			var rwid = "31";
+			setprop("/systems/dev", 1);			
 			setprop("/environment/weather-scenario", "Early morning fog");
 
 	aircraft.teleport(airport = apid, runway = rwid);
 	fgcommand("timeofday", props.Node.new({ "timeofday" : "morning" }));
 	setprop("/systems/dev", 1);
-
 		</script>
     </binding>	
 
