@@ -54,7 +54,7 @@
 		<binding>
 			<command>nasal</command>
 				<script>
-					setprop("/sim/hud/current-color",1);
+					setprop("/sim/hud/current-color",4);
 				</script>
 		</binding>  		                
 	</button>
