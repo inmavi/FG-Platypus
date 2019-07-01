@@ -240,7 +240,7 @@ if (getprop("/systems/autofuel") == 1)  {
 
 if (getprop("/systems/div") == 1) {
 		setprop("/options/trm",20);
-		setprop("/environment/weather-scenario","Marginal VFR");
+		setprop("/environment/weather-scenario","Border of a low pressure region");
 }	
 	
 	## fetch Ils data for quickstarts ##

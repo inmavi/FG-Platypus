@@ -26,6 +26,12 @@
             <pref-height>20</pref-height>
             <legend>X</legend>
             <key>Esc</key>
+			<binding>
+                <command>nasal</command>
+				<script>
+					setprop("/sim/freeze/clock",0);
+				</script>
+            </binding>
             <binding>
                 <command>dialog-close</command>
             </binding>
