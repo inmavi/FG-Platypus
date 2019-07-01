@@ -382,14 +382,24 @@ setlistener("/options/nav-source", func {
 var sc11 = setlistener("/instrumentation/davtron803/flight-time-secs", func {
 	if (getprop("/systems/dev")== 1) {
 		 	
-		if (getprop("/instrumentation/davtron803/flight-time-secs")> 180){
+		if (getprop("/instrumentation/davtron803/flight-time-secs")> 360){
 			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "instruct11" }));	
 			setprop("/sim/freeze/clock",1);
 			setprop("/systems/dev",0);
 			var rem = removelistener(sc11);
-		}
+		}		
+	}
 	
-}});
+	if (getprop("/options/trm")== 20) {
+		 	
+		if (getprop("/instrumentation/davtron803/flight-time-secs")> 660){
+			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "instructdiv" }));	
+			setprop("/sim/freeze/clock",1);
+			setprop("/systems/div",0);
+			var rem = removelistener(sc11);
+		}	
+	}
+});
 
 setlistener("/engines/engine/fuel-flow-gph", func {
 

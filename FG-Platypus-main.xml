@@ -1303,8 +1303,20 @@ At DME 12nm out perform a 360 degree standard right hand turn at a vertical spee
 Approach straight in visual going down manually or use the autopilot.
 After landing review your flight history in the map
 
-Press p to continue...
+Click the Close button, then apply requested changes or if already flying GPS/RM mode click the DV button in the ap controlbar after closing this dialog.
+Once all settings are in place press p to continue your flight.
 </cirtxt>
+
+<instruct20>
+Weather conditions are deteriorating fast !
+
+Please divert to nearest airport...
+
+If flying in non gps mode close this dialog using the x button at the top right corner, then press n to display nearest AP Info, F for frequencies, check the map and or airport info for navaids, and apply the new settings.
+
+If using route manager click the Run button, enter your new destination and runway, approach -activate the route and close the RM and add set required frequencies.
+Then switch the Nav Source back to GPS and place the autopilot in NAV mode.
+</instruct20>
 
 <alp>
 The aircraft has been stripped of unnessary weight to optimise climb performance.
@@ -1836,6 +1848,7 @@ Click Run to proceed
 	<nfa type="bool">1</nfa>
 	<sp type="bool">0</sp>
 	<dev type="bool">0</dev>
+	<div type="bool">0</div>
 	<mws type="bool">0</mws>
 	<nbat type="bool">0</nbat>
 	<au type="bool">0</au>

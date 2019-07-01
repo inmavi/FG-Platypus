@@ -139,6 +139,8 @@ gui.Dialog.new("sim/gui/dialogs/windconfig/dialog",
 "Aircraft/FG-Platypus/Dialogs/windconfig.xml");
 gui.Dialog.new("sim/gui/dialogs/speedo/dialog", 
 "Aircraft/FG-Platypus/Dialogs/speedo.xml");
+gui.Dialog.new("sim/gui/dialogs/instructdiv/dialog", 
+"Aircraft/FG-Platypus/Dialogs/instructdiv.xml");
 gui.Dialog.new("sim/gui/dialogs/instruct11/dialog", 
 "Aircraft/FG-Platypus/Dialogs/instruct11.xml");
 gui.Dialog.new("sim/gui/dialogs/seatpos/dialog", 
@@ -233,6 +235,13 @@ if (getprop("/systems/autofuel") == 1)  {
 	setprop("/consumables/fuel/tank/level-gal_us", 17);
 	setprop("/consumables/fuel/tank[1]/level-gal_us", 17);	
 	}
+	
+	#set parameters for quickstart20
+
+if (getprop("/systems/div") == 1) {
+		setprop("/options/trm",20);
+		setprop("/environment/weather-scenario","Marginal VFR");
+}	
 	
 	## fetch Ils data for quickstarts ##
 
@@ -809,6 +818,7 @@ var teleport = func(airport = "", runway = "", lat = -9999, lon = -9999, alt = 0
 var cleanup = func {
 	setprop("/systems/mws",0);
 	setprop("/systems/dev",0);
+	setprop("/systems/div",0);
 	setprop("/it-autoflight/input/vs", 0);
 	setprop("/controls/electrical/battery", 0);
     setprop("/controls/electrical/alternator", 0);

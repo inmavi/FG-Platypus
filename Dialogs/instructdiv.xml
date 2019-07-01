@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2019 Gerhard Kick(inmavi) -->
+
+<PropertyList>
+
+	<name>instructdiv</name>
+	<modal>false</modal>
+  	<width>480</width>	
+
+	<layout>vbox</layout>
+	<color>
+		<alpha>0.7</alpha>
+	</color>
+
+    <group>
+        <layout>hbox</layout>
+        <text>
+            <halign>left</halign>
+            <label> ATC advises...</label>
+        </text>
+	   
+        <button>
+            <halign>right</halign>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+	
+		<group>
+			<layout>vbox</layout>				
+			
+			<textbox>
+                    <name>instructdv</name>
+                    
+                    <halign>fill</halign>
+                    <stretch>true</stretch>
+                    <pref-height>300</pref-height>
+                    <height>300</height>
+                    <pref-width>480</pref-width>
+                    <editable>false</editable>
+                    <wrap>true</wrap>
+                    <live>true</live>
+                    <top-line>0</top-line>
+                    <property>/sim/instruct20</property>
+                </textbox>	
+			
+		</group>		
+
+		<hrule/>
+	
+		<group>
+			<layout>hbox</layout>
+			
+			<button>
+				<halign>center</halign>
+				<legend>Run</legend>
+				
+				<binding>
+					<command>nasal</command>
+				<script>
+					setprop("/sim/freeze/clock",0);
+					setprop("/systems/dev",0);
+					setprop("/it-autoflight/input/hdg", getprop("/orientation/heading-magnetic-deg"));
+					setprop("/autopilot/route-manager/active",0);			
+					kap140.btnHDG();
+					setprop("/options/nav-source",1);
+					setprop("/autopilot/route-manager/destination/airport"," ");	
+					setprop("/autopilot/route-manager/departure/airport"," ");			
+					fgcommand("dialog-show", props.Node.new({ "dialog-name" : "route-manager" }));
+				</script>
+				</binding>
+
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+
+			</button>
+		</group>
+	
+</PropertyList>
