@@ -383,6 +383,7 @@ var sc11 = setlistener("/instrumentation/davtron803/flight-time-secs", func {
 	if (getprop("/systems/dev")== 1) {
 		 	
 		if (getprop("/instrumentation/davtron803/flight-time-secs")> 360){
+			setprop("/sim/rendering/clouds3d-enable",1);
 			setprop("/environment/weather-scenario","Thunderstorm");
 			fgcommand("dialog-show", props.Node.new({ "dialog-name" : "instruct11" }));	
 			setprop("/sim/freeze/clock",1);

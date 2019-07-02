@@ -496,6 +496,7 @@ if (getprop("/sim/freeze/clock")== 1) {
 }
     var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/FG-Platypus/Systems/kap140-dlg.xml");
 	setprop("/it-autoflight/input/hdg", getprop("/orientation/heading-magnetic-deg"));
+	setprop("/environment/weather-scenario", "Core high pressure region");
 	setprop("/it-autoflight/input/alt", 2500);
 	setprop("/it-autoflight/settings/slave-gps-nav", 0);
     setprop("engines/engine[0]/fuel-flow-gph", 0.0);
