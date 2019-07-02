@@ -24,6 +24,9 @@ crash at startup as reset does not clear previous properties when switching from
 
 hanging stopwatch needs lights, so does the voltmeter
 
+fix weird behaviour of yokes in thunderstorm, guess its due to no windshield ?
+
+
 
 
 

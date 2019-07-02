@@ -173,6 +173,13 @@
         on ground. Fog and light drizzle, freezing level at 1000ft.
       </description>
     </scenario>
+	<scenario>
+      <name type="string">Approach Narita</name>
+      <metar type="string">RJAA 122230Z 33004KT 4000 BCFG BR FEW001 SCT/// 10/09 Q1025 BECMG TL2300 6000 NSW</metar>
+      <description type="string">
+        Apparently some bug resulting in the sky turning black.
+      </description>
+    </scenario>
 
     <scenario>
       <name type="string">Early morning fog</name>

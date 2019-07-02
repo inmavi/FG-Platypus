@@ -14,6 +14,7 @@ set /p rw=Runway:
 --disable-hud-3d ^
 --disable-real-weather-fetch ^
 --httpd=8080 ^
+--ai-scenario=balloon_demo ^
 --visibility-miles=30 
 
 
