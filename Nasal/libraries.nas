@@ -27,6 +27,7 @@ var checkUse = func () {
 
 if(getprop("/systems/snow") == 1) {
 	setprop("/sim/startup/season","winter");
+	setprop("/sim/rendering/clouds3d-enable",1);
 	} else {
 	setprop("/sim/startup/season","summer");
 };
