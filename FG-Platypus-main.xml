@@ -1825,6 +1825,7 @@ Click Run to proceed
 		<nhtp type="int">0</nhtp>
 		<bop type="int">0</bop>
 		<ils type="bool">0</ils>
+		<snow type="bool">0</snow>
 		<eap type="bool">1</eap>
 		<frp type="bool">1</frp>
 		<tmw type="bool">0</tmw>	

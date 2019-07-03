@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <version type="int">2</version>
+  <flight-rules type="string">V</flight-rules>
+  <flight-type type="string">X</flight-type>
+  <estimated-duration-minutes type="int">0</estimated-duration-minutes>
+  <departure>
+    <airport type="string">LFHM</airport>
+    <sid type="string">DEFAULT</sid>
+    <runway type="string">34</runway>
+  </departure>
+  <destination>
+    <airport type="string">LFLJ</airport>
+    <approach type="string">DEFAULT</approach>
+    <runway type="string">23</runway>
+  </destination>
+  <route>
+    <wp>
+      <type type="string">runway</type>
+      <departure type="bool">true</departure>
+      <ident type="string">34</ident>
+      <icao type="string">LFHM</icao>
+    </wp>
+    <wp n="1">
+      <type type="string">navaid</type>
+      <ident type="string">EH</ident>
+      <lon type="double">6.681111</lon>
+      <lat type="double">45.844444</lat>
+    </wp>
+    <wp n="2">
+      <type type="string">basic</type>
+      <departure type="bool">true</departure>
+      <generated type="bool">true</generated>
+      <alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">7839</altitude-ft>
+      <ident type="string">34-3</ident>
+      <lon type="double">6.615900419</lon>
+      <lat type="double">45.87098881</lat>
+    </wp>
+    <wp n="3">
+      <type type="string">basic</type>
+      <departure type="bool">true</departure>
+      <generated type="bool">true</generated>
+      <alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">10839</altitude-ft>
+      <ident type="string">34-6</ident>
+      <lon type="double">6.584477626</lon>
+      <lat type="double">45.91590267</lat>
+    </wp>
+    <wp n="4">
+      <type type="string">basic</type>
+      <departure type="bool">true</departure>
+      <generated type="bool">true</generated>
+      <ident type="string">DEP-3</ident>
+      <lon type="double">6.516743708</lon>
+      <lat type="double">45.93215664</lat>
+    </wp>
+    <wp n="5">
+      <type type="string">basic</type>
+      <departure type="bool">true</departure>
+      <generated type="bool">true</generated>
+      <ident type="string">DEP-4</ident>
+      <lon type="double">6.452382349</lon>
+      <lat type="double">45.91022583</lat>
+    </wp>
+    <wp n="6">
+      <type type="string">basic</type>
+      <departure type="bool">true</departure>
+      <generated type="bool">true</generated>
+      <ident type="string">DEP-5</ident>
+      <lon type="double">6.429088646</lon>
+      <lat type="double">45.8629599</lat>
+    </wp>
+    <wp n="7">
+      <type type="string">basic</type>
+      <approach type="bool">true</approach>
+      <generated type="bool">true</generated>
+      <alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">10593</altitude-ft>
+      <ident type="string">23-12</ident>
+      <lon type="double">6.834678052</lon>
+      <lat type="double">45.54275156</lat>
+    </wp>
+    <wp n="8">
+      <type type="string">basic</type>
+      <approach type="bool">true</approach>
+      <generated type="bool">true</generated>
+      <alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">8593</altitude-ft>
+      <ident type="string">23-8</ident>
+      <lon type="double">6.768675209</lon>
+      <lat type="double">45.49489998</lat>
+    </wp>
+    <wp n="9">
+      <type type="string">basic</type>
+      <approach type="bool">true</approach>
+      <generated type="bool">true</generated>
+      <alt-restrict type="string">at</alt-restrict>
+      <altitude-ft type="double">8593</altitude-ft>
+      <ident type="string">23-GS</ident>
+      <lon type="double">6.740339933</lon>
+      <lat type="double">45.47432037</lat>
+    </wp>
+    <wp n="10">
+      <type type="string">runway</type>
+      <approach type="bool">true</approach>
+      <ident type="string">23</ident>
+      <icao type="string">LFLJ</icao>
+    </wp>
+  </route>
+</PropertyList>

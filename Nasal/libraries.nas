@@ -20,6 +20,16 @@ var checkUse = func () {
         "instrumentation/kma20/sens",
         "instrumentation/kma20/knob"
         );
+		
+	
+		
+#set winter condition
+
+if(getprop("/systems/snow") == 1) {
+	setprop("/sim/startup/season","winter");
+	} else {
+	setprop("/sim/startup/season","summer");
+};
 
 if(getprop("/option/trm") != 5) {
 		fgcommand("dialog-close", props.Node.new({ "dialog-name" : "windsim" }));
