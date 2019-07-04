@@ -1,3 +1,5 @@
+qs21 does not calculate eta clock time check other qs
+
 fix the non members nasal error associated with atis presets
 
 need to adjust electrical system it allow for battery to drain and if alternator not on trigger failure mode once battery depleted.
